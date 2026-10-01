@@ -1,0 +1,9 @@
+{
+  "name": "admission-decision-eval",
+  "private": true,
+  "type": "module",
+  "description": "Decision models on a knowledge-base write-admission task: Jev, Clef, Clef-flash.",
+  "license": "Apache-2.0",
+  "engines": { "node": ">=20" },
+  "scripts": { "eval": "node run.mjs" }
+}
