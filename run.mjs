@@ -117,11 +117,24 @@ const typesafe = (model) => ({
   unwrap: (json) => json,
 });
 
+// A self-hosted Kev server (github.com/jaredpalmer/kev) serves one model, so
+// the backend name is a label for whichever one KEV_URL points at.
+const kev = () => ({
+  model: "kev-latest",
+  needs: ["KEV_URL"],
+  url: (env) => `${env.KEV_URL.replace(/\/$/, "")}/v1/systemone`,
+  token: (env) => env.KEV_API_KEY ?? "local",
+  unwrap: (json) => json,
+});
+
 const BACKENDS = {
   jev: typesafe("jev-1.13.0"),
   "jev-preview": typesafe("jev-preview"),
   clef: workersAi("clef"),
   "clef-flash": workersAi("clef-flash"),
+  "kev-4b": kev(),
+  "kev-9b": kev(),
+  "kev-27b": kev(),
 };
 
 /** The strongest evidence for each fact across every question, or undefined if any answer is missing. */
@@ -190,6 +203,8 @@ async function classify(backend, env, testCase) {
       latencyMs,
       evidence,
       inputTokens: body?.usage?.input_tokens ?? 0,
+      // Kev reports its own model time; the others do not.
+      ...(typeof body?.latency_ms === "number" && { modelMs: body.latency_ms }),
       ...(evidence === undefined && { error: "incomplete answer" }),
     };
   } catch (error) {

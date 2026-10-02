@@ -1,0 +1,975 @@
+{
+  "ranAt": "2026-10-02T01:38:50.721Z",
+  "order": "given",
+  "thresholds": {
+    "yesAtLeast": 0.5,
+    "noBelow": 0.2
+  },
+  "gates": {
+    "minRecall": 0.95,
+    "minRoutineAdmit": 0.85,
+    "maxP95Ms": 2500
+  },
+  "report": [
+    {
+      "backend": "kev-9b",
+      "model": "kev-latest",
+      "pass": 1,
+      "summary": {
+        "pass": false,
+        "recall": 0.9821428571428571,
+        "routineAdmit": 0.896551724137931,
+        "p50Ms": 6273,
+        "p95Ms": 9336,
+        "overTimeout": 85,
+        "transportFailures": 0,
+        "inputTokens": 135542,
+        "falseAdmits": [
+          "hr-handbook/hard-contradicts-implied"
+        ],
+        "needlessReviews": [
+          "eng-runbook/hard-compatible-sibling",
+          "crm-account-notes/compatible-overlap",
+          "crm-account-notes/hard-compatible-sibling"
+        ]
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 4189,
+          "evidence": {
+            "contradicts": 0.6873,
+            "restates": 0.3415
+          },
+          "inputTokens": 1532
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 7282,
+          "evidence": {
+            "contradicts": 0.5547,
+            "restates": 0.2457
+          },
+          "inputTokens": 1530
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6353,
+          "evidence": {
+            "contradicts": 0.109,
+            "restates": 0.283
+          },
+          "inputTokens": 1540
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6333,
+          "evidence": {
+            "contradicts": 0.1659,
+            "restates": 0.4152
+          },
+          "inputTokens": 1529
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6187,
+          "evidence": {
+            "contradicts": 0.0216,
+            "restates": 0.0394
+          },
+          "inputTokens": 1532
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6169,
+          "evidence": {
+            "contradicts": 0.019,
+            "restates": 0.0274
+          },
+          "inputTokens": 1525
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6273,
+          "evidence": {
+            "contradicts": 0.1033,
+            "restates": 0.0698
+          },
+          "inputTokens": 1472
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6387,
+          "evidence": {
+            "contradicts": 0.0863,
+            "restates": 0.7163
+          },
+          "inputTokens": 1478
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6391,
+          "evidence": {
+            "contradicts": 0.049,
+            "restates": 0.0701
+          },
+          "inputTokens": 1482
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6386,
+          "evidence": {
+            "contradicts": 0.7874,
+            "restates": 0.072
+          },
+          "inputTokens": 1477
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6384,
+          "evidence": {
+            "contradicts": 0.4696,
+            "restates": 0.3185
+          },
+          "inputTokens": 1545
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6393,
+          "evidence": {
+            "contradicts": 0.5812,
+            "restates": 0.317
+          },
+          "inputTokens": 1556
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6288,
+          "evidence": {
+            "contradicts": 0.0849,
+            "restates": 0.4288
+          },
+          "inputTokens": 1530
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6174,
+          "evidence": {
+            "contradicts": 0.0986,
+            "restates": 0.1219
+          },
+          "inputTokens": 1525
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6169,
+          "evidence": {
+            "contradicts": 0.438,
+            "restates": 0.1748
+          },
+          "inputTokens": 1462
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6176,
+          "evidence": {
+            "contradicts": 0.4923,
+            "restates": 0.3012
+          },
+          "inputTokens": 1513
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6173,
+          "evidence": {
+            "contradicts": 0.5203,
+            "restates": 0.2634
+          },
+          "inputTokens": 1507
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6171,
+          "evidence": {
+            "contradicts": 0.0763,
+            "restates": 0.4564
+          },
+          "inputTokens": 1525
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6173,
+          "evidence": {
+            "contradicts": 0.0834,
+            "restates": 0.4762
+          },
+          "inputTokens": 1505
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6161,
+          "evidence": {
+            "contradicts": 0.0357,
+            "restates": 0.0382
+          },
+          "inputTokens": 1511
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6147,
+          "evidence": {
+            "contradicts": 0.0353,
+            "restates": 0.0348
+          },
+          "inputTokens": 1504
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6157,
+          "evidence": {
+            "contradicts": 0.0647,
+            "restates": 0.143
+          },
+          "inputTokens": 1453
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6167,
+          "evidence": {
+            "contradicts": 0.1003,
+            "restates": 0.6241
+          },
+          "inputTokens": 1460
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6282,
+          "evidence": {
+            "contradicts": 0.0363,
+            "restates": 0.1338
+          },
+          "inputTokens": 1470
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6282,
+          "evidence": {
+            "contradicts": 0.8903,
+            "restates": 0.0684
+          },
+          "inputTokens": 1453
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6166,
+          "evidence": {
+            "contradicts": 0.3446,
+            "restates": 0.3173
+          },
+          "inputTokens": 1521
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": false,
+          "latencyMs": 6175,
+          "evidence": {
+            "contradicts": 0.06,
+            "restates": 0.1576
+          },
+          "inputTokens": 1510
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6281,
+          "evidence": {
+            "contradicts": 0.0728,
+            "restates": 0.2084
+          },
+          "inputTokens": 1529
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6277,
+          "evidence": {
+            "contradicts": 0.0831,
+            "restates": 0.0569
+          },
+          "inputTokens": 1513
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6164,
+          "evidence": {
+            "contradicts": 0.7758,
+            "restates": 0.0421
+          },
+          "inputTokens": 1459
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6169,
+          "evidence": {
+            "contradicts": 0.3079,
+            "restates": 0.2464
+          },
+          "inputTokens": 1508
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6171,
+          "evidence": {
+            "contradicts": 0.587,
+            "restates": 0.2223
+          },
+          "inputTokens": 1499
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6153,
+          "evidence": {
+            "contradicts": 0.126,
+            "restates": 0.4193
+          },
+          "inputTokens": 1507
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6154,
+          "evidence": {
+            "contradicts": 0.0715,
+            "restates": 0.2886
+          },
+          "inputTokens": 1511
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6162,
+          "evidence": {
+            "contradicts": 0.0161,
+            "restates": 0.0516
+          },
+          "inputTokens": 1503
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6158,
+          "evidence": {
+            "contradicts": 0.025,
+            "restates": 0.032
+          },
+          "inputTokens": 1510
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6157,
+          "evidence": {
+            "contradicts": 0.1914,
+            "restates": 0.169
+          },
+          "inputTokens": 1448
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6159,
+          "evidence": {
+            "contradicts": 0.1345,
+            "restates": 0.4187
+          },
+          "inputTokens": 1447
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6164,
+          "evidence": {
+            "contradicts": 0.0308,
+            "restates": 0.0558
+          },
+          "inputTokens": 1462
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6173,
+          "evidence": {
+            "contradicts": 0.8757,
+            "restates": 0.0475
+          },
+          "inputTokens": 1441
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6187,
+          "evidence": {
+            "contradicts": 0.2752,
+            "restates": 0.1821
+          },
+          "inputTokens": 1506
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6190,
+          "evidence": {
+            "contradicts": 0.0516,
+            "restates": 0.4643
+          },
+          "inputTokens": 1521
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 6175,
+          "evidence": {
+            "contradicts": 0.4734,
+            "restates": 0.2511
+          },
+          "inputTokens": 1508
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6162,
+          "evidence": {
+            "contradicts": 0.1503,
+            "restates": 0.3899
+          },
+          "inputTokens": 1454
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6163,
+          "evidence": {
+            "contradicts": 0.3328,
+            "restates": 0.4091
+          },
+          "inputTokens": 1502
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6157,
+          "evidence": {
+            "contradicts": 0.7096,
+            "restates": 0.354
+          },
+          "inputTokens": 1498
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6149,
+          "evidence": {
+            "contradicts": 0.0871,
+            "restates": 0.5892
+          },
+          "inputTokens": 1511
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6150,
+          "evidence": {
+            "contradicts": 0.1152,
+            "restates": 0.4546
+          },
+          "inputTokens": 1498
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 6147,
+          "evidence": {
+            "contradicts": 0.1163,
+            "restates": 0.2604
+          },
+          "inputTokens": 1509
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6153,
+          "evidence": {
+            "contradicts": 0.0176,
+            "restates": 0.052
+          },
+          "inputTokens": 1504
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6161,
+          "evidence": {
+            "contradicts": 0.0995,
+            "restates": 0.1026
+          },
+          "inputTokens": 1446
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6218,
+          "evidence": {
+            "contradicts": 0.1698,
+            "restates": 0.5155
+          },
+          "inputTokens": 1446
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6466,
+          "evidence": {
+            "contradicts": 0.0292,
+            "restates": 0.073
+          },
+          "inputTokens": 1449
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6418,
+          "evidence": {
+            "contradicts": 0.8555,
+            "restates": 0.0644
+          },
+          "inputTokens": 1447
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6171,
+          "evidence": {
+            "contradicts": 0.2446,
+            "restates": 0.3177
+          },
+          "inputTokens": 1515
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6172,
+          "evidence": {
+            "contradicts": 0.0854,
+            "restates": 0.2799
+          },
+          "inputTokens": 1525
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 6167,
+          "evidence": {
+            "contradicts": 0.238,
+            "restates": 0.2552
+          },
+          "inputTokens": 1512
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6152,
+          "evidence": {
+            "contradicts": 0.8317,
+            "restates": 0.1159
+          },
+          "inputTokens": 1435
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6316,
+          "evidence": {
+            "contradicts": 0.6412,
+            "restates": 0.2647
+          },
+          "inputTokens": 1511
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6505,
+          "evidence": {
+            "contradicts": 0.6381,
+            "restates": 0.3469
+          },
+          "inputTokens": 1502
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6527,
+          "evidence": {
+            "contradicts": 0.1064,
+            "restates": 0.4646
+          },
+          "inputTokens": 1516
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6528,
+          "evidence": {
+            "contradicts": 0.0485,
+            "restates": 0.2678
+          },
+          "inputTokens": 1507
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6552,
+          "evidence": {
+            "contradicts": 0.0208,
+            "restates": 0.0334
+          },
+          "inputTokens": 1507
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6561,
+          "evidence": {
+            "contradicts": 0.0246,
+            "restates": 0.0492
+          },
+          "inputTokens": 1511
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6526,
+          "evidence": {
+            "contradicts": 0.0366,
+            "restates": 0.08
+          },
+          "inputTokens": 1453
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6528,
+          "evidence": {
+            "contradicts": 0.0712,
+            "restates": 0.7075
+          },
+          "inputTokens": 1454
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6544,
+          "evidence": {
+            "contradicts": 0.024,
+            "restates": 0.0549
+          },
+          "inputTokens": 1456
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6557,
+          "evidence": {
+            "contradicts": 0.9204,
+            "restates": 0.0542
+          },
+          "inputTokens": 1454
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6562,
+          "evidence": {
+            "contradicts": 0.5602,
+            "restates": 0.3274
+          },
+          "inputTokens": 1514
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6562,
+          "evidence": {
+            "contradicts": 0.2729,
+            "restates": 0.2242
+          },
+          "inputTokens": 1509
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6591,
+          "evidence": {
+            "contradicts": 0.3387,
+            "restates": 0.4053
+          },
+          "inputTokens": 1518
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 6595,
+          "evidence": {
+            "contradicts": 0.022,
+            "restates": 0.045
+          },
+          "inputTokens": 1522
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 6587,
+          "evidence": {
+            "contradicts": 0.8421,
+            "restates": 0.2228
+          },
+          "inputTokens": 1445
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 7953,
+          "evidence": {
+            "contradicts": 0.0527,
+            "restates": 0.1211
+          },
+          "inputTokens": 2234
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 9308,
+          "evidence": {
+            "contradicts": 0.0522,
+            "restates": 0.0656
+          },
+          "inputTokens": 2154
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 9311,
+          "evidence": {
+            "contradicts": 0.0415,
+            "restates": 0.0587
+          },
+          "inputTokens": 2228
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 9336,
+          "evidence": {
+            "contradicts": 0.0666,
+            "restates": 0.0832
+          },
+          "inputTokens": 2227
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 9358,
+          "evidence": {
+            "contradicts": 0.0768,
+            "restates": 0.4839
+          },
+          "inputTokens": 2233
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 9338,
+          "evidence": {
+            "contradicts": 0.0689,
+            "restates": 0.442
+          },
+          "inputTokens": 2233
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 9329,
+          "evidence": {
+            "contradicts": 0.1231,
+            "restates": 0.61
+          },
+          "inputTokens": 2153
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 9347,
+          "evidence": {
+            "contradicts": 0.848,
+            "restates": 0.1271
+          },
+          "inputTokens": 2160
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 9329,
+          "evidence": {
+            "contradicts": 0.7471,
+            "restates": 0.1899
+          },
+          "inputTokens": 2153
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 9318,
+          "evidence": {
+            "contradicts": 0.65,
+            "restates": 0.3251
+          },
+          "inputTokens": 2229
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 9334,
+          "evidence": {
+            "contradicts": 0.5184,
+            "restates": 0.3859
+          },
+          "inputTokens": 2232
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 9392,
+          "evidence": {
+            "contradicts": 0.6927,
+            "restates": 0.2076
+          },
+          "inputTokens": 2157
+        }
+      ]
+    }
+  ]
+}
