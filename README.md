@@ -4,7 +4,7 @@ A small, reproducible comparison of decision models on one production task: deci
 
 It runs TypeSafe's Jev, Cloudflare's Clef and Clef-flash, and the open-weights [Kev](https://github.com/jaredpalmer/kev) family through the same 85 labeled cases, with the same request, and grades the resulting admit/escalate decisions. One script, no dependencies.
 
-These are first-look numbers from 2026-10-01, the day Clef and Kev 1.0 were released. Treat them as a snapshot.
+These are first-look numbers from 2026-10-01, the day Clef and Kev 1.0 were released, with a re-run of the hosted models on 2026-10-04. Treat them as a snapshot.
 
 ## The task
 
@@ -75,6 +75,22 @@ Jev, Clef and Clef-flash bill input tokens: $0.042, $0.24 and $0.09 per million,
 
 **Self-hosting has a cold start.** Kev-27B scales to zero when idle. Its first start took 6 minutes while it downloaded 51 GB of weights, and a later start from the cached weights took just under 3 minutes.
 
+## Re-run, 2026-10-04
+
+Cloudflare said Clef had been updated with fixes, mostly for images. We re-ran Jev, Clef and Clef-flash at 14:42 UTC with the same settings: three passes in the original order and two reversed at six in flight, then two passes one request at a time.
+
+**Clef's answers did not change.** Clef and Clef-flash returned exactly the same probabilities as on 2026-10-01 for every case, in both orders, so every quality figure above still holds. Jev's scores again moved slightly between passes, by up to 0.08. That gave it one needless review in one reversed pass, on `saas-support-kb/hard-compatible-sibling`, the same case as before.
+
+**The endpoints are faster, and the slow tail is gone.**
+
+| model | one request at a time: p50 / p95 | six in flight: p50 / p95 | calls over 2.5 s |
+| --- | --- | --- | --- |
+| Jev 1.13.0 | 92–94 ms / 126–138 ms | 93–119 ms / 148–232 ms | 0 of 425 |
+| Clef-flash | 229–281 ms / 526–543 ms | 258–408 ms / 535–874 ms | 1 of 425 |
+| Clef | 628–668 ms / 927 ms–1.1 s | 665–742 ms / 1.0–1.7 s | 0 of 425 |
+
+Against 2026-10-01, Clef-flash is about twice as fast, and Clef's median at six in flight dropped by about 150 ms. No call failed or hung. Kev was not re-run.
+
 ## How this differs from the published benchmarks
 
 Clef leads the [Decision Index leaderboard](https://clef-evals.workers-ai-mle.workers.dev/) overall. That lead comes mostly from tool use and intent classification. On the benchmarks closest to this task the picture is mixed, and matches what we measured:
@@ -100,7 +116,7 @@ Three properties of this task are not covered by those benchmarks:
 - Measured over public REST from one location in the US. Calling Clef through the Workers AI binding from inside a Worker should be faster; we have not measured it. The REST overhead we measured was about 80 ms.
 - All three Kev models are the [Kev 1.0](https://github.com/jaredpalmer/kev/releases/tag/kev-1.0) release: we loaded each Hub repo's `main` revision a few hours after the release, and its weight files are byte-identical to the `v1.0` tag (Kev-4B `139fdd94`, Kev-9B v2 `b5d8c18e`, Kev-27B v2 full weights). The local servers ran kev at `84847f0`; the Modal endpoint ran the deploy script's pinned `71d4829`. Neither differs from the `kev-1.0` tag in the `kev/` serving package except `kev/checkpoint.py`'s release-date metadata.
 - Kev-27B ran on whichever GPU Modal allocated from the deploy script's list (B200, H200 or H100); we did not record which. Kev-9B and Kev-4B ran through MLX on an Apple M4 Pro, not on the CUDA path.
-- Numbers from the day Clef and Kev 1.0 were released. We will re-run.
+- Numbers from the day Clef and Kev 1.0 were released, plus one re-run of the hosted models three days later.
 
 ## Run it
 
@@ -125,7 +141,7 @@ export KEV_API_KEY=...                        # only if the server requires one
 node run.mjs --backends kev-27b
 ```
 
-Each run prints one line per backend per pass and writes every case's probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), and `sequential-given` (all four served models, one request at a time).
+Each run prints one line per backend per pass and writes every case's probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), and `rerun-2026-10-04-*` (the hosted models, three days later).
 
 A three-pass run of the hosted models costs under $0.25.
 
