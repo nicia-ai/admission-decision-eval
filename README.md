@@ -98,6 +98,7 @@ Three properties of this task are not covered by those benchmarks:
 - 85 synthetic cases is a small set. One case moves recall by 0.02.
 - The question wording and the 0.5 / 0.2 thresholds were tuned on Jev. Neither Clef nor Kev got tuning of its own.
 - Measured over public REST from one location in the US. Calling Clef through the Workers AI binding from inside a Worker should be faster; we have not measured it. The REST overhead we measured was about 80 ms.
+- All three Kev models are the [Kev 1.0](https://github.com/jaredpalmer/kev/releases/tag/kev-1.0) release: we loaded each Hub repo's `main` revision a few hours after the release, and its weight files are byte-identical to the `v1.0` tag (Kev-4B `139fdd94`, Kev-9B v2 `b5d8c18e`, Kev-27B v2 full weights). The local servers ran kev at `84847f0`; the Modal endpoint ran the deploy script's pinned `71d4829`. Neither differs from the `kev-1.0` tag in the `kev/` serving package except `kev/checkpoint.py`'s release-date metadata.
 - Kev-27B ran on whichever GPU Modal allocated from the deploy script's list (B200, H200 or H100); we did not record which. Kev-9B and Kev-4B ran through MLX on an Apple M4 Pro, not on the CUDA path.
 - Numbers from the day Clef and Kev 1.0 were released. We will re-run.
 
@@ -116,7 +117,7 @@ node run.mjs --order reversed
 node run.mjs --concurrency 1                  # one request at a time
 ```
 
-For Kev, start a server ([local](https://github.com/jaredpalmer/kev#run-it-locally) or [on Modal](https://github.com/jaredpalmer/kev#deploy-your-own-endpoint)) and point the script at it. A Kev server serves one model, so the backend name is a label for whichever one is running.
+For Kev, start a server pinned to the release, locally (`python -m kev.serve --run jaredpalmer/kev-27b@v1.0`, see [Run It Locally](https://github.com/jaredpalmer/kev#run-it-locally)) or [on Modal](https://github.com/jaredpalmer/kev#deploy-your-own-endpoint) (`KEV_MODEL=jaredpalmer/kev-27b@v1.0`), and point the script at it. A Kev server serves one model, so the backend name is a label for whichever one is running.
 
 ```sh
 export KEV_URL=http://127.0.0.1:8009          # or your Modal URL
