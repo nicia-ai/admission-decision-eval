@@ -21,7 +21,7 @@ The cases are synthetic: six fictional organizations (a support knowledge base, 
 
 ## Results
 
-The tables in this section are historical runs from one laptop on the US west coast, between 21:30 UTC on 2026-10-01 and 03:10 UTC the next day. Jev and Clef are called over each provider's public HTTPS API. Kev-27B is self-hosted on one Modal GPU container. Kev-9B and Kev-4B ran on the laptop itself, so they have quality numbers and no latency numbers. The later hosted re-run and OpenAI Decisions results are in their dated sections below.
+Jev, Clef and Kev results in these tables are from one laptop on the US west coast, between 21:30 UTC on 2026-10-01 and 03:10 UTC the next day. Jev and Clef are called over each provider's public HTTPS API. Kev-27B is self-hosted on one Modal GPU container. Kev-9B and Kev-4B ran on the laptop itself, so they have quality numbers and no latency numbers. GPT-6 Luna results are from 2026-10-06, using OpenAI Decisions from a cloud executor through an HTTPS proxy; its region was not recorded. The later hosted re-run and detailed OpenAI Decisions results are in their dated sections below.
 
 Gates: recall ≥ 0.95, routine-admit ≥ 0.85, p95 ≤ 2500 ms, no failed calls.
 
@@ -34,6 +34,7 @@ Each case is run with its accepted records in the original order and again rever
 | Jev 1.13.0 | 1.00 / 1.00 | 1.00 / 1.00 | 0 | 1 of 85 |
 | Kev-27B | 1.00 / 1.00 | 1.00 / 1.00 | 0 | 3 of 85 |
 | Clef (27B) | 0.98 / 1.00 | 0.97 / 0.97–1.00 | 2 | 4 of 85 |
+| GPT-6 Luna (OpenAI Decisions) | 1.00 / 0.96 | 0.90 / 0.83 | 8 | 22 of 85 |
 | Kev-9B | 0.98 / 0.91 | 0.90 / 1.00 | 9 | 43 of 85 |
 | Clef-flash (9B) | 0.98 / 1.00 | 0.66 / 0.62 | 4 | 19 of 85 |
 | Kev-4B | 0.96 / 0.95 | 0.55 / 0.52 | 8 | 62 of 85 |
@@ -42,11 +43,12 @@ Each case is run with its accepted records in the original order and again rever
 
 ### Latency
 
-Round-trip time as the caller sees it.
+Round-trip time as the caller sees it. GPT-6 Luna was measured on a different date and from a different environment, so its latency is not a controlled speed comparison with the laptop runs.
 
 | model | one request at a time: p50 / p95 | six in flight: p50 / p95 | calls over 2.5 s |
 | --- | --- | --- | --- |
 | Jev 1.13.0 | 98–167 ms / 156–260 ms | 101–124 ms / 147–242 ms | 0 of 425 |
+| GPT-6 Luna (OpenAI Decisions) | 168–171 ms / 277–284 ms | 171–177 ms / 240–303 ms | 0 of 425 |
 | Kev-27B (one Modal container) | 255–263 ms / 318–479 ms | 0.93–1.6 s / 1.4–2.6 s | 5 of 425 |
 | Clef-flash | 429–533 ms / 677–732 ms | 546–714 ms / 0.8–1.9 s | 8 of 425 |
 | Clef | 638–717 ms / 0.9–1.1 s | 809–930 ms / 1.1–1.7 s | 9 of 425 |
@@ -55,7 +57,7 @@ The "over 2.5 s" column is from the six-in-flight runs. Two of Clef's nine never
 
 ### Cost
 
-Jev, Clef and Clef-flash bill input tokens: $0.042, $0.24 and $0.09 per million, which is $0.008, $0.040 and $0.015 per 85-case pass. Kev is billed as GPU time while a container is up, so its cost per request depends on how busy the container is.
+Jev, Clef, Clef-flash and OpenAI Decisions bill input tokens: $0.042, $0.24, $0.09 and $0.10 per million, which is about $0.008, $0.040, $0.015 and $0.017 per 85-case pass, respectively. The OpenAI figure uses the published base rate, excluding any premiums. Kev is billed as GPU time while a container is up, so its cost per request depends on how busy the container is.
 
 ## What we see
 
