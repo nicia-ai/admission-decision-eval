@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Runs the admission cases against System One-compatible decision models and
+// Runs the admission cases against System One and OpenAI decision models and
 // grades the resulting admit/escalate decisions. Node >= 20, no dependencies.
 //
 //   node run.mjs [--backends jev,clef,clef-flash] [--passes 3]
@@ -127,7 +127,65 @@ const kev = () => ({
   unwrap: (json) => json,
 });
 
+/** Preserve System One's state and criteria in the Decisions wire format. */
+export function decisionsRequestBody(request, model) {
+  const { state, questions } = requestBody(request, model);
+  return {
+    model,
+    input: JSON.stringify(state),
+    questions: Object.entries(questions).map(([name, question]) => ({
+      name,
+      type: question.type,
+      instructions: question.instructions,
+      choices: Object.entries(question.criteria).map(([value, criterion]) => ({
+        value,
+        description: [
+          criterion.what,
+          ...(criterion.not_for ? [`Not for: ${criterion.not_for}`] : []),
+          ...(criterion.examples ? [`Examples: ${criterion.examples.join("; ")}`] : []),
+        ].join(" "),
+      })),
+    })),
+  };
+}
+
+/** Malformed, missing, or refused answers must fail closed to human review. */
+export function decisionsAnswers(request, answers) {
+  if (!Array.isArray(answers)) return undefined;
+  const expected = requestBody(request, "").questions;
+  if (answers.length !== Object.keys(expected).length) return undefined;
+  const normalized = Object.create(null);
+  for (const answer of answers) {
+    const question = expected[answer?.name];
+    if (!Object.hasOwn(expected, answer?.name) || !question ||
+        Object.hasOwn(normalized, answer.name) || answer.type !== "choice" ||
+        !Array.isArray(answer.probabilities)) return undefined;
+    const labels = Object.keys(question.criteria);
+    if (answer.probabilities.length !== labels.length) return undefined;
+    const probabilities = Object.create(null);
+    for (const entry of answer.probabilities) {
+      if (!labels.includes(entry?.value) || Object.hasOwn(probabilities, entry.value) ||
+          !Number.isFinite(entry.probability) ||
+          entry.probability < 0 || entry.probability > 1) return undefined;
+      probabilities[entry.value] = entry.probability;
+    }
+    normalized[answer.name] = { probabilities };
+  }
+  return normalized;
+}
+
 const BACKENDS = {
+  "openai-decisions": {
+    model: "gpt-6-luna",
+    needs: ["OPENAI_API_KEY"],
+    url: () => "https://api.openai.com/v1/decisions",
+    token: (env) => env.OPENAI_API_KEY,
+    requestBody: decisionsRequestBody,
+    unwrap: (json, request) => ({
+      ...json,
+      answers: decisionsAnswers(request, json?.answers),
+    }),
+  },
   jev: typesafe("jev-1.13.0"),
   "jev-preview": typesafe("jev-preview"),
   clef: workersAi("clef"),
@@ -179,7 +237,7 @@ export function escalates(evidence, thresholds = THRESHOLDS) {
   );
 }
 
-async function classify(backend, env, testCase) {
+export async function classify(backend, env, testCase) {
   const started = performance.now();
   const elapsed = () => Math.round(performance.now() - started);
   try {
@@ -189,7 +247,7 @@ async function classify(backend, env, testCase) {
         authorization: `Bearer ${backend.token(env)}`,
         "content-type": "application/json",
       },
-      body: JSON.stringify(requestBody(testCase.request, backend.model)),
+      body: JSON.stringify((backend.requestBody ?? requestBody)(testCase.request, backend.model)),
       signal: AbortSignal.timeout(EVAL_CALL_TIMEOUT_MS),
     });
     const text = await response.text();
@@ -197,7 +255,7 @@ async function classify(backend, env, testCase) {
     if (!response.ok) {
       return { latencyMs, error: `${response.status}: ${text.slice(0, 160)}` };
     }
-    const body = backend.unwrap(JSON.parse(text));
+    const body = backend.unwrap(JSON.parse(text), testCase.request);
     const evidence = evidenceFrom(testCase.request, body?.answers);
     return {
       latencyMs,
