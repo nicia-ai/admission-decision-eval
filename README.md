@@ -2,7 +2,7 @@
 
 A small, reproducible comparison of decision models on one production task: deciding whether an AI agent's write to a knowledge base can be admitted automatically or needs human review.
 
-It runs TypeSafe's Jev, Cloudflare's Clef and Clef-flash, and the open-weights [Kev](https://github.com/jaredpalmer/kev) family through the same 85 labeled cases, with the same request, and grades the resulting admit/escalate decisions. One script, no dependencies.
+It runs TypeSafe's Jev, Cloudflare's Clef and Clef-flash, the open-weights [Kev](https://github.com/jaredpalmer/kev) family, and OpenAI's Decisions API with GPT-6 Luna through the same 85 labeled cases and grades the resulting admit/escalate decisions. Each backend receives the same evidence and question criteria in its API's format. One script, no dependencies.
 
 These are first-look numbers from 2026-10-01, the day Clef and Kev 1.0 were released, with a re-run of the hosted models on 2026-10-04. Treat them as a snapshot.
 
@@ -133,6 +133,21 @@ node run.mjs --order reversed
 node run.mjs --concurrency 1                  # one request at a time
 ```
 
+For [OpenAI Decisions](https://developers.openai.com/api/docs/guides/decisions), configure an API key and select the backend explicitly:
+
+```sh
+export OPENAI_API_KEY=...
+node run.mjs --backends openai-decisions --passes 3
+node run.mjs --backends openai-decisions --passes 2 --order reversed
+node run.mjs --backends openai-decisions --passes 2 --concurrency 1
+```
+
+The backend calls `POST /v1/decisions` with `gpt-6-luna`. It serializes the shared state as JSON text in `input`, translates each named question's criteria into choice values and descriptions, and maps the returned probability distributions back to the existing evidence calculation. It uses the same thresholds and gates as the other backends. Missing, refused, or malformed answers count as failed calls and go to review.
+
+OpenAI made Decisions available to all developers in public beta on 2026-10-06. The published rate is $0.10 per million input tokens, with regional and long-context premiums where applicable. The historical tables above do not include OpenAI; no live OpenAI results have been recorded yet.
+
+Run the adapter checks without API credentials with `npm test`.
+
 For Kev, start a server pinned to the release, locally (`python -m kev.serve --run jaredpalmer/kev-27b@v1.0`, see [Run It Locally](https://github.com/jaredpalmer/kev#run-it-locally)) or [on Modal](https://github.com/jaredpalmer/kev#deploy-your-own-endpoint) (`KEV_MODEL=jaredpalmer/kev-27b@v1.0`), and point the script at it. A Kev server serves one model, so the backend name is a label for whichever one is running.
 
 ```sh
@@ -143,7 +158,7 @@ node run.mjs --backends kev-27b
 
 Each run prints one line per backend per pass and writes every case's probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), and `rerun-2026-10-04-*` (the hosted models, three days later).
 
-A three-pass run of the hosted models costs under $0.25.
+A three-pass run of Jev, Clef and Clef-flash costs under $0.25.
 
 ## License
 
