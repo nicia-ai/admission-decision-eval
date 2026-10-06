@@ -4,7 +4,7 @@ A small, reproducible comparison of decision models on one production task: deci
 
 It runs TypeSafe's Jev, Cloudflare's Clef and Clef-flash, the open-weights [Kev](https://github.com/jaredpalmer/kev) family, and OpenAI's Decisions API with GPT-6 Luna through the same 85 labeled cases and grades the resulting admit/escalate decisions. Each backend receives the same evidence and question criteria in its API's format. One script, no dependencies.
 
-These are first-look numbers from 2026-10-01, the day Clef and Kev 1.0 were released, with a re-run of the hosted models on 2026-10-04. Treat them as a snapshot.
+These are first-look numbers from 2026-10-01, the day Clef and Kev 1.0 were released, with a re-run of the hosted models on 2026-10-04 and an OpenAI Decisions evaluation on 2026-10-06. Treat them as a snapshot.
 
 ## The task
 
@@ -21,7 +21,7 @@ The cases are synthetic: six fictional organizations (a support knowledge base, 
 
 ## Results
 
-All runs are from one laptop on the US west coast, between 21:30 UTC on 2026-10-01 and 03:10 UTC the next day. Jev and Clef are called over each provider's public HTTPS API. Kev-27B is self-hosted on one Modal GPU container. Kev-9B and Kev-4B ran on the laptop itself, so they have quality numbers and no latency numbers.
+The tables in this section are historical runs from one laptop on the US west coast, between 21:30 UTC on 2026-10-01 and 03:10 UTC the next day. Jev and Clef are called over each provider's public HTTPS API. Kev-27B is self-hosted on one Modal GPU container. Kev-9B and Kev-4B ran on the laptop itself, so they have quality numbers and no latency numbers. The later hosted re-run and OpenAI Decisions results are in their dated sections below.
 
 Gates: recall ≥ 0.95, routine-admit ≥ 0.85, p95 ≤ 2500 ms, no failed calls.
 
@@ -91,6 +91,28 @@ Cloudflare said Clef had been updated with fixes, mostly for images. We re-ran J
 
 Against 2026-10-01, Clef-flash is about twice as fast, and Clef's median at six in flight dropped by about 150 ms. No call failed or hung. Kev was not re-run.
 
+## OpenAI Decisions, 2026-10-06
+
+We ran `gpt-6-luna` through `POST /v1/decisions` at 23:37–23:38 UTC: three original-order passes and two reversed at six in flight, then two original-order passes one request at a time. Each pass contains the same 85 cases (56 requiring review, 29 routine), with the existing questions, criteria, thresholds and gates. These calls ran from a cloud executor through its HTTPS proxy; its region was not recorded. The latency figures therefore describe this environment and are not a controlled speed comparison with the earlier laptop runs. No other backend was re-run on this date.
+
+| order | recall | routine admit | false admits / needless reviews | gates |
+| --- | --- | --- | --- | --- |
+| Original | 1.000 (56/56) | 0.897 (26/29) | 0 / 3 | PASS in all five passes, including sequential |
+| Reversed | 0.964 (54/56) | 0.828 (24/29) | 2 / 5 | FAIL in both passes: routine admit below 0.85 |
+
+**GPT-6 Luna passes in the original order, but is sensitive to record order.** Eight of 85 decisions change when reversed, and the largest change in evidence is 0.63. The reversed order admits `crm-account-notes/restates-paraphrase` and `clinic-procedures/hard-contradicts-buried`, both of which require review. The first case's restatement evidence falls from 0.68 to 0.05; the second's contradiction evidence falls from 0.37 to 0.10. All three classifier-steering cases go to review in every pass.
+
+The original order sends three routine writes to review: `eng-runbook/self-corrects-errors`, `crm-account-notes/self-adds-information`, and `t0/routine-customer-story`. Their contradiction evidence is 0.22, 0.22 and 0.23, just above the 0.2 admission cut-off. In the first original-order pass, 22 of 85 cases have at least one evidence value in the unsure band. Repeated passes with the same order return identical stored evidence probabilities and decisions, including the sequential runs; this is an observation of these runs, not a determinism guarantee.
+
+| setting | p50 across passes | p95 across passes | calls over 2.5 s | failed calls |
+| --- | --- | --- | --- | --- |
+| Six in flight, both orders | 171–177 ms | 240–303 ms | 0 of 425 | 0 of 425 |
+| One request at a time, original order | 168–171 ms | 277–284 ms | 0 of 170 | 0 of 170 |
+
+Every pass reports 170,494 input tokens. At the published base rate of $0.10 per million input tokens, that is about $0.017 per 85-case pass and $0.119 for all seven passes, excluding any premiums. This is a token-based estimate, not an invoice.
+
+Raw per-case evidence, decisions, token counts and latencies: [original order](results/openai-decisions-2026-10-06-hosted-given.json), [reversed order](results/openai-decisions-2026-10-06-hosted-reversed.json), and [sequential](results/openai-decisions-2026-10-06-sequential-given.json). The commands in the OpenAI run instructions below reproduce the pass counts, orders and concurrency settings.
+
 ## How this differs from the published benchmarks
 
 Clef leads the [Decision Index leaderboard](https://clef-evals.workers-ai-mle.workers.dev/) overall. That lead comes mostly from tool use and intent classification. On the benchmarks closest to this task the picture is mixed, and matches what we measured:
@@ -144,7 +166,7 @@ node run.mjs --backends openai-decisions --passes 2 --concurrency 1
 
 The backend calls `POST /v1/decisions` with `gpt-6-luna`. It serializes the shared state as JSON text in `input`, translates each named question's criteria into choice values and descriptions, and maps the returned probability distributions back to the existing evidence calculation. It uses the same thresholds and gates as the other backends. Missing, refused, or malformed answers count as failed calls and go to review.
 
-OpenAI made Decisions available to all developers in public beta on 2026-10-06. The published rate is $0.10 per million input tokens, with regional and long-context premiums where applicable. The historical tables above do not include OpenAI; no live OpenAI results have been recorded yet.
+OpenAI made Decisions available to all developers in public beta on 2026-10-06. The published rate is $0.10 per million input tokens, with regional and long-context premiums where applicable. Live results are in the OpenAI Decisions section above. In a Node 24 environment that requires an HTTP proxy, prefix the commands with `NODE_USE_ENV_PROXY=1`.
 
 Run the adapter checks without API credentials with `npm test`.
 
@@ -156,7 +178,7 @@ export KEV_API_KEY=...                        # only if the server requires one
 node run.mjs --backends kev-27b
 ```
 
-Each run prints one line per backend per pass and writes every case's probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), and `rerun-2026-10-04-*` (the hosted models, three days later).
+Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), and `openai-decisions-2026-10-06-*` (GPT-6 Luna, both orders at six in flight and original order one request at a time).
 
 A three-pass run of Jev, Clef and Clef-flash costs under $0.25.
 
