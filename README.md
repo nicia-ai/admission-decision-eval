@@ -2,9 +2,9 @@
 
 A small, reproducible comparison of decision models on one production task: deciding whether an AI agent's write to a knowledge base can be admitted automatically or needs human review.
 
-It runs TypeSafe's Jev, Cloudflare's Clef and Clef-flash, the open-weights [Kev](https://github.com/jaredpalmer/kev) family, and OpenAI's Decisions API with GPT-6 Luna through the same 85 labeled cases and grades the resulting admit/escalate decisions. Each backend receives the same evidence and question criteria in its API's format. One script, no dependencies.
+It runs TypeSafe's Jev, Cloudflare's Clef and Clef-flash, the open-weights [Kev](https://github.com/jaredpalmer/kev) family, GPT-6 Luna through OpenAI Decisions, and Microsoft Decision 1 through OpenRouter against the same 85 labeled cases and grades the resulting admit/escalate decisions. Each backend receives the same evidence and question criteria in its API's format. One script, no dependencies.
 
-These are first-look numbers from 2026-10-01, the day Clef and Kev 1.0 were released, with a re-run of the hosted models on 2026-10-04 and an OpenAI Decisions evaluation on 2026-10-06. Treat them as a snapshot.
+These are first-look numbers from 2026-10-01, the day Clef and Kev 1.0 were released, with a re-run of the hosted models on 2026-10-04, an OpenAI Decisions evaluation on 2026-10-06, and a Clef re-run on 2026-10-12. Treat them as a snapshot. Microsoft Decision 1 support is implemented; its live evaluation is pending OpenRouter credentials and network access.
 
 ## The task
 
@@ -21,7 +21,7 @@ The cases are synthetic: six fictional organizations (a support knowledge base, 
 
 ## Results
 
-Jev, Clef and Kev results in these tables are from one laptop on the US west coast, between 21:30 UTC on 2026-10-01 and 03:10 UTC the next day. Jev and Clef are called over each provider's public HTTPS API. Kev-27B is self-hosted on one Modal GPU container. Kev-9B and Kev-4B ran on the laptop itself, so they have quality numbers and no latency numbers. GPT-6 Luna results are from 2026-10-06, using OpenAI Decisions from a cloud executor through an HTTPS proxy; its region was not recorded. The later hosted re-run and detailed OpenAI Decisions results are in their dated sections below.
+The main tables use the latest Clef measurements (2026-10-12) and GPT-6 Luna measurements (2026-10-06), both from a cloud executor through an HTTPS proxy; its region was not recorded. Jev, Clef-flash and Kev results are from one laptop on the US west coast, between 21:30 UTC on 2026-10-01 and 03:10 UTC the next day. Jev and Clef are called over each provider's public HTTPS API. Kev-27B is self-hosted on one Modal GPU container. Kev-9B and Kev-4B ran on the laptop itself, so they have quality numbers and no latency numbers. Historical re-runs and detailed later results are in their dated sections below.
 
 Gates: recall ≥ 0.95, routine-admit ≥ 0.85, p95 ≤ 2500 ms, no failed calls.
 
@@ -33,7 +33,7 @@ Each case is run with its accepted records in the original order and again rever
 | --- | --- | --- | --- | --- |
 | Jev 1.13.0 | 1.00 / 1.00 | 1.00 / 1.00 | 0 | 1 of 85 |
 | Kev-27B | 1.00 / 1.00 | 1.00 / 1.00 | 0 | 3 of 85 |
-| Clef (27B) | 0.98 / 1.00 | 0.97 / 0.97–1.00 | 2 | 4 of 85 |
+| Clef (2026-10-12) | 0.96 / 1.00 | 1.00 / 0.93 | 4 | 3 of 85 |
 | GPT-6 Luna (OpenAI Decisions) | 1.00 / 0.96 | 0.90 / 0.83 | 8 | 22 of 85 |
 | Kev-9B | 0.98 / 0.91 | 0.90 / 1.00 | 9 | 43 of 85 |
 | Clef-flash (9B) | 0.98 / 1.00 | 0.66 / 0.62 | 4 | 19 of 85 |
@@ -43,7 +43,7 @@ Each case is run with its accepted records in the original order and again rever
 
 ### Latency
 
-Round-trip time as the caller sees it. GPT-6 Luna was measured on a different date and from a different environment, so its latency is not a controlled speed comparison with the laptop runs.
+Round-trip time as the caller sees it. The latest Clef and GPT-6 Luna runs use different dates and a different environment from the laptop runs, so these latencies are not a controlled speed comparison.
 
 | model | one request at a time: p50 / p95 | six in flight: p50 / p95 | calls over 2.5 s |
 | --- | --- | --- | --- |
@@ -51,9 +51,9 @@ Round-trip time as the caller sees it. GPT-6 Luna was measured on a different da
 | GPT-6 Luna (OpenAI Decisions) | 168–171 ms / 277–284 ms | 171–177 ms / 240–303 ms | 0 of 425 |
 | Kev-27B (one Modal container) | 255–263 ms / 318–479 ms | 0.93–1.6 s / 1.4–2.6 s | 5 of 425 |
 | Clef-flash | 429–533 ms / 677–732 ms | 546–714 ms / 0.8–1.9 s | 8 of 425 |
-| Clef | 638–717 ms / 0.9–1.1 s | 809–930 ms / 1.1–1.7 s | 9 of 425 |
+| Clef (2026-10-12) | 343–349 ms / 441–485 ms | 359–408 ms / 546–692 ms | 0 of 425 |
 
-The "over 2.5 s" column is from the six-in-flight runs. Two of Clef's nine never returned within 60 seconds.
+The "over 2.5 s" column is from the six-in-flight runs. Clef had no failed calls in its latest seven passes.
 
 ### Cost
 
@@ -63,17 +63,17 @@ Jev, Clef, Clef-flash and OpenAI Decisions bill input tokens: $0.042, $0.24, $0.
 
 **Jev and Kev-27B both get every decision right, in both orders.** Kev-27B is the only other model that does. Its probabilities are also the steadiest: identical requests moved by at most 0.02, and reordering by at most 0.11. One of its correct escalations rests on a thin margin, with evidence of 0.22 against a 0.2 cut-off.
 
-**Clef is close on quality, and its answers depend on the order of the records.** Clef misses one contradiction in the original order and none in the reversed order. It is deterministic: identical requests returned identical probabilities in every pass, so the change is the order alone. Two of its decisions changed, and the largest shift in evidence was 0.49. In its one miss, the colliding record scored 0.04 for `contradicts` in first position and 0.60 in last position.
+**Updated Clef passes the gates, and its answers still depend on record order.** On 2026-10-12, Clef misses two contradictions in the original order and none reversed. It admits every routine write in the original order and sends two to needless review reversed. Four decisions change with order, and the largest shift in evidence is 0.67. Repeated same-order requests return identical stored evidence across all passes. The dated section below compares this with its earlier results.
 
 **The 9B and 4B models are not usable for this task as released.** Clef-flash sends about a third of harmless writes to review in either order and reads every typo fix as a rewording. Kev-9B passes in the original order and admits five writes it should have escalated when reversed. Kev-4B admits about half of harmless writes, and it is the only model that admitted a write crafted to steer the classifier. The small Kev models leave half or more of their answers in the unsure band.
 
 **Jev is not deterministic.** Identical requests to Jev moved by up to 0.12 between passes, and reordering moved it by up to 0.27. Neither changed a decision in these runs.
 
-**Jev is the fastest as served, and the gap depends on load.** With one request at a time, Jev answers in about 100–170 ms, Kev-27B in about 260 ms, and Clef in about 650–700 ms. Kev's server reports 95 ms of model time for our request at the median, so most of its round trip is network and Modal's proxy. With six requests in flight, a single Kev container queues and slows to about 1 second or more, while Jev does not move.
+**Jev was the fastest in the original laptop runs, and the gap depended on load.** With one request at a time, Jev answered in about 100–170 ms, Kev-27B in about 260 ms, and Clef in about 650–700 ms. Kev's server reports 95 ms of model time for our request at the median, so most of its round trip is network and Modal's proxy. With six requests in flight, a single Kev container queues and slows to about 1 second or more, while Jev does not move. Latest Clef latency is in the main table, measured from the cloud executor.
 
 **Clef's latency runs opposite to the launch claim.** Cloudflare's published figures are 209 ms for Clef and 524 ms for Jev. Their leaderboard data notes that the Jev number is a network round trip to the hosted API and the Clef number is measured on the GPU in one process, and that the two are not comparable.
 
-**The hosted Clef endpoints have a slow tail.** Several calls took 9 to 26 seconds. Earlier the same day, a few hours after launch, about a fifth of Clef calls at six in flight returned 429 "Capacity temporarily exceeded"; by these runs there were none.
+**The hosted Clef endpoints had a slow tail at launch.** Several calls took 9 to 26 seconds. Earlier the same day, a few hours after launch, about a fifth of Clef calls at six in flight returned 429 "Capacity temporarily exceeded"; by these runs there were none. The October 4 and October 12 Clef runs had no calls over 2.5 seconds.
 
 **Self-hosting has a cold start.** Kev-27B scales to zero when idle. Its first start took 6 minutes while it downloaded 51 GB of weights, and a later start from the cached weights took just under 3 minutes.
 
@@ -81,7 +81,7 @@ Jev, Clef, Clef-flash and OpenAI Decisions bill input tokens: $0.042, $0.24, $0.
 
 Cloudflare said Clef had been updated with fixes, mostly for images. We re-ran Jev, Clef and Clef-flash at 14:42 UTC with the same settings: three passes in the original order and two reversed at six in flight, then two passes one request at a time.
 
-**Clef's answers did not change.** Clef and Clef-flash returned exactly the same probabilities as on 2026-10-01 for every case, in both orders, so every quality figure above still holds. Jev's scores again moved slightly between passes, by up to 0.08. That gave it one needless review in one reversed pass, on `saas-support-kb/hard-compatible-sibling`, the same case as before.
+**Clef's answers did not change.** Clef and Clef-flash returned exactly the same probabilities as on 2026-10-01 for every case, in both orders, so their October 1 quality figures still held on October 4. Jev's scores again moved slightly between passes, by up to 0.08. That gave it one needless review in one reversed pass, on `saas-support-kb/hard-compatible-sibling`, the same case as before.
 
 **The endpoints are faster, and the slow tail is gone.**
 
@@ -115,6 +115,26 @@ Every pass reports 170,494 input tokens. At the published base rate of $0.10 per
 
 Raw per-case evidence, decisions, token counts and latencies: [original order](results/openai-decisions-2026-10-06-hosted-given.json), [reversed order](results/openai-decisions-2026-10-06-hosted-reversed.json), and [sequential](results/openai-decisions-2026-10-06-sequential-given.json). The commands in the OpenAI run instructions below reproduce the pass counts, orders and concurrency settings.
 
+## Clef re-run, 2026-10-12
+
+After Cloudflare reported another update, we re-ran the public `@cf/cloudflare/clef` endpoint with the same 85 cases, criteria, thresholds and gates: three original-order passes and two reversed at six in flight, then two original-order passes one request at a time. The calls ran from the cloud executor through its HTTPS proxy. Clef-flash was not re-run.
+
+**Clef's evidence changed on all 85 cases compared with October 4.** Original-order recall is now 54/56 (0.964), with false admits on `hr-handbook/contradicts-negation` and `clinic-procedures/hard-contradicts-buried`. Reversed recall is 56/56 (1.000). Routine admission is 29/29 (1.000) original and 27/29 (0.931) reversed; the two needless reviews reversed are `saas-support-kb/hard-compatible-sibling` and `crm-account-notes/self-corrects-errors`. All seven passes meet the gates, despite the two original-order false admits.
+
+Four of 85 decisions change with record order. The largest evidence shift is 0.6741, and three cases have evidence in the unsure band in the first original-order pass. Stored evidence and decisions are identical across repeated passes with the same order, including sequential calls. All three classifier-steering cases go to review in every pass.
+
+Sequential p50 is 343–349 ms and p95 is 441–485 ms. At six in flight across both orders, p50 is 359–408 ms and p95 is 546–692 ms. None of the 595 calls failed or exceeded 2.5 seconds. These numbers use a different caller environment from October 4, so the latency change does not isolate a server-side improvement.
+
+Each pass reports 167,962 input tokens, about $0.040 at the existing $0.24 per million input-token rate (about $0.282 for seven passes). Raw results: [original order](results/rerun-2026-10-12-clef-hosted-given.json), [reversed order](results/rerun-2026-10-12-clef-hosted-reversed.json), and [sequential](results/rerun-2026-10-12-clef-sequential-given.json).
+
+Reproduce the Clef run with:
+
+```sh
+node run.mjs --backends clef --passes 3
+node run.mjs --backends clef --passes 2 --order reversed
+node run.mjs --backends clef --passes 2 --concurrency 1
+```
+
 ## How this differs from the published benchmarks
 
 Clef leads the [Decision Index leaderboard](https://clef-evals.workers-ai-mle.workers.dev/) overall. That lead comes mostly from tool use and intent classification. On the benchmarks closest to this task the picture is mixed, and matches what we measured:
@@ -136,11 +156,11 @@ Three properties of this task are not covered by those benchmarks:
 ## Caveats
 
 - 85 synthetic cases is a small set. One case moves recall by 0.02.
-- The question wording and the 0.5 / 0.2 thresholds were tuned on Jev. Neither Clef nor Kev got tuning of its own.
+- The question wording and the 0.5 / 0.2 thresholds were tuned on Jev. The other backends use the same wording and thresholds without model-specific tuning.
 - Measured over public REST from one location in the US. Calling Clef through the Workers AI binding from inside a Worker should be faster; we have not measured it. The REST overhead we measured was about 80 ms.
 - All three Kev models are the [Kev 1.0](https://github.com/jaredpalmer/kev/releases/tag/kev-1.0) release: we loaded each Hub repo's `main` revision a few hours after the release, and its weight files are byte-identical to the `v1.0` tag (Kev-4B `139fdd94`, Kev-9B v2 `b5d8c18e`, Kev-27B v2 full weights). The local servers ran kev at `84847f0`; the Modal endpoint ran the deploy script's pinned `71d4829`. Neither differs from the `kev-1.0` tag in the `kev/` serving package except `kev/checkpoint.py`'s release-date metadata.
 - Kev-27B ran on whichever GPU Modal allocated from the deploy script's list (B200, H200 or H100); we did not record which. Kev-9B and Kev-4B ran through MLX on an Apple M4 Pro, not on the CUDA path.
-- Numbers from the day Clef and Kev 1.0 were released, plus one re-run of the hosted models three days later.
+- The main tables combine dated measurements; Clef uses its October 12 re-run, GPT-6 Luna uses October 6, and the other models use their October 1 runs.
 
 ## Run it
 
@@ -172,6 +192,17 @@ OpenAI made Decisions available to all developers in public beta on 2026-10-06. 
 
 Run the adapter checks without API credentials with `npm test`.
 
+For [Microsoft Decision 1](https://openrouter.ai/microsoft/microsoft-decision-1) through [OpenRouter Decisions](https://openrouter.ai/blog/tutorials/how-to-use-jev/), configure an OpenRouter API key and select the backend explicitly:
+
+```sh
+export OPENROUTER_API_KEY=...
+node run.mjs --backends microsoft-decision-1 --passes 3
+node run.mjs --backends microsoft-decision-1 --passes 2 --order reversed
+node run.mjs --backends microsoft-decision-1 --passes 2 --concurrency 1
+```
+
+The backend sends the shared `state` and `questions` unchanged to `POST https://openrouter.ai/api/alpha/decisions`, with model `microsoft/microsoft-decision-1`. It validates every choice distribution before applying the same admission thresholds; missing, refused or malformed answers fail closed to review. Result rows retain the returned model, provider and cost when available, and reports record concurrency. OpenRouter lists the base rate as $0.042 per million input tokens; no live Decision 1 measurements have been recorded yet.
+
 For Kev, start a server pinned to the release, locally (`python -m kev.serve --run jaredpalmer/kev-27b@v1.0`, see [Run It Locally](https://github.com/jaredpalmer/kev#run-it-locally)) or [on Modal](https://github.com/jaredpalmer/kev#deploy-your-own-endpoint) (`KEV_MODEL=jaredpalmer/kev-27b@v1.0`), and point the script at it. A Kev server serves one model, so the backend name is a label for whichever one is running.
 
 ```sh
@@ -180,7 +211,7 @@ export KEV_API_KEY=...                        # only if the server requires one
 node run.mjs --backends kev-27b
 ```
 
-Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), and `openai-decisions-2026-10-06-*` (GPT-6 Luna, both orders at six in flight and original order one request at a time).
+Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), `openai-decisions-2026-10-06-*` (GPT-6 Luna, both orders at six in flight and original order one request at a time), and `rerun-2026-10-12-clef-*` (updated Clef with the same pass counts, orders and concurrency).
 
 A three-pass run of Jev, Clef and Clef-flash costs under $0.25.
 
