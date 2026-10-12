@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
-import { classify, decisionsAnswers, decisionsRequestBody, escalates, requestBody } from "./run.mjs";
+import { BACKENDS, classify, decisionsAnswers, decisionsRequestBody, escalates, openrouterAnswers, requestBody } from "./run.mjs";
 
 const cases = JSON.parse(readFileSync(new URL("./cases.json", import.meta.url)));
 const validAnswers = (body) => body.questions.map((question) => ({
@@ -11,6 +11,74 @@ const validAnswers = (body) => body.questions.map((question) => ({
     value, probability: index === question.choices.length - 1 ? 1 : 0,
   })),
 }));
+
+const validOpenrouterAnswers = (request) => Object.fromEntries(
+  validAnswers(decisionsRequestBody(request, "microsoft/microsoft-decision-1"))
+    .map(({ name, type, probabilities }) => [name, {
+      type,
+      probabilities: Object.fromEntries(probabilities.map(({ value, probability }) => [value, probability])),
+    }]),
+);
+
+test("OpenRouter preserves the shared request and maps all cases in both orders", () => {
+  for (const { request } of cases) {
+    for (const accepted of [request.accepted, request.accepted.toReversed()]) {
+      const input = { ...request, accepted };
+      const answers = validOpenrouterAnswers(input);
+      assert.deepEqual(
+        openrouterAnswers(input, Object.fromEntries(Object.entries(answers).reverse())),
+        decisionsAnswers(input, validAnswers(decisionsRequestBody(input, ""))),
+      );
+    }
+  }
+});
+
+test("OpenRouter incomplete, refused and malformed distributions fail closed", () => {
+  const request = cases[0].request;
+  for (const mutate of [
+    (a) => { delete a.accepted_0; },
+    (a) => { a.unexpected = a.accepted_0; },
+    (a) => { a.accepted_0.type = "refusal"; },
+    (a) => { delete a.accepted_0.probabilities; },
+    (a) => { a.accepted_0.probabilities = []; },
+    (a) => { delete a.accepted_0.probabilities.compatible; },
+    (a) => { a.accepted_0.probabilities.unknown = 0; },
+    ...[NaN, Infinity, -0.1, 1.1, "0"].map((p) =>
+      (a) => { a.accepted_0.probabilities.contradicts = p; }),
+  ]) {
+    const answers = validOpenrouterAnswers(request);
+    mutate(answers);
+    assert.equal(openrouterAnswers(request, answers), undefined);
+  }
+});
+
+test("Decision 1 uses OpenRouter's endpoint, model and probabilities with the shared policy", async (t) => {
+  const backend = BACKENDS["microsoft-decision-1"];
+  const request = cases[0].request;
+  let contradiction = 0.19;
+  t.mock.method(globalThis, "fetch", async (url, options) => {
+    assert.equal(url, "https://openrouter.ai/api/alpha/decisions");
+    assert.equal(options.headers.authorization, "Bearer test-openrouter-key");
+    const body = JSON.parse(options.body);
+    assert.equal(body.model, "microsoft/microsoft-decision-1");
+    assert.deepEqual(body, requestBody(request, backend.model));
+    const answers = validOpenrouterAnswers(request);
+    answers.accepted_0.probabilities.contradicts = contradiction;
+    answers.accepted_0.probabilities.compatible = 1 - contradiction;
+    return new Response(JSON.stringify({ answers, model: body.model, provider: "Azure",
+      usage: { input_tokens: 123, cost: 0.000005166 } }));
+  });
+  for (const probability of [0.19, 0.2, 0.5]) {
+    contradiction = probability;
+    const result = await classify(backend, { OPENROUTER_API_KEY: "test-openrouter-key" }, { request });
+    assert.equal(result.error, undefined);
+    assert.equal(escalates(result.evidence), probability >= 0.2);
+    assert.equal(result.inputTokens, 123);
+    assert.equal(result.responseModel, backend.model);
+    assert.equal(result.provider, "Azure");
+    assert.equal(result.costUsd, 0.000005166);
+  }
+});
 
 test("all cases preserve evidence and criteria in both record orders", () => {
   for (const { request } of cases) {
