@@ -4,7 +4,7 @@ A small, reproducible comparison of decision models on one production task: deci
 
 It runs TypeSafe's Jev, Cloudflare's Clef and Clef-flash, the open-weights [Kev](https://github.com/jaredpalmer/kev) family, and OpenAI's Decisions API with GPT-6 Luna through the same 85 labeled cases and grades the resulting admit/escalate decisions. Each backend receives the same evidence and question criteria in its API's format. One script, no dependencies.
 
-These are first-look numbers from 2026-10-01, the day Clef and Kev 1.0 were released, with a re-run of the hosted models on 2026-10-04 and an OpenAI Decisions evaluation on 2026-10-06. Treat them as a snapshot.
+These are first-look numbers from 2026-10-01, the day Clef and Kev 1.0 were released, with a re-run of the hosted models on 2026-10-04 and an OpenAI Decisions evaluation on 2026-10-06. Treat them as a snapshot. The expanded hosted comparison on 2026-10-31 adds Jev 1.14.0, Clef-omni and three OpenRouter models; its results are in the dated section below.
 
 ## The task
 
@@ -115,6 +115,53 @@ Every pass reports 170,494 input tokens. At the published base rate of $0.10 per
 
 Raw per-case evidence, decisions, token counts and latencies: [original order](results/openai-decisions-2026-10-06-hosted-given.json), [reversed order](results/openai-decisions-2026-10-06-hosted-reversed.json), and [sequential](results/openai-decisions-2026-10-06-sequential-given.json). The commands in the OpenAI run instructions below reproduce the pass counts, orders and concurrency settings.
 
+## Expanded hosted re-run, 2026-10-31
+
+We ran eight hosted backends on the same 85 cases, questions, thresholds and gates: three original-order passes and two reversed at six requests in flight, then two original-order passes one request at a time. This is 595 scored calls per backend and 4,760 in total. Calls ran from a cloud executor through its HTTPS proxy; its region was not recorded. Kev and Jev-preview were not re-run. Latency comparisons with the earlier laptop runs are not controlled comparisons.
+
+The quality columns below use the first pass without failed calls in each order, at six in flight. This is pass 1 except for the two Perplexity models' reversed order, which uses pass 2. The gate column includes all seven passes, including failed calls and sequential runs. No failed call was retried or removed from the raw reports. Failed calls go to review and can affect recall and routine-admit figures in those reports.
+
+| model | recall (original / reversed) | routine admit (original / reversed) | decisions changed by order | passes meeting every gate |
+| --- | --- | --- | --- | --- |
+| Jev 1.14.0 | 0.982 / 0.982 | 1.000 / 1.000 | 0 | 6 of 7 |
+| Clef | 0.964 / 1.000 | 1.000 / 0.931 | 4 | 7 of 7 |
+| Clef-flash | 0.964 / 1.000 | 0.724 / 0.586 | 6 | 0 of 7 |
+| Clef-omni | 0.946 / 0.946 | 0.621 / 0.655 | 1 | 0 of 7 |
+| Decision-1 (OpenRouter) | 1.000 / 0.982 | 1.000 / 0.966 | 2 | 5 of 7 |
+| Pplx Decider v1.2 (OpenRouter) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 5 of 7 |
+| Pplx Decider Flash v1.2 (OpenRouter) | 1.000 / 1.000 | 0.897 / 0.897 | 0 | 5 of 7 |
+| GPT-6 Luna (OpenAI Decisions) | 1.000 / 0.946 | 0.828 / 0.828 | 9 | 0 of 7 |
+
+**Pplx Decider gets all 85 decisions right in both orders in its clean passes.** Pplx Decider Flash also catches every write requiring review in both orders, with three needless reviews per clean pass. Decision-1 is perfect in the three original-order concurrent passes; reversing the records admits `crm-account-notes/hard-restates-combined` and needlessly reviews `saas-support-kb/hard-compatible-sibling`. Clef-omni misses three writes requiring review in either order and admits only 18–19 of the 29 routine writes.
+
+**Clef is the only backend to meet every gate in all seven passes.** Jev 1.14.0 admits `t0/redundant-rephrase-brand-voice` in every pass, giving it recall of 55/56, and one authentication failure makes its third original-order pass fail the gates. Passing the configured recall gate does not imply every decision was correct.
+
+Latency ranges below include every scored call, including failures, across the two sequential passes or five concurrent passes. The last two columns cover all seven passes.
+
+| model | one request at a time: p50 / p95 (ms) | six in flight: p50 / p95 (ms) | calls over 2.5 s / 595 | failed calls / 595 |
+| --- | --- | --- | --- | --- |
+| Jev 1.14.0 | 136–142 / 391–447 | 120–177 / 242–580 | 0 | 1 |
+| Clef | 404–439 / 859–915 | 395–435 / 615–781 | 0 | 0 |
+| Clef-flash | 474–487 / 636–1080 | 485–501 / 619–740 | 1 | 2 |
+| Clef-omni | 159–166 / 182–353 | 170–198 / 250–457 | 0 | 0 |
+| Decision-1 (OpenRouter) | 372–443 / 831–2760 | 356–417 / 489–601 | 7 | 6 |
+| Pplx Decider v1.2 (OpenRouter) | 342–580 / 852–1703 | 343–604 / 453–8903 | 19 | 13 |
+| Pplx Decider Flash v1.2 (OpenRouter) | 297–332 / 371–849 | 307–410 / 374–2184 | 4 | 5 |
+| GPT-6 Luna (OpenAI Decisions) | 221–229 / 404–757 | 216–629 / 381–3975 | 6 | 6 |
+
+There were 33 HTTP 401 responses: one from Jev, two from Clef-flash, six from Decision-1, thirteen from Pplx Decider, five from Pplx Decider Flash, and six from OpenAI Decisions. The OpenRouter responses said "Missing Authentication header"; the other providers reported authentication errors. A runtime readiness check still reported all configured credentials ready. These runs do not establish the cause of the intermittent errors. They remain in the latency and gate totals; Pplx Decider's first reversed pass has a p95 of 8,903 ms, and Decision-1's first sequential pass has a p95 of 2,760 ms.
+
+Raw per-case results: [original order](results/rerun-2026-10-31-hosted-given.json), [reversed order](results/rerun-2026-10-31-hosted-reversed.json), and [sequential](results/rerun-2026-10-31-sequential-given.json).
+
+Reproduce the settings with the configured provider credentials:
+
+```sh
+EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,decision-1,pplx-decider,pplx-decider-flash,openai-decisions
+NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 3
+NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --order reversed
+NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --concurrency 1
+```
+
 ## How this differs from the published benchmarks
 
 Clef leads the [Decision Index leaderboard](https://clef-evals.workers-ai-mle.workers.dev/) overall. That lead comes mostly from tool use and intent classification. On the benchmarks closest to this task the picture is mixed, and matches what we measured:
@@ -153,6 +200,7 @@ export CLOUDFLARE_API_TOKEN=...   # Workers AI permission
 
 node run.mjs                                  # jev, clef, clef-flash; 3 passes, 6 in flight
 node run.mjs --backends clef --passes 1
+node run.mjs --backends clef-omni --passes 1
 node run.mjs --order reversed
 node run.mjs --concurrency 1                  # one request at a time
 ```
@@ -171,6 +219,17 @@ The backend calls `POST /v1/decisions` with `gpt-6-luna`. It serializes the shar
 OpenAI made Decisions available to all developers in public beta on 2026-10-06. The published rate is $0.10 per million input tokens, with regional and long-context premiums where applicable. Live results are in the OpenAI Decisions section above. In a Node 24 environment that requires an HTTP proxy, prefix the commands with `NODE_USE_ENV_PROXY=1`.
 
 Run the adapter checks without API credentials with `npm test`.
+
+For OpenRouter Decisions, configure an API key and select the new backends explicitly:
+
+```sh
+export OPENROUTER_API_KEY=...
+node run.mjs --backends decision-1,pplx-decider,pplx-decider-flash --passes 3
+node run.mjs --backends decision-1,pplx-decider,pplx-decider-flash --passes 2 --order reversed
+node run.mjs --backends decision-1,pplx-decider,pplx-decider-flash --passes 2 --concurrency 1
+```
+
+These backends call `POST /api/alpha/decisions` with the existing System One request and response format. `decision-1` selects `microsoft/microsoft-decision-1`; `pplx-decider` and `pplx-decider-flash` select Perplexity's `v1.2` models. The `jev` backend now selects `jev-1.14.0`. Historical results retain their original model versions. In a Node 24 environment that requires an HTTP proxy, prefix these commands with `NODE_USE_ENV_PROXY=1`.
 
 For Kev, start a server pinned to the release, locally (`python -m kev.serve --run jaredpalmer/kev-27b@v1.0`, see [Run It Locally](https://github.com/jaredpalmer/kev#run-it-locally)) or [on Modal](https://github.com/jaredpalmer/kev#deploy-your-own-endpoint) (`KEV_MODEL=jaredpalmer/kev-27b@v1.0`), and point the script at it. A Kev server serves one model, so the backend name is a label for whichever one is running.
 
