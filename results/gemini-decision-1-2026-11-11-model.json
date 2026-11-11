@@ -1,0 +1,82 @@
+{
+  "retrievedAt": "2026-11-11T21:32:38.963Z",
+  "caseId": "saas-support-kb/contradicts-negation",
+  "status": 200,
+  "latencyMs": 268,
+  "model": "google/gemini-decision-1-20261111",
+  "answers": {
+    "accepted_0": {
+      "type": "choice",
+      "choice": "contradicts",
+      "probabilities": {
+        "contradicts": 0.9988509531776554,
+        "compatible": 0.0007886642478453263,
+        "restates": 0.00036038257449935317
+      },
+      "confidence": 0.9988509531776554
+    },
+    "accepted_5": {
+      "type": "choice",
+      "choice": "contradicts",
+      "probabilities": {
+        "restates": 0.007618942309614074,
+        "compatible": 0.37706031713658644,
+        "contradicts": 0.6153207405537995
+      },
+      "confidence": 0.6153207405537995
+    },
+    "accepted_4": {
+      "type": "choice",
+      "choice": "contradicts",
+      "probabilities": {
+        "contradicts": 0.8578226786069558,
+        "restates": 0.00843370054423965,
+        "compatible": 0.13374362084880456
+      },
+      "confidence": 0.8578226786069558
+    },
+    "accepted_1": {
+      "type": "choice",
+      "choice": "contradicts",
+      "probabilities": {
+        "contradicts": 0.941740669752106,
+        "compatible": 0.04440819119075135,
+        "restates": 0.0138511390571425
+      },
+      "confidence": 0.941740669752106
+    },
+    "accepted_3": {
+      "type": "choice",
+      "choice": "compatible",
+      "probabilities": {
+        "restates": 0.006094289461465465,
+        "compatible": 0.7246090428899811,
+        "contradicts": 0.26929666764855353
+      },
+      "confidence": 0.7246090428899811
+    },
+    "accepted_2": {
+      "type": "choice",
+      "choice": "contradicts",
+      "probabilities": {
+        "contradicts": 0.8843678380369564,
+        "restates": 0.003937610486355978,
+        "compatible": 0.11169455147668744
+      },
+      "confidence": 0.8843678380369564
+    }
+  },
+  "usage": {
+    "input_tokens": 1735,
+    "output_tokens": 0,
+    "cost": 0.0001735,
+    "is_byok": false,
+    "cost_details": {
+      "upstream_inference_cost": 0.0001735,
+      "upstream_inference_prompt_cost": 0.0001735,
+      "upstream_inference_completions_cost": 0
+    }
+  },
+  "id": "gen-dec-1794432758-4zNXVkpBDl6JZwRkbGCz",
+  "provider": "Google AI Studio"
+}

@@ -201,6 +201,7 @@ const BACKENDS = {
   "clef-flash": workersAi("clef-flash"),
   "clef-omni": workersAi("clef-omni"),
   "decision-1": openRouter("microsoft/microsoft-decision-1"),
+  "gemini-decision-1": openRouter("google/gemini-decision-1"),
   "pplx-decider": openRouter("perplexity/pplx-decider-v1.2"),
   "pplx-decider-flash": openRouter("perplexity/pplx-decider-flash-v1.2"),
   "kev-4b": kev(),
