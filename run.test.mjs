@@ -33,6 +33,17 @@ test("OpenRouter preserves the shared request and maps all cases in both orders"
   }
 });
 
+test("merged OpenRouter backends share validation and preserve both Microsoft names", () => {
+  const request = cases[0].request;
+  const answers = validOpenrouterAnswers(request);
+  for (const name of ["microsoft-decision-1", "decision-1", "pplx-decider", "pplx-decider-flash"]) {
+    const backend = BACKENDS[name];
+    assert.deepEqual(backend.unwrap({ answers }, request).answers, openrouterAnswers(request, answers));
+    assert.equal(backend.unwrap({ answers: {} }, request).answers, undefined);
+  }
+  assert.equal(BACKENDS["microsoft-decision-1"].model, BACKENDS["decision-1"].model);
+});
+
 test("OpenRouter incomplete, refused and malformed distributions fail closed", () => {
   const request = cases[0].request;
   for (const mutate of [

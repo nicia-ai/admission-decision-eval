@@ -117,6 +117,18 @@ const typesafe = (model) => ({
   unwrap: (json) => json,
 });
 
+// OpenRouter's Decisions API speaks the System One shape for every model it hosts.
+const openRouter = (model) => ({
+  model,
+  needs: ["OPENROUTER_API_KEY"],
+  url: () => "https://openrouter.ai/api/alpha/decisions",
+  token: (env) => env.OPENROUTER_API_KEY,
+  unwrap: (json, request) => ({
+    ...json,
+    answers: openrouterAnswers(request, json?.answers),
+  }),
+});
+
 // A self-hosted Kev server (github.com/jaredpalmer/kev) serves one model, so
 // the backend name is a label for whichever one KEV_URL points at.
 const kev = () => ({
@@ -188,16 +200,7 @@ export function openrouterAnswers(request, answers) {
 }
 
 export const BACKENDS = {
-  "microsoft-decision-1": {
-    model: "microsoft/microsoft-decision-1",
-    needs: ["OPENROUTER_API_KEY"],
-    url: () => "https://openrouter.ai/api/alpha/decisions",
-    token: (env) => env.OPENROUTER_API_KEY,
-    unwrap: (json, request) => ({
-      ...json,
-      answers: openrouterAnswers(request, json?.answers),
-    }),
-  },
+  "microsoft-decision-1": openRouter("microsoft/microsoft-decision-1"),
   "openai-decisions": {
     model: "gpt-6-luna",
     needs: ["OPENAI_API_KEY"],
@@ -209,10 +212,14 @@ export const BACKENDS = {
       answers: decisionsAnswers(request, json?.answers),
     }),
   },
-  jev: typesafe("jev-1.13.0"),
+  jev: typesafe("jev-1.14.0"),
   "jev-preview": typesafe("jev-preview"),
   clef: workersAi("clef"),
   "clef-flash": workersAi("clef-flash"),
+  "clef-omni": workersAi("clef-omni"),
+  "decision-1": openRouter("microsoft/microsoft-decision-1"),
+  "pplx-decider": openRouter("perplexity/pplx-decider-v1.2"),
+  "pplx-decider-flash": openRouter("perplexity/pplx-decider-flash-v1.2"),
   "kev-4b": kev(),
   "kev-9b": kev(),
   "kev-27b": kev(),
