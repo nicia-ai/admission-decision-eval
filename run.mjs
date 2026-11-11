@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Runs the admission cases against System One and OpenAI decision models and
+// Runs the admission cases against System One, OpenAI and OpenRouter decision models and
 // grades the resulting admit/escalate decisions. Node >= 20, no dependencies.
 //
 //   node run.mjs [--backends jev,clef,clef-flash] [--passes 3]
@@ -123,7 +123,10 @@ const openRouter = (model) => ({
   needs: ["OPENROUTER_API_KEY"],
   url: () => "https://openrouter.ai/api/alpha/decisions",
   token: (env) => env.OPENROUTER_API_KEY,
-  unwrap: (json) => json,
+  unwrap: (json, request) => ({
+    ...json,
+    answers: openrouterAnswers(request, json?.answers),
+  }),
 });
 
 // A self-hosted Kev server (github.com/jaredpalmer/kev) serves one model, so
@@ -183,7 +186,21 @@ export function decisionsAnswers(request, answers) {
   return normalized;
 }
 
-const BACKENDS = {
+/** OpenRouter returns System One-style answers keyed by question name. */
+export function openrouterAnswers(request, answers) {
+  if (!answers || typeof answers !== "object" || Array.isArray(answers)) return undefined;
+  return decisionsAnswers(request, Object.entries(answers).map(([name, answer]) => ({
+    name,
+    type: answer?.type,
+    probabilities: answer?.probabilities && typeof answer.probabilities === "object" &&
+        !Array.isArray(answer.probabilities)
+      ? Object.entries(answer.probabilities).map(([value, probability]) => ({ value, probability }))
+      : undefined,
+  })));
+}
+
+export const BACKENDS = {
+  "microsoft-decision-1": openRouter("microsoft/microsoft-decision-1"),
   "openai-decisions": {
     model: "gpt-6-luna",
     needs: ["OPENAI_API_KEY"],
@@ -274,6 +291,9 @@ export async function classify(backend, env, testCase) {
       latencyMs,
       evidence,
       inputTokens: body?.usage?.input_tokens ?? 0,
+      ...(typeof body?.model === "string" && { responseModel: body.model }),
+      ...(typeof body?.provider === "string" && { provider: body.provider }),
+      ...(Number.isFinite(body?.usage?.cost) && { costUsd: body.usage.cost }),
       // Kev reports its own model time; the others do not.
       ...(typeof body?.latency_ms === "number" && { modelMs: body.latency_ms }),
       ...(evidence === undefined && { error: "incomplete answer" }),
@@ -321,6 +341,9 @@ function score(cases, results) {
     overTimeout: latencies.filter((ms) => ms > TIMEOUT_MS).length,
     transportFailures: rows.filter((row) => row.error !== undefined).length,
     inputTokens: rows.reduce((sum, row) => sum + (row.inputTokens ?? 0), 0),
+    ...(rows.some((row) => row.costUsd !== undefined) && {
+      costUsd: rows.reduce((sum, row) => sum + (row.costUsd ?? 0), 0),
+    }),
     falseAdmits: falseAdmits.map((row) => row.id),
     needlessReviews: needlessReviews.map((row) => row.id),
   };
@@ -398,7 +421,7 @@ async function main() {
   writeFileSync(
     path,
     JSON.stringify(
-      { ranAt: new Date().toISOString(), order: values.order, thresholds: THRESHOLDS, gates: GATES, report },
+      { ranAt: new Date().toISOString(), order: values.order, concurrency: Number(values.concurrency), thresholds: THRESHOLDS, gates: GATES, report },
       undefined,
       2,
     ) + "\n",

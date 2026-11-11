@@ -2,7 +2,7 @@
   "name": "admission-decision-eval",
   "private": true,
   "type": "module",
-  "description": "Decision models on a knowledge-base write-admission task: Jev, Clef, Kev, OpenAI Decisions.",
+  "description": "Decision models on a knowledge-base write-admission task: Jev, Clef, Kev, OpenAI Decisions, Microsoft Decision 1.",
   "license": "Apache-2.0",
   "engines": { "node": ">=20" },
   "scripts": { "eval": "node run.mjs", "test": "node --test" }
