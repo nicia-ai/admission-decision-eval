@@ -112,7 +112,7 @@ node run.mjs --backends gemini-decision-1,decision-1,pplx-decider,pplx-decider-f
 node run.mjs --backends gemini-decision-1,decision-1,pplx-decider,pplx-decider-flash --passes 2 --concurrency 1
 ```
 
-These backends call `POST /api/alpha/decisions` with the existing System One request and response format. `gemini-decision-1` selects `google/gemini-decision-1`; `decision-1` selects `microsoft/microsoft-decision-1`; `pplx-decider` and `pplx-decider-flash` select Perplexity's `v1.2` models. The `jev` backend now selects `jev-1.14.0`. Historical results retain their original model versions. In a Node 24 environment that requires an HTTP proxy, prefix these commands with `NODE_USE_ENV_PROXY=1`.
+These backends call `POST /api/alpha/decisions` with the existing System One request and response format. `gemini-decision-1` selects `google/gemini-decision-1`; `decision-1` and its compatibility alias `microsoft-decision-1` select `microsoft/microsoft-decision-1`; `pplx-decider` and `pplx-decider-flash` select Perplexity's `v1.2` models. The `jev` backend now selects `jev-1.14.0`. All OpenRouter backends validate each choice distribution; missing, refused or malformed answers fail closed to review. Result rows retain the returned model, provider and cost when available, and new reports record concurrency. Historical results retain their original model versions. In a Node 24 environment that requires an HTTP proxy, prefix these commands with `NODE_USE_ENV_PROXY=1`.
 
 For Kev, start a server pinned to the release, locally (`python -m kev.serve --run jaredpalmer/kev-27b@v1.0`, see [Run It Locally](https://github.com/jaredpalmer/kev#run-it-locally)) or [on Modal](https://github.com/jaredpalmer/kev#deploy-your-own-endpoint) (`KEV_MODEL=jaredpalmer/kev-27b@v1.0`), and point the script at it. A Kev server serves one model, so the backend name is a label for whichever one is running.
 
@@ -122,7 +122,7 @@ export KEV_API_KEY=...                        # only if the server requires one
 node run.mjs --backends kev-27b
 ```
 
-Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), `openai-decisions-2026-10-06-*` (GPT-6 Luna), `rerun-2026-10-31-*` (eight hosted backends), and `gemini-decision-1-2026-11-11-*` (Gemini, including separately labeled exploratory runs).
+Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), `openai-decisions-2026-10-06-*` (GPT-6 Luna), `rerun-2026-10-12-clef-*` (updated Clef), `rerun-2026-10-31-*` (eight hosted backends), and `gemini-decision-1-2026-11-11-*` (Gemini, including separately labeled exploratory runs).
 
 The historical three-pass Jev, Clef and Clef-flash run cost under $0.25 at the rates recorded below.
 
@@ -209,6 +209,26 @@ EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,decision-1,pplx-decider,pplx-decider
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 3
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --order reversed
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --concurrency 1
+```
+
+### Clef re-run, 2026-10-12
+
+After Cloudflare reported another update, we re-ran the public `@cf/cloudflare/clef` endpoint with the same 85 cases, criteria, thresholds and gates: three original-order passes and two reversed at six in flight, then two original-order passes one request at a time. The calls ran from the cloud executor through its HTTPS proxy. Clef-flash was not re-run.
+
+**Clef's evidence changed on all 85 cases compared with October 4.** Original-order recall is now 54/56 (0.964), with false admits on `hr-handbook/contradicts-negation` and `clinic-procedures/hard-contradicts-buried`. Reversed recall is 56/56 (1.000). Routine admission is 29/29 (1.000) original and 27/29 (0.931) reversed; the two needless reviews reversed are `saas-support-kb/hard-compatible-sibling` and `crm-account-notes/self-corrects-errors`. All seven passes meet the gates, despite the two original-order false admits.
+
+Four of 85 decisions change with record order. The largest evidence shift is 0.6741, and three cases have evidence in the unsure band in the first original-order pass. Stored evidence and decisions are identical across repeated passes with the same order, including sequential calls. All three classifier-steering cases go to review in every pass.
+
+Sequential p50 is 343–349 ms and p95 is 441–485 ms. At six in flight across both orders, p50 is 359–408 ms and p95 is 546–692 ms. None of the 595 calls failed or exceeded 2.5 seconds. These numbers use a different caller environment from October 4, so the latency change does not isolate a server-side improvement.
+
+Each pass reports 167,962 input tokens, about $0.040 at the existing $0.24 per million input-token rate (about $0.282 for seven passes). Raw results: [original order](results/rerun-2026-10-12-clef-hosted-given.json), [reversed order](results/rerun-2026-10-12-clef-hosted-reversed.json), and [sequential](results/rerun-2026-10-12-clef-sequential-given.json).
+
+Reproduce the Clef run with:
+
+```sh
+node run.mjs --backends clef --passes 3
+node run.mjs --backends clef --passes 2 --order reversed
+node run.mjs --backends clef --passes 2 --concurrency 1
 ```
 
 ### OpenAI Decisions, 2026-10-06
