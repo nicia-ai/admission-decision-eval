@@ -4,53 +4,84 @@ A reproducible comparison of decision models on one production task: deciding wh
 
 ## Current status — 2026-11-11
 
-**Clef is the only hosted backend to meet every configured gate in all seven passes of its latest evaluation. Pplx Decider v1.2 has the strongest observed decision quality, with every case correct in both record orders in its clean passes, but failed calls and slow responses prevent it from passing every run. Gemini Decision 1 passes in the original order and fails when records are reversed; these results do not support replacing the admission gate with Gemini.** Passing a gate still permits some false admits: Clef misses two review-required writes in its original-order quality pass.
+**Jev 1.14.0, Clef, and Microsoft Decision 1 (OpenRouter) meet every configured gate in all seven passes today. Clef-flash's evidence has changed since October 31, but it still fails the routine-admission gate. Gemini's earlier launch-run evidence is unchanged, and it still fails when records are reversed.** Passing the configured recall gate permits some false admits; it does not mean every decision is correct.
 
-This page shows each hosted backend's latest measured results. Gemini was evaluated on November 11; all other hosted backends below were last evaluated on October 31. They have not all been re-run today. The [run history](#run-history) preserves earlier results, detailed failure analysis and raw reports. Kev's last evaluation was October 1 and remains in that history, rather than the current hosted comparison.
+All nine hosted backends below were re-evaluated on November 11 from the same cloud executor through its HTTPS proxy. Cases, question wording, criteria and thresholds are unchanged. The run contains **5,355 scored calls**: seven passes of the same 85 cases per backend. One backend was active at a time, with backends interleaved within each pass. Kev has no server configured in this environment; its October 1 results remain in the [run history](#run-history). The Microsoft compatibility alias is the same model and was not run twice.
 
 ### Decision quality
 
-Gates: recall ≥ 0.95, routine admit ≥ 0.85, p95 ≤ 2500 ms, and no failed calls. Each backend has seven 85-case passes: three original-order and two reversed-order passes at six requests in flight, then two original-order passes one request at a time (595 calls).
+Gates: recall ≥ 0.95, routine admit ≥ 0.85, p95 ≤ 2500 ms, and no failed calls. Per backend: three original-order and two reversed-order passes at six requests in flight, then two original-order passes one request at a time (595 calls).
 
-Recall is the fraction of review-required writes sent to review (56 per pass). Routine admit is the fraction of harmless writes admitted (29 per pass). Quality columns use the first failure-free concurrent pass per order: pass 1, except for both Perplexity models' reversed order, which uses pass 2. Gate totals include every pass and failure; failed calls go to review.
+Recall is the fraction of review-required writes sent to review (56 per pass). Routine admit is the fraction of harmless writes admitted (29 per pass). Quality columns use the first failure-free concurrent pass per order: pass 1 for every model except Pplx Decider Flash reversed, which uses pass 2. The order-change count compares those two selected passes. Gate totals include every pass and failure; failed calls go to review. No failed call was retried or removed.
 
-| model (last evaluated) | recall (original / reversed) | routine admit (original / reversed) | decisions changed by order | passes meeting every gate |
+| model | recall (original / reversed) | routine admit (original / reversed) | decisions changed by order | passes meeting every gate |
 | --- | --- | --- | --- | --- |
-| Jev 1.14.0 (Oct 31) | 0.982 / 0.982 | 1.000 / 1.000 | 0 | 6 of 7 |
-| Clef (Oct 31) | 0.964 / 1.000 | 1.000 / 0.931 | 4 | 7 of 7 |
-| Clef-flash (Oct 31) | 0.964 / 1.000 | 0.724 / 0.586 | 6 | 0 of 7 |
-| Clef-omni (Oct 31) | 0.946 / 0.946 | 0.621 / 0.655 | 1 | 0 of 7 |
-| Decision-1 (OpenRouter) (Oct 31) | 1.000 / 0.982 | 1.000 / 0.966 | 2 | 5 of 7 |
-| Pplx Decider v1.2 (OpenRouter) (Oct 31) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 5 of 7 |
-| Pplx Decider Flash v1.2 (OpenRouter) (Oct 31) | 1.000 / 1.000 | 0.897 / 0.897 | 0 | 5 of 7 |
-| GPT-6 Luna (OpenAI Decisions) (Oct 31) | 1.000 / 0.946 | 0.828 / 0.828 | 9 | 0 of 7 |
-| Gemini Decision 1 (OpenRouter, Nov 11) | 1.000 / 0.982 | 0.897 / 0.828 | 3 | 5 of 7 |
+| Jev 1.14.0 | 0.982 / 0.982 | 1.000 / 1.000 | 0 | 7 of 7 |
+| Clef | 0.964 / 1.000 | 1.000 / 0.931 | 4 | 7 of 7 |
+| Clef-flash | 0.964 / 0.982 | 0.655 / 0.621 | 6 | 0 of 7 |
+| Clef-omni | 0.946 / 0.946 | 0.621 / 0.655 | 1 | 0 of 7 |
+| Microsoft Decision 1 (OpenRouter) | 1.000 / 0.982 | 1.000 / 0.966 | 2 | 7 of 7 |
+| Pplx Decider v1.2 (OpenRouter) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 5 of 7 |
+| Pplx Decider Flash v1.2 (OpenRouter) | 1.000 / 1.000 | 0.897 / 0.897 | 0 | 4 of 7 |
+| GPT-6 Luna (OpenAI Decisions) | 1.000 / 0.946 | 0.828 / 0.828 | 9 | 0 of 7 |
+| Gemini Decision 1 (OpenRouter) | 1.000 / 0.982 | 0.897 / 0.828 | 3 | 5 of 7 |
 
-Gemini catches 56/56 review-required writes and admits 26/29 routine writes in the original order. Reversing the accepted records drops those counts to 55/56 and 24/29. Three decisions change: one combined restatement is admitted, and two harmless typo fixes go to review. All three classifier-steering cases go to review in every Gemini pass. Evidence and decisions repeat exactly within each order in these runs, which does not establish a determinism guarantee.
+Jev's recall varies between 55/56 and 56/56 across otherwise identical passes in both orders; every routine write is admitted in every pass. Its `t0/redundant-rephrase-brand-voice` case crosses the 0.2 review threshold between repeats. Microsoft Decision 1 remains perfect in the selected original-order pass but admits a combined restatement when records are reversed. Pplx Decider remains perfect in its clean quality passes, while failed calls prevent it from passing every run.
+
+### What changed since the previous run
+
+The baseline is October 31 for eight backends and the earlier November 11 Gemini launch run. Each comparison uses the first failure-free concurrent pass for the same backend and record order on each date; all 85 cases are paired successfully in each comparison. Evidence means the stored maxima for contradiction and restatement, not the full per-question distributions. Changes smaller than or equal to 0.000001 are excluded from the evidence-change counts to avoid emphasizing floating-point noise.
+
+| model | cases with evidence change > 0.000001 (original / reversed) | decisions changed vs baseline (original / reversed) | largest evidence shift |
+| --- | --- | --- | --- |
+| Jev 1.14.0 | 37 / 39 | 0 / 0 | 0.2900 |
+| Clef | 0 / 0 | 0 / 0 | 0.0000 |
+| Clef-flash | 85 / 85 | 2 / 4 | 0.2475 |
+| Clef-omni | 0 / 0 | 0 / 0 | 0.0000 |
+| Microsoft Decision 1 (OpenRouter) | 76 / 74 | 0 / 0 | 0.1159 |
+| Pplx Decider v1.2 (OpenRouter) | 76 / 82 | 0 / 0 | 0.0766 |
+| Pplx Decider Flash v1.2 (OpenRouter) | 76 / 84 | 0 / 0 | 0.1185 |
+| GPT-6 Luna (OpenAI Decisions) | 0 / 0 | 0 / 0 | 0.0000 |
+| Gemini Decision 1 (OpenRouter) | 0 / 0 | 0 / 0 | 0.0000 |
+
+**Clef-flash shows a reproducible behavior change under the same model name.** Its evidence changes on all 85 cases in both orders, and new repeated passes return identical evidence. Original-order routine admission falls from 21/29 to 19/29: `saas-support-kb/hard-compatible-sibling` and `crm-account-notes/self-adds-information` now go to needless review. Reversed-order recall falls from 56/56 to 55/56, while routine admission rises from 17/29 to 18/29. It now misses `saas-support-kb/hard-contradicts-buried` reversed. These observations establish changed endpoint behavior, not the cause or an announced weight update.
+
+**Perplexity Flash changes probabilities and token accounting without changing selected quality decisions.** Its input tokens for the failure-free original-order pass fall from 297,762 to 150,139 for the same request bodies. Its new repeated successful answers have identical stored evidence. Perplexity Decider and Microsoft Decision 1 also change probabilities without changing decisions in the selected baseline comparisons; both vary across identical repeats today. Jev varies in both the previous and current runs, so a difference between two selected passes cannot establish a model update.
+
+**Clef, Clef-omni, GPT-6 Luna and Gemini return identical stored evidence to their baselines in both record orders.** This applies to these text-only cases and recorded evidence; it does not prove the endpoints or model weights were unchanged.
 
 ### Served latency and reliability
 
-Ranges cover each backend's latest seven passes, including failures. These are caller-observed round trips through a cloud executor's HTTPS proxy; region was not recorded. Dates differ, so this is not a controlled same-day speed comparison.
+Ranges cover all seven passes, including failures. These are caller-observed round trips, not isolated model inference time. All current rows come from this same-day session; provider routing, queueing and network paths still differ. The executor region was not recorded.
 
-| model (last evaluated) | one request at a time: p50 / p95 (ms) | six in flight: p50 / p95 (ms) | calls over 2.5 s / 595 | failed calls / 595 |
+| model | one request at a time: p50 / p95 (ms) | six in flight: p50 / p95 (ms) | calls over 2.5 s / 595 | failed calls / 595 |
 | --- | --- | --- | --- | --- |
-| Jev 1.14.0 (Oct 31) | 136–142 / 391–447 | 120–177 / 242–580 | 0 | 1 |
-| Clef (Oct 31) | 404–439 / 859–915 | 395–435 / 615–781 | 0 | 0 |
-| Clef-flash (Oct 31) | 474–487 / 636–1080 | 485–501 / 619–740 | 1 | 2 |
-| Clef-omni (Oct 31) | 159–166 / 182–353 | 170–198 / 250–457 | 0 | 0 |
-| Decision-1 (OpenRouter) (Oct 31) | 372–443 / 831–2760 | 356–417 / 489–601 | 7 | 6 |
-| Pplx Decider v1.2 (OpenRouter) (Oct 31) | 342–580 / 852–1703 | 343–604 / 453–8903 | 19 | 13 |
-| Pplx Decider Flash v1.2 (OpenRouter) (Oct 31) | 297–332 / 371–849 | 307–410 / 374–2184 | 4 | 5 |
-| GPT-6 Luna (OpenAI Decisions) (Oct 31) | 221–229 / 404–757 | 216–629 / 381–3975 | 6 | 6 |
-| Gemini Decision 1 (OpenRouter, Nov 11) | 303–307 / 411–463 | 286–335 / 388–520 | 0 | 0 |
+| Jev 1.14.0 | 97–100 / 126–144 | 101–110 / 142–225 | 0 | 0 |
+| Clef | 342–383 / 586–879 | 363–403 / 537–671 | 0 | 0 |
+| Clef-flash | 170–197 / 334–536 | 211–255 / 391–645 | 0 | 0 |
+| Clef-omni | 139–151 / 182–196 | 169–179 / 257–1414 | 3 | 0 |
+| Microsoft Decision 1 (OpenRouter) | 307–319 / 397–497 | 301–313 / 387–569 | 0 | 0 |
+| Pplx Decider v1.2 (OpenRouter) | 271–282 / 492–698 | 277–302 / 479–700 | 0 | 5 |
+| Pplx Decider Flash v1.2 (OpenRouter) | 169–177 / 209–218 | 173–185 / 208–239 | 0 | 5 |
+| GPT-6 Luna (OpenAI Decisions) | 202–216 / 446–518 | 208–227 / 414–1294 | 0 | 0 |
+| Gemini Decision 1 (OpenRouter) | 289–329 / 385–450 | 295–329 / 367–499 | 1 | 0 |
 
-The October 31 runs had 33 authentication failures across providers, with the cause unresolved; those failures remain in the figures. Gemini had zero failed calls and no calls over 2.5 seconds across its 595 scored calls on November 11.
+There are **10 failed calls** and **4 calls over 2.5 seconds** across all 5,355 calls. Pplx Decider v1.2 (OpenRouter): 5 failures; Pplx Decider Flash v1.2 (OpenRouter): 5 failures. Failures are HTTP 429 rate-limit responses, unlike the HTTP 401 authentication failures in the October 31 run. These counts measure access under this protocol and account configuration; they do not establish a model-quality defect. All failures remain in the scored reports.
 
-### Gemini cost and evidence
+### Reported model identities and cost
 
-Gemini reports 153,832 input tokens per pass. A [separate API probe](results/gemini-decision-1-2026-11-11-model.json) resolved the model to `google/gemini-decision-1-20261111` at Google AI Studio, with zero output tokens and a billed rate equivalent to $0.10 per million input tokens. At that rate, the seven scored passes cost approximately **$0.1077** ($0.0154 per pass). This is an estimate from token counts, excluding exploratory and probe calls, not an invoice.
+The returned names include `jev-1.14.0`, `clef`, `clef-flash`, `clef-omni`, `gpt-6-luna`, `microsoft/microsoft-decision-1-20261009`, `perplexity/pplx-decider-v1.2-20261016`, `perplexity/pplx-decider-flash-v1.2-20261016`, and `google/gemini-decision-1-20261111`. Names alone do not establish that weights or serving behavior are unchanged. Most older baselines did not retain returned identities, limiting version comparisons. Gemini’s resolved ID matches its earlier saved probe.
 
-Raw per-case results: [original order](results/gemini-decision-1-2026-11-11-hosted/2026-11-11T21-32-12-given.json), [reversed order](results/gemini-decision-1-2026-11-11-reversed/2026-11-11T21-32-27-reversed.json), [sequential](results/gemini-decision-1-2026-11-11-sequential/2026-11-11T21-32-37-given.json).
+| backend with reported cost | calls reporting cost / 595 | sum of reported cost (USD) |
+| --- | --- | --- |
+| Microsoft Decision 1 (OpenRouter) | 595 | $0.039881 |
+| Pplx Decider v1.2 (OpenRouter) | 590 | $0.020839 |
+| Pplx Decider Flash v1.2 (OpenRouter) | 590 | $0.010427 |
+| Gemini Decision 1 (OpenRouter) | 595 | $0.107682 |
+
+These are sums of cost returned on successful OpenRouter calls, not an invoice or a total cost for the full run. Other backends and failed calls do not return a cost field. Gemini reports 153,832 input tokens per complete pass and a total of $0.1076824 across seven passes.
+
+Raw per-case results: [original order](results/rerun-2026-11-11-hosted/2026-11-11T22-59-05-given.json), [reversed order](results/rerun-2026-11-11-reversed/2026-11-11T23-01-15-reversed.json), [sequential](results/rerun-2026-11-11-sequential/2026-11-11T23-02-23-given.json). [Derived comparison and drift details](results/rerun-2026-11-11-comparison.json).
 
 ## Limits of this evaluation
 
@@ -130,7 +161,24 @@ The historical three-pass Jev, Clef and Clef-flash run cost under $0.25 at the r
 
 The dated sections below describe their own runs. Their rankings, prices, endpoint behavior and launch claims are historical observations; use the current-status tables above for the latest measured comparison.
 
-### Gemini Decision 1, 2026-11-11
+### Full hosted re-run, 2026-11-11
+
+Re-ran nine unique hosted backends with the unchanged 85-case admission protocol: three original-order and two reversed-order passes at six in flight, followed by two original-order passes one request at a time. There are 595 scored calls per backend, 5,355 in total. Commands were run sequentially, with one backend active at a time. The cloud executor's region was not recorded. Kev was unavailable because no server was configured; `jev-preview` is an optional backend outside the nine-model published comparison and was not included.
+
+Raw per-case results: [original order](results/rerun-2026-11-11-hosted/2026-11-11T22-59-05-given.json), [reversed order](results/rerun-2026-11-11-reversed/2026-11-11T23-01-15-reversed.json), [sequential](results/rerun-2026-11-11-sequential/2026-11-11T23-02-23-given.json). [Derived comparison and drift details](results/rerun-2026-11-11-comparison.json).
+
+Compared with October 31, Clef-flash's evidence changes on every case in both orders. Perplexity Flash also changes probabilities and reported token counts. Clef, Clef-omni and GPT-6 Luna match their previous stored evidence, and Gemini matches its earlier launch run. Jev, Microsoft Decision 1 and Perplexity Decider vary across identical calls, limiting what a two-snapshot difference establishes. Full quality, latency, drift and reliability figures are in the current-status section above; the raw reports preserve every failed call.
+
+Reproduce with all provider credentials configured, running each command sequentially:
+
+```sh
+EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,decision-1,pplx-decider,pplx-decider-flash,openai-decisions,gemini-decision-1
+NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 3
+NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --order reversed
+NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --concurrency 1
+```
+
+### Gemini Decision 1 launch run, 2026-11-11
 
 **Gemini meets the existing gates in the original order and fails the routine-admission gate when records are reversed.** We evaluated `google/gemini-decision-1` through OpenRouter's Decisions API with the same 85 cases, question criteria and thresholds, without model-specific tuning. There are three original-order and two reversed-order passes at six requests in flight, followed by two original-order passes one request at a time: 595 scored calls. The resolved model in a separate API probe was `google/gemini-decision-1-20261111`, served by Google AI Studio.
 
