@@ -6,13 +6,13 @@ A reproducible comparison of decision models on one production task: deciding wh
 
 **Perplexity Decider v1.3 is the strongest hosted result in the latest comparison: all 85 decisions correct in both record orders, every pass correct, and all seven passes meeting every gate. Flash v1.3 catches every review-required write and improves routine admission over v1.2, with one order-sensitive decision. Both new endpoints report zero cost and zero failed calls.** Jev, Clef, and Microsoft Decision 1 also meet every gate in their November 11 runs, although each admits some writes that require review.
 
-The two v1.3 models were evaluated on November 13 with **1,190 scored calls**. The other nine rows retain their November 11 measurements (5,355 calls); those models were not re-run on November 13. Cases, prompts, criteria and thresholds are unchanged. One backend was active at a time, with backends interleaved within each pass. Calls used the cloud executor's HTTPS proxy; its region was not recorded. Kev has no configured server here, and its October 1 results remain in the [run history](#run-history).
+The two v1.3 models were evaluated on November 13 with **1,190 scored calls**. The other seven current rows retain their November 11 measurements; those models were not re-run on November 13. The full November 11 run, including retired v1.2 results, remains in the history and raw reports. Cases, prompts, criteria and thresholds are unchanged. One backend was active at a time, with backends interleaved within each pass. Calls used the cloud executor's HTTPS proxy; its region was not recorded. Kev has no configured server here, and its October 1 results remain in the [run history](#run-history).
 
 ### Decision quality
 
 Gates: recall ≥ 0.95, routine admit ≥ 0.85, p95 ≤ 2500 ms, and no failed calls. Per backend: three original-order and two reversed-order passes at six requests in flight, then two original-order passes one request at a time (595 calls).
 
-Recall is the fraction of review-required writes sent to review (56 per pass). Routine admit is the fraction of harmless writes admitted (29 per pass). Quality columns use the first failure-free concurrent pass per order: pass 1 except for Flash v1.2 reversed, which uses pass 2. The order-change count compares those selected passes. Gate totals include every pass and failure; failed calls go to review. No failed call was retried or removed. Passing the recall gate does not imply every decision was correct.
+Recall is the fraction of review-required writes sent to review (56 per pass). Routine admit is the fraction of harmless writes admitted (29 per pass). Quality columns use the first failure-free concurrent pass per order: pass 1 for every current row. The order-change count compares those selected passes. Gate totals include every pass and failure; failed calls go to review. No failed call was retried or removed. Passing the recall gate does not imply every decision was correct.
 
 | model (last evaluated) | recall (original / reversed) | routine admit (original / reversed) | decisions changed by order | passes meeting every gate |
 | --- | --- | --- | --- | --- |
@@ -23,18 +23,12 @@ Recall is the fraction of review-required writes sent to review (56 per pass). R
 | Clef-flash (Nov 11) | 0.964 / 0.982 | 0.655 / 0.621 | 6 | 0 of 7 |
 | Clef-omni (Nov 11) | 0.946 / 0.946 | 0.621 / 0.655 | 1 | 0 of 7 |
 | Microsoft Decision 1 (OpenRouter) (Nov 11) | 1.000 / 0.982 | 1.000 / 0.966 | 2 | 7 of 7 |
-| Pplx Decider v1.2 (OpenRouter) (Nov 11) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 5 of 7 |
-| Pplx Decider Flash v1.2 (OpenRouter) (Nov 11) | 1.000 / 1.000 | 0.897 / 0.897 | 0 | 4 of 7 |
 | GPT-6 Luna (OpenAI Decisions) (Nov 11) | 1.000 / 0.946 | 0.828 / 0.828 | 9 | 0 of 7 |
 | Gemini Decision 1 (OpenRouter) (Nov 11) | 1.000 / 0.982 | 0.897 / 0.828 | 3 | 5 of 7 |
 
-### Perplexity v1.3 compared with v1.2
+### Perplexity performance
 
-Decider v1.3 gets every decision right in all seven passes (595/595), including all three classifier-steering cases in every pass. Its decisions are unchanged by reversing the accepted records, although its evidence moves by up to 0.3326. Same-order evidence varies by at most 0.00000264 across the concurrent and sequential runs. Decider v1.2 also got every decision right in its November 11 clean quality passes, but had five HTTP 429 failures; v1.3 had none in this run.
-
-Flash v1.3 admits 28/29 routine writes in the original order and 27/29 reversed, versus Flash v1.2's 26/29 in both orders on November 11. It catches all 56 review-required writes in every pass. `crm-account-notes/self-corrects-errors` still goes to needless review in both orders; reversing also sends `saas-support-kb/hard-compatible-sibling` to review. That sibling case's contradiction evidence moves from 0.0995 to 0.7652, giving the largest evidence shift of 0.6657 and one changed decision. Same-order evidence varies by up to 0.01145 across repeats without changing a decision. All classifier-steering cases go to review.
-
-This is an across-date comparison with the saved v1.2 results. The [release announcement](https://www.perplexity.ai/hub/blog/perplexity-decider) describes isolated-question attention and stability tests that reorder or rename answer labels. Our test reverses accepted records in shared state, which is a different perturbation. This evaluation covers text admission decisions; it does not assess vision or the new `locate` extraction feature.
+Decider v1.3 gets all 595 decisions correct, with no order-dependent decisions. At six in flight its median is 311–322 ms and p95 is 619–1069 ms. Flash v1.3 has a 134–152 ms median and 191–323 ms p95, catches every review-required write, and admits 28/29 routine writes original and 27/29 reversed. One Flash decision changes under reversal. Both pass all seven runs with zero failures and zero reported cost. The [dated analysis below](#perplexity-decider-and-flash-v13-2026-11-13) retains the version comparison.
 
 ### Served latency and reliability
 
@@ -49,12 +43,10 @@ Ranges cover each backend's latest seven passes, including failures. These are c
 | Clef-flash (Nov 11) | 170–197 / 334–536 | 211–255 / 391–645 | 0 | 0 |
 | Clef-omni (Nov 11) | 139–151 / 182–196 | 169–179 / 257–1414 | 3 | 0 |
 | Microsoft Decision 1 (OpenRouter) (Nov 11) | 307–319 / 397–497 | 301–313 / 387–569 | 0 | 0 |
-| Pplx Decider v1.2 (OpenRouter) (Nov 11) | 271–282 / 492–698 | 277–302 / 479–700 | 0 | 5 |
-| Pplx Decider Flash v1.2 (OpenRouter) (Nov 11) | 169–177 / 209–218 | 173–185 / 208–239 | 0 | 5 |
 | GPT-6 Luna (OpenAI Decisions) (Nov 11) | 202–216 / 446–518 | 208–227 / 414–1294 | 0 | 0 |
 | Gemini Decision 1 (OpenRouter) (Nov 11) | 289–329 / 385–450 | 295–329 / 367–499 | 1 | 0 |
 
-Both v1.3 endpoints have **zero failed calls and zero calls over 2.5 seconds across 1,190 calls**. The November 11 results retain their ten HTTP 429 failures (five per v1.2 Perplexity endpoint) and four calls over 2.5 seconds. These counts describe access under the tested account and load, not just model inference. No live retry or failure was removed from the reports.
+Both v1.3 endpoints have **zero failed calls and zero calls over 2.5 seconds across 1,190 calls**. The other seven current backends had no failed calls on November 11, with four calls over 2.5 seconds. Historical v1.2 rate-limit failures remain in the dated reports. These counts describe access under the tested account and load, not just model inference. No live retry or failure was removed from the reports.
 
 ### Reported model identities and cost
 
@@ -65,8 +57,6 @@ The new rows resolve to `perplexity/pplx-decider-v1.3-20261112` and `perplexity/
 | Pplx Decider v1.3 (Nov 13) | 595 | $0.000000 |
 | Pplx Decider Flash v1.3 (Nov 13) | 595 | $0.000000 |
 | Microsoft Decision 1 (OpenRouter) | 595 | $0.039881 |
-| Pplx Decider v1.2 (OpenRouter) | 590 | $0.020839 |
-| Pplx Decider Flash v1.2 (OpenRouter) | 590 | $0.010427 |
 | Gemini Decision 1 (OpenRouter) | 595 | $0.107682 |
 
 The other cost rows retain November 11 values. These are sums returned on successful OpenRouter calls, not an invoice or a total for all providers. Other backends and failed calls do not return a cost field.
@@ -135,7 +125,7 @@ node run.mjs --backends gemini-decision-1,decision-1,pplx-decider,pplx-decider-f
 node run.mjs --backends gemini-decision-1,decision-1,pplx-decider,pplx-decider-flash --passes 2 --concurrency 1
 ```
 
-These backends call `POST /api/alpha/decisions` with the existing System One request and response format. `gemini-decision-1` selects `google/gemini-decision-1`; `decision-1` and its compatibility alias `microsoft-decision-1` select `microsoft/microsoft-decision-1`; `pplx-decider` and `pplx-decider-flash` select Perplexity's `v1.2` models. The `jev` backend now selects `jev-1.14.0`. All OpenRouter backends validate each choice distribution; missing, refused or malformed answers fail closed to review. Result rows retain the returned model, provider and cost when available, and new reports record concurrency. Historical results retain their original model versions. In a Node 24 environment that requires an HTTP proxy, prefix these commands with `NODE_USE_ENV_PROXY=1`.
+These backends call `POST /api/alpha/decisions` with the existing System One request and response format. `gemini-decision-1` selects `google/gemini-decision-1`; `decision-1` and its compatibility alias `microsoft-decision-1` select `microsoft/microsoft-decision-1`; `pplx-decider` and `pplx-decider-flash` select Perplexity's free `v1.3` models. The `jev` backend now selects `jev-1.14.0`. All OpenRouter backends validate each choice distribution; missing, refused or malformed answers fail closed to review. Result rows retain the returned model, provider and cost when available, and new reports record concurrency. Historical results retain their original model versions. In a Node 24 environment that requires an HTTP proxy, prefix these commands with `NODE_USE_ENV_PROXY=1`.
 
 For the free v1.3 endpoints, configure `OPENROUTER_API_KEY` and run:
 
@@ -145,7 +135,7 @@ NODE_USE_ENV_PROXY=1 node run.mjs --backends pplx-decider-v1.3,pplx-decider-flas
 NODE_USE_ENV_PROXY=1 node run.mjs --backends pplx-decider-v1.3,pplx-decider-flash-v1.3 --passes 2 --concurrency 1
 ```
 
-`pplx-decider-v1.3` selects `perplexity/pplx-decider-v1.3:free`; `pplx-decider-flash-v1.3` selects `perplexity/pplx-decider-flash-v1.3:free`. The existing `pplx-decider` and `pplx-decider-flash` names stay pinned to v1.2 for reproducibility. All four use the same state, questions and answer validation.
+`pplx-decider-v1.3` selects `perplexity/pplx-decider-v1.3:free`; `pplx-decider-flash-v1.3` selects `perplexity/pplx-decider-flash-v1.3:free`. The standard `pplx-decider` and `pplx-decider-flash` names select the same v1.3 endpoints. Use `pplx-decider-v1.2` and `pplx-decider-flash-v1.2` to reproduce historical v1.2 requests. All aliases use the same state, questions and answer validation.
 
 For Kev, start a server pinned to the release, locally (`python -m kev.serve --run jaredpalmer/kev-27b@v1.0`, see [Run It Locally](https://github.com/jaredpalmer/kev#run-it-locally)) or [on Modal](https://github.com/jaredpalmer/kev#deploy-your-own-endpoint) (`KEV_MODEL=jaredpalmer/kev-27b@v1.0`), and point the script at it. A Kev server serves one model, so the backend name is a label for whichever one is running.
 
@@ -188,6 +178,14 @@ NODE_USE_ENV_PROXY=1 node run.mjs --backends pplx-decider-v1.3,pplx-decider-flas
 NODE_USE_ENV_PROXY=1 node run.mjs --backends pplx-decider-v1.3,pplx-decider-flash-v1.3 --passes 2 --concurrency 1
 ```
 
+#### Changes from v1.2
+
+Decider v1.3 gets every decision right in all seven passes (595/595), including all three classifier-steering cases in every pass. Its decisions are unchanged by reversing the accepted records, although its evidence moves by up to 0.3326. Same-order evidence varies by at most 0.00000264 across the concurrent and sequential runs. Decider v1.2 also got every decision right in its November 11 clean quality passes, but had five HTTP 429 failures; v1.3 had none in this run.
+
+Flash v1.3 admits 28/29 routine writes in the original order and 27/29 reversed, versus Flash v1.2's 26/29 in both orders on November 11. It catches all 56 review-required writes in every pass. `crm-account-notes/self-corrects-errors` still goes to needless review in both orders; reversing also sends `saas-support-kb/hard-compatible-sibling` to review. That sibling case's contradiction evidence moves from 0.0995 to 0.7652, giving the largest evidence shift of 0.6657 and one changed decision. Same-order evidence varies by up to 0.01145 across repeats without changing a decision. All classifier-steering cases go to review.
+
+This is an across-date comparison with the saved v1.2 results. The [release announcement](https://www.perplexity.ai/hub/blog/perplexity-decider) describes isolated-question attention and stability tests that reorder or rename answer labels. Our test reverses accepted records in shared state, which is a different perturbation. This evaluation covers text admission decisions; it does not assess vision or the new `locate` extraction feature.
+
 ### Full hosted re-run, 2026-11-11
 
 Re-ran nine unique hosted backends with the unchanged 85-case admission protocol: three original-order and two reversed-order passes at six in flight, followed by two original-order passes one request at a time. There are 595 scored calls per backend, 5,355 in total. Commands were run sequentially, with one backend active at a time. The cloud executor's region was not recorded. Kev was unavailable because no server was configured; `jev-preview` is an optional backend outside the nine-model published comparison and was not included.
@@ -199,7 +197,7 @@ Compared with October 31, Clef-flash's evidence changes on every case in both or
 Reproduce with all provider credentials configured, running each command sequentially:
 
 ```sh
-EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,decision-1,pplx-decider,pplx-decider-flash,openai-decisions,gemini-decision-1
+EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,decision-1,pplx-decider-v1.2,pplx-decider-flash-v1.2,openai-decisions,gemini-decision-1
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 3
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --order reversed
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --concurrency 1
@@ -302,7 +300,7 @@ Raw per-case results: [original order](results/rerun-2026-10-31-hosted-given.jso
 Reproduce the settings with the configured provider credentials:
 
 ```sh
-EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,decision-1,pplx-decider,pplx-decider-flash,openai-decisions
+EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,decision-1,pplx-decider-v1.2,pplx-decider-flash-v1.2,openai-decisions
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 3
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --order reversed
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --concurrency 1
