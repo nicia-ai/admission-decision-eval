@@ -221,6 +221,8 @@ export const BACKENDS = {
   "gemini-decision-1": openRouter("google/gemini-decision-1"),
   "pplx-decider": openRouter("perplexity/pplx-decider-v1.2"),
   "pplx-decider-flash": openRouter("perplexity/pplx-decider-flash-v1.2"),
+  "pplx-decider-v1.3": openRouter("perplexity/pplx-decider-v1.3:free"),
+  "pplx-decider-flash-v1.3": openRouter("perplexity/pplx-decider-flash-v1.3:free"),
   "kev-4b": kev(),
   "kev-9b": kev(),
   "kev-27b": kev(),

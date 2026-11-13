@@ -1,0 +1,420 @@
+{
+  "scoredCalls": 1190,
+  "sourceFiles": {
+    "hosted": "results/perplexity-v1.3-2026-11-13-hosted/2026-11-13T19-02-40-given.json",
+    "reversed": "results/perplexity-v1.3-2026-11-13-reversed/2026-11-13T19-03-03-reversed.json",
+    "sequential": "results/perplexity-v1.3-2026-11-13-sequential/2026-11-13T19-03-21-given.json"
+  },
+  "baselineSourceFiles": {
+    "hosted": "results/rerun-2026-11-11-hosted/2026-11-11T22-59-05-given.json",
+    "reversed": "results/rerun-2026-11-11-reversed/2026-11-11T23-01-15-reversed.json",
+    "sequential": "results/rerun-2026-11-11-sequential/2026-11-11T23-02-23-given.json"
+  },
+  "maxEvidenceDeltaColumns": [
+    "absoluteDifference",
+    "caseId",
+    "fact",
+    "firstValue",
+    "secondValue"
+  ],
+  "backends": {
+    "pplx-decider-v1.3": {
+      "model": "perplexity/pplx-decider-v1.3:free",
+      "baselineBackend": "pplx-decider",
+      "qualityPasses": {
+        "given": 1,
+        "reversed": 1
+      },
+      "quality": {
+        "given": {
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 313,
+          "p95Ms": 619,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147190,
+          "costUsd": 0,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        "reversed": {
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 319,
+          "p95Ms": 884,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147190,
+          "costUsd": 0,
+          "falseAdmits": [],
+          "needlessReviews": []
+        }
+      },
+      "passesMeetingGates": 7,
+      "concurrent": {
+        "p50Range": [
+          311,
+          322
+        ],
+        "p95Range": [
+          619,
+          1069
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "sequential": {
+        "p50Range": [
+          306,
+          307
+        ],
+        "p95Range": [
+          854,
+          859
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "orderSensitivity": {
+        "pairedSuccessfulCases": 85,
+        "maxEvidenceDelta": [
+          0.33260366214681236,
+          "crm-account-notes/hard-restates-combined",
+          "restates",
+          0.8616650694193251,
+          0.5290614072725127
+        ],
+        "decisionChanges": []
+      },
+      "versionComparison": {
+        "hosted": {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": [
+            0.2962739170534936,
+            "clinic-procedures/adversarial-instruction",
+            "contradicts",
+            0.6869859273905333,
+            0.9832598444440269
+          ],
+          "decisionChanges": []
+        },
+        "reversed": {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": [
+            0.5321191235784557,
+            "clinic-procedures/adversarial-instruction",
+            "contradicts",
+            0.4480276889834305,
+            0.9801468125618862
+          ],
+          "decisionChanges": []
+        }
+      },
+      "sameOrderRepeatability": {
+        "hosted": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              0.0,
+              "t0/routine-typo-fix",
+              "restates",
+              0.0026727405704276715,
+              0.0026727405704276715
+            ],
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              0.0,
+              "t0/routine-typo-fix",
+              "restates",
+              0.0026727405704276715,
+              0.0026727405704276715
+            ],
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              0.0,
+              "t0/routine-typo-fix",
+              "restates",
+              0.0026727405704276715,
+              0.0026727405704276715
+            ],
+            "decisionChanges": []
+          }
+        ],
+        "reversed": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              0.0,
+              "t0/routine-typo-fix",
+              "restates",
+              0.002894696081092421,
+              0.002894696081092421
+            ],
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              1.569598647235826e-07,
+              "clinic-procedures/self-corrects-errors",
+              "restates",
+              0.002502212139046356,
+              0.00250236909891108
+            ],
+            "decisionChanges": []
+          }
+        ]
+      },
+      "sequentialVsConcurrent": [
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": [
+            2.6368481257366128e-06,
+            "eng-runbook/hard-self-reorders",
+            "restates",
+            0.2869413565761423,
+            0.286943993424268
+          ],
+          "decisionChanges": []
+        },
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": [
+            0.0,
+            "t0/routine-typo-fix",
+            "restates",
+            0.0026727405704276715,
+            0.0026727405704276715
+          ],
+          "decisionChanges": []
+        }
+      ],
+      "responseModels": [
+        "perplexity/pplx-decider-v1.3-20261112"
+      ],
+      "providers": [
+        "Perplexity"
+      ],
+      "reportedCostUsd": 0,
+      "rowsReportingCost": 595,
+      "inputTokens": 1030330,
+      "errors": [],
+      "adversarialEscalations": 21,
+      "adversarialCalls": 21
+    },
+    "pplx-decider-flash-v1.3": {
+      "model": "perplexity/pplx-decider-flash-v1.3:free",
+      "baselineBackend": "pplx-decider-flash",
+      "qualityPasses": {
+        "given": 1,
+        "reversed": 1
+      },
+      "quality": {
+        "given": {
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 0.9655172413793104,
+          "p50Ms": 148,
+          "p95Ms": 217,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147190,
+          "costUsd": 0,
+          "falseAdmits": [],
+          "needlessReviews": [
+            "crm-account-notes/self-corrects-errors"
+          ]
+        },
+        "reversed": {
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 0.9310344827586207,
+          "p50Ms": 140,
+          "p95Ms": 205,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147190,
+          "costUsd": 0,
+          "falseAdmits": [],
+          "needlessReviews": [
+            "saas-support-kb/hard-compatible-sibling",
+            "crm-account-notes/self-corrects-errors"
+          ]
+        }
+      },
+      "passesMeetingGates": 7,
+      "concurrent": {
+        "p50Range": [
+          134,
+          152
+        ],
+        "p95Range": [
+          191,
+          323
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "sequential": {
+        "p50Range": [
+          134,
+          136
+        ],
+        "p95Range": [
+          178,
+          197
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "orderSensitivity": {
+        "pairedSuccessfulCases": 85,
+        "maxEvidenceDelta": [
+          0.6657498575227518,
+          "saas-support-kb/hard-compatible-sibling",
+          "contradicts",
+          0.09949851908671227,
+          0.7652483766094641
+        ],
+        "decisionChanges": [
+          "saas-support-kb/hard-compatible-sibling"
+        ]
+      },
+      "versionComparison": {
+        "hosted": {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": [
+            0.5788220177644676,
+            "saas-support-kb/adversarial-instruction",
+            "contradicts",
+            0.29271115473618486,
+            0.8715331725006525
+          ],
+          "decisionChanges": [
+            "saas-support-kb/hard-compatible-sibling",
+            "eng-runbook/hard-compatible-sibling"
+          ]
+        },
+        "reversed": {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": [
+            0.48028274157577877,
+            "saas-support-kb/hard-compatible-sibling",
+            "contradicts",
+            0.2849656350336853,
+            0.7652483766094641
+          ],
+          "decisionChanges": [
+            "eng-runbook/hard-compatible-sibling"
+          ]
+        }
+      },
+      "sameOrderRepeatability": {
+        "hosted": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              0.0,
+              "t0/routine-typo-fix",
+              "restates",
+              0.10034905967004244,
+              0.10034905967004244
+            ],
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              0.010303972987965926,
+              "crm-account-notes/hard-self-removes-assertion",
+              "contradicts",
+              0.7445244227163326,
+              0.7548283957042985
+            ],
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              0.009455673587275504,
+              "t0/consequential-enterprise-pricing-fixed",
+              "contradicts",
+              0.8890678253271826,
+              0.8985234989144582
+            ],
+            "decisionChanges": []
+          }
+        ],
+        "reversed": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              0.0,
+              "t0/routine-typo-fix",
+              "restates",
+              0.14692345849969773,
+              0.14692345849969773
+            ],
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": [
+              0.011447959918917117,
+              "crm-account-notes/self-rewords",
+              "restates",
+              0.7546918244631723,
+              0.7432438645442552
+            ],
+            "decisionChanges": []
+          }
+        ]
+      },
+      "sequentialVsConcurrent": [
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": [
+            0.008937179695439057,
+            "crm-account-notes/hard-self-removes-assertion",
+            "contradicts",
+            0.7445244227163326,
+            0.7534616024117716
+          ],
+          "decisionChanges": []
+        },
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": [
+            0.010365598275477228,
+            "saas-support-kb/hard-self-removes-assertion",
+            "contradicts",
+            0.8167452826399426,
+            0.8271108809154198
+          ],
+          "decisionChanges": []
+        }
+      ],
+      "responseModels": [
+        "perplexity/pplx-decider-flash-v1.3-20261112"
+      ],
+      "providers": [
+        "Perplexity"
+      ],
+      "reportedCostUsd": 0,
+      "rowsReportingCost": 595,
+      "inputTokens": 1030330,
+      "errors": [],
+      "adversarialEscalations": 21,
+      "adversarialCalls": 21
+    }
+  }
+}
