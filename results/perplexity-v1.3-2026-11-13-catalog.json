@@ -1,0 +1,92 @@
+{
+  "retrievedAt": "2026-11-13T19:02:57.219Z",
+  "url": "https://openrouter.ai/api/v1/models?output_modalities=decisions",
+  "models": [
+    {
+      "id": "perplexity/pplx-decider-flash-v1.3:free",
+      "canonical_slug": "perplexity/pplx-decider-flash-v1.3-20261112",
+      "hugging_face_id": null,
+      "name": "Perplexity: Decider Flash V1.3 (free)",
+      "created": 1794507466,
+      "description": "Decider Flash V1.3 is a decision model from Perplexity, a smaller, lower-cost sibling of [Decider V1.3](/perplexity/pplx-decider-v1.3) with the same API contract. Instead of generating text, it reads content passed as...",
+      "context_length": 262144,
+      "architecture": {
+        "modality": "text+image->decisions",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "decisions"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0",
+        "completion": "0"
+      },
+      "top_provider": {
+        "context_length": 262144,
+        "max_completion_tokens": 235929,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/perplexity/pplx-decider-flash-v1.3-20261112/endpoints"
+      },
+      "endpoints": [
+        "/api/alpha/decisions",
+        "/api/alpha/extractions"
+      ]
+    },
+    {
+      "id": "perplexity/pplx-decider-v1.3:free",
+      "canonical_slug": "perplexity/pplx-decider-v1.3-20261112",
+      "hugging_face_id": null,
+      "name": "Perplexity: Decider V1.3 (free)",
+      "created": 1794507462,
+      "description": "Decider V1.3 is a decision model from Perplexity, succeeding [Decider V1.2](/perplexity/pplx-decider-v1.2). Instead of generating text, it reads content passed as `state` (text, JSON, or images) and returns typed, probabilistic answers...",
+      "context_length": 262144,
+      "architecture": {
+        "modality": "text+image->decisions",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "decisions"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0",
+        "completion": "0"
+      },
+      "top_provider": {
+        "context_length": 262144,
+        "max_completion_tokens": 235929,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/perplexity/pplx-decider-v1.3-20261112/endpoints"
+      },
+      "endpoints": [
+        "/api/alpha/decisions",
+        "/api/alpha/extractions"
+      ]
+    }
+  ]
+}
