@@ -1,0 +1,37 @@
+{
+  "reviewedAt": "2026-11-17",
+  "documentation": {
+    "models": "https://console.nace.ai/docs/drex/reference/models",
+    "pricing": "https://console.nace.ai/docs/drex/reference/pricing",
+    "limits": "https://console.nace.ai/docs/drex/reference/limits"
+  },
+  "activeModels": [
+    {
+      "name": "drex-v2.0",
+      "releaseDate": "2026-10-06",
+      "pricePerMillionInputTokensUsd": 0.03
+    },
+    {
+      "name": "drex-max-v1.1",
+      "releaseDate": "2026-10-28",
+      "pricePerMillionInputTokensUsd": 0.03
+    },
+    {
+      "name": "drex-max-finance",
+      "releaseDate": "2026-11-01",
+      "pricePerMillionInputTokensUsd": 0.03
+    }
+  ],
+  "retiredMappings": {
+    "drex-v1.0": "drex-max-v1.1",
+    "drex-v1.1": "drex-max-v1.1",
+    "drex-v1.5": "drex-max-v1.1",
+    "drex-max": "drex-max-v1.1"
+  },
+  "countercheckReference": {
+    "commit": "feb555321d20abbeea806fb5a3108df126e471f0",
+    "evaluation": "https://github.com/nicia-ai/countercheck/blob/feb555321d20abbeea806fb5a3108df126e471f0/EVALUATION.md",
+    "adapter": "https://github.com/nicia-ai/countercheck/blob/feb555321d20abbeea806fb5a3108df126e471f0/eval/nace-provider.ts"
+  },
+  "note": "Documentation snapshot, not a key-specific availability check. No Countercheck scores or thresholds are imported into the admission evaluation."
+}

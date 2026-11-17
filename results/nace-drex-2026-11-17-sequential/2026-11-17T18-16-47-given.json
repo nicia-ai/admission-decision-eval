@@ -1,0 +1,6259 @@
+{
+  "ranAt": "2026-11-17T18:22:05.850Z",
+  "order": "given",
+  "concurrency": 1,
+  "rpm": 100,
+  "thresholds": {
+    "yesAtLeast": 0.5,
+    "noBelow": 0.2
+  },
+  "gates": {
+    "minRecall": 0.95,
+    "minRoutineAdmit": 0.85,
+    "maxP95Ms": 2500
+  },
+  "report": [
+    {
+      "backend": "drex-v2.0",
+      "model": "drex-v2.0",
+      "pass": 1,
+      "summary": {
+        "pass": true,
+        "recall": 0.9821428571428571,
+        "routineAdmit": 1,
+        "p50Ms": 297,
+        "p95Ms": 364,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 135542,
+        "falseAdmits": [
+          "eng-runbook/hard-contradicts-implied"
+        ],
+        "needlessReviews": []
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 389,
+          "evidence": {
+            "contradicts": 0.5019,
+            "restates": 0.1009
+          },
+          "inputTokens": 1532,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 260,
+          "evidence": {
+            "contradicts": 0.6082,
+            "restates": 0.0803
+          },
+          "inputTokens": 1530,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 326,
+          "evidence": {
+            "contradicts": 0.0546,
+            "restates": 0.5229
+          },
+          "inputTokens": 1540,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 349,
+          "evidence": {
+            "contradicts": 0.1054,
+            "restates": 0.5678
+          },
+          "inputTokens": 1529,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 258,
+          "evidence": {
+            "contradicts": 0.0015,
+            "restates": 0.0091
+          },
+          "inputTokens": 1532,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 359,
+          "evidence": {
+            "contradicts": 0.0007,
+            "restates": 0.0036
+          },
+          "inputTokens": 1525,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 398,
+          "evidence": {
+            "contradicts": 0.0128,
+            "restates": 0.0348
+          },
+          "inputTokens": 1472,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 344,
+          "evidence": {
+            "contradicts": 0.1042,
+            "restates": 0.7196
+          },
+          "inputTokens": 1478,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 290,
+          "evidence": {
+            "contradicts": 0.0202,
+            "restates": 0.0048
+          },
+          "inputTokens": 1482,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 307,
+          "evidence": {
+            "contradicts": 0.9881,
+            "restates": 0.0082
+          },
+          "inputTokens": 1477,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 332,
+          "evidence": {
+            "contradicts": 0.2503,
+            "restates": 0.2767
+          },
+          "inputTokens": 1545,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 292,
+          "evidence": {
+            "contradicts": 0.4319,
+            "restates": 0.0427
+          },
+          "inputTokens": 1556,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 324,
+          "evidence": {
+            "contradicts": 0.0242,
+            "restates": 0.4003
+          },
+          "inputTokens": 1530,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 275,
+          "evidence": {
+            "contradicts": 0.0275,
+            "restates": 0.0308
+          },
+          "inputTokens": 1525,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 328,
+          "evidence": {
+            "contradicts": 0.9765,
+            "restates": 0.0164
+          },
+          "inputTokens": 1462,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 277,
+          "evidence": {
+            "contradicts": 0.3475,
+            "restates": 0.0857
+          },
+          "inputTokens": 1513,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 289,
+          "evidence": {
+            "contradicts": 0.4804,
+            "restates": 0.1326
+          },
+          "inputTokens": 1507,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 277,
+          "evidence": {
+            "contradicts": 0.0387,
+            "restates": 0.547
+          },
+          "inputTokens": 1525,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 251,
+          "evidence": {
+            "contradicts": 0.0693,
+            "restates": 0.2698
+          },
+          "inputTokens": 1505,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 268,
+          "evidence": {
+            "contradicts": 0.0065,
+            "restates": 0.0283
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.0013,
+            "restates": 0.0026
+          },
+          "inputTokens": 1504,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 335,
+          "evidence": {
+            "contradicts": 0.0152,
+            "restates": 0.0464
+          },
+          "inputTokens": 1453,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 263,
+          "evidence": {
+            "contradicts": 0.244,
+            "restates": 0.5899
+          },
+          "inputTokens": 1460,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.0065,
+            "restates": 0.0179
+          },
+          "inputTokens": 1470,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 330,
+          "evidence": {
+            "contradicts": 0.9965,
+            "restates": 0.0041
+          },
+          "inputTokens": 1453,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 311,
+          "evidence": {
+            "contradicts": 0.3966,
+            "restates": 0.1127
+          },
+          "inputTokens": 1521,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 333,
+          "evidence": {
+            "contradicts": 0.859,
+            "restates": 0.129
+          },
+          "inputTokens": 1510,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 303,
+          "evidence": {
+            "contradicts": 0.0091,
+            "restates": 0.3372
+          },
+          "inputTokens": 1529,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 287,
+          "evidence": {
+            "contradicts": 0.0269,
+            "restates": 0.0182
+          },
+          "inputTokens": 1513,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 281,
+          "evidence": {
+            "contradicts": 0.9785,
+            "restates": 0.0068
+          },
+          "inputTokens": 1459,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.2419,
+            "restates": 0.0986
+          },
+          "inputTokens": 1508,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 311,
+          "evidence": {
+            "contradicts": 0.2143,
+            "restates": 0.1472
+          },
+          "inputTokens": 1499,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 275,
+          "evidence": {
+            "contradicts": 0.0425,
+            "restates": 0.3478
+          },
+          "inputTokens": 1507,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 323,
+          "evidence": {
+            "contradicts": 0.0346,
+            "restates": 0.3549
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 273,
+          "evidence": {
+            "contradicts": 0.0029,
+            "restates": 0.0187
+          },
+          "inputTokens": 1503,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 343,
+          "evidence": {
+            "contradicts": 0.0009,
+            "restates": 0.0024
+          },
+          "inputTokens": 1510,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 321,
+          "evidence": {
+            "contradicts": 0.0054,
+            "restates": 0.0154
+          },
+          "inputTokens": 1448,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 282,
+          "evidence": {
+            "contradicts": 0.1601,
+            "restates": 0.474
+          },
+          "inputTokens": 1447,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 288,
+          "evidence": {
+            "contradicts": 0.0032,
+            "restates": 0.0126
+          },
+          "inputTokens": 1462,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 316,
+          "evidence": {
+            "contradicts": 0.9968,
+            "restates": 0.0095
+          },
+          "inputTokens": 1441,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": false,
+          "latencyMs": 265,
+          "evidence": {
+            "contradicts": 0.1545,
+            "restates": 0.0685
+          },
+          "inputTokens": 1506,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 294,
+          "evidence": {
+            "contradicts": 0.021,
+            "restates": 0.5425
+          },
+          "inputTokens": 1521,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 261,
+          "evidence": {
+            "contradicts": 0.029,
+            "restates": 0.0228
+          },
+          "inputTokens": 1508,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 258,
+          "evidence": {
+            "contradicts": 0.0541,
+            "restates": 0.7453
+          },
+          "inputTokens": 1454,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 313,
+          "evidence": {
+            "contradicts": 0.3316,
+            "restates": 0.1568
+          },
+          "inputTokens": 1502,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 355,
+          "evidence": {
+            "contradicts": 0.5283,
+            "restates": 0.224
+          },
+          "inputTokens": 1498,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 296,
+          "evidence": {
+            "contradicts": 0.0162,
+            "restates": 0.3679
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 282,
+          "evidence": {
+            "contradicts": 0.0105,
+            "restates": 0.2553
+          },
+          "inputTokens": 1498,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 284,
+          "evidence": {
+            "contradicts": 0.0053,
+            "restates": 0.0746
+          },
+          "inputTokens": 1509,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 310,
+          "evidence": {
+            "contradicts": 0.002,
+            "restates": 0.0195
+          },
+          "inputTokens": 1504,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 264,
+          "evidence": {
+            "contradicts": 0.0405,
+            "restates": 0.092
+          },
+          "inputTokens": 1446,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 259,
+          "evidence": {
+            "contradicts": 0.156,
+            "restates": 0.6204
+          },
+          "inputTokens": 1446,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 431,
+          "evidence": {
+            "contradicts": 0.0048,
+            "restates": 0.0256
+          },
+          "inputTokens": 1449,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 312,
+          "evidence": {
+            "contradicts": 0.9869,
+            "restates": 0.076
+          },
+          "inputTokens": 1447,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 340,
+          "evidence": {
+            "contradicts": 0.346,
+            "restates": 0.1852
+          },
+          "inputTokens": 1515,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 302,
+          "evidence": {
+            "contradicts": 0.0061,
+            "restates": 0.291
+          },
+          "inputTokens": 1525,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 336,
+          "evidence": {
+            "contradicts": 0.019,
+            "restates": 0.054
+          },
+          "inputTokens": 1512,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 297,
+          "evidence": {
+            "contradicts": 0.9424,
+            "restates": 0.0903
+          },
+          "inputTokens": 1435,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 255,
+          "evidence": {
+            "contradicts": 0.5798,
+            "restates": 0.1392
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 268,
+          "evidence": {
+            "contradicts": 0.4389,
+            "restates": 0.1344
+          },
+          "inputTokens": 1502,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 350,
+          "evidence": {
+            "contradicts": 0.0756,
+            "restates": 0.5918
+          },
+          "inputTokens": 1516,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 257,
+          "evidence": {
+            "contradicts": 0.0318,
+            "restates": 0.5715
+          },
+          "inputTokens": 1507,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.0041,
+            "restates": 0.026
+          },
+          "inputTokens": 1507,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 322,
+          "evidence": {
+            "contradicts": 0.0016,
+            "restates": 0.0069
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 255,
+          "evidence": {
+            "contradicts": 0.008,
+            "restates": 0.0281
+          },
+          "inputTokens": 1453,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 260,
+          "evidence": {
+            "contradicts": 0.0375,
+            "restates": 0.752
+          },
+          "inputTokens": 1454,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 277,
+          "evidence": {
+            "contradicts": 0.011,
+            "restates": 0.0099
+          },
+          "inputTokens": 1456,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 266,
+          "evidence": {
+            "contradicts": 0.9962,
+            "restates": 0.0043
+          },
+          "inputTokens": 1454,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 315,
+          "evidence": {
+            "contradicts": 0.6624,
+            "restates": 0.1353
+          },
+          "inputTokens": 1514,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 294,
+          "evidence": {
+            "contradicts": 0.3411,
+            "restates": 0.1459
+          },
+          "inputTokens": 1509,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 331,
+          "evidence": {
+            "contradicts": 0.3563,
+            "restates": 0.1858
+          },
+          "inputTokens": 1518,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 316,
+          "evidence": {
+            "contradicts": 0.0069,
+            "restates": 0.0333
+          },
+          "inputTokens": 1522,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 301,
+          "evidence": {
+            "contradicts": 0.958,
+            "restates": 0.011
+          },
+          "inputTokens": 1445,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 276,
+          "evidence": {
+            "contradicts": 0.0018,
+            "restates": 0.0222
+          },
+          "inputTokens": 2234,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 435,
+          "evidence": {
+            "contradicts": 0.0204,
+            "restates": 0.071
+          },
+          "inputTokens": 2154,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 320,
+          "evidence": {
+            "contradicts": 0.0015,
+            "restates": 0.0057
+          },
+          "inputTokens": 2228,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 347,
+          "evidence": {
+            "contradicts": 0.0014,
+            "restates": 0.0044
+          },
+          "inputTokens": 2227,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 364,
+          "evidence": {
+            "contradicts": 0.0304,
+            "restates": 0.3774
+          },
+          "inputTokens": 2233,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 315,
+          "evidence": {
+            "contradicts": 0.0477,
+            "restates": 0.4562
+          },
+          "inputTokens": 2233,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 286,
+          "evidence": {
+            "contradicts": 0.1356,
+            "restates": 0.762
+          },
+          "inputTokens": 2153,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 312,
+          "evidence": {
+            "contradicts": 0.9963,
+            "restates": 0.0287
+          },
+          "inputTokens": 2160,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 296,
+          "evidence": {
+            "contradicts": 0.6619,
+            "restates": 0.1744
+          },
+          "inputTokens": 2153,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 290,
+          "evidence": {
+            "contradicts": 0.949,
+            "restates": 0.0557
+          },
+          "inputTokens": 2229,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 292,
+          "evidence": {
+            "contradicts": 0.6919,
+            "restates": 0.077
+          },
+          "inputTokens": 2232,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 281,
+          "evidence": {
+            "contradicts": 0.8737,
+            "restates": 0.0276
+          },
+          "inputTokens": 2157,
+          "responseModel": "drex-v2.0"
+        }
+      ]
+    },
+    {
+      "backend": "drex-max-v1.1",
+      "model": "drex-max-v1.1",
+      "pass": 1,
+      "summary": {
+        "pass": true,
+        "recall": 0.9821428571428571,
+        "routineAdmit": 1,
+        "p50Ms": 326,
+        "p95Ms": 526,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 147169,
+        "falseAdmits": [
+          "hr-handbook/hard-restates-combined"
+        ],
+        "needlessReviews": []
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 388,
+          "evidence": {
+            "contradicts": 0.998922285734705,
+            "restates": 0.00014165517005790623
+          },
+          "inputTokens": 1662,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 318,
+          "evidence": {
+            "contradicts": 0.9993391921552969,
+            "restates": 0.0002492006729878077
+          },
+          "inputTokens": 1659,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 401,
+          "evidence": {
+            "contradicts": 0.001756367394819786,
+            "restates": 0.985402998278146
+          },
+          "inputTokens": 1669,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 317,
+          "evidence": {
+            "contradicts": 0.01876709951291998,
+            "restates": 0.9587454635115169
+          },
+          "inputTokens": 1657,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 484,
+          "evidence": {
+            "contradicts": 0.004573778669486344,
+            "restates": 0.0024842374975713906
+          },
+          "inputTokens": 1661,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 348,
+          "evidence": {
+            "contradicts": 0.00043850481109502696,
+            "restates": 0.00029859298302208434
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 339,
+          "evidence": {
+            "contradicts": 0.0007713481207531113,
+            "restates": 0.0011309954937526756
+          },
+          "inputTokens": 1605,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 491,
+          "evidence": {
+            "contradicts": 0.002755440826700742,
+            "restates": 0.9836321434783508
+          },
+          "inputTokens": 1610,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.0011581821023913445,
+            "restates": 0.0004187680397975905
+          },
+          "inputTokens": 1614,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 278,
+          "evidence": {
+            "contradicts": 0.9997986744901886,
+            "restates": 0.00008051006464244022
+          },
+          "inputTokens": 1609,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 313,
+          "evidence": {
+            "contradicts": 0.9982051411412467,
+            "restates": 0.00016949800903914006
+          },
+          "inputTokens": 1674,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 387,
+          "evidence": {
+            "contradicts": 0.9962286437992268,
+            "restates": 0.001439102130389441
+          },
+          "inputTokens": 1685,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 269,
+          "evidence": {
+            "contradicts": 0.004480584065169912,
+            "restates": 0.9089283359827404
+          },
+          "inputTokens": 1659,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 260,
+          "evidence": {
+            "contradicts": 0.00896157449161618,
+            "restates": 0.0036280240284883537
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 326,
+          "evidence": {
+            "contradicts": 0.9998087977206088,
+            "restates": 0.0001294135511059471
+          },
+          "inputTokens": 1594,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 303,
+          "evidence": {
+            "contradicts": 0.9952103346141365,
+            "restates": 0.0004080898299995358
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 340,
+          "evidence": {
+            "contradicts": 0.996456353242846,
+            "restates": 0.0007522826994309081
+          },
+          "inputTokens": 1636,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 526,
+          "evidence": {
+            "contradicts": 0.0005616390993881173,
+            "restates": 0.9980820682322038
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 278,
+          "evidence": {
+            "contradicts": 0.001130492619803666,
+            "restates": 0.9968346605251546
+          },
+          "inputTokens": 1634,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.0009447285250487586,
+            "restates": 0.0008827821880796169
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 378,
+          "evidence": {
+            "contradicts": 0.0012392501158982679,
+            "restates": 0.0005017008140685605
+          },
+          "inputTokens": 1634,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 357,
+          "evidence": {
+            "contradicts": 0.0009888475156996316,
+            "restates": 0.001157067243523318
+          },
+          "inputTokens": 1585,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 333,
+          "evidence": {
+            "contradicts": 0.0021921992261108025,
+            "restates": 0.9810696822012408
+          },
+          "inputTokens": 1592,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 568,
+          "evidence": {
+            "contradicts": 0.0002277355709436857,
+            "restates": 0.00010800445530216831
+          },
+          "inputTokens": 1603,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 362,
+          "evidence": {
+            "contradicts": 0.9998227722612755,
+            "restates": 0.00022258313026643657
+          },
+          "inputTokens": 1585,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 310,
+          "evidence": {
+            "contradicts": 0.9471983834624419,
+            "restates": 0.004885189662199363
+          },
+          "inputTokens": 1648,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 316,
+          "evidence": {
+            "contradicts": 0.9983707872215901,
+            "restates": 0.0002725282286408645
+          },
+          "inputTokens": 1639,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": false,
+          "latencyMs": 314,
+          "evidence": {
+            "contradicts": 0.005592278585058019,
+            "restates": 0.12950009988016198
+          },
+          "inputTokens": 1658,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 267,
+          "evidence": {
+            "contradicts": 0.009385038103869627,
+            "restates": 0.0022589743450492955
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 322,
+          "evidence": {
+            "contradicts": 0.997655252692394,
+            "restates": 0.00039100813850562167
+          },
+          "inputTokens": 1591,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.916141893234343,
+            "restates": 0.004125686477656099
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 309,
+          "evidence": {
+            "contradicts": 0.9994454321060358,
+            "restates": 0.0001353710160295202
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 504,
+          "evidence": {
+            "contradicts": 0.000305243611670949,
+            "restates": 0.9987058052591015
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 302,
+          "evidence": {
+            "contradicts": 0.002522613505853891,
+            "restates": 0.985742881842921
+          },
+          "inputTokens": 1643,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 400,
+          "evidence": {
+            "contradicts": 0.0012659817850146822,
+            "restates": 0.0017373103181544498
+          },
+          "inputTokens": 1633,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 531,
+          "evidence": {
+            "contradicts": 0.0007539839313174284,
+            "restates": 0.0005371482238766812
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 460,
+          "evidence": {
+            "contradicts": 0.0010822189205034727,
+            "restates": 0.0006436839199750879
+          },
+          "inputTokens": 1581,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 380,
+          "evidence": {
+            "contradicts": 0.03231853246688843,
+            "restates": 0.9172622561454773
+          },
+          "inputTokens": 1581,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 318,
+          "evidence": {
+            "contradicts": 0.0007373462782089499,
+            "restates": 0.00026064560280893596
+          },
+          "inputTokens": 1595,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 452,
+          "evidence": {
+            "contradicts": 0.9998758994847753,
+            "restates": 0.00008235187354616175
+          },
+          "inputTokens": 1575,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 267,
+          "evidence": {
+            "contradicts": 0.9728134794302037,
+            "restates": 0.0010544794476598112
+          },
+          "inputTokens": 1636,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 278,
+          "evidence": {
+            "contradicts": 0.000319409043500518,
+            "restates": 0.9988551291870312
+          },
+          "inputTokens": 1651,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 333,
+          "evidence": {
+            "contradicts": 0.06462366755606123,
+            "restates": 0.004486266903608599
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 311,
+          "evidence": {
+            "contradicts": 0.007668425593275341,
+            "restates": 0.48014564976598045
+          },
+          "inputTokens": 1587,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 349,
+          "evidence": {
+            "contradicts": 0.9974137864616783,
+            "restates": 0.004906368699632794
+          },
+          "inputTokens": 1633,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 304,
+          "evidence": {
+            "contradicts": 0.995736342350649,
+            "restates": 0.0009213570569812952
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 274,
+          "evidence": {
+            "contradicts": 0.000655150308340768,
+            "restates": 0.9938593147563146
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 632,
+          "evidence": {
+            "contradicts": 0.0017359741765632937,
+            "restates": 0.9962872415807692
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 377,
+          "evidence": {
+            "contradicts": 0.007808727670414227,
+            "restates": 0.006818253947002812
+          },
+          "inputTokens": 1641,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 303,
+          "evidence": {
+            "contradicts": 0.002436048070186729,
+            "restates": 0.0016216770424874152
+          },
+          "inputTokens": 1635,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 281,
+          "evidence": {
+            "contradicts": 0.07297881978108588,
+            "restates": 0.009119151516821574
+          },
+          "inputTokens": 1582,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 310,
+          "evidence": {
+            "contradicts": 0.00932860228150683,
+            "restates": 0.9389841362771302
+          },
+          "inputTokens": 1580,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 317,
+          "evidence": {
+            "contradicts": 0.0019458032827830499,
+            "restates": 0.0007529205144548254
+          },
+          "inputTokens": 1583,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 277,
+          "evidence": {
+            "contradicts": 0.9994433939486495,
+            "restates": 0.00016591325391577264
+          },
+          "inputTokens": 1582,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 416,
+          "evidence": {
+            "contradicts": 0.9798544705226551,
+            "restates": 0.014258843249037912
+          },
+          "inputTokens": 1647,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 397,
+          "evidence": {
+            "contradicts": 0.00826676319217111,
+            "restates": 0.7497352664462466
+          },
+          "inputTokens": 1656,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 329,
+          "evidence": {
+            "contradicts": 0.012829305914754004,
+            "restates": 0.0026360490066346474
+          },
+          "inputTokens": 1643,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 317,
+          "evidence": {
+            "contradicts": 0.9990425778454264,
+            "restates": 0.0021245177517273
+          },
+          "inputTokens": 1569,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 353,
+          "evidence": {
+            "contradicts": 0.9997322490413192,
+            "restates": 0.0001736076733927956
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.9947620917688942,
+            "restates": 0.0006557454268033434
+          },
+          "inputTokens": 1635,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 361,
+          "evidence": {
+            "contradicts": 0.0009432591519792405,
+            "restates": 0.9966190376434071
+          },
+          "inputTokens": 1647,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 422,
+          "evidence": {
+            "contradicts": 0.0013518650053258403,
+            "restates": 0.9948238111221609
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 315,
+          "evidence": {
+            "contradicts": 0.004566041348695382,
+            "restates": 0.0041712709334524615
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 284,
+          "evidence": {
+            "contradicts": 0.0019451180288904521,
+            "restates": 0.0011053497862030554
+          },
+          "inputTokens": 1644,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 468,
+          "evidence": {
+            "contradicts": 0.0010582742650272342,
+            "restates": 0.0006886822488104093
+          },
+          "inputTokens": 1587,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 317,
+          "evidence": {
+            "contradicts": 0.005325677331547703,
+            "restates": 0.9648965583673261
+          },
+          "inputTokens": 1589,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 259,
+          "evidence": {
+            "contradicts": 0.0011324011862207878,
+            "restates": 0.00034964639945670324
+          },
+          "inputTokens": 1592,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 309,
+          "evidence": {
+            "contradicts": 0.9995441290931947,
+            "restates": 0.00022259588112609954
+          },
+          "inputTokens": 1588,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 704,
+          "evidence": {
+            "contradicts": 0.9980087138649726,
+            "restates": 0.00032678258260293195
+          },
+          "inputTokens": 1645,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 340,
+          "evidence": {
+            "contradicts": 0.9966316695916333,
+            "restates": 0.0004473496464161552
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 296,
+          "evidence": {
+            "contradicts": 0.9298022179420071,
+            "restates": 0.0026642011342506134
+          },
+          "inputTokens": 1649,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 340,
+          "evidence": {
+            "contradicts": 0.009368959591809223,
+            "restates": 0.003968377969047391
+          },
+          "inputTokens": 1653,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 304,
+          "evidence": {
+            "contradicts": 0.9994353255229664,
+            "restates": 0.00018577203327450504
+          },
+          "inputTokens": 1579,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 287,
+          "evidence": {
+            "contradicts": 0.008207101391106928,
+            "restates": 0.0019312890983223816
+          },
+          "inputTokens": 2404,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 463,
+          "evidence": {
+            "contradicts": 0.015318559953920955,
+            "restates": 0.003604752136158518
+          },
+          "inputTokens": 2325,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 350,
+          "evidence": {
+            "contradicts": 0.002919206401822402,
+            "restates": 0.0011297751097183333
+          },
+          "inputTokens": 2397,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 376,
+          "evidence": {
+            "contradicts": 0.0013256421734739658,
+            "restates": 0.0008434687882726197
+          },
+          "inputTokens": 2396,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 296,
+          "evidence": {
+            "contradicts": 0.002115882920331099,
+            "restates": 0.9907118618119256
+          },
+          "inputTokens": 2403,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.014474684022048689,
+            "restates": 0.4704984610593319
+          },
+          "inputTokens": 2401,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 277,
+          "evidence": {
+            "contradicts": 0.10969104699560289,
+            "restates": 0.801940804734385
+          },
+          "inputTokens": 2324,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 359,
+          "evidence": {
+            "contradicts": 0.9997031421710345,
+            "restates": 0.0006716619990032475
+          },
+          "inputTokens": 2331,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 333,
+          "evidence": {
+            "contradicts": 0.990469854741669,
+            "restates": 0.004489414969831451
+          },
+          "inputTokens": 2326,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 356,
+          "evidence": {
+            "contradicts": 0.9993446643233797,
+            "restates": 0.002410918411327791
+          },
+          "inputTokens": 2400,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 448,
+          "evidence": {
+            "contradicts": 0.9988636893191799,
+            "restates": 0.0019760763400499355
+          },
+          "inputTokens": 2403,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 333,
+          "evidence": {
+            "contradicts": 0.9789723734551713,
+            "restates": 0.001523578327296733
+          },
+          "inputTokens": 2328,
+          "responseModel": "drex-max-v1.1"
+        }
+      ]
+    },
+    {
+      "backend": "drex-max-finance",
+      "model": "drex-max-finance",
+      "pass": 1,
+      "summary": {
+        "pass": true,
+        "recall": 1,
+        "routineAdmit": 1,
+        "p50Ms": 337,
+        "p95Ms": 1553,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 147169,
+        "falseAdmits": [],
+        "needlessReviews": []
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 275,
+          "evidence": {
+            "contradicts": 0.9972195661874041,
+            "restates": 0.0003412629606609446
+          },
+          "inputTokens": 1662,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 287,
+          "evidence": {
+            "contradicts": 0.9983093995979908,
+            "restates": 0.0003339992340166157
+          },
+          "inputTokens": 1659,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 714,
+          "evidence": {
+            "contradicts": 0.001801949953840058,
+            "restates": 0.9883787232675753
+          },
+          "inputTokens": 1669,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 311,
+          "evidence": {
+            "contradicts": 0.0054013804711426396,
+            "restates": 0.9786118222473809
+          },
+          "inputTokens": 1657,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 854,
+          "evidence": {
+            "contradicts": 0.002034129406711707,
+            "restates": 0.00148227454683056
+          },
+          "inputTokens": 1661,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 312,
+          "evidence": {
+            "contradicts": 0.00029862870084671936,
+            "restates": 0.00029862870084671936
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 1553,
+          "evidence": {
+            "contradicts": 0.0023708314429057584,
+            "restates": 0.0047780869099577185
+          },
+          "inputTokens": 1605,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 331,
+          "evidence": {
+            "contradicts": 0.008586279895958195,
+            "restates": 0.9460594486676813
+          },
+          "inputTokens": 1610,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 294,
+          "evidence": {
+            "contradicts": 0.0006293909180734901,
+            "restates": 0.00042856535604077623
+          },
+          "inputTokens": 1614,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 649,
+          "evidence": {
+            "contradicts": 0.9986397448177146,
+            "restates": 0.0002490332073454893
+          },
+          "inputTokens": 1609,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 321,
+          "evidence": {
+            "contradicts": 0.9779301248806122,
+            "restates": 0.002041898069985289
+          },
+          "inputTokens": 1674,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 274,
+          "evidence": {
+            "contradicts": 0.9921632090885001,
+            "restates": 0.0007031594916227333
+          },
+          "inputTokens": 1685,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 403,
+          "evidence": {
+            "contradicts": 0.0033921300560890467,
+            "restates": 0.9443161911920237
+          },
+          "inputTokens": 1659,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 325,
+          "evidence": {
+            "contradicts": 0.010250896192072314,
+            "restates": 0.003542604526262309
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 509,
+          "evidence": {
+            "contradicts": 0.997050814992624,
+            "restates": 0.0009436673089189338
+          },
+          "inputTokens": 1594,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 292,
+          "evidence": {
+            "contradicts": 0.9906750555090873,
+            "restates": 0.0007312007239521712
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.9973965268820492,
+            "restates": 0.0006574820525824699
+          },
+          "inputTokens": 1636,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 1562,
+          "evidence": {
+            "contradicts": 0.0008799174715071451,
+            "restates": 0.994933364066045
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 1668,
+          "evidence": {
+            "contradicts": 0.00033393342886447607,
+            "restates": 0.9981127001111668
+          },
+          "inputTokens": 1634,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 274,
+          "evidence": {
+            "contradicts": 0.002273098887382218,
+            "restates": 0.003190700788059675
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 1416,
+          "evidence": {
+            "contradicts": 0.0008253468746407536,
+            "restates": 0.0004585350442509179
+          },
+          "inputTokens": 1634,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 1203,
+          "evidence": {
+            "contradicts": 0.002475806613051842,
+            "restates": 0.006544618519152204
+          },
+          "inputTokens": 1585,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.004748705499055177,
+            "restates": 0.96332017464821
+          },
+          "inputTokens": 1592,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 2153,
+          "evidence": {
+            "contradicts": 0.0009885318395579249,
+            "restates": 0.0004093497434241552
+          },
+          "inputTokens": 1603,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 316,
+          "evidence": {
+            "contradicts": 0.9991714422217414,
+            "restates": 0.0002176127310447467
+          },
+          "inputTokens": 1585,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 1518,
+          "evidence": {
+            "contradicts": 0.9380492574771855,
+            "restates": 0.0076036635084569286
+          },
+          "inputTokens": 1648,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 1491,
+          "evidence": {
+            "contradicts": 0.9964078275788106,
+            "restates": 0.0006718476791778592
+          },
+          "inputTokens": 1639,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 291,
+          "evidence": {
+            "contradicts": 0.005762118447596655,
+            "restates": 0.344836566886359
+          },
+          "inputTokens": 1658,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 324,
+          "evidence": {
+            "contradicts": 0.014028087774858077,
+            "restates": 0.0025167601835847497
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 340,
+          "evidence": {
+            "contradicts": 0.9974221980146083,
+            "restates": 0.0002985715457928155
+          },
+          "inputTokens": 1591,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 451,
+          "evidence": {
+            "contradicts": 0.9814329672547938,
+            "restates": 0.00101679539505377
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 339,
+          "evidence": {
+            "contradicts": 0.9983616463445428,
+            "restates": 0.00034165379448023586
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 334,
+          "evidence": {
+            "contradicts": 0.0005118360962722872,
+            "restates": 0.9956606231568286
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 1403,
+          "evidence": {
+            "contradicts": 0.002310503224710399,
+            "restates": 0.9883049514787142
+          },
+          "inputTokens": 1643,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 300,
+          "evidence": {
+            "contradicts": 0.0012657187016940441,
+            "restates": 0.0019448066969080533
+          },
+          "inputTokens": 1633,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 311,
+          "evidence": {
+            "contradicts": 0.0004692047223884882,
+            "restates": 0.00041905690631742926
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.0012319424105506306,
+            "restates": 0.005477325849876621
+          },
+          "inputTokens": 1581,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 310,
+          "evidence": {
+            "contradicts": 0.029565835454219494,
+            "restates": 0.9185521628294666
+          },
+          "inputTokens": 1581,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 332,
+          "evidence": {
+            "contradicts": 0.001082278285228803,
+            "restates": 0.0006434532687574517
+          },
+          "inputTokens": 1595,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 387,
+          "evidence": {
+            "contradicts": 0.9991856195428841,
+            "restates": 0.0005132591113260088
+          },
+          "inputTokens": 1575,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 260,
+          "evidence": {
+            "contradicts": 0.9606521707825338,
+            "restates": 0.002297204967130117
+          },
+          "inputTokens": 1636,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 1212,
+          "evidence": {
+            "contradicts": 0.003638927132069955,
+            "restates": 0.9903774239539286
+          },
+          "inputTokens": 1651,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 269,
+          "evidence": {
+            "contradicts": 0.11060263528925303,
+            "restates": 0.00426574220958988
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 1569,
+          "evidence": {
+            "contradicts": 0.00873320311001353,
+            "restates": 0.7675528661281245
+          },
+          "inputTokens": 1587,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 337,
+          "evidence": {
+            "contradicts": 0.9872019748327306,
+            "restates": 0.0039509404965799
+          },
+          "inputTokens": 1633,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 281,
+          "evidence": {
+            "contradicts": 0.9951261452254775,
+            "restates": 0.0006863250110768708
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 359,
+          "evidence": {
+            "contradicts": 0.000958471404170696,
+            "restates": 0.9900559391517808
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 365,
+          "evidence": {
+            "contradicts": 0.0008037474277840588,
+            "restates": 0.9948164108618398
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 580,
+          "evidence": {
+            "contradicts": 0.00389220599617706,
+            "restates": 0.006257066302123677
+          },
+          "inputTokens": 1641,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.0005252415961445898,
+            "restates": 0.000588088838570729
+          },
+          "inputTokens": 1635,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 348,
+          "evidence": {
+            "contradicts": 0.019054035603231528,
+            "restates": 0.007541452416499978
+          },
+          "inputTokens": 1582,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 353,
+          "evidence": {
+            "contradicts": 0.021406281021771844,
+            "restates": 0.8723066752748189
+          },
+          "inputTokens": 1580,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 295,
+          "evidence": {
+            "contradicts": 0.0012670397641732795,
+            "restates": 0.0009026564408641336
+          },
+          "inputTokens": 1583,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 339,
+          "evidence": {
+            "contradicts": 0.9974218476028981,
+            "restates": 0.000304851182227492
+          },
+          "inputTokens": 1582,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 283,
+          "evidence": {
+            "contradicts": 0.9517309014271805,
+            "restates": 0.00882439104134632
+          },
+          "inputTokens": 1647,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 324,
+          "evidence": {
+            "contradicts": 0.0064557003097231004,
+            "restates": 0.6072000200089065
+          },
+          "inputTokens": 1656,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 330,
+          "evidence": {
+            "contradicts": 0.007504408585862969,
+            "restates": 0.001726458509003213
+          },
+          "inputTokens": 1643,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 349,
+          "evidence": {
+            "contradicts": 0.992618801325111,
+            "restates": 0.002427916134720636
+          },
+          "inputTokens": 1569,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 432,
+          "evidence": {
+            "contradicts": 0.9994473364003298,
+            "restates": 0.00020796576568324788
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.9969908589624669,
+            "restates": 0.00045774271860425783
+          },
+          "inputTokens": 1635,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 348,
+          "evidence": {
+            "contradicts": 0.000672314394865516,
+            "restates": 0.9970996685716979
+          },
+          "inputTokens": 1647,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 299,
+          "evidence": {
+            "contradicts": 0.0015763080110232852,
+            "restates": 0.990213671092747
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 266,
+          "evidence": {
+            "contradicts": 0.0041819050980133445,
+            "restates": 0.0020286298336381174
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 326,
+          "evidence": {
+            "contradicts": 0.0006292554641261321,
+            "restates": 0.0006436426510845529
+          },
+          "inputTokens": 1644,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 516,
+          "evidence": {
+            "contradicts": 0.001846628809869965,
+            "restates": 0.006259555736013386
+          },
+          "inputTokens": 1587,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 939,
+          "evidence": {
+            "contradicts": 0.005547575189521339,
+            "restates": 0.9606683854761852
+          },
+          "inputTokens": 1589,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 324,
+          "evidence": {
+            "contradicts": 0.0006585007835401304,
+            "restates": 0.0002728151175839679
+          },
+          "inputTokens": 1592,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 338,
+          "evidence": {
+            "contradicts": 0.999382640561361,
+            "restates": 0.0003343063127623269
+          },
+          "inputTokens": 1588,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 701,
+          "evidence": {
+            "contradicts": 0.993954622188073,
+            "restates": 0.0005593165448315656
+          },
+          "inputTokens": 1645,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 599,
+          "evidence": {
+            "contradicts": 0.9959037367523658,
+            "restates": 0.0004370306908727688
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 404,
+          "evidence": {
+            "contradicts": 0.968657677190324,
+            "restates": 0.0015419933340137585
+          },
+          "inputTokens": 1649,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 401,
+          "evidence": {
+            "contradicts": 0.013401576746801414,
+            "restates": 0.0036117714872827733
+          },
+          "inputTokens": 1653,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 286,
+          "evidence": {
+            "contradicts": 0.9924548699684084,
+            "restates": 0.0004069599511438441
+          },
+          "inputTokens": 1579,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 291,
+          "evidence": {
+            "contradicts": 0.0023295708659985944,
+            "restates": 0.0013555203460597727
+          },
+          "inputTokens": 2404,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.0013559852828566475,
+            "restates": 0.002917260857987846
+          },
+          "inputTokens": 2325,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 336,
+          "evidence": {
+            "contradicts": 0.0010821241141399825,
+            "restates": 0.0006885297679477981
+          },
+          "inputTokens": 2397,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 398,
+          "evidence": {
+            "contradicts": 0.0008632014433212458,
+            "restates": 0.0007885708407525555
+          },
+          "inputTokens": 2396,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 447,
+          "evidence": {
+            "contradicts": 0.0016144824782346099,
+            "restates": 0.9915247002312197
+          },
+          "inputTokens": 2403,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 377,
+          "evidence": {
+            "contradicts": 0.01861620569567493,
+            "restates": 0.7250759115391731
+          },
+          "inputTokens": 2401,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 633,
+          "evidence": {
+            "contradicts": 0.09757793703951759,
+            "restates": 0.8548015420777053
+          },
+          "inputTokens": 2324,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 297,
+          "evidence": {
+            "contradicts": 0.9987060455379302,
+            "restates": 0.0034915692995298696
+          },
+          "inputTokens": 2331,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 342,
+          "evidence": {
+            "contradicts": 0.9814782214622395,
+            "restates": 0.005929882215985863
+          },
+          "inputTokens": 2326,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 451,
+          "evidence": {
+            "contradicts": 0.9982955632574013,
+            "restates": 0.0023455842368251584
+          },
+          "inputTokens": 2400,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 276,
+          "evidence": {
+            "contradicts": 0.997983862488317,
+            "restates": 0.0011300362391327673
+          },
+          "inputTokens": 2403,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 313,
+          "evidence": {
+            "contradicts": 0.9930257648979832,
+            "restates": 0.0013209532489958347
+          },
+          "inputTokens": 2328,
+          "responseModel": "drex-max-finance"
+        }
+      ]
+    },
+    {
+      "backend": "drex-v2.0",
+      "model": "drex-v2.0",
+      "pass": 2,
+      "summary": {
+        "pass": true,
+        "recall": 0.9821428571428571,
+        "routineAdmit": 1,
+        "p50Ms": 308,
+        "p95Ms": 451,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 135542,
+        "falseAdmits": [
+          "eng-runbook/hard-contradicts-implied"
+        ],
+        "needlessReviews": []
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 310,
+          "evidence": {
+            "contradicts": 0.5019,
+            "restates": 0.1009
+          },
+          "inputTokens": 1532,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 293,
+          "evidence": {
+            "contradicts": 0.6082,
+            "restates": 0.0803
+          },
+          "inputTokens": 1530,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 312,
+          "evidence": {
+            "contradicts": 0.0546,
+            "restates": 0.5229
+          },
+          "inputTokens": 1540,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 340,
+          "evidence": {
+            "contradicts": 0.1054,
+            "restates": 0.5678
+          },
+          "inputTokens": 1529,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 281,
+          "evidence": {
+            "contradicts": 0.0015,
+            "restates": 0.0091
+          },
+          "inputTokens": 1532,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.0007,
+            "restates": 0.0036
+          },
+          "inputTokens": 1525,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 283,
+          "evidence": {
+            "contradicts": 0.0128,
+            "restates": 0.0348
+          },
+          "inputTokens": 1472,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 294,
+          "evidence": {
+            "contradicts": 0.1042,
+            "restates": 0.7196
+          },
+          "inputTokens": 1478,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 259,
+          "evidence": {
+            "contradicts": 0.0202,
+            "restates": 0.0048
+          },
+          "inputTokens": 1482,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 255,
+          "evidence": {
+            "contradicts": 0.9881,
+            "restates": 0.0082
+          },
+          "inputTokens": 1477,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 250,
+          "evidence": {
+            "contradicts": 0.2503,
+            "restates": 0.2767
+          },
+          "inputTokens": 1545,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 290,
+          "evidence": {
+            "contradicts": 0.4319,
+            "restates": 0.0427
+          },
+          "inputTokens": 1556,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 491,
+          "evidence": {
+            "contradicts": 0.0242,
+            "restates": 0.4003
+          },
+          "inputTokens": 1530,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 317,
+          "evidence": {
+            "contradicts": 0.0275,
+            "restates": 0.0308
+          },
+          "inputTokens": 1525,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 329,
+          "evidence": {
+            "contradicts": 0.9765,
+            "restates": 0.0164
+          },
+          "inputTokens": 1462,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 285,
+          "evidence": {
+            "contradicts": 0.3475,
+            "restates": 0.0857
+          },
+          "inputTokens": 1513,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 320,
+          "evidence": {
+            "contradicts": 0.4804,
+            "restates": 0.1326
+          },
+          "inputTokens": 1507,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 275,
+          "evidence": {
+            "contradicts": 0.0387,
+            "restates": 0.547
+          },
+          "inputTokens": 1525,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 332,
+          "evidence": {
+            "contradicts": 0.0693,
+            "restates": 0.2698
+          },
+          "inputTokens": 1505,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 261,
+          "evidence": {
+            "contradicts": 0.0065,
+            "restates": 0.0283
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 515,
+          "evidence": {
+            "contradicts": 0.0013,
+            "restates": 0.0026
+          },
+          "inputTokens": 1504,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.0152,
+            "restates": 0.0464
+          },
+          "inputTokens": 1453,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 993,
+          "evidence": {
+            "contradicts": 0.244,
+            "restates": 0.5899
+          },
+          "inputTokens": 1460,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 283,
+          "evidence": {
+            "contradicts": 0.0065,
+            "restates": 0.0179
+          },
+          "inputTokens": 1470,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 369,
+          "evidence": {
+            "contradicts": 0.9965,
+            "restates": 0.0041
+          },
+          "inputTokens": 1453,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 307,
+          "evidence": {
+            "contradicts": 0.3966,
+            "restates": 0.1127
+          },
+          "inputTokens": 1521,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 285,
+          "evidence": {
+            "contradicts": 0.859,
+            "restates": 0.129
+          },
+          "inputTokens": 1510,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 263,
+          "evidence": {
+            "contradicts": 0.0091,
+            "restates": 0.3372
+          },
+          "inputTokens": 1529,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.0269,
+            "restates": 0.0182
+          },
+          "inputTokens": 1513,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 270,
+          "evidence": {
+            "contradicts": 0.9785,
+            "restates": 0.0068
+          },
+          "inputTokens": 1459,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 333,
+          "evidence": {
+            "contradicts": 0.2419,
+            "restates": 0.0986
+          },
+          "inputTokens": 1508,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 262,
+          "evidence": {
+            "contradicts": 0.2143,
+            "restates": 0.1472
+          },
+          "inputTokens": 1499,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 259,
+          "evidence": {
+            "contradicts": 0.0425,
+            "restates": 0.3478
+          },
+          "inputTokens": 1507,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 325,
+          "evidence": {
+            "contradicts": 0.0346,
+            "restates": 0.3549
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 328,
+          "evidence": {
+            "contradicts": 0.0029,
+            "restates": 0.0187
+          },
+          "inputTokens": 1503,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 269,
+          "evidence": {
+            "contradicts": 0.0009,
+            "restates": 0.0024
+          },
+          "inputTokens": 1510,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 335,
+          "evidence": {
+            "contradicts": 0.0054,
+            "restates": 0.0154
+          },
+          "inputTokens": 1448,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.1601,
+            "restates": 0.474
+          },
+          "inputTokens": 1447,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 283,
+          "evidence": {
+            "contradicts": 0.0032,
+            "restates": 0.0126
+          },
+          "inputTokens": 1462,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 400,
+          "evidence": {
+            "contradicts": 0.9968,
+            "restates": 0.0095
+          },
+          "inputTokens": 1441,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": false,
+          "latencyMs": 255,
+          "evidence": {
+            "contradicts": 0.1545,
+            "restates": 0.0685
+          },
+          "inputTokens": 1506,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.021,
+            "restates": 0.5425
+          },
+          "inputTokens": 1521,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 248,
+          "evidence": {
+            "contradicts": 0.029,
+            "restates": 0.0228
+          },
+          "inputTokens": 1508,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 312,
+          "evidence": {
+            "contradicts": 0.0541,
+            "restates": 0.7453
+          },
+          "inputTokens": 1454,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 312,
+          "evidence": {
+            "contradicts": 0.3316,
+            "restates": 0.1568
+          },
+          "inputTokens": 1502,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 331,
+          "evidence": {
+            "contradicts": 0.5283,
+            "restates": 0.224
+          },
+          "inputTokens": 1498,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 303,
+          "evidence": {
+            "contradicts": 0.0162,
+            "restates": 0.3679
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 278,
+          "evidence": {
+            "contradicts": 0.0105,
+            "restates": 0.2553
+          },
+          "inputTokens": 1498,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 248,
+          "evidence": {
+            "contradicts": 0.0053,
+            "restates": 0.0746
+          },
+          "inputTokens": 1509,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.002,
+            "restates": 0.0195
+          },
+          "inputTokens": 1504,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 281,
+          "evidence": {
+            "contradicts": 0.0405,
+            "restates": 0.092
+          },
+          "inputTokens": 1446,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 258,
+          "evidence": {
+            "contradicts": 0.156,
+            "restates": 0.6204
+          },
+          "inputTokens": 1446,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 311,
+          "evidence": {
+            "contradicts": 0.0048,
+            "restates": 0.0256
+          },
+          "inputTokens": 1449,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 314,
+          "evidence": {
+            "contradicts": 0.9869,
+            "restates": 0.076
+          },
+          "inputTokens": 1447,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 302,
+          "evidence": {
+            "contradicts": 0.346,
+            "restates": 0.1852
+          },
+          "inputTokens": 1515,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 302,
+          "evidence": {
+            "contradicts": 0.0061,
+            "restates": 0.291
+          },
+          "inputTokens": 1525,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 451,
+          "evidence": {
+            "contradicts": 0.019,
+            "restates": 0.054
+          },
+          "inputTokens": 1512,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 446,
+          "evidence": {
+            "contradicts": 0.9424,
+            "restates": 0.0903
+          },
+          "inputTokens": 1435,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 313,
+          "evidence": {
+            "contradicts": 0.5798,
+            "restates": 0.1392
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 287,
+          "evidence": {
+            "contradicts": 0.4389,
+            "restates": 0.1344
+          },
+          "inputTokens": 1502,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 309,
+          "evidence": {
+            "contradicts": 0.0756,
+            "restates": 0.5918
+          },
+          "inputTokens": 1516,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 298,
+          "evidence": {
+            "contradicts": 0.0318,
+            "restates": 0.5715
+          },
+          "inputTokens": 1507,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 343,
+          "evidence": {
+            "contradicts": 0.0041,
+            "restates": 0.026
+          },
+          "inputTokens": 1507,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 345,
+          "evidence": {
+            "contradicts": 0.0016,
+            "restates": 0.0069
+          },
+          "inputTokens": 1511,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 427,
+          "evidence": {
+            "contradicts": 0.008,
+            "restates": 0.0281
+          },
+          "inputTokens": 1453,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 321,
+          "evidence": {
+            "contradicts": 0.0375,
+            "restates": 0.752
+          },
+          "inputTokens": 1454,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 285,
+          "evidence": {
+            "contradicts": 0.011,
+            "restates": 0.0099
+          },
+          "inputTokens": 1456,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 292,
+          "evidence": {
+            "contradicts": 0.9962,
+            "restates": 0.0043
+          },
+          "inputTokens": 1454,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 316,
+          "evidence": {
+            "contradicts": 0.6624,
+            "restates": 0.1353
+          },
+          "inputTokens": 1514,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 842,
+          "evidence": {
+            "contradicts": 0.3411,
+            "restates": 0.1459
+          },
+          "inputTokens": 1509,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 326,
+          "evidence": {
+            "contradicts": 0.3563,
+            "restates": 0.1858
+          },
+          "inputTokens": 1518,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 268,
+          "evidence": {
+            "contradicts": 0.0069,
+            "restates": 0.0333
+          },
+          "inputTokens": 1522,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 330,
+          "evidence": {
+            "contradicts": 0.958,
+            "restates": 0.011
+          },
+          "inputTokens": 1445,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 448,
+          "evidence": {
+            "contradicts": 0.0018,
+            "restates": 0.0222
+          },
+          "inputTokens": 2234,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 290,
+          "evidence": {
+            "contradicts": 0.0204,
+            "restates": 0.071
+          },
+          "inputTokens": 2154,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 351,
+          "evidence": {
+            "contradicts": 0.0015,
+            "restates": 0.0057
+          },
+          "inputTokens": 2228,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 373,
+          "evidence": {
+            "contradicts": 0.0014,
+            "restates": 0.0044
+          },
+          "inputTokens": 2227,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 347,
+          "evidence": {
+            "contradicts": 0.0304,
+            "restates": 0.3774
+          },
+          "inputTokens": 2233,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 363,
+          "evidence": {
+            "contradicts": 0.0477,
+            "restates": 0.4562
+          },
+          "inputTokens": 2233,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 437,
+          "evidence": {
+            "contradicts": 0.1356,
+            "restates": 0.762
+          },
+          "inputTokens": 2153,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 285,
+          "evidence": {
+            "contradicts": 0.9963,
+            "restates": 0.0287
+          },
+          "inputTokens": 2160,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.6619,
+            "restates": 0.1744
+          },
+          "inputTokens": 2153,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 296,
+          "evidence": {
+            "contradicts": 0.949,
+            "restates": 0.0557
+          },
+          "inputTokens": 2229,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 317,
+          "evidence": {
+            "contradicts": 0.6919,
+            "restates": 0.077
+          },
+          "inputTokens": 2232,
+          "responseModel": "drex-v2.0"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 292,
+          "evidence": {
+            "contradicts": 0.8737,
+            "restates": 0.0276
+          },
+          "inputTokens": 2157,
+          "responseModel": "drex-v2.0"
+        }
+      ]
+    },
+    {
+      "backend": "drex-max-v1.1",
+      "model": "drex-max-v1.1",
+      "pass": 2,
+      "summary": {
+        "pass": true,
+        "recall": 0.9821428571428571,
+        "routineAdmit": 1,
+        "p50Ms": 333,
+        "p95Ms": 621,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 147169,
+        "falseAdmits": [
+          "hr-handbook/hard-restates-combined"
+        ],
+        "needlessReviews": []
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 448,
+          "evidence": {
+            "contradicts": 0.998922285734705,
+            "restates": 0.00014165517005790623
+          },
+          "inputTokens": 1662,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 353,
+          "evidence": {
+            "contradicts": 0.9993391921552969,
+            "restates": 0.0002492006729878077
+          },
+          "inputTokens": 1659,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 791,
+          "evidence": {
+            "contradicts": 0.001756367394819786,
+            "restates": 0.985402998278146
+          },
+          "inputTokens": 1669,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 361,
+          "evidence": {
+            "contradicts": 0.01876709951291998,
+            "restates": 0.9587454635115169
+          },
+          "inputTokens": 1657,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 299,
+          "evidence": {
+            "contradicts": 0.005234722524674726,
+            "restates": 0.002482586778314617
+          },
+          "inputTokens": 1661,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 311,
+          "evidence": {
+            "contradicts": 0.00043850481109502696,
+            "restates": 0.00029859298302208434
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 276,
+          "evidence": {
+            "contradicts": 0.0007713481207531113,
+            "restates": 0.0011309954937526756
+          },
+          "inputTokens": 1605,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 362,
+          "evidence": {
+            "contradicts": 0.003014224126987994,
+            "restates": 0.9829823411367176
+          },
+          "inputTokens": 1610,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 320,
+          "evidence": {
+            "contradicts": 0.0011581821023913445,
+            "restates": 0.0004187680397975905
+          },
+          "inputTokens": 1614,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.9997986744901886,
+            "restates": 0.00008051006464244022
+          },
+          "inputTokens": 1609,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 311,
+          "evidence": {
+            "contradicts": 0.9982051411412467,
+            "restates": 0.00016949800903914006
+          },
+          "inputTokens": 1674,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 277,
+          "evidence": {
+            "contradicts": 0.9962286437992268,
+            "restates": 0.001439102130389441
+          },
+          "inputTokens": 1685,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 327,
+          "evidence": {
+            "contradicts": 0.004480584065169912,
+            "restates": 0.9089283359827404
+          },
+          "inputTokens": 1659,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 322,
+          "evidence": {
+            "contradicts": 0.00896157449161618,
+            "restates": 0.0036280240284883537
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 429,
+          "evidence": {
+            "contradicts": 0.9998087977206088,
+            "restates": 0.0001294135511059471
+          },
+          "inputTokens": 1594,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 276,
+          "evidence": {
+            "contradicts": 0.9952103346141365,
+            "restates": 0.0004080898299995358
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 272,
+          "evidence": {
+            "contradicts": 0.996456353242846,
+            "restates": 0.0007522826994309081
+          },
+          "inputTokens": 1636,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 336,
+          "evidence": {
+            "contradicts": 0.0005616390993881173,
+            "restates": 0.9980820682322038
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 298,
+          "evidence": {
+            "contradicts": 0.001130492619803666,
+            "restates": 0.9968346605251546
+          },
+          "inputTokens": 1634,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 333,
+          "evidence": {
+            "contradicts": 0.0009447285250487586,
+            "restates": 0.0008827821880796169
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 363,
+          "evidence": {
+            "contradicts": 0.0012392501158982679,
+            "restates": 0.0005017008140685605
+          },
+          "inputTokens": 1634,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 353,
+          "evidence": {
+            "contradicts": 0.0009888475156996316,
+            "restates": 0.001157067243523318
+          },
+          "inputTokens": 1585,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 274,
+          "evidence": {
+            "contradicts": 0.0021921992261108025,
+            "restates": 0.9810696822012408
+          },
+          "inputTokens": 1592,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 488,
+          "evidence": {
+            "contradicts": 0.0002277355709436857,
+            "restates": 0.00010800445530216831
+          },
+          "inputTokens": 1603,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 566,
+          "evidence": {
+            "contradicts": 0.9998227722612755,
+            "restates": 0.00022258313026643657
+          },
+          "inputTokens": 1585,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 269,
+          "evidence": {
+            "contradicts": 0.9471983834624419,
+            "restates": 0.004885189662199363
+          },
+          "inputTokens": 1648,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.9983707872215901,
+            "restates": 0.0002725282286408645
+          },
+          "inputTokens": 1639,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": false,
+          "latencyMs": 379,
+          "evidence": {
+            "contradicts": 0.005592278585058019,
+            "restates": 0.12950009988016198
+          },
+          "inputTokens": 1658,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 321,
+          "evidence": {
+            "contradicts": 0.009385038103869627,
+            "restates": 0.0022589743450492955
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 333,
+          "evidence": {
+            "contradicts": 0.997655252692394,
+            "restates": 0.00039100813850562167
+          },
+          "inputTokens": 1591,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 380,
+          "evidence": {
+            "contradicts": 0.916141893234343,
+            "restates": 0.004125686477656099
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 356,
+          "evidence": {
+            "contradicts": 0.9994454321060358,
+            "restates": 0.0001353710160295202
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 332,
+          "evidence": {
+            "contradicts": 0.000305243611670949,
+            "restates": 0.9987058052591015
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 260,
+          "evidence": {
+            "contradicts": 0.002522613505853891,
+            "restates": 0.985742881842921
+          },
+          "inputTokens": 1643,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 263,
+          "evidence": {
+            "contradicts": 0.0012659817850146822,
+            "restates": 0.0017373103181544498
+          },
+          "inputTokens": 1633,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 267,
+          "evidence": {
+            "contradicts": 0.0007539839313174284,
+            "restates": 0.0005371482238766812
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 317,
+          "evidence": {
+            "contradicts": 0.0010822189205034727,
+            "restates": 0.0006436839199750879
+          },
+          "inputTokens": 1581,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 271,
+          "evidence": {
+            "contradicts": 0.03231853246688843,
+            "restates": 0.9172622561454773
+          },
+          "inputTokens": 1581,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 350,
+          "evidence": {
+            "contradicts": 0.0007373462782089499,
+            "restates": 0.00026064560280893596
+          },
+          "inputTokens": 1595,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 268,
+          "evidence": {
+            "contradicts": 0.9998758994847753,
+            "restates": 0.00008235187354616175
+          },
+          "inputTokens": 1575,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 323,
+          "evidence": {
+            "contradicts": 0.9728134794302037,
+            "restates": 0.0010544794476598112
+          },
+          "inputTokens": 1636,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 778,
+          "evidence": {
+            "contradicts": 0.000319409043500518,
+            "restates": 0.9988551291870312
+          },
+          "inputTokens": 1651,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 501,
+          "evidence": {
+            "contradicts": 0.06462366755606123,
+            "restates": 0.004486266903608599
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 342,
+          "evidence": {
+            "contradicts": 0.007668425593275341,
+            "restates": 0.48014564976598045
+          },
+          "inputTokens": 1587,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 273,
+          "evidence": {
+            "contradicts": 0.9974137864616783,
+            "restates": 0.004906368699632794
+          },
+          "inputTokens": 1633,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 295,
+          "evidence": {
+            "contradicts": 0.995736342350649,
+            "restates": 0.0009213570569812952
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 320,
+          "evidence": {
+            "contradicts": 0.000655150308340768,
+            "restates": 0.9938593147563146
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 381,
+          "evidence": {
+            "contradicts": 0.0017359741765632937,
+            "restates": 0.9962872415807692
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.007808727670414227,
+            "restates": 0.006818253947002812
+          },
+          "inputTokens": 1641,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.002436048070186729,
+            "restates": 0.0016216770424874152
+          },
+          "inputTokens": 1635,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.07297881978108588,
+            "restates": 0.009119151516821574
+          },
+          "inputTokens": 1582,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 330,
+          "evidence": {
+            "contradicts": 0.00932860228150683,
+            "restates": 0.9389841362771302
+          },
+          "inputTokens": 1580,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 271,
+          "evidence": {
+            "contradicts": 0.0019458032827830499,
+            "restates": 0.0007529205144548254
+          },
+          "inputTokens": 1583,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.9994433939486495,
+            "restates": 0.00016591325391577264
+          },
+          "inputTokens": 1582,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 312,
+          "evidence": {
+            "contradicts": 0.9798544705226551,
+            "restates": 0.014258843249037912
+          },
+          "inputTokens": 1647,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 297,
+          "evidence": {
+            "contradicts": 0.00826676319217111,
+            "restates": 0.7497352664462466
+          },
+          "inputTokens": 1656,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 621,
+          "evidence": {
+            "contradicts": 0.012829305914754004,
+            "restates": 0.0026360490066346474
+          },
+          "inputTokens": 1643,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 271,
+          "evidence": {
+            "contradicts": 0.9990425778454264,
+            "restates": 0.0021245177517273
+          },
+          "inputTokens": 1569,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 278,
+          "evidence": {
+            "contradicts": 0.9997322490413192,
+            "restates": 0.0001736076733927956
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 386,
+          "evidence": {
+            "contradicts": 0.9947620917688942,
+            "restates": 0.0006557454268033434
+          },
+          "inputTokens": 1635,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 433,
+          "evidence": {
+            "contradicts": 0.0009432591519792405,
+            "restates": 0.9966190376434071
+          },
+          "inputTokens": 1647,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 385,
+          "evidence": {
+            "contradicts": 0.0013518650053258403,
+            "restates": 0.9948238111221609
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 309,
+          "evidence": {
+            "contradicts": 0.004566041348695382,
+            "restates": 0.0041712709334524615
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 537,
+          "evidence": {
+            "contradicts": 0.001484201877018913,
+            "restates": 0.0007364439109920458
+          },
+          "inputTokens": 1644,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 377,
+          "evidence": {
+            "contradicts": 0.0010582742650272342,
+            "restates": 0.0006886822488104093
+          },
+          "inputTokens": 1587,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 410,
+          "evidence": {
+            "contradicts": 0.005325677331547703,
+            "restates": 0.9648965583673261
+          },
+          "inputTokens": 1589,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 338,
+          "evidence": {
+            "contradicts": 0.0011324011862207878,
+            "restates": 0.00034964639945670324
+          },
+          "inputTokens": 1592,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 286,
+          "evidence": {
+            "contradicts": 0.9995441290931947,
+            "restates": 0.00022259588112609954
+          },
+          "inputTokens": 1588,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 339,
+          "evidence": {
+            "contradicts": 0.9980087138649726,
+            "restates": 0.00032678258260293195
+          },
+          "inputTokens": 1645,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 574,
+          "evidence": {
+            "contradicts": 0.9966316695916333,
+            "restates": 0.0004473496464161552
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 413,
+          "evidence": {
+            "contradicts": 0.9298022179420071,
+            "restates": 0.0026642011342506134
+          },
+          "inputTokens": 1649,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 382,
+          "evidence": {
+            "contradicts": 0.009368959591809223,
+            "restates": 0.003968377969047391
+          },
+          "inputTokens": 1653,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 433,
+          "evidence": {
+            "contradicts": 0.9994353255229664,
+            "restates": 0.00018577203327450504
+          },
+          "inputTokens": 1579,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 532,
+          "evidence": {
+            "contradicts": 0.010256213928838166,
+            "restates": 0.0030256812052127185
+          },
+          "inputTokens": 2404,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 546,
+          "evidence": {
+            "contradicts": 0.015318559953920955,
+            "restates": 0.003604752136158518
+          },
+          "inputTokens": 2325,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 666,
+          "evidence": {
+            "contradicts": 0.0031232583561442043,
+            "restates": 0.0012087324626402405
+          },
+          "inputTokens": 2397,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 998,
+          "evidence": {
+            "contradicts": 0.001386895509139331,
+            "restates": 0.000824580356391428
+          },
+          "inputTokens": 2396,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 566,
+          "evidence": {
+            "contradicts": 0.002115882920331099,
+            "restates": 0.9907118618119256
+          },
+          "inputTokens": 2403,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 604,
+          "evidence": {
+            "contradicts": 0.014474684022048689,
+            "restates": 0.4704984610593319
+          },
+          "inputTokens": 2401,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 477,
+          "evidence": {
+            "contradicts": 0.10969104699560289,
+            "restates": 0.801940804734385
+          },
+          "inputTokens": 2324,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 518,
+          "evidence": {
+            "contradicts": 0.9997031421710345,
+            "restates": 0.0006716619990032475
+          },
+          "inputTokens": 2331,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 306,
+          "evidence": {
+            "contradicts": 0.990469854741669,
+            "restates": 0.004489414969831451
+          },
+          "inputTokens": 2326,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 373,
+          "evidence": {
+            "contradicts": 0.9993446643233797,
+            "restates": 0.002410918411327791
+          },
+          "inputTokens": 2400,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 518,
+          "evidence": {
+            "contradicts": 0.9994432158805414,
+            "restates": 0.0016513346963766217
+          },
+          "inputTokens": 2403,
+          "responseModel": "drex-max-v1.1"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 275,
+          "evidence": {
+            "contradicts": 0.9789723734551713,
+            "restates": 0.001523578327296733
+          },
+          "inputTokens": 2328,
+          "responseModel": "drex-max-v1.1"
+        }
+      ]
+    },
+    {
+      "backend": "drex-max-finance",
+      "model": "drex-max-finance",
+      "pass": 2,
+      "summary": {
+        "pass": true,
+        "recall": 1,
+        "routineAdmit": 1,
+        "p50Ms": 305,
+        "p95Ms": 418,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 147169,
+        "falseAdmits": [],
+        "needlessReviews": []
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 335,
+          "evidence": {
+            "contradicts": 0.9972195661874041,
+            "restates": 0.0003412629606609446
+          },
+          "inputTokens": 1662,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 285,
+          "evidence": {
+            "contradicts": 0.9983093995979908,
+            "restates": 0.0003339992340166157
+          },
+          "inputTokens": 1659,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 350,
+          "evidence": {
+            "contradicts": 0.001801949953840058,
+            "restates": 0.9883787232675753
+          },
+          "inputTokens": 1669,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 392,
+          "evidence": {
+            "contradicts": 0.0054013804711426396,
+            "restates": 0.9786118222473809
+          },
+          "inputTokens": 1657,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 332,
+          "evidence": {
+            "contradicts": 0.002034129406711707,
+            "restates": 0.00148227454683056
+          },
+          "inputTokens": 1661,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 297,
+          "evidence": {
+            "contradicts": 0.00029862870084671936,
+            "restates": 0.00029862870084671936
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 356,
+          "evidence": {
+            "contradicts": 0.0023708314429057584,
+            "restates": 0.0047780869099577185
+          },
+          "inputTokens": 1605,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 365,
+          "evidence": {
+            "contradicts": 0.008586279895958195,
+            "restates": 0.9460594486676813
+          },
+          "inputTokens": 1610,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.0006293909180734901,
+            "restates": 0.00042856535604077623
+          },
+          "inputTokens": 1614,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 283,
+          "evidence": {
+            "contradicts": 0.9986397448177146,
+            "restates": 0.0002490332073454893
+          },
+          "inputTokens": 1609,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 305,
+          "evidence": {
+            "contradicts": 0.9779301248806122,
+            "restates": 0.002041898069985289
+          },
+          "inputTokens": 1674,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 283,
+          "evidence": {
+            "contradicts": 0.9921632090885001,
+            "restates": 0.0007031594916227333
+          },
+          "inputTokens": 1685,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 422,
+          "evidence": {
+            "contradicts": 0.0033921300560890467,
+            "restates": 0.9443161911920237
+          },
+          "inputTokens": 1659,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 274,
+          "evidence": {
+            "contradicts": 0.010250896192072314,
+            "restates": 0.003542604526262309
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 324,
+          "evidence": {
+            "contradicts": 0.997050814992624,
+            "restates": 0.0009436673089189338
+          },
+          "inputTokens": 1594,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 303,
+          "evidence": {
+            "contradicts": 0.9906750555090873,
+            "restates": 0.0007312007239521712
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 297,
+          "evidence": {
+            "contradicts": 0.9973965268820492,
+            "restates": 0.0006574820525824699
+          },
+          "inputTokens": 1636,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 273,
+          "evidence": {
+            "contradicts": 0.0008799174715071451,
+            "restates": 0.994933364066045
+          },
+          "inputTokens": 1654,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 301,
+          "evidence": {
+            "contradicts": 0.00033393342886447607,
+            "restates": 0.9981127001111668
+          },
+          "inputTokens": 1634,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 311,
+          "evidence": {
+            "contradicts": 0.002273098887382218,
+            "restates": 0.003190700788059675
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 268,
+          "evidence": {
+            "contradicts": 0.0008253468746407536,
+            "restates": 0.0004585350442509179
+          },
+          "inputTokens": 1634,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 268,
+          "evidence": {
+            "contradicts": 0.002475806613051842,
+            "restates": 0.006544618519152204
+          },
+          "inputTokens": 1585,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 281,
+          "evidence": {
+            "contradicts": 0.004748705499055177,
+            "restates": 0.96332017464821
+          },
+          "inputTokens": 1592,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 281,
+          "evidence": {
+            "contradicts": 0.0009885318395579249,
+            "restates": 0.0004093497434241552
+          },
+          "inputTokens": 1603,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 383,
+          "evidence": {
+            "contradicts": 0.9991714422217414,
+            "restates": 0.0002176127310447467
+          },
+          "inputTokens": 1585,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 336,
+          "evidence": {
+            "contradicts": 0.9380492574771855,
+            "restates": 0.0076036635084569286
+          },
+          "inputTokens": 1648,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 296,
+          "evidence": {
+            "contradicts": 0.9964078275788106,
+            "restates": 0.0006718476791778592
+          },
+          "inputTokens": 1639,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 341,
+          "evidence": {
+            "contradicts": 0.005762118447596655,
+            "restates": 0.344836566886359
+          },
+          "inputTokens": 1658,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.014028087774858077,
+            "restates": 0.0025167601835847497
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 285,
+          "evidence": {
+            "contradicts": 0.9974221980146083,
+            "restates": 0.0002985715457928155
+          },
+          "inputTokens": 1591,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 263,
+          "evidence": {
+            "contradicts": 0.9814329672547938,
+            "restates": 0.00101679539505377
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 274,
+          "evidence": {
+            "contradicts": 0.9983616463445428,
+            "restates": 0.00034165379448023586
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 275,
+          "evidence": {
+            "contradicts": 0.0005118360962722872,
+            "restates": 0.9956606231568286
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 342,
+          "evidence": {
+            "contradicts": 0.002310503224710399,
+            "restates": 0.9883049514787142
+          },
+          "inputTokens": 1643,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 294,
+          "evidence": {
+            "contradicts": 0.0012657187016940441,
+            "restates": 0.0019448066969080533
+          },
+          "inputTokens": 1633,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 306,
+          "evidence": {
+            "contradicts": 0.0004692047223884882,
+            "restates": 0.00041905690631742926
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 316,
+          "evidence": {
+            "contradicts": 0.0012319424105506306,
+            "restates": 0.005477325849876621
+          },
+          "inputTokens": 1581,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 276,
+          "evidence": {
+            "contradicts": 0.029565835454219494,
+            "restates": 0.9185521628294666
+          },
+          "inputTokens": 1581,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 305,
+          "evidence": {
+            "contradicts": 0.001082278285228803,
+            "restates": 0.0006434532687574517
+          },
+          "inputTokens": 1595,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 299,
+          "evidence": {
+            "contradicts": 0.9991856195428841,
+            "restates": 0.0005132591113260088
+          },
+          "inputTokens": 1575,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 418,
+          "evidence": {
+            "contradicts": 0.9606521707825338,
+            "restates": 0.002297204967130117
+          },
+          "inputTokens": 1636,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 331,
+          "evidence": {
+            "contradicts": 0.003638927132069955,
+            "restates": 0.9903774239539286
+          },
+          "inputTokens": 1651,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 264,
+          "evidence": {
+            "contradicts": 0.11060263528925303,
+            "restates": 0.00426574220958988
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.00873320311001353,
+            "restates": 0.7675528661281245
+          },
+          "inputTokens": 1587,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 300,
+          "evidence": {
+            "contradicts": 0.9872019748327306,
+            "restates": 0.0039509404965799
+          },
+          "inputTokens": 1633,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 278,
+          "evidence": {
+            "contradicts": 0.9951261452254775,
+            "restates": 0.0006863250110768708
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 287,
+          "evidence": {
+            "contradicts": 0.000958471404170696,
+            "restates": 0.9900559391517808
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 325,
+          "evidence": {
+            "contradicts": 0.0008037474277840588,
+            "restates": 0.9948164108618398
+          },
+          "inputTokens": 1629,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 400,
+          "evidence": {
+            "contradicts": 0.00389220599617706,
+            "restates": 0.006257066302123677
+          },
+          "inputTokens": 1641,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 294,
+          "evidence": {
+            "contradicts": 0.0005252415961445898,
+            "restates": 0.000588088838570729
+          },
+          "inputTokens": 1635,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 322,
+          "evidence": {
+            "contradicts": 0.019054035603231528,
+            "restates": 0.007541452416499978
+          },
+          "inputTokens": 1582,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.021406281021771844,
+            "restates": 0.8723066752748189
+          },
+          "inputTokens": 1580,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 274,
+          "evidence": {
+            "contradicts": 0.0012670397641732795,
+            "restates": 0.0009026564408641336
+          },
+          "inputTokens": 1583,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 297,
+          "evidence": {
+            "contradicts": 0.9974218476028981,
+            "restates": 0.000304851182227492
+          },
+          "inputTokens": 1582,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 442,
+          "evidence": {
+            "contradicts": 0.9517309014271805,
+            "restates": 0.00882439104134632
+          },
+          "inputTokens": 1647,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 295,
+          "evidence": {
+            "contradicts": 0.0064557003097231004,
+            "restates": 0.6072000200089065
+          },
+          "inputTokens": 1656,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 327,
+          "evidence": {
+            "contradicts": 0.007504408585862969,
+            "restates": 0.001726458509003213
+          },
+          "inputTokens": 1643,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 332,
+          "evidence": {
+            "contradicts": 0.992618801325111,
+            "restates": 0.002427916134720636
+          },
+          "inputTokens": 1569,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 313,
+          "evidence": {
+            "contradicts": 0.9994473364003298,
+            "restates": 0.00020796576568324788
+          },
+          "inputTokens": 1642,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 362,
+          "evidence": {
+            "contradicts": 0.9969908589624669,
+            "restates": 0.00045774271860425783
+          },
+          "inputTokens": 1635,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 268,
+          "evidence": {
+            "contradicts": 0.000672314394865516,
+            "restates": 0.9970996685716979
+          },
+          "inputTokens": 1647,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 288,
+          "evidence": {
+            "contradicts": 0.0015763080110232852,
+            "restates": 0.990213671092747
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 320,
+          "evidence": {
+            "contradicts": 0.0041819050980133445,
+            "restates": 0.0020286298336381174
+          },
+          "inputTokens": 1638,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 393,
+          "evidence": {
+            "contradicts": 0.0006292554641261321,
+            "restates": 0.0006436426510845529
+          },
+          "inputTokens": 1644,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 320,
+          "evidence": {
+            "contradicts": 0.001846628809869965,
+            "restates": 0.006259555736013386
+          },
+          "inputTokens": 1587,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 289,
+          "evidence": {
+            "contradicts": 0.005547575189521339,
+            "restates": 0.9606683854761852
+          },
+          "inputTokens": 1589,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 341,
+          "evidence": {
+            "contradicts": 0.0006585007835401304,
+            "restates": 0.0002728151175839679
+          },
+          "inputTokens": 1592,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 533,
+          "evidence": {
+            "contradicts": 0.999382640561361,
+            "restates": 0.0003343063127623269
+          },
+          "inputTokens": 1588,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 301,
+          "evidence": {
+            "contradicts": 0.993954622188073,
+            "restates": 0.0005593165448315656
+          },
+          "inputTokens": 1645,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 333,
+          "evidence": {
+            "contradicts": 0.9959037367523658,
+            "restates": 0.0004370306908727688
+          },
+          "inputTokens": 1640,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 554,
+          "evidence": {
+            "contradicts": 0.968657677190324,
+            "restates": 0.0015419933340137585
+          },
+          "inputTokens": 1649,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 308,
+          "evidence": {
+            "contradicts": 0.013401576746801414,
+            "restates": 0.0036117714872827733
+          },
+          "inputTokens": 1653,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 325,
+          "evidence": {
+            "contradicts": 0.9924548699684084,
+            "restates": 0.0004069599511438441
+          },
+          "inputTokens": 1579,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 334,
+          "evidence": {
+            "contradicts": 0.0023295708659985944,
+            "restates": 0.0013555203460597727
+          },
+          "inputTokens": 2404,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 365,
+          "evidence": {
+            "contradicts": 0.0013559852828566475,
+            "restates": 0.002917260857987846
+          },
+          "inputTokens": 2325,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 271,
+          "evidence": {
+            "contradicts": 0.0010821241141399825,
+            "restates": 0.0006885297679477981
+          },
+          "inputTokens": 2397,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 314,
+          "evidence": {
+            "contradicts": 0.0008632014433212458,
+            "restates": 0.0007885708407525555
+          },
+          "inputTokens": 2396,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 293,
+          "evidence": {
+            "contradicts": 0.0016144824782346099,
+            "restates": 0.9915247002312197
+          },
+          "inputTokens": 2403,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 339,
+          "evidence": {
+            "contradicts": 0.01861620569567493,
+            "restates": 0.7250759115391731
+          },
+          "inputTokens": 2401,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 290,
+          "evidence": {
+            "contradicts": 0.09757793703951759,
+            "restates": 0.8548015420777053
+          },
+          "inputTokens": 2324,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.9987060455379302,
+            "restates": 0.0034915692995298696
+          },
+          "inputTokens": 2331,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 320,
+          "evidence": {
+            "contradicts": 0.9814782214622395,
+            "restates": 0.005929882215985863
+          },
+          "inputTokens": 2326,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 299,
+          "evidence": {
+            "contradicts": 0.9984049140862824,
+            "restates": 0.002955988358732943
+          },
+          "inputTokens": 2400,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 295,
+          "evidence": {
+            "contradicts": 0.997983862488317,
+            "restates": 0.0011300362391327673
+          },
+          "inputTokens": 2403,
+          "responseModel": "drex-max-finance"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 334,
+          "evidence": {
+            "contradicts": 0.9930257648979832,
+            "restates": 0.0013209532489958347
+          },
+          "inputTokens": 2328,
+          "responseModel": "drex-max-finance"
+        }
+      ]
+    }
+  ]
+}

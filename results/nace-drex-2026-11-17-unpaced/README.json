@@ -1,0 +1,26 @@
+{
+  "reason": "Initial unpaced invocation exceeded the Nace account RPM limit. Stopped before the sequential phase produced a complete report. Retained completed reports; the subsequent --rpm 100 run is a separate measurement, not replacement rows or automatic per-case retries.",
+  "savedReports": [
+    {
+      "path": "results/nace-drex-2026-11-17-unpaced/nace-drex-2026-11-17-hosted/2026-11-17T18-00-33-given.json",
+      "order": "given",
+      "savedObservations": 765,
+      "failedCalls": 648
+    },
+    {
+      "path": "results/nace-drex-2026-11-17-unpaced/nace-drex-2026-11-17-reversed/2026-11-17T18-00-58-reversed.json",
+      "order": "reversed",
+      "savedObservations": 510,
+      "failedCalls": 510
+    }
+  ],
+  "savedObservations": 1275,
+  "failedCalls": 1158,
+  "successfulCalls": 117,
+  "httpStatuses": {
+    "429": 1158
+  },
+  "interruptedSequentialPhase": "No complete sequential report was written; the number of attempted calls in that interrupted phase is unavailable. These incomplete calls are not included in the saved-observation count.",
+  "extraSmokeCalls": 3,
+  "excludedFromPacedComparison": true
+}

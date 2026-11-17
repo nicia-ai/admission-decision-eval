@@ -1,0 +1,3880 @@
+{
+  "ranAt": "2026-11-17T18:01:11.126Z",
+  "order": "reversed",
+  "concurrency": 6,
+  "thresholds": {
+    "yesAtLeast": 0.5,
+    "noBelow": 0.2
+  },
+  "gates": {
+    "minRecall": 0.95,
+    "minRoutineAdmit": 0.85,
+    "maxP95Ms": 2500
+  },
+  "report": [
+    {
+      "backend": "drex-v2.0",
+      "model": "drex-v2.0",
+      "pass": 1,
+      "summary": {
+        "pass": false,
+        "recall": 1,
+        "routineAdmit": 0,
+        "p50Ms": 140,
+        "p95Ms": 239,
+        "overTimeout": 0,
+        "transportFailures": 85,
+        "inputTokens": 0,
+        "falseAdmits": [],
+        "needlessReviews": [
+          "saas-support-kb/compatible-overlap",
+          "saas-support-kb/compatible-new",
+          "saas-support-kb/self-corrects-errors",
+          "saas-support-kb/self-adds-information",
+          "saas-support-kb/hard-compatible-sibling",
+          "hr-handbook/compatible-overlap",
+          "hr-handbook/compatible-new",
+          "hr-handbook/self-corrects-errors",
+          "hr-handbook/self-adds-information",
+          "hr-handbook/hard-compatible-sibling",
+          "eng-runbook/compatible-overlap",
+          "eng-runbook/compatible-new",
+          "eng-runbook/self-corrects-errors",
+          "eng-runbook/self-adds-information",
+          "eng-runbook/hard-compatible-sibling",
+          "crm-account-notes/compatible-overlap",
+          "crm-account-notes/compatible-new",
+          "crm-account-notes/self-corrects-errors",
+          "crm-account-notes/self-adds-information",
+          "crm-account-notes/hard-compatible-sibling",
+          "clinic-procedures/compatible-overlap",
+          "clinic-procedures/compatible-new",
+          "clinic-procedures/self-corrects-errors",
+          "clinic-procedures/self-adds-information",
+          "clinic-procedures/hard-compatible-sibling",
+          "t0/routine-customer-story",
+          "t0/routine-typo-fix",
+          "t0/routine-faq-shipping",
+          "t0/routine-faq-returns"
+        ]
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 236,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_106bf1e71a4ca61bea9d628a5c9c23d5\"}"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 255,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0064b3145b5809c5d4b91143169e02fc\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 204,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_05b54fe849eadc270b4d00df4debde53\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 198,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_93f68d2870703d0d0fbe44915392639c\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 201,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_fd2b52e7a37cc3362acbb6eafb8349c2\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 281,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ebe341423993591a941996804c7251ee\"}"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 140,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e5bfe7d829bcf4a068933c7c58a01588\"}"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 137,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_98534d13d11fc6e1df170fe14dda2f9a\"}"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 167,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6d7993d39ffbcbe1a4f52197dfec14de\"}"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 158,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4406b46d58dcc89e1de805b4e5ecf5e0\"}"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 99,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_634389ecfdf6da0cb588372469b5c077\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 100,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_17674c08945034744d1939adb558f4de\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 153,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b06a548a1221e544210ece6d24b08640\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 153,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_723b5c7deda320ae0744e0acd4381bf3\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 132,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_208f757185a98417acdc3d12120fcd4a\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 149,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_aedb23faf4f05099d1acc9960042315c\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 118,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ccb990da71d3649e962af831b433bc42\"}"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 164,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d5a5d597be21988f864b508183276560\"}"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 144,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2e8fdb2a3c1aa25470ee1e7a47d99b9f\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2daca72eb909b2af339749a11ba95888\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 166,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_db70c3f41b07887d647072382659b1d1\"}"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 165,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c143464e0adf0cbc6bd89f3db03feffb\"}"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 159,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_369039d815df46a3b8f1cc5734a1c360\"}"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 148,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e8bd2d1347caef645f2eed3b7ae8bcea\"}"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 117,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2a11119b4fe0261400dc9c35f3a76939\"}"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 134,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8c5ffb1896c8326187b0242044bbe054\"}"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_dea00fd5a5487e42173dd84353342ca5\"}"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 150,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c9e2b87b008cd7ac5337e4aef3c0ce78\"}"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 97,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_89e19676d2725c06e921b6885cc615cf\"}"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_871ed3551fa6eb776f16400ed828f0e6\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 121,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_01994c66a585470bf436ab5c11680d9d\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_587f8e925dbd4d96853ce0296a27983b\"}"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8dac3bb7e488c1ca5243f47ade4b846a\"}"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 118,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ef42b8d329901c5093813d06dbaeb593\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 116,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_580fe5bd53027a01597e0a7aaa953df5\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 118,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5b32f7aff78ddce28328737ee4d005c1\"}"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 146,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ea8b5a137a58a768e75a4585f49fe0e5\"}"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 124,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e08a17eb11e74271de1666560fc08916\"}"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 156,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_55f3c4f8bbe19b918d50155811004a20\"}"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 111,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a9ac4251285f3b2e6d3080a2feab52f5\"}"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9e775827845d2f7aa0204747ed97a405\"}"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8b9ff304e6399422fac40730ecc06da0\"}"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 148,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_91a3fc2a21470bea688212eeb1c67285\"}"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 279,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a8a0d465b1fa4f4d4d8d213d776e5018\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 179,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e88aba3504baeec6928d42d73cca6a02\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 161,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_da3a354c3ebc87f4ecc831e8b571ace7\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 120,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a028229168a0b0fe9c49cb9747d37aa5\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d69849fc20bbf73332e5e49628a746ae\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 108,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_103365fb6adcf7e356b3c71c4e6c9a89\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 125,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_92f93f47675170640397dd558e7f8c91\"}"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 116,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_58b7fd8069d35f2df32972b92bb13cf1\"}"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 154,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_eb26cf93d4ef34f9247ca64f1c542267\"}"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 122,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a35da37aaec5f14c49ee6e918e48653e\"}"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 150,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_12ff5a029e4be28cdd5b5dd2311318ad\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 137,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_1b78e35b87a45617670fffb9be483d14\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 146,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a71104578cb23cd33e8758d324fe6a6d\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7ab23e55b2a6af965e4cdb63e4060cdb\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_fc166c91bd2e58e1f30689866e635e20\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 241,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e20b5e711bd8d990a645acff10ab6e58\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 111,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_44c2acc178ca76ce08cd5c8c81bb5eee\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b4256df45682263313ddb9e57c1e7749\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_adaa856cd84734a231c7caae2ae5ff29\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 125,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3035478d921ccf023f5d2b1f2d98f4ce\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 234,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4ac8a2dd9eadabb9deedad32767fe811\"}"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 179,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6ee45e053aad38e122452492485ed9d7\"}"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 105,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6f9307e8d68ad16280d6528b311a3880\"}"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 152,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_973ce22f78b55c1f49a45e8a77e42dc8\"}"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 165,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_135a9ae48c57dafe87672e17d34271d5\"}"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 209,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cec04a1558f38ce9bbb8e6c7c302c356\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 169,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_afbd8ea87ff1e8a7577ac15096e07911\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 239,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a038c0fd8d813ed46b3463c901eadbfd\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 168,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_160b7df402c69508bca38368262a0613\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 105,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b1c3b7d90c1fd395d7b4e79a55ba7b41\"}"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 131,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5ca76987fbd4d4a8ffc88212a1d872a6\"}"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 130,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_374c3e09c3e31eb9019deb70f1d17bda\"}"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 143,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d6a8eee83366c240cdaa173da2a0276a\"}"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 194,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9d8cc0f54342bf3da4dab5077f6cc69f\"}"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 131,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7a9b5cce8334552d8e2458056194efde\"}"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 133,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_427464d83483ca449f9cfae026646456\"}"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 154,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cab3bc01a6091706f6ae18567d82b721\"}"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 117,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_06016ab2d6fe745b98871863232bb306\"}"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 162,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b3c221d0e934414eff4245f1ade00256\"}"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 143,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0c49f90488429a8808c689d14118f730\"}"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 158,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9be00c2924ba8c71c3269d6a65b72ab8\"}"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 125,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b077618de8adc0e85109ed69afe1813b\"}"
+        }
+      ]
+    },
+    {
+      "backend": "drex-max-v1.1",
+      "model": "drex-max-v1.1",
+      "pass": 1,
+      "summary": {
+        "pass": false,
+        "recall": 1,
+        "routineAdmit": 0,
+        "p50Ms": 133,
+        "p95Ms": 203,
+        "overTimeout": 0,
+        "transportFailures": 85,
+        "inputTokens": 0,
+        "falseAdmits": [],
+        "needlessReviews": [
+          "saas-support-kb/compatible-overlap",
+          "saas-support-kb/compatible-new",
+          "saas-support-kb/self-corrects-errors",
+          "saas-support-kb/self-adds-information",
+          "saas-support-kb/hard-compatible-sibling",
+          "hr-handbook/compatible-overlap",
+          "hr-handbook/compatible-new",
+          "hr-handbook/self-corrects-errors",
+          "hr-handbook/self-adds-information",
+          "hr-handbook/hard-compatible-sibling",
+          "eng-runbook/compatible-overlap",
+          "eng-runbook/compatible-new",
+          "eng-runbook/self-corrects-errors",
+          "eng-runbook/self-adds-information",
+          "eng-runbook/hard-compatible-sibling",
+          "crm-account-notes/compatible-overlap",
+          "crm-account-notes/compatible-new",
+          "crm-account-notes/self-corrects-errors",
+          "crm-account-notes/self-adds-information",
+          "crm-account-notes/hard-compatible-sibling",
+          "clinic-procedures/compatible-overlap",
+          "clinic-procedures/compatible-new",
+          "clinic-procedures/self-corrects-errors",
+          "clinic-procedures/self-adds-information",
+          "clinic-procedures/hard-compatible-sibling",
+          "t0/routine-customer-story",
+          "t0/routine-typo-fix",
+          "t0/routine-faq-shipping",
+          "t0/routine-faq-returns"
+        ]
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 139,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9ba4ac3bc11d70092ba13c4757402585\"}"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 183,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d89c15543485e783b93ca11bd7b51d12\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 177,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a99c1af6c59bae67ce3878a46d2174c2\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 203,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_95e0e33d49f28f014018768769df0ec4\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 143,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0aa7a4470d7dbf347326ab53a206b367\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 190,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_980c53b26f66ac92f7eb65e323840731\"}"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 171,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cb601d9176e848e41892cc771c41d0b5\"}"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 217,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_356503fb259445ba3ac11d172a98af3c\"}"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_681a4b31afd9b96a1cbbc30d8a2d8175\"}"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 124,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f6f9195a97e1cf26f5e5ce34e4856b58\"}"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_39550c1146e3bb1e6d19843bb1d79cb3\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 127,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e02836c046ca9efbacc38a4a4221c11d\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 133,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_375906413aa77da71fa40bb39834807c\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 174,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0c0e2c22dbb74a76515313d5bda578a5\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_34b65b758deec5c19adb97130723f841\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 116,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4fafd93989b77ba6596c81231dc39d50\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 176,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4fe3000d5d241e345153b2379bb20e3c\"}"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 162,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7667c629291e60c8c3216b70fe97c0a4\"}"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 127,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_fbfb9413ccde2a2f8817f29aadd44fa9\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 140,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ed1290eebf6ad8306f3203a554bdd2c0\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 177,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2803ee8a86a17f9cbd014434b70ab923\"}"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 176,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9b28395f612a999d993783d367189bf1\"}"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 178,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b1d80d48638e78f4cabfa1e85e16816c\"}"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b07e43b534c9eeca1bcba27882dfe92d\"}"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 130,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_326e6385e884847d452a8e7ed19296b0\"}"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 144,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_841bb6012fc89f9f265d9c1d83376d4a\"}"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 102,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a319b38404ee9b82ece34ab72a330eea\"}"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 155,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_213118761f36e1b4346aac96ca84312e\"}"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 103,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_022b7ed2d90e02618ec055221c1991bd\"}"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 122,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7d9c7a52b9a006c5d68a394bdd566bc1\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_796d88d6012eddd192d96090c179f9de\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 108,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0c772dcc92bceacc0df2ba89e5b98880\"}"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f267775ee315f569fc242a5bb6e8053c\"}"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0d3c9a009cfb68deca3836bad9ef2c62\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 153,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_05c7a9016ce1f10aabc4a4fe0c48d193\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 168,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3ec0b11f868f6660a704e84d94464ea9\"}"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 206,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c94e30a78ce531cb10304e095b92c94e\"}"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 162,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9daedcec8f45f76ddd11acdea8a73a86\"}"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 143,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a8c6175da1550514951dd85a4b026c5b\"}"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 132,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f8ec9d7eb66a116d2269134637bafebb\"}"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 121,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0093381b065f28fae268a6591b3d732e\"}"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8be26f3fa7202ad09dfc0a88014712aa\"}"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 167,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_113c512362c37f54469e818fa0e9fc91\"}"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 172,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e19f37cf4f1285668424b904ae469b34\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6865d0c168f06d6b29532765a6260727\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 127,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5737c91990637cb40999dd367e44cf9d\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d11d6f1f460942b59edbdd856edd3f6b\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 185,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2ec2972c51f71019c6dd1f90ba51c9d6\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 108,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9b4c766d8e28460d875605f1fcb30982\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 120,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8dad91473f670e614df392c5ec4e423a\"}"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 113,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9215ff85c169b8ce0c244963af95c384\"}"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_83acecb4009448ac01471282d66aea96\"}"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4dfea4459c9129f07f3840a89b0afd86\"}"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 232,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a4b12afef319269788b0c742522d244f\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 172,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_fdf0924b6fac2f82d18d5413eb811ecb\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 175,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a60d42b9758b85df5f57ff2a4d9f71d3\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 119,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ce633e13ce0a2b6e979f162e9578aba4\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 119,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9e89e7be957c5878fb56f0b36ae7ccec\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 152,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_26f1d8c6fdbb2c56d36e7f46b7c97d10\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 212,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b6c859ab3d6a9c54174172ef3a0b4004\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 147,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3bbd77e9fb87df7c442908fac8a4b9de\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 101,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_28c899793a0b6d2760c44bfec082c12e\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 186,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5f65acd6c053350203fa8290ceff46f5\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 154,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4dbe6a87fd04f1d283710404b1b61f87\"}"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 127,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2ef2d8ad192dd2c786545d2245c9a273\"}"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 154,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0e8ed9dfa6eba99426df3d480295c332\"}"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 125,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_15eb93fdd80d853ec01926f0f38b714f\"}"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_213738e7e524de992911051e51cfe6d4\"}"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bee0baccd2e6637e187cb3a86909c327\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4dc96834612fd9592fe4c97b9fbfd550\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 155,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0aeaf5390f8aa36ef3d61347f53930e4\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 147,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e537ba7d0762b07d2d1bbe942a584021\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 133,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cefb161435ce14422b8cfba1479c74bc\"}"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 136,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d34f21dbee9dc7666e42cee168f6357b\"}"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 145,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_003f3a8e0d113abf7c7f71a3ecc6cda2\"}"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 152,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7843dc7dc346a2006772d8aa2592dfea\"}"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 151,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_790109d7ccf1e635b40091cb7bfbd950\"}"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 108,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ab425e0be9b5346eedac24df9bb8a7f8\"}"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 167,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4ae9c583ab4927ebfc4c65b902138238\"}"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e2ab8a99f503ed786849ac10acbe3098\"}"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 100,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b87342406eaee130a4781f0f83e36dc2\"}"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ace8f096aa25c287617eb775d80c921b\"}"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 105,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_02b9067202c914890f87a47f47fe2cb4\"}"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 131,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0619bf8ca9a5b0d08df81e5091c6424d\"}"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 178,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_1331d8f313022199ae3a098a86918383\"}"
+        }
+      ]
+    },
+    {
+      "backend": "drex-max-finance",
+      "model": "drex-max-finance",
+      "pass": 1,
+      "summary": {
+        "pass": false,
+        "recall": 1,
+        "routineAdmit": 0,
+        "p50Ms": 132,
+        "p95Ms": 189,
+        "overTimeout": 0,
+        "transportFailures": 85,
+        "inputTokens": 0,
+        "falseAdmits": [],
+        "needlessReviews": [
+          "saas-support-kb/compatible-overlap",
+          "saas-support-kb/compatible-new",
+          "saas-support-kb/self-corrects-errors",
+          "saas-support-kb/self-adds-information",
+          "saas-support-kb/hard-compatible-sibling",
+          "hr-handbook/compatible-overlap",
+          "hr-handbook/compatible-new",
+          "hr-handbook/self-corrects-errors",
+          "hr-handbook/self-adds-information",
+          "hr-handbook/hard-compatible-sibling",
+          "eng-runbook/compatible-overlap",
+          "eng-runbook/compatible-new",
+          "eng-runbook/self-corrects-errors",
+          "eng-runbook/self-adds-information",
+          "eng-runbook/hard-compatible-sibling",
+          "crm-account-notes/compatible-overlap",
+          "crm-account-notes/compatible-new",
+          "crm-account-notes/self-corrects-errors",
+          "crm-account-notes/self-adds-information",
+          "crm-account-notes/hard-compatible-sibling",
+          "clinic-procedures/compatible-overlap",
+          "clinic-procedures/compatible-new",
+          "clinic-procedures/self-corrects-errors",
+          "clinic-procedures/self-adds-information",
+          "clinic-procedures/hard-compatible-sibling",
+          "t0/routine-customer-story",
+          "t0/routine-typo-fix",
+          "t0/routine-faq-shipping",
+          "t0/routine-faq-returns"
+        ]
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 131,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_564c922cc4c3d446e77f67d54f91128c\"}"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 148,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5f18fff7ecd5ffd7f17ccf0db725d85f\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 146,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a644a35ac2d5f10ac3fedba67466c371\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 140,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8cdb8f24b9e5a356a65d6109d28d7a02\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 151,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_33a97a1c41b1bc2d397ed4e2d7eb70b4\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 146,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d3fb22346e9ad3037b36cd58a48c89dd\"}"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 101,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_93f6c5be6ef45099aece57cd31353e70\"}"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 208,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b25e4791b355b4fdb33a98951a43fae9\"}"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c965bff2e2497b9a8f80c2fc1793f709\"}"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_1ee97cf2c5cf23c362e8c41b17e26948\"}"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 117,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_09045f84d8b74f04a9945025c872784e\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 173,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_1749e2ca75ffb2a3fa1074d45226279e\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 103,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e99cd82c2586101fccdbf0b8e49bf712\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 127,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0f8b528d093761db309affc130ed4160\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 105,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4f922cb686a1a77f13d1a0f1587b2ddd\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 143,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b5dd2b08fa4b042f67b0472f0fbd022a\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 120,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_82100036da83d74b90309b3c55c97b13\"}"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 133,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2dbb792303594ebd9b30e67b3363d968\"}"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 122,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d5c307377122e5b25775fdcd14429278\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 105,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_70072c9a3709a31c15f247950c257fdc\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 179,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3b3d9df756c6086bb4c01ef7326ce185\"}"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 153,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_92bfa15fb6b7b029800cacd7bd547445\"}"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 124,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3a95be215da479d751e5ef77f11c4fdb\"}"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b8e22e6c93782b49ce84f9b84208295e\"}"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 149,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9fe750ae09ead2d2b7e1bf3bf8204e28\"}"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 164,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_64d2992463a09a707d0efb031cf3b997\"}"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 118,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a2c65372d85d62883df33bdce457e717\"}"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 165,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_003e0808a38e86f5bc53f8a816410419\"}"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 133,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_76e4e4da9b07f4a248e29612f3b063f0\"}"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 216,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e0abef875294498d5b3030e27e05d175\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 157,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_209b50af3f32c4b6a545833ccdb501fb\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 144,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_59546eaed1903757750f9812399bd9b2\"}"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 179,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8087738d73a1fad31eaf7f2c8cba9908\"}"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c44a6349f83b8f6c7ca5240d9548d751\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_484f3f8c3e66fa92437fe76c32e31042\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 160,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_1bdfd6765cfb61424373df63c13c9260\"}"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 164,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e34a94c48deb1d7ffcc27bec7148fe20\"}"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 189,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7a2b230e4d979a69726a6d243ce21e19\"}"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 154,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b664ec9b4d5e82dbb3e7912e8bf75ea5\"}"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 148,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3f2b47058f43fd01bea72e5bfb1036e3\"}"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 156,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_89ee9144165e5721dad432bcd0130228\"}"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 116,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ac6bab826cd31a5ae2b2b145d40982a7\"}"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2c8b4f9261d0cbeebbc73c61e68287d2\"}"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 163,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_df658075da27fd88175bf6100193c91a\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c58725feb4a905da8c2ae66d1d58043e\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_427bef601306cb4facf4bc2e068d3f6b\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 148,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_168c27fed7620f25c258245f460c67e4\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 132,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_054b96e00f7c8f6941b07bb50d8a9b90\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 111,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8ece22996a03a94d72fea36006da29e4\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c654b76f5286aa32caf3ca891edd8dcd\"}"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 161,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b604db11d72ba14ccbba8b8851998c13\"}"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 117,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a98e900cddc52ff5869e907197f27ed6\"}"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 108,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d0a0124fb028c11d67897d0902ad1eff\"}"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 122,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0a9f56a55d0bb1e8662ef4a89148fae8\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 101,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_267e49fa8ead40c5e3c230855bd29764\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 151,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9586eb0337b5a239f353b9d554c14bcb\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 103,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e02a7bc60b0749618d40a54b06ad5c00\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 129,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2ff7506e5a0fa4f3e646297c7045e25e\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 135,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_07d6b822b18c2b5e6d067e4362caad8d\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7a5b6464587d0eed61ac1156b68ceea6\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 103,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e40bd6ba3fad2614a4b6e6fcefe0bc6c\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a8ba00f81737373ee441221c72dee1d0\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 163,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9490b219a9a08d6aa288c9597ce433a3\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 137,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bcc76913cc198845efd43a781a0e844a\"}"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 234,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e29581cba840ce01fc6f9063f485a07d\"}"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 158,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5d7e901bfb3c51c93fbd439901594ecc\"}"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 127,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d9d4b0b9a9eef35870f12a80e246a6f2\"}"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 127,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4d7c7c58cbbd6f2768e01bb31a03efb6\"}"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4c549d69aba28f14a680d953e3033ad3\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_697c156504c033927f98377dbfcc41ac\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 181,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_455fa85ccd4d1f0674a43d504dbfd931\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f8a5d11d149c367eb11f275847709214\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 147,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_248b3a503ad9de25ca5e18c4a790581c\"}"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 323,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a1c7a130287a1452d56dafc5baf69792\"}"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 129,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7060e6cc5248b8bb441236050bcd9d10\"}"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 164,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_deadb30403e5addbf5fc4f167555e007\"}"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 149,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_098f6de7b59ecba9321262199d961c9d\"}"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 158,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5e7118c1f806e150e6e880782df4df42\"}"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f81eccb160ff663be1699fdf28d54c31\"}"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 139,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a1cc2cb2c64f989909398c24ce0398d9\"}"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 117,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_00ee574cb15d0c2f6d1db021f3865f28\"}"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 168,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5c01f7f6f9efe7ebc3894fc5e56ae112\"}"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6492ee44419b79045b4f4d3c0c38272f\"}"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 111,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8ac3c35b2a79f6d4068be9063eb30bff\"}"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9b0636c053c923734424b4fa113538d8\"}"
+        }
+      ]
+    },
+    {
+      "backend": "drex-v2.0",
+      "model": "drex-v2.0",
+      "pass": 2,
+      "summary": {
+        "pass": false,
+        "recall": 1,
+        "routineAdmit": 0,
+        "p50Ms": 128,
+        "p95Ms": 202,
+        "overTimeout": 0,
+        "transportFailures": 85,
+        "inputTokens": 0,
+        "falseAdmits": [],
+        "needlessReviews": [
+          "saas-support-kb/compatible-overlap",
+          "saas-support-kb/compatible-new",
+          "saas-support-kb/self-corrects-errors",
+          "saas-support-kb/self-adds-information",
+          "saas-support-kb/hard-compatible-sibling",
+          "hr-handbook/compatible-overlap",
+          "hr-handbook/compatible-new",
+          "hr-handbook/self-corrects-errors",
+          "hr-handbook/self-adds-information",
+          "hr-handbook/hard-compatible-sibling",
+          "eng-runbook/compatible-overlap",
+          "eng-runbook/compatible-new",
+          "eng-runbook/self-corrects-errors",
+          "eng-runbook/self-adds-information",
+          "eng-runbook/hard-compatible-sibling",
+          "crm-account-notes/compatible-overlap",
+          "crm-account-notes/compatible-new",
+          "crm-account-notes/self-corrects-errors",
+          "crm-account-notes/self-adds-information",
+          "crm-account-notes/hard-compatible-sibling",
+          "clinic-procedures/compatible-overlap",
+          "clinic-procedures/compatible-new",
+          "clinic-procedures/self-corrects-errors",
+          "clinic-procedures/self-adds-information",
+          "clinic-procedures/hard-compatible-sibling",
+          "t0/routine-customer-story",
+          "t0/routine-typo-fix",
+          "t0/routine-faq-shipping",
+          "t0/routine-faq-returns"
+        ]
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 188,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5540b8c8a9197f75d2ce5f33032c4804\"}"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 146,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2819ad1d8ff1a88cdc0e833f4de1a5d0\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 161,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_88aa3e64741284f6dc38a91bef840c72\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 188,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6964d458f4449911eb408635fc411afe\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 148,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4a9dc9519f65d498017a2f7ed69efdd5\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 200,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a0f1e2d479078be2c49624f84b32f403\"}"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 166,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_550d47d08e2b101982845437ed2a20bf\"}"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_348ae0eab91182f1dc35e0b21c8ea48c\"}"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 165,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_aa6c4f8e88ca42962ad42bc820ccefbd\"}"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 193,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_16a03b572494a205f6cdcd6a34741c1e\"}"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 237,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d98058dfacb3da5b4b1f55745d0b1aff\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 165,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bb409f29c22a0bf32c4034da1560809a\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3f9aed4951ba7fa11a6113809afeace8\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_197d957b4c799db95211e6d121468557\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 98,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bec16ae024a299d92afea231f241020b\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 146,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_fccec1184e86410a19de8bacbc2e0b05\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 145,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bbf107c87e6e015944b158d65cbebb6d\"}"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 266,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c740349eb1177eeaa089994abbb4f905\"}"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 119,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_230b2d817a4ae19c374d4294bcfb34bf\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 119,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e8ef592d7f94a76702239d0d7c58b27f\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 144,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_47d501d4b44ca22fc62111ab0036d919\"}"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5b6fb29756ed73cdd0e91a1f59a2e607\"}"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 101,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_77131293761fcaf679e42e7a37cec04f\"}"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 113,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0c42c9053028436d03628bf787ff7fa6\"}"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 159,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_748fed64e8e2ecdcd5f98e6266e77e26\"}"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 168,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bbb12d788e5082e7040e62245a272415\"}"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 130,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d80e58875ec2609fd470d4f96004f6a1\"}"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 129,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e8426587e9009a5d6cec8bcc61898cae\"}"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 145,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_367cc3efb5be3346e0d5b4aa8d365f1a\"}"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 121,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_da01f5446336bcd3f49d539e4419748f\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_761945a9943419716fb496c5c84af7d0\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 124,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6de2fe22436df747f5e5d61c005c53cc\"}"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cc4bc508861ad010a8a62d291f1c868b\"}"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_87b97c97b03ddcf9cab8a334e9f431db\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 153,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_37cd80c906b2c11f054759db0f9f1e8e\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 120,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0ff471f245f57268eee6de48c6fb0482\"}"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 129,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5adfa2f8e26641e8a196227a5001a07c\"}"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 126,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_94ae36108260159005b2fc0532bb6f4f\"}"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 170,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9c91de7b75c961a805ec9c4276c6f807\"}"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 128,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3971819230fb04e0be4d58581cc0c073\"}"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 148,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_02dadc98b5dda2e907790290863489df\"}"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 151,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_89cb1fb0c83bc638f26048c6a6b09831\"}"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 101,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a6a80ddfc3639a3c4a20e668703bd517\"}"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 134,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9265c1fbe015cea250b2dd5f67b07a75\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 148,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_24469bcb240f6f436454904d0bc34d31\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 111,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8d45ecd85a7e5d34f0f79e1961a664b7\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 198,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cfef51c9ff3908c74ded29ab5f6a48db\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ef07c64155fb6f4394f9c75c44008f40\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 111,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f7b16f66dcae50c972085aa88a1f910a\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 155,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d6922d96b338617b5b6d0026d38b0fa3\"}"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 120,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0951c2b09da4903ffdc905377a78c820\"}"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 175,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d93513fa79d4a472c609b27091a5be54\"}"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 156,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bdbe8fdd3a8122fdeb8921c06e59bf01\"}"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 338,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0bf033b34e090a4b83c95035cbf2821b\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ba9f899cc99a73f2bf451b3ed9165802\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_83842e67723b72b5bebe50425f9b4bb6\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 116,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7614d703e648c01ac683374d8d0d24c6\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 121,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_987ed107fb188b54c29282b88bec645b\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 156,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_32609745f89876d15b1cb218136bedf8\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 113,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_db66fb1014e8766659920268a9137134\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 102,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2119afa70a5e33769369d78eec91cfd9\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 151,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bc490fe850af891935c6da9d2bac57d3\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 130,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a3a421026854dce7b1875e2027de1735\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 116,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a79d5ee840f5ddc673427828a907fa28\"}"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 138,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a2ce6771fb1b99e441d3bab5705c37ce\"}"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_249079a55d9ca3012c2379303829cea9\"}"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 158,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c3e9911c4724231cea72393e0c1d9389\"}"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 116,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6180ec87fc3c8a8a1be3e96af97df9e5\"}"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_61548420cbf0537c92cd01a9d012901e\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_713b77163e28b00ebe83048d12cf6ff9\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 111,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_03af95dcff596b3334f79ed01064d1c5\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 202,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5c7a351bcd05ae4833b06952fb27709c\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 103,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4421aa5dea79f30bbb106fac97214c53\"}"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 128,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b1f2b3aee57e5ab37d338dae3eaecf55\"}"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 124,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6b6a85c730e98667ada47a50f9adc457\"}"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 144,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_74cf3f921ed5655fdda1d7ca73557d6c\"}"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 120,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bf4f248fbd7751e619285c1658ac328e\"}"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 120,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4b8241f3474459234b4eba9b0e6577b1\"}"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 117,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_06108775035073408a2e11bcef19a3de\"}"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_67861ce94641a208929fb4911ead5b84\"}"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 164,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d2d0a58101e601fe9b9a25785216df85\"}"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 125,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f7d1056f5054b5383ef20dcb673fc245\"}"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 117,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_16d7b79a5de6697dcc0ec82282b79b8b\"}"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 231,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_88488b059e81d0c81ee8e4331daba138\"}"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 156,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ba8b4dfbd8c2039bdda392ffba505bed\"}"
+        }
+      ]
+    },
+    {
+      "backend": "drex-max-v1.1",
+      "model": "drex-max-v1.1",
+      "pass": 2,
+      "summary": {
+        "pass": false,
+        "recall": 1,
+        "routineAdmit": 0,
+        "p50Ms": 131,
+        "p95Ms": 188,
+        "overTimeout": 0,
+        "transportFailures": 85,
+        "inputTokens": 0,
+        "falseAdmits": [],
+        "needlessReviews": [
+          "saas-support-kb/compatible-overlap",
+          "saas-support-kb/compatible-new",
+          "saas-support-kb/self-corrects-errors",
+          "saas-support-kb/self-adds-information",
+          "saas-support-kb/hard-compatible-sibling",
+          "hr-handbook/compatible-overlap",
+          "hr-handbook/compatible-new",
+          "hr-handbook/self-corrects-errors",
+          "hr-handbook/self-adds-information",
+          "hr-handbook/hard-compatible-sibling",
+          "eng-runbook/compatible-overlap",
+          "eng-runbook/compatible-new",
+          "eng-runbook/self-corrects-errors",
+          "eng-runbook/self-adds-information",
+          "eng-runbook/hard-compatible-sibling",
+          "crm-account-notes/compatible-overlap",
+          "crm-account-notes/compatible-new",
+          "crm-account-notes/self-corrects-errors",
+          "crm-account-notes/self-adds-information",
+          "crm-account-notes/hard-compatible-sibling",
+          "clinic-procedures/compatible-overlap",
+          "clinic-procedures/compatible-new",
+          "clinic-procedures/self-corrects-errors",
+          "clinic-procedures/self-adds-information",
+          "clinic-procedures/hard-compatible-sibling",
+          "t0/routine-customer-story",
+          "t0/routine-typo-fix",
+          "t0/routine-faq-shipping",
+          "t0/routine-faq-returns"
+        ]
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 131,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2d0868506b96fa210135dd0a064b4af4\"}"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 132,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_efc0ae102fa1b9eb960bef1b954da152\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 157,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bc1ddc0ba8545f2f4976f54ba66094bf\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 173,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2f4758d72212793c900a2e5b98ca612e\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 191,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9c463a52d3f1acf92c6b47b8b97de447\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 190,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5cc5e759e0f6328a12f83c80d544aac9\"}"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 161,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_524b584ebe85d6ba8dcd28dc496efe55\"}"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 130,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_01b39c5c611cb243418ea566c0dfd0fb\"}"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 102,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_444ce86140958ac8c99fab2a64973e67\"}"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_1b1277427470b7f9ddb2a57e59a49c48\"}"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 184,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ba12a2f783b5f1c3c63f143fffe46325\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 151,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f9e07072cb80e3661f7d6ae37ed9edd6\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 105,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5e84542be49f55b1c44ecd209cf09a9d\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 132,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_976baa4215e727cd20a1e61db5cf922b\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 127,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a5349aa4b767d7dc02e6082e7764c50b\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 146,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_441790802b7f6aeb803ba6e3e2b358a8\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 140,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_15943db35e046e0ee92e0fb8f6e92104\"}"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 144,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_63c11b48a2636be7cef912560cd4997f\"}"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 143,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4427a0f2120bdd3479525ad92c3c4d7a\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 97,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_68e9c0331111d24dd870a55a6a21410c\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 172,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6643fdc3823ddce7c655aeee5493ac9c\"}"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 182,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b133e47c78eec60d9f4574ce545dacf4\"}"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 151,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_36a52f02b4146314c1d9ba01667e59ae\"}"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 148,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d4c558da265119046d2b6787ac8c79ea\"}"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 121,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ff038e7be5a88b91186c7a1b55e9550c\"}"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 169,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cc0452ae970e6a6eae8b42b1b36f1189\"}"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9a244796f6da10081aeb307ca5c0703e\"}"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b68ab4eda0ee9b62284153d73facf8a5\"}"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 108,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d347460e2653b5be674ebb7d645208f5\"}"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 177,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_158c1b7409acb2ebd31a6dc86140cfcb\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 139,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_92ad10cca55aa007f08f5b4d8d17021d\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 166,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e80ab3a4604a80e11b158cf7650a9b79\"}"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 118,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_33e39a3cd8f9708190341038443f7bc1\"}"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f1de79608d4b8bf19cbf8354cdb87c6d\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 129,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_fda04950df2c148027ca18bbbf9d7a1c\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 101,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2b01b52967fde32d4daaf94a3c36c9ab\"}"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 121,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d94f16a1724ba80ec1ef82ea19afcf68\"}"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ae07c2a629ac193cd728b667d85003f4\"}"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 174,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7c0b446301e4eac148f41eba74767072\"}"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7457fac3511555bacef65df488ba3346\"}"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 99,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_24b6816d02029a8619d629860348cf45\"}"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 118,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c8cab012bdbd4362700d901dfb01bc7c\"}"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 138,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7ab9dbdefef8222669af52547d36cbc4\"}"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 159,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8fd6b584adc22c80a11ebdb67c4c2fde\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b12a26eeee70c20b94faacb01d1badb1\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 102,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ee756df5c15b46236bd269506a740313\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c427bfcf7458f048cca57a9ab4bdf694\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 149,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_08a660b13ebfb4ca5157303c841b08aa\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 121,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9250b69169b39535012771fa81a3860f\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_48593d9d07b3bbae35a1830495492fc5\"}"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 119,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_883a17d47e3b13058462250526d56662\"}"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bed20e7dd81f7316e5c9c564f7d6f10a\"}"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 159,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_813296522df97f7c8ffe66132e88660e\"}"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_840fe74c91f9ec2059c18007b6cad3c3\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 225,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_300036865cfc31ad4bd25a89a5b198f5\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 147,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ce6e8a408e43955c1aa93a3486b73117\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 156,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_16a27c50827a271ec577113479437d9a\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 122,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_391d1c4e4e4c02021925d0c18f23742d\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_358a3224a7c453ee292e2bbab8a2742e\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 178,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_734ba9d009fc02f1b65cc9363e9aad75\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e7672e6496c60ac9163fc1363e769540\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 119,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_58feadca1431ac55d761927c82c18a73\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 162,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_11816eb3d8c543d639af4d43fca21212\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f91f2c866ee416016b8d866084ac9657\"}"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e84f5657d2fdba0ab0f671305396de77\"}"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_893bb6a4dabe1c140a3baf832c9ef37f\"}"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 122,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_800351a58c1e098c34e01283d1e2432d\"}"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 154,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f2082abe6ec63f84023c4b5ab9905f00\"}"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 216,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8e67bf694bef96cabaa5c04fbc8ab3b9\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 169,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c13383f3685617877e54b0249432c8ce\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 103,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_53443922b50b4d606a623a9f7e28a9da\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 119,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b4484db0eb4d7e20666cbaac06827824\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 181,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_40d4781f15f28e568727e4a9997a2a0f\"}"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 166,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5baafad3222c5ae30e02620ab930e994\"}"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 117,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_74d9c98e176f53b0bd425306e59754e6\"}"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3377474dfd238beb6a2d24d548dd5984\"}"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 183,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9f062944ebd243abd6864527548723ae\"}"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 124,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_964eaa508a454cb27cae3cfb85f0e80c\"}"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 188,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9a5ae7341b1d0e32891b6ee0617e5e8c\"}"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 146,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_80702d992e998d0ad63c78c510f6aeda\"}"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 187,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2a789be617fb7ee32724f0d41c4edf9d\"}"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e3b05d2bb9c1914e04b944f02d854288\"}"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 155,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5f460aedc51d24af4860b61f1fe115d3\"}"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 181,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_1ccb5c764748cbd3ca654f6cd7ef503b\"}"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c83a7c17945483f90781a7cf3b06a0b9\"}"
+        }
+      ]
+    },
+    {
+      "backend": "drex-max-finance",
+      "model": "drex-max-finance",
+      "pass": 2,
+      "summary": {
+        "pass": false,
+        "recall": 1,
+        "routineAdmit": 0,
+        "p50Ms": 138,
+        "p95Ms": 197,
+        "overTimeout": 0,
+        "transportFailures": 85,
+        "inputTokens": 0,
+        "falseAdmits": [],
+        "needlessReviews": [
+          "saas-support-kb/compatible-overlap",
+          "saas-support-kb/compatible-new",
+          "saas-support-kb/self-corrects-errors",
+          "saas-support-kb/self-adds-information",
+          "saas-support-kb/hard-compatible-sibling",
+          "hr-handbook/compatible-overlap",
+          "hr-handbook/compatible-new",
+          "hr-handbook/self-corrects-errors",
+          "hr-handbook/self-adds-information",
+          "hr-handbook/hard-compatible-sibling",
+          "eng-runbook/compatible-overlap",
+          "eng-runbook/compatible-new",
+          "eng-runbook/self-corrects-errors",
+          "eng-runbook/self-adds-information",
+          "eng-runbook/hard-compatible-sibling",
+          "crm-account-notes/compatible-overlap",
+          "crm-account-notes/compatible-new",
+          "crm-account-notes/self-corrects-errors",
+          "crm-account-notes/self-adds-information",
+          "crm-account-notes/hard-compatible-sibling",
+          "clinic-procedures/compatible-overlap",
+          "clinic-procedures/compatible-new",
+          "clinic-procedures/self-corrects-errors",
+          "clinic-procedures/self-adds-information",
+          "clinic-procedures/hard-compatible-sibling",
+          "t0/routine-customer-story",
+          "t0/routine-typo-fix",
+          "t0/routine-faq-shipping",
+          "t0/routine-faq-returns"
+        ]
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 139,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ced6487b3b28b6f08c1bab4babd004f6\"}"
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 149,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6f3e1b5345a9048709d46079a24b4aa8\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 177,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_de757497249e3d817ae31c03f37d57f7\"}"
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 154,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a0194674f8791223fc7310e6f48e05c1\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 160,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3cc85dcec6b3c876d5551ee897574351\"}"
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 138,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_aac1c0bce695298cd66c8b7dcce1f6f1\"}"
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 173,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cd9bb8c61c4d9d1e5ddf4846ccf67883\"}"
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_859caf5b17609d6b46e06576e404c639\"}"
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e2cae307964e20315fc821443bca894e\"}"
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 173,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_840194bf74e79e2941a9c8ae9bddfd91\"}"
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 128,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a8c36468edf9db30b00b1061bee1debf\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 171,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9acec736b9f4a1fc86a82eb91bf5cda4\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 121,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6148f7792bb5b776eb91c452e4b6f158\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 113,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_211c9b8869708261e787884ffdc10f22\"}"
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 142,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3ee60857ce1f3fec48303879c2723ee1\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e583c857b86a3b282810273f4a90cec3\"}"
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 142,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_3e3fa4f07cf37e7286896370ead3a876\"}"
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 158,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a434448bc071f0ff38b670e4a5f781ba\"}"
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 153,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bcf3d4267b65a575a79c050bd2305025\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 102,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_53cafa0a586015b1c00f761380485993\"}"
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 119,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bdf8d49a71402c9f8b9067c1cf02d4ab\"}"
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 131,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9fd6ced3011432ad872436864bfbeca4\"}"
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 213,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6a1f237e5d37712f4b6cb4ae838386a9\"}"
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 185,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_12ce582524e5946536de6d6aaefac953\"}"
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 125,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_d79dbb6e84e0289b737c39b9c3de41ec\"}"
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 162,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b8cb9ca106ed14070a26aeeefe4ac16e\"}"
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 177,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_23c2095a7759b8b8d3b6c34433ed9492\"}"
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_c47b8b6e743276987b053aa4e879e73e\"}"
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 197,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_911cd4c1901ad00473111421c473b893\"}"
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 157,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ffd55fc76240be4810b9c3453d47c7f5\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 159,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_2cd4be572047127b28cb0b2a1ac21f14\"}"
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 175,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_7b12bb86eefe2b77328057c70fa73f9e\"}"
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 159,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_efe67676a86b3039d55e08e1a834781b\"}"
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 166,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6c6611bcdaa7513241e59239ff299c2e\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 125,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bbfed37ada0bbbcf5c3020efcc2a7aa9\"}"
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 171,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_84e73615369a3ada2625a1e5b750663e\"}"
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 166,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_a9550a3e7e309f727d1c9f279e3cda2f\"}"
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 246,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_bc400a0fc2627d441d6e46733d190a7b\"}"
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 169,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_38d6ebd6928b68781d4ae0e543747a1b\"}"
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 164,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_5644c56c132d89a0fd7414fe1febe37e\"}"
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 99,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_77edcf1823f196e05ae37a404b219622\"}"
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 175,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_95a0410017b44363b3a21cd91696314b\"}"
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_52065df604ae8b990744ce25fedef07f\"}"
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_de2d2094428ca9187ae32235dcc5928b\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 248,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_27060b9366ea5abcf3023969d802fbf0\"}"
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cb6cc52eaaf69933ac8c5d0eba054d71\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4cdd418f9fdc913e29cb142341e4426a\"}"
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_013e47cb3cee78ff6f8e0cb00f3274ae\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 156,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_32a6ceaed57a875f055f0bab58333570\"}"
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 116,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_37e024ed8659f412e760f0f6989a879b\"}"
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 108,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_248db3616c959a096eb20f50d58483a1\"}"
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 167,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_86c57cbcc5f22d851a04c5c7922a88cc\"}"
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 125,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_086be5b403c796fae64e143e6e780d1b\"}"
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 102,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e6db5acfbe0c02b6f4f0c39699e68399\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 169,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_e83e1b4a8c54d0bef8da46554a27351c\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 107,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_4353a88fab1e6f633ff640c0e454a32a\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 130,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9c4c8abc2fb1e5cb15cdc67139ea55ad\"}"
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_dd359f446c73d4c45900f070971e4f09\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 167,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_71bf305a966e6a7bcc08680c62ef154a\"}"
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 171,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_cceb2b56c005305e7c5d93790e80eefc\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 114,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_84703d63b3a1856902e43c1abc2c870e\"}"
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 155,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6d64f0b5e1c28edac30ebe0c22345060\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 127,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b06e4f7f1ca5bb9a00495302ef811065\"}"
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_815e14679b825415e475fab301a700de\"}"
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 180,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_f2994d4b9697e7632f150cccde834a9f\"}"
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 115,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ee283231251c2cc1c6fb6c227ae36f82\"}"
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_022a6c52ae08b3b5dbeb45903c956abc\"}"
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 104,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_1731f7ca355ff548e421c9959f28a777\"}"
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 100,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_43597aed50848382405a81482fb73aaf\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 113,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_ebe03069d778d73d5746e5ef0579887c\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 110,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9760d72a9df685b98ec1b4fe2ea20ba6\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 123,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_de89382926a9b0a5f9092b8f4148d503\"}"
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 109,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_9d65e05200a425a120df625f5e83de43\"}"
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 119,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_06b8378f25128ccb9fecc855f3108c78\"}"
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 251,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_aa49462d3dee8eb0d69e67f6b4e50bfe\"}"
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 113,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_b5341d759cf7f656a3da1416d1e0d59e\"}"
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_0895c4aa0bbe35813ce5811e568b0ff0\"}"
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 106,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_6b69e57193be336e5520e1e6007f07bb\"}"
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 166,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_1977110a6937a84192e098483c697d69\"}"
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 191,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_8a8d35e0d5da13a9aff2d2af8253a452\"}"
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 131,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_67e7582637e5936aef5029c23ade715e\"}"
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 139,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_48fdf05ecb07bd99a16cc08743407e0b\"}"
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 112,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_add47560f4870fa0bcd9f9e39b19a03c\"}"
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 159,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_846569f511d840a5f2068db68a4957ca\"}"
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 152,
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"Requests per minute exceeded for this account.\"},\"request_id\":\"req_48462d98b1d8279e8bdb38d89099ad8d\"}"
+        }
+      ]
+    }
+  ]
+}
