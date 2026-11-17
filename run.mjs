@@ -219,6 +219,8 @@ export const BACKENDS = {
   "clef-omni": workersAi("clef-omni"),
   "decision-1": openRouter("microsoft/microsoft-decision-1"),
   "gemini-decision-1": openRouter("google/gemini-decision-1"),
+  "liquid-d1.2": openRouter("liquid/d1.2"),
+  "liquid-d1.2-ultra": openRouter("liquid/d1.2-ultra"),
   "pplx-decider": openRouter("perplexity/pplx-decider-v1.3:free"),
   "pplx-decider-flash": openRouter("perplexity/pplx-decider-flash-v1.3:free"),
   "pplx-decider-v1.2": openRouter("perplexity/pplx-decider-v1.2"),

@@ -1,0 +1,92 @@
+{
+  "retrievedAt": "2026-11-17T16:55:54.697Z",
+  "url": "https://openrouter.ai/api/v1/models?output_modalities=decisions",
+  "models": [
+    {
+      "id": "liquid/d1.2-ultra",
+      "canonical_slug": "liquid/d1.2-ultra-20261116",
+      "hugging_face_id": null,
+      "name": "LiquidAI: d1.2-ultra",
+      "created": 1794861918,
+      "description": "d1.2-ultra is Liquid AI's most capable omnimodal decision model. Designed for complex classification, multimodal understanding, information extraction, and high-stakes automated decision-making.",
+      "context_length": 65536,
+      "architecture": {
+        "modality": "text+image->decisions",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "decisions"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000000042",
+        "completion": "0"
+      },
+      "top_provider": {
+        "context_length": 65536,
+        "max_completion_tokens": 58982,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/liquid/d1.2-ultra-20261116/endpoints"
+      },
+      "endpoints": [
+        "/api/alpha/decisions",
+        "/api/alpha/extractions"
+      ]
+    },
+    {
+      "id": "liquid/d1.2",
+      "canonical_slug": "liquid/d1.2-20261116",
+      "hugging_face_id": null,
+      "name": "LiquidAI: d1.2",
+      "created": 1794861505,
+      "description": "d1.2 is Liquid AI's fast, cost-efficient omnimodal decision model. Built for classification, routing, information extraction, object detection, and automated decision-making at scale.",
+      "context_length": 65536,
+      "architecture": {
+        "modality": "text+image->decisions",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "decisions"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000002",
+        "completion": "0"
+      },
+      "top_provider": {
+        "context_length": 65536,
+        "max_completion_tokens": 58982,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/liquid/d1.2-20261116/endpoints"
+      },
+      "endpoints": [
+        "/api/alpha/decisions",
+        "/api/alpha/extractions"
+      ]
+    }
+  ]
+}
