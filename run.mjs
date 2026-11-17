@@ -4,6 +4,7 @@
 //
 //   node run.mjs [--backends jev,clef,clef-flash] [--passes 3]
 //                [--concurrency 6] [--order given|reversed] [--out results]
+//                [--rpm 100] (optional shared rate cap; waits precede timing)
 //
 // --order reversed presents each write's accepted records in the opposite
 // order. The decision takes the strongest evidence across all of them, so a
@@ -129,6 +130,20 @@ const openRouter = (model) => ({
   }),
 });
 
+// Drex uses the shared System One payload. Pin served IDs and reject forwards,
+// as Countercheck's Nace adapter does, so retired aliases cannot skew comparisons.
+const nace = (model) => ({
+  model,
+  needs: ["NACE_API_KEY"],
+  url: () => "https://console.nace.ai/v1/systemone",
+  token: (env) => env.NACE_API_KEY,
+  redirect: "manual",
+  unwrap: (json, request) => {
+    if (json?.model !== model) throw new Error(`expected served model ${model}`);
+    return { ...json, answers: openrouterAnswers(request, json?.answers) };
+  },
+});
+
 // A self-hosted Kev server (github.com/jaredpalmer/kev) serves one model, so
 // the backend name is a label for whichever one KEV_URL points at.
 const kev = () => ({
@@ -219,6 +234,9 @@ export const BACKENDS = {
   "clef-omni": workersAi("clef-omni"),
   "decision-1": openRouter("microsoft/microsoft-decision-1"),
   "gemini-decision-1": openRouter("google/gemini-decision-1"),
+  "drex-v2.0": nace("drex-v2.0"),
+  "drex-max-v1.1": nace("drex-max-v1.1"),
+  "drex-max-finance": nace("drex-max-finance"),
   "liquid-d1.2": openRouter("liquid/d1.2"),
   "liquid-d1.2-ultra": openRouter("liquid/d1.2-ultra"),
   "pplx-decider": openRouter("perplexity/pplx-decider-v1.3:free"),
@@ -280,6 +298,7 @@ export async function classify(backend, env, testCase) {
   try {
     const response = await fetch(backend.url(env), {
       method: "POST",
+      ...(backend.redirect && { redirect: backend.redirect }),
       headers: {
         authorization: `Bearer ${backend.token(env)}`,
         "content-type": "application/json",
@@ -290,7 +309,16 @@ export async function classify(backend, env, testCase) {
     const text = await response.text();
     const latencyMs = elapsed();
     if (!response.ok) {
-      return { latencyMs, error: `${response.status}: ${text.slice(0, 160)}` };
+      const milliseconds = Number(response.headers.get("retry-after-ms"));
+      const retryAfter = response.headers.get("retry-after");
+      const seconds = retryAfter === null ? NaN : Number(retryAfter);
+      const retryAfterMs = milliseconds > 0 ? milliseconds : (
+        Number.isFinite(seconds) ? seconds * 1000 : Date.parse(retryAfter) - Date.now()
+      );
+      return {
+        latencyMs, error: `${response.status}: ${text.slice(0, 160)}`,
+        ...(response.status === 429 && Number.isFinite(retryAfterMs) && retryAfterMs > 0 && { retryAfterMs }),
+      };
     }
     const body = backend.unwrap(JSON.parse(text), testCase.request);
     const evidence = evidenceFrom(testCase.request, body?.answers);
@@ -321,6 +349,35 @@ async function mapLimit(items, limit, run) {
   };
   await Promise.all(Array.from({ length: limit }, worker));
   return results;
+}
+
+/** Reserve bursts before timed calls, shared across the invocation's backends. */
+export function requestPacer(rpm, burst, {
+  now = Date.now,
+  wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
+} = {}) {
+  if (!Number.isFinite(rpm) || rpm < 0 || !Number.isInteger(burst) || burst < 1) {
+    throw new Error("rpm must be nonnegative and concurrency must be a positive integer");
+  }
+  let batchAt = -Infinity;
+  let remaining = 0;
+  let blockedUntil = 0;
+  return {
+    async wait() {
+      if (remaining === 0) {
+        batchAt = Math.max(now(), batchAt + (rpm ? burst * 60_000 / rpm : 0));
+        remaining = burst;
+      }
+      remaining--;
+      const slot = batchAt;
+      while (Math.max(slot, blockedUntil) > now()) {
+        await wait(Math.max(slot, blockedUntil) - now());
+      }
+    },
+    defer(ms) {
+      if (Number.isFinite(ms) && ms > 0) blockedUntil = Math.max(blockedUntil, now() + ms);
+    },
+  };
 }
 
 function percentile(values, p) {
@@ -368,6 +425,7 @@ async function main() {
       backends: { type: "string", default: "jev,clef,clef-flash" },
       passes: { type: "string", default: "3" },
       concurrency: { type: "string", default: "6" },
+      rpm: { type: "string", default: "0" },
       order: { type: "string", default: "given" },
       out: { type: "string", default: "results" },
     },
@@ -375,6 +433,7 @@ async function main() {
   if (!["given", "reversed"].includes(values.order)) {
     throw new Error(`unknown order '${values.order}'`);
   }
+  const pacer = requestPacer(Number(values.rpm), Number(values.concurrency));
   const cases = JSON.parse(
     readFileSync(new URL("./cases.json", import.meta.url), "utf8"),
   ).map((testCase) =>
@@ -403,9 +462,12 @@ async function main() {
   // Passes interleave backends so each sees the same time of day.
   for (let pass = 1; pass <= Number(values.passes); pass++) {
     for (const name of names) {
-      const results = await mapLimit(cases, Number(values.concurrency), (c) =>
-        classify(BACKENDS[name], process.env, c),
-      );
+      const results = await mapLimit(cases, Number(values.concurrency), async (c) => {
+        await pacer.wait();
+        const result = await classify(BACKENDS[name], process.env, c);
+        pacer.defer(result.retryAfterMs);
+        return result;
+      });
       const { summary, rows } = score(cases, results);
       report.push({ backend: name, model: BACKENDS[name].model, pass, summary, rows });
       console.log(
@@ -428,7 +490,7 @@ async function main() {
   writeFileSync(
     path,
     JSON.stringify(
-      { ranAt: new Date().toISOString(), order: values.order, concurrency: Number(values.concurrency), thresholds: THRESHOLDS, gates: GATES, report },
+      { ranAt: new Date().toISOString(), order: values.order, concurrency: Number(values.concurrency), rpm: Number(values.rpm), thresholds: THRESHOLDS, gates: GATES, report },
       undefined,
       2,
     ) + "\n",

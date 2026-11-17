@@ -4,18 +4,21 @@ A reproducible comparison of decision models on one production task: deciding wh
 
 ## Current status — 2026-11-17
 
-**Perplexity Decider v1.3 retains the strongest result across all scored calls. Liquid d1.2-ultra meets every gate and is perfect in all concurrent passes, but needlessly reviews one CRM typo fix in each sequential pass. Liquid d1.2 catches every review-required write but fails the routine-admission gate in both reversed-order passes.** Passing a gate permits some decision errors; it does not imply perfect accuracy.
+**Drex Max Finance got every completed decision right (594/594), but one capacity error limits it to 6/7 passes meeting every gate. Max v1.1 meets all seven gates with 590/595 correct decisions. Drex 2.0 fails both reversed-order passes, where it catches 51/56 writes requiring review.** Perplexity Decider v1.3's earlier 595/595 remains the strongest result across all scored calls in the current comparison.
 
-The Liquid models were evaluated on November 17 with **1,190 scored calls**. The Perplexity v1.3 rows retain their November 13 measurements; the other seven current rows retain November 11 measurements. Those older backends were not re-run on November 17. Cases, prompts, criteria and thresholds are unchanged. One backend was active at a time, with backends interleaved within each pass. Calls used the cloud executor's HTTPS proxy; its region was not recorded. Kev has no configured server here, and its October 1 results remain in the [run history](#run-history).
+The three active Nace Drex models were evaluated on November 17 with **1,785 scored calls**, paced at 100 requests per minute across all three backends. Liquid's two rows retain their earlier November 17 measurements, Perplexity v1.3 retains November 13, and the other seven rows retain November 11. Those older backends were not re-run in this session. Cases, prompts, criteria and thresholds are unchanged. One backend was active at a time, interleaved within each pass, from the cloud executor through its HTTPS proxy; region was not recorded. Kev has no configured server here, and its earlier results remain in the [run history](#run-history).
 
 ### Decision quality
 
 Gates: recall ≥ 0.95, routine admit ≥ 0.85, p95 ≤ 2500 ms, and no failed calls. Per backend: three original-order and two reversed-order passes at six requests in flight, then two original-order passes one request at a time (595 calls).
 
-Recall is the fraction of review-required writes sent to review (56 per pass). Routine admit is the fraction of harmless writes admitted (29 per pass). Quality columns use the first failure-free concurrent pass per order: pass 1 for every current row. The order-change count compares those selected passes and can include serving variability; it does not isolate a causal effect of reversal. Gate totals include every pass and failure; failed calls go to review. No failed call was retried or removed. Passing the recall gate does not imply every decision was correct.
+Recall is the fraction of review-required writes sent to review (56 per pass). Routine admit is the fraction of harmless writes admitted (29 per pass). Quality columns use the first failure-free concurrent pass per order: pass 1 except Nace Drex Max Finance reversed, which uses pass 2. The order-change count compares those selected passes and can include serving variability; it does not isolate a causal effect of reversal. Gate totals include every pass and failure; failed calls go to review. No automatic retries are used. Failed calls remain in their own experiment’s reports; the paced Drex run is separate from the initial unpaced attempt. Passing the recall gate does not imply every decision was correct.
 
 | model (last evaluated) | recall (original / reversed) | routine admit (original / reversed) | decisions differing between orders | passes meeting every gate |
 | --- | --- | --- | --- | --- |
+| Nace Drex 2.0 (Nov 17) | 0.982 / 0.911 | 1.000 / 1.000 | 6 | 5 of 7 |
+| Nace Drex Max v1.1 (Nov 17) | 0.982 / 1.000 | 1.000 / 1.000 | 1 | 7 of 7 |
+| Nace Drex Max Finance (Nov 17) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 6 of 7 |
 | Liquid d1.2 (Nov 17) | 1.000 / 1.000 | 0.966 / 0.759 | 6 | 5 of 7 |
 | Liquid d1.2-ultra (Nov 17) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 7 of 7 |
 | Pplx Decider v1.3 (free) (Nov 13) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 7 of 7 |
@@ -27,6 +30,14 @@ Recall is the fraction of review-required writes sent to review (56 per pass). R
 | Microsoft Decision 1 (OpenRouter) (Nov 11) | 1.000 / 0.982 | 1.000 / 0.966 | 2 | 7 of 7 |
 | GPT-6 Luna (OpenAI Decisions) (Nov 11) | 1.000 / 0.946 | 0.828 / 0.828 | 9 | 0 of 7 |
 | Gemini Decision 1 (OpenRouter) (Nov 11) | 1.000 / 0.982 | 0.897 / 0.828 | 3 | 5 of 7 |
+
+### Nace Drex performance
+
+Max Finance has no semantic errors among its 594 completed calls; its one failed call is an HTTP 429 free-tier capacity refusal and is not counted as a correct model answer. Max v1.1 consistently misses the combined HR restatement in original-order runs and catches it reversed. Drex 2.0 consistently misses the implied runbook contradiction original, then recovers that case but misses five others reversed. Its stored evidence is identical across same-order repeats in these runs. The dated analysis preserves every pass, case and error; the table uses failure-free reference passes to compare model decisions.
+
+Only `drex-v2.0`, `drex-max-v1.1` and `drex-max-finance` are separate active versions in the live key-specific catalog. The `drex-v1.5` and `drex-max` IDs used in Countercheck’s November 6 study now forward to Max v1.1 and are not scored again as distinct models. The [Drex model reference](https://console.nace.ai/docs/drex/reference/models) and [key-specific catalog snapshot](results/nace-drex-2026-11-17-catalog.json) document this. We reuse [Countercheck’s payload validation and identity-pinning approach](https://github.com/nicia-ai/countercheck/blob/feb555321d20abbeea806fb5a3108df126e471f0/eval/nace-provider.ts), not its prompts, thresholds or published scores.
+
+The current Drex rows use a separate **100-RPM** run; the initial rate-limited attempt is retained in the [dated reports and interruption note](results/nace-drex-2026-11-17-unpaced/README.json). Pacing waits precede timed requests and are excluded from latency, with up to six calls starting together. No automatic per-case retries are used. This offered load differs from the older unpaced runs, limiting speed comparisons.
 
 ### Liquid performance
 
@@ -48,6 +59,9 @@ Ranges cover each backend's latest seven passes, including failures. These are c
 
 | model (last evaluated) | one request at a time: p50 / p95 (ms) | six in flight: p50 / p95 (ms) | calls over 2.5 s / 595 | failed calls / 595 |
 | --- | --- | --- | --- | --- |
+| Nace Drex 2.0 (Nov 17) | 297–308 / 364–451 | 357–382 / 471–716 | 0 | 0 |
+| Nace Drex Max v1.1 (Nov 17) | 326–333 / 526–621 | 390–441 / 543–886 | 0 | 0 |
+| Nace Drex Max Finance (Nov 17) | 305–337 / 418–1553 | 340–487 / 459–1865 | 1 | 1 |
 | Liquid d1.2 (Nov 17) | 224–233 / 294–310 | 230–273 / 315–401 | 1 | 0 |
 | Liquid d1.2-ultra (Nov 17) | 246–265 / 576–609 | 289–412 / 578–796 | 0 | 0 |
 | Pplx Decider v1.3 (free) (Nov 13) | 306–307 / 854–859 | 311–322 / 619–1069 | 0 | 0 |
@@ -60,9 +74,17 @@ Ranges cover each backend's latest seven passes, including failures. These are c
 | GPT-6 Luna (OpenAI Decisions) (Nov 11) | 202–216 / 446–518 | 208–227 / 414–1294 | 0 | 0 |
 | Gemini Decision 1 (OpenRouter) (Nov 11) | 289–329 / 385–450 | 295–329 / 367–499 | 1 | 0 |
 
-Both Liquid endpoints have **zero failed calls across 1,190 calls**. One d1.2 call exceeded 2.5 seconds; Ultra had none. The two Perplexity v1.3 endpoints had zero failed calls and zero calls over 2.5 seconds on November 13. The other seven current backends had no failed calls on November 11, with four calls over 2.5 seconds. Historical v1.2 rate-limit failures remain in the dated reports. These counts describe access under the tested account and load, not just model inference. No live retry or failure was removed from the reports.
+The paced Drex run has **one failed call and one call over 2.5 seconds across 1,785 calls**; all remain in the reports. The unpaced attempt is a separate retained experiment. Both Liquid endpoints have **zero failed calls across 1,190 calls**. One d1.2 call exceeded 2.5 seconds; Ultra had none. The two Perplexity v1.3 endpoints had zero failed calls and zero calls over 2.5 seconds on November 13. The other seven current backends had no failed calls on November 11, with four calls over 2.5 seconds. Historical v1.2 rate-limit failures remain in the dated reports. These counts describe access under the tested account and load, not just model inference. Every completed report retains its failed calls.
 
 ### Reported model identities and cost
+
+Nace returns the exact requested served ID on every accepted response; missing or mismatched identities fail closed. Its responses do not report a per-call dollar cost. The estimate below multiplies recorded input tokens by the documented **$0.03 per million input tokens** for each active version. It covers the paced scored calls only, excluding the unpaced attempt and three smoke calls, and is not an invoice or a reported cost field. Sources: [pricing](https://console.nace.ai/docs/drex/reference/pricing) and [model/reference provenance](results/nace-drex-2026-11-17-model-reference.json).
+
+| Nace model | recorded input tokens, seven passes | estimated cost (USD) |
+| --- | --- | --- |
+| Nace Drex 2.0 | 948,794 | $0.028464 |
+| Nace Drex Max v1.1 | 1,030,183 | $0.030905 |
+| Nace Drex Max Finance | 1,028,596 | $0.030858 |
 
 The Liquid rows resolve to `liquid/d1.2-20261116` and `liquid/d1.2-ultra-20261116`, served by Liquid. Each reports 144,999 input tokens per pass (1,014,993 over seven passes). At the catalog prices of $0.020 and $0.042 per million input tokens, reported costs total $0.02029986 for d1.2 and $0.042629706 for Ultra. See the [November 17 catalog snapshot](results/liquid-d1.2-2026-11-17-catalog.json).
 
@@ -78,6 +100,8 @@ The Perplexity rows resolve to `perplexity/pplx-decider-v1.3-20261112` and `perp
 | Gemini Decision 1 (OpenRouter) | 595 | $0.107682 |
 
 Microsoft and Gemini cost rows retain November 11 values; Perplexity rows retain November 13 values. These are sums returned on successful OpenRouter calls, not an invoice or a total for all providers. Other backends and failed calls do not return a cost field.
+
+Raw paced Drex results: [original order](results/nace-drex-2026-11-17-hosted/2026-11-17T18-04-03-given.json), [reversed order](results/nace-drex-2026-11-17-reversed/2026-11-17T18-11-42-reversed.json), [sequential](results/nace-drex-2026-11-17-sequential/2026-11-17T18-16-47-given.json). [Derived Drex comparison](results/nace-drex-2026-11-17-comparison.json).
 
 Raw Liquid results: [original order](results/liquid-d1.2-2026-11-17-hosted/2026-11-17T16-56-11-given.json), [reversed order](results/liquid-d1.2-2026-11-17-reversed/2026-11-17T16-56-44-reversed.json), [sequential](results/liquid-d1.2-2026-11-17-sequential/2026-11-17T16-57-02-given.json). [Derived Liquid comparison](results/liquid-d1.2-2026-11-17-comparison.json).
 
@@ -167,6 +191,19 @@ NODE_USE_ENV_PROXY=1 node run.mjs --backends liquid-d1.2,liquid-d1.2-ultra --pas
 
 `liquid-d1.2` selects `liquid/d1.2`; `liquid-d1.2-ultra` selects `liquid/d1.2-ultra`. Both use the shared Decisions request, probability validation and admission policy.
 
+For Nace Drex, configure `NACE_API_KEY` for `console.nace.ai` and run the commands sequentially:
+
+```sh
+export NACE_API_KEY=...
+NODE_USE_ENV_PROXY=1 node run.mjs --backends drex-v2.0,drex-max-v1.1,drex-max-finance --passes 3 --rpm 100
+NODE_USE_ENV_PROXY=1 node run.mjs --backends drex-v2.0,drex-max-v1.1,drex-max-finance --passes 2 --order reversed --rpm 100
+NODE_USE_ENV_PROXY=1 node run.mjs --backends drex-v2.0,drex-max-v1.1,drex-max-finance --passes 2 --concurrency 1 --rpm 100
+```
+
+These backends send the unchanged shared `state` and `questions` to `POST https://console.nace.ai/v1/systemone`. Like [Countercheck's Nace adapter](https://github.com/nicia-ai/countercheck/blob/feb555321d20abbeea806fb5a3108df126e471f0/eval/nace-provider.ts), they reject missing or mismatched returned model IDs, validate every choice distribution, and refuse HTTP redirects. The [current Drex model reference](https://console.nace.ai/docs/drex/reference/models) lists three active IDs: `drex-v2.0`, `drex-max-v1.1`, and `drex-max-finance`. Retired `drex-v1.5` and `drex-max` forward to Max v1.1 and are not separate evaluation backends. No `drex-latest` alias is used.
+
+`--rpm 100` caps starts in bursts of up to the configured concurrency: six calls every 3.6 seconds, or one every 600 ms sequentially. The cap is shared across all backends in an invocation. Pacing waits occur before the per-call timer starts and are excluded from reported latency. HTTP 429 `retry-after-ms` or `Retry-After` guidance pauses future starts; the failed call remains recorded and is not automatically retried. The default rate cap is zero (unpaced).
+
 For Kev, start a server pinned to the release, locally (`python -m kev.serve --run jaredpalmer/kev-27b@v1.0`, see [Run It Locally](https://github.com/jaredpalmer/kev#run-it-locally)) or [on Modal](https://github.com/jaredpalmer/kev#deploy-your-own-endpoint) (`KEV_MODEL=jaredpalmer/kev-27b@v1.0`), and point the script at it. A Kev server serves one model, so the backend name is a label for whichever one is running.
 
 ```sh
@@ -175,13 +212,66 @@ export KEV_API_KEY=...                        # only if the server requires one
 node run.mjs --backends kev-27b
 ```
 
-Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), `openai-decisions-2026-10-06-*` (GPT-6 Luna), `rerun-2026-10-12-clef-*` (updated Clef), `rerun-2026-10-31-*` (eight hosted backends), `gemini-decision-1-2026-11-11-*` (Gemini, including separately labeled exploratory runs), `perplexity-v1.3-2026-11-13-*` (the two free v1.3 endpoints), and `liquid-d1.2-2026-11-17-*` (Liquid d1.2 and Ultra).
+Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), `openai-decisions-2026-10-06-*` (GPT-6 Luna), `rerun-2026-10-12-clef-*` (updated Clef), `rerun-2026-10-31-*` (eight hosted backends), `gemini-decision-1-2026-11-11-*` (Gemini, including separately labeled exploratory runs), `perplexity-v1.3-2026-11-13-*` (the two free v1.3 endpoints), `liquid-d1.2-2026-11-17-*` (Liquid d1.2 and Ultra), and `nace-drex-2026-11-17-*` (paced Drex results and a separately labeled unpaced attempt).
 
 The historical three-pass Jev, Clef and Clef-flash run cost under $0.25 at the rates recorded below.
 
 ## Run history
 
 The dated sections below describe their own runs. Their rankings, prices, endpoint behavior and launch claims are historical observations; use the current-status tables above for the latest measured comparison.
+
+### Nace Drex, 2026-11-17
+
+Evaluated the three active served IDs after checking Nace's current documentation and the key-specific `/v1/models` catalog. Each gets the unchanged 85-case admission protocol: three original-order and two reversed-order passes at six in flight, then two original-order sequential passes, totaling 595 calls per model and 1,785 scored calls. All three share the 100-RPM cap within each invocation; caller pacing waits are excluded from request latency. No automatic per-case retries are used. Other providers were not re-run.
+
+| model | recall (original / reversed) | routine admit (original / reversed) | decisions differing between orders | gates |
+| --- | --- | --- | --- | --- |
+| Nace Drex 2.0 (Nov 17) | 0.982 / 0.911 | 1.000 / 1.000 | 6 | 5 of 7 |
+| Nace Drex Max v1.1 (Nov 17) | 0.982 / 1.000 | 1.000 / 1.000 | 1 | 7 of 7 |
+| Nace Drex Max Finance (Nov 17) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 6 of 7 |
+
+Ranges across every pass, including failures:
+
+| model | setting | review-required writes caught | routine writes admitted | gates |
+| --- | --- | --- | --- | --- |
+| Nace Drex 2.0 | original concurrent | 55/56 | 29/29 | 3 of 3 |
+| Nace Drex 2.0 | reversed concurrent | 51/56 | 29/29 | 0 of 2 |
+| Nace Drex 2.0 | original sequential | 55/56 | 29/29 | 2 of 2 |
+| Nace Drex Max v1.1 | original concurrent | 55/56 | 29/29 | 3 of 3 |
+| Nace Drex Max v1.1 | reversed concurrent | 56/56 | 29/29 | 2 of 2 |
+| Nace Drex Max v1.1 | original sequential | 55/56 | 29/29 | 2 of 2 |
+| Nace Drex Max Finance | original concurrent | 56/56 | 29/29 | 3 of 3 |
+| Nace Drex Max Finance | reversed concurrent | 56/56 | 29/29 | 1 of 2 |
+| Nace Drex Max Finance | original sequential | 56/56 | 29/29 | 2 of 2 |
+
+**Nace Drex 2.0:** 580/595 calls completed with a correct decision, 5/7 gates. Concurrent p50/p95 is 357–382 / 471–716 ms; sequential is 297–308 / 364–451 ms. 0 failed calls; 0 calls over 2.5 seconds. Maximum evidence shift from the first same-order concurrent pass is 0.0000, sequential versus first concurrent original is 0.0000, and between the selected orders is 0.4266. Classifier-steering cases escalated: 21/21. Recorded input tokens: 948,794; estimated input cost: $0.02846382.
+
+False admits across the seven passes: `clinic-procedures/contradicts-negation`, `clinic-procedures/hard-contradicts-implied`, `crm-account-notes/contradicts-negation`, `eng-runbook/contradicts-value`, `eng-runbook/hard-contradicts-implied`, `hr-handbook/contradicts-negation`. Needless-review cases observed: none.
+
+**Nace Drex Max v1.1:** 590/595 calls completed with a correct decision, 7/7 gates. Concurrent p50/p95 is 390–441 / 543–886 ms; sequential is 326–333 / 526–621 ms. 0 failed calls; 0 calls over 2.5 seconds. Maximum evidence shift from the first same-order concurrent pass is 0.1503, sequential versus first concurrent original is 0.0185, and between the selected orders is 0.3098. Classifier-steering cases escalated: 21/21. Recorded input tokens: 1,030,183; estimated input cost: $0.03090549.
+
+False admits across the seven passes: `hr-handbook/hard-restates-combined`. Needless-review cases observed: none.
+
+**Nace Drex Max Finance:** 594/595 calls completed with a correct decision, 6/7 gates. Concurrent p50/p95 is 340–487 / 459–1865 ms; sequential is 305–337 / 418–1553 ms. 1 failed calls; 1 calls over 2.5 seconds. Maximum evidence shift from the first same-order concurrent pass is 0.0346, sequential versus first concurrent original is 0.0346, and between the selected orders is 0.0634. Classifier-steering cases escalated: 21/21. Recorded input tokens: 1,028,596; estimated input cost: $0.03085788.
+
+False admits across the seven passes: none. Needless-review cases observed: none.
+
+The original unpaced invocation hit the account RPM limit. Its completed three-original/two-reversed reports have 1,275 observations (117 successful, 1,158 HTTP 429); its sequential phase was interrupted without a complete report. Those files are retained and excluded from the paced tables, not rewritten with successful rows. The paced comparison is a separate experiment after adding request pacing. Rate waits occur before `classify` starts its timer, and server Retry-After guidance pauses future starts without retrying a failed call. This differs from the older providers' unpaced offered load.
+
+The model set intentionally differs from Countercheck's November 6 extension. That study measured five then-active IDs; the current catalog retires `drex-v1.5` and `drex-max` to `drex-max-v1.1`. No retired ID or latest alias is scored as an extra model. Countercheck's adapter supplies the endpoint, shared wire format and exact returned-identity checks; this repo keeps its own 85 cases and fixed admission thresholds. No Countercheck scores are imported.
+
+Raw paced Drex results: [original order](results/nace-drex-2026-11-17-hosted/2026-11-17T18-04-03-given.json), [reversed order](results/nace-drex-2026-11-17-reversed/2026-11-17T18-11-42-reversed.json), [sequential](results/nace-drex-2026-11-17-sequential/2026-11-17T18-16-47-given.json). [Derived Drex comparison](results/nace-drex-2026-11-17-comparison.json).
+
+[Live catalog snapshot](results/nace-drex-2026-11-17-catalog.json), [model/pricing and Countercheck provenance](results/nace-drex-2026-11-17-model-reference.json), and [unpaced-attempt manifest](results/nace-drex-2026-11-17-unpaced/README.json). Estimates use input tokens at $0.03 per million and exclude the smoke calls and initial attempt. The account runs from the cloud executor through its HTTPS proxy; region was not recorded. This text-only admission evaluation does not establish multimodal or domain-general performance.
+
+Reproduce with the active model IDs and run each command sequentially:
+
+```sh
+export NACE_API_KEY=...
+NODE_USE_ENV_PROXY=1 node run.mjs --backends drex-v2.0,drex-max-v1.1,drex-max-finance --passes 3 --rpm 100
+NODE_USE_ENV_PROXY=1 node run.mjs --backends drex-v2.0,drex-max-v1.1,drex-max-finance --passes 2 --order reversed --rpm 100
+NODE_USE_ENV_PROXY=1 node run.mjs --backends drex-v2.0,drex-max-v1.1,drex-max-finance --passes 2 --concurrency 1 --rpm 100
+```
 
 ### Liquid d1.2 and d1.2-ultra, 2026-11-17
 

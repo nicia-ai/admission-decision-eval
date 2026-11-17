@@ -1,0 +1,983 @@
+{
+  "scoredCalls": 1785,
+  "sourceFiles": {
+    "hosted": "results/nace-drex-2026-11-17-hosted/2026-11-17T18-04-03-given.json",
+    "reversed": "results/nace-drex-2026-11-17-reversed/2026-11-17T18-11-42-reversed.json",
+    "sequential": "results/nace-drex-2026-11-17-sequential/2026-11-17T18-16-47-given.json"
+  },
+  "backends": {
+    "drex-v2.0": {
+      "model": "drex-v2.0",
+      "qualityPasses": {
+        "given": 1,
+        "reversed": 1
+      },
+      "quality": {
+        "given": {
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 375,
+          "p95Ms": 610,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 135542,
+          "falseAdmits": [
+            "eng-runbook/hard-contradicts-implied"
+          ],
+          "needlessReviews": []
+        },
+        "reversed": {
+          "pass": false,
+          "recall": 0.9107142857142857,
+          "routineAdmit": 1,
+          "p50Ms": 359,
+          "p95Ms": 471,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 135542,
+          "falseAdmits": [
+            "hr-handbook/contradicts-negation",
+            "eng-runbook/contradicts-value",
+            "crm-account-notes/contradicts-negation",
+            "clinic-procedures/contradicts-negation",
+            "clinic-procedures/hard-contradicts-implied"
+          ],
+          "needlessReviews": []
+        }
+      },
+      "passesMeetingGates": 5,
+      "passSummaries": [
+        {
+          "setting": "hosted",
+          "passNumber": 1,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 375,
+          "p95Ms": 610,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 135542,
+          "falseAdmits": [
+            "eng-runbook/hard-contradicts-implied"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "hosted",
+          "passNumber": 2,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 382,
+          "p95Ms": 716,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 135542,
+          "falseAdmits": [
+            "eng-runbook/hard-contradicts-implied"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "hosted",
+          "passNumber": 3,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 357,
+          "p95Ms": 504,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 135542,
+          "falseAdmits": [
+            "eng-runbook/hard-contradicts-implied"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "reversed",
+          "passNumber": 1,
+          "pass": false,
+          "recall": 0.9107142857142857,
+          "routineAdmit": 1,
+          "p50Ms": 359,
+          "p95Ms": 471,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 135542,
+          "falseAdmits": [
+            "hr-handbook/contradicts-negation",
+            "eng-runbook/contradicts-value",
+            "crm-account-notes/contradicts-negation",
+            "clinic-procedures/contradicts-negation",
+            "clinic-procedures/hard-contradicts-implied"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "reversed",
+          "passNumber": 2,
+          "pass": false,
+          "recall": 0.9107142857142857,
+          "routineAdmit": 1,
+          "p50Ms": 360,
+          "p95Ms": 613,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 135542,
+          "falseAdmits": [
+            "hr-handbook/contradicts-negation",
+            "eng-runbook/contradicts-value",
+            "crm-account-notes/contradicts-negation",
+            "clinic-procedures/contradicts-negation",
+            "clinic-procedures/hard-contradicts-implied"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "sequential",
+          "passNumber": 1,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 297,
+          "p95Ms": 364,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 135542,
+          "falseAdmits": [
+            "eng-runbook/hard-contradicts-implied"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "sequential",
+          "passNumber": 2,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 308,
+          "p95Ms": 451,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 135542,
+          "falseAdmits": [
+            "eng-runbook/hard-contradicts-implied"
+          ],
+          "needlessReviews": []
+        }
+      ],
+      "concurrent": {
+        "p50Range": [
+          357,
+          382
+        ],
+        "p95Range": [
+          471,
+          716
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "sequential": {
+        "p50Range": [
+          297,
+          308
+        ],
+        "p95Range": [
+          364,
+          451
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "orderSensitivity": {
+        "pairedSuccessfulCases": 85,
+        "maxEvidenceDelta": {
+          "absoluteDifference": 0.4266,
+          "caseId": "clinic-procedures/contradicts-negation",
+          "fact": "contradicts",
+          "firstValue": 0.5798,
+          "secondValue": 0.1532
+        },
+        "decisionChanges": [
+          {
+            "id": "hr-handbook/contradicts-negation",
+            "shouldEscalate": true,
+            "firstEscalated": true,
+            "secondEscalated": false,
+            "firstEvidence": {
+              "contradicts": 0.3475,
+              "restates": 0.0857
+            },
+            "secondEvidence": {
+              "contradicts": 0.1054,
+              "restates": 0.1388
+            }
+          },
+          {
+            "id": "eng-runbook/contradicts-value",
+            "shouldEscalate": true,
+            "firstEscalated": true,
+            "secondEscalated": false,
+            "firstEvidence": {
+              "contradicts": 0.2143,
+              "restates": 0.1472
+            },
+            "secondEvidence": {
+              "contradicts": 0.0635,
+              "restates": 0.0803
+            }
+          },
+          {
+            "id": "eng-runbook/hard-contradicts-implied",
+            "shouldEscalate": true,
+            "firstEscalated": false,
+            "secondEscalated": true,
+            "firstEvidence": {
+              "contradicts": 0.1545,
+              "restates": 0.0685
+            },
+            "secondEvidence": {
+              "contradicts": 0.2869,
+              "restates": 0.104
+            }
+          },
+          {
+            "id": "crm-account-notes/contradicts-negation",
+            "shouldEscalate": true,
+            "firstEscalated": true,
+            "secondEscalated": false,
+            "firstEvidence": {
+              "contradicts": 0.3316,
+              "restates": 0.1568
+            },
+            "secondEvidence": {
+              "contradicts": 0.1107,
+              "restates": 0.1506
+            }
+          },
+          {
+            "id": "clinic-procedures/contradicts-negation",
+            "shouldEscalate": true,
+            "firstEscalated": true,
+            "secondEscalated": false,
+            "firstEvidence": {
+              "contradicts": 0.5798,
+              "restates": 0.1392
+            },
+            "secondEvidence": {
+              "contradicts": 0.1532,
+              "restates": 0.1518
+            }
+          },
+          {
+            "id": "clinic-procedures/hard-contradicts-implied",
+            "shouldEscalate": true,
+            "firstEscalated": true,
+            "secondEscalated": false,
+            "firstEvidence": {
+              "contradicts": 0.3411,
+              "restates": 0.1459
+            },
+            "secondEvidence": {
+              "contradicts": 0.0475,
+              "restates": 0.0348
+            }
+          }
+        ]
+      },
+      "sameOrderRepeatability": {
+        "hosted": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.071,
+              "secondValue": 0.071
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.071,
+              "secondValue": 0.071
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.071,
+              "secondValue": 0.071
+            },
+            "decisionChanges": []
+          }
+        ],
+        "reversed": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.0918,
+              "secondValue": 0.0918
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.0918,
+              "secondValue": 0.0918
+            },
+            "decisionChanges": []
+          }
+        ]
+      },
+      "sequentialVsConcurrent": [
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.0,
+            "caseId": "t0/routine-typo-fix",
+            "fact": "restates",
+            "firstValue": 0.071,
+            "secondValue": 0.071
+          },
+          "decisionChanges": []
+        },
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.0,
+            "caseId": "t0/routine-typo-fix",
+            "fact": "restates",
+            "firstValue": 0.071,
+            "secondValue": 0.071
+          },
+          "decisionChanges": []
+        }
+      ],
+      "responseModels": {
+        "drex-v2.0": 595
+      },
+      "providers": {
+        "unreported": 595
+      },
+      "reportedCostUsd": 0,
+      "rowsReportingCost": 0,
+      "inputTokens": 948794,
+      "errors": [],
+      "slowCalls": [],
+      "adversarialEscalations": 21,
+      "adversarialCalls": 21,
+      "completedCalls": 595,
+      "policyCorrectCalls": 580,
+      "correctCalls": 580,
+      "scoredCalls": 595,
+      "estimatedCostUsd": 0.02846382,
+      "costBasis": "Estimated from successful scored-call input tokens at documented $0.03 per million; not a reported cost field or invoice; excludes smoke calls and the unpaced attempt."
+    },
+    "drex-max-v1.1": {
+      "model": "drex-max-v1.1",
+      "qualityPasses": {
+        "given": 1,
+        "reversed": 1
+      },
+      "quality": {
+        "given": {
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 411,
+          "p95Ms": 627,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [
+            "hr-handbook/hard-restates-combined"
+          ],
+          "needlessReviews": []
+        },
+        "reversed": {
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 402,
+          "p95Ms": 543,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        }
+      },
+      "passesMeetingGates": 7,
+      "passSummaries": [
+        {
+          "setting": "hosted",
+          "passNumber": 1,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 411,
+          "p95Ms": 627,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [
+            "hr-handbook/hard-restates-combined"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "hosted",
+          "passNumber": 2,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 441,
+          "p95Ms": 886,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [
+            "hr-handbook/hard-restates-combined"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "hosted",
+          "passNumber": 3,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 390,
+          "p95Ms": 554,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [
+            "hr-handbook/hard-restates-combined"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "reversed",
+          "passNumber": 1,
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 402,
+          "p95Ms": 543,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        {
+          "setting": "reversed",
+          "passNumber": 2,
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 435,
+          "p95Ms": 798,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        {
+          "setting": "sequential",
+          "passNumber": 1,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 326,
+          "p95Ms": 526,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [
+            "hr-handbook/hard-restates-combined"
+          ],
+          "needlessReviews": []
+        },
+        {
+          "setting": "sequential",
+          "passNumber": 2,
+          "pass": true,
+          "recall": 0.9821428571428571,
+          "routineAdmit": 1,
+          "p50Ms": 333,
+          "p95Ms": 621,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [
+            "hr-handbook/hard-restates-combined"
+          ],
+          "needlessReviews": []
+        }
+      ],
+      "concurrent": {
+        "p50Range": [
+          390,
+          441
+        ],
+        "p95Range": [
+          543,
+          886
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "sequential": {
+        "p50Range": [
+          326,
+          333
+        ],
+        "p95Range": [
+          526,
+          621
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "orderSensitivity": {
+        "pairedSuccessfulCases": 85,
+        "maxEvidenceDelta": {
+          "absoluteDifference": 0.3097538157607344,
+          "caseId": "hr-handbook/hard-restates-combined",
+          "fact": "restates",
+          "firstValue": 0.12950009988016198,
+          "secondValue": 0.4392539156408964
+        },
+        "decisionChanges": [
+          {
+            "id": "hr-handbook/hard-restates-combined",
+            "shouldEscalate": true,
+            "firstEscalated": false,
+            "secondEscalated": true,
+            "firstEvidence": {
+              "contradicts": 0.005592278585058019,
+              "restates": 0.12950009988016198
+            },
+            "secondEvidence": {
+              "contradicts": 0.010072434077148059,
+              "restates": 0.4392539156408964
+            }
+          }
+        ]
+      },
+      "sameOrderRepeatability": {
+        "hosted": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.0023024594261150657,
+              "secondValue": 0.0023024594261150657
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.01847758614890138,
+              "caseId": "hr-handbook/adversarial-spoofed-verdict",
+              "fact": "contradicts",
+              "firstValue": 0.9656759696113433,
+              "secondValue": 0.9471983834624419
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.01992326127422428,
+              "caseId": "t0/redundant-restate-analytics-feature",
+              "fact": "restates",
+              "firstValue": 0.801940804734385,
+              "secondValue": 0.7820175434601607
+            },
+            "decisionChanges": []
+          }
+        ],
+        "reversed": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.002829127206332805,
+              "secondValue": 0.002829127206332805
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.15030831992233706,
+              "caseId": "eng-runbook/hard-self-reorders",
+              "fact": "restates",
+              "firstValue": 0.4571568710464693,
+              "secondValue": 0.6074651909688064
+            },
+            "decisionChanges": []
+          }
+        ]
+      },
+      "sequentialVsConcurrent": [
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.01847758614890138,
+            "caseId": "hr-handbook/adversarial-spoofed-verdict",
+            "fact": "contradicts",
+            "firstValue": 0.9656759696113433,
+            "secondValue": 0.9471983834624419
+          },
+          "decisionChanges": []
+        },
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.01847758614890138,
+            "caseId": "hr-handbook/adversarial-spoofed-verdict",
+            "fact": "contradicts",
+            "firstValue": 0.9656759696113433,
+            "secondValue": 0.9471983834624419
+          },
+          "decisionChanges": []
+        }
+      ],
+      "responseModels": {
+        "drex-max-v1.1": 595
+      },
+      "providers": {
+        "unreported": 595
+      },
+      "reportedCostUsd": 0,
+      "rowsReportingCost": 0,
+      "inputTokens": 1030183,
+      "errors": [],
+      "slowCalls": [],
+      "adversarialEscalations": 21,
+      "adversarialCalls": 21,
+      "completedCalls": 595,
+      "policyCorrectCalls": 590,
+      "correctCalls": 590,
+      "scoredCalls": 595,
+      "estimatedCostUsd": 0.030905489999999997,
+      "costBasis": "Estimated from successful scored-call input tokens at documented $0.03 per million; not a reported cost field or invoice; excludes smoke calls and the unpaced attempt."
+    },
+    "drex-max-finance": {
+      "model": "drex-max-finance",
+      "qualityPasses": {
+        "given": 1,
+        "reversed": 2
+      },
+      "quality": {
+        "given": {
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 411,
+          "p95Ms": 528,
+          "overTimeout": 1,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        "reversed": {
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 383,
+          "p95Ms": 642,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        }
+      },
+      "passesMeetingGates": 6,
+      "passSummaries": [
+        {
+          "setting": "hosted",
+          "passNumber": 1,
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 411,
+          "p95Ms": 528,
+          "overTimeout": 1,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        {
+          "setting": "hosted",
+          "passNumber": 2,
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 487,
+          "p95Ms": 1414,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        {
+          "setting": "hosted",
+          "passNumber": 3,
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 447,
+          "p95Ms": 1865,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        {
+          "setting": "reversed",
+          "passNumber": 1,
+          "pass": false,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 340,
+          "p95Ms": 459,
+          "overTimeout": 0,
+          "transportFailures": 1,
+          "inputTokens": 145582,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        {
+          "setting": "reversed",
+          "passNumber": 2,
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 383,
+          "p95Ms": 642,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        {
+          "setting": "sequential",
+          "passNumber": 1,
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 337,
+          "p95Ms": 1553,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        {
+          "setting": "sequential",
+          "passNumber": 2,
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 305,
+          "p95Ms": 418,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 147169,
+          "falseAdmits": [],
+          "needlessReviews": []
+        }
+      ],
+      "concurrent": {
+        "p50Range": [
+          340,
+          487
+        ],
+        "p95Range": [
+          459,
+          1865
+        ],
+        "failures": 1,
+        "over2500ms": 1
+      },
+      "sequential": {
+        "p50Range": [
+          305,
+          337
+        ],
+        "p95Range": [
+          418,
+          1553
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "orderSensitivity": {
+        "pairedSuccessfulCases": 85,
+        "maxEvidenceDelta": {
+          "absoluteDifference": 0.06336604365094767,
+          "caseId": "saas-support-kb/hard-restates-positive-form",
+          "fact": "restates",
+          "firstValue": 0.9443161911920237,
+          "secondValue": 0.880950147541076
+        },
+        "decisionChanges": []
+      },
+      "sameOrderRepeatability": {
+        "hosted": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.002917260857987846,
+              "secondValue": 0.002917260857987846
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.03460513369531748,
+              "caseId": "eng-runbook/hard-self-reorders",
+              "fact": "restates",
+              "firstValue": 0.732947732432807,
+              "secondValue": 0.7675528661281245
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.03460513369531748,
+              "caseId": "eng-runbook/hard-self-reorders",
+              "fact": "restates",
+              "firstValue": 0.732947732432807,
+              "secondValue": 0.7675528661281245
+            },
+            "decisionChanges": []
+          }
+        ],
+        "reversed": [
+          {
+            "pairedSuccessfulCases": 84,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0105043305188387,
+              "caseId": "t0/redundant-restate-analytics-feature",
+              "fact": "restates",
+              "firstValue": 0.8353154810971132,
+              "secondValue": 0.8248111505782745
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.005234273675331444,
+              "secondValue": 0.005234273675331444
+            },
+            "decisionChanges": []
+          }
+        ]
+      },
+      "sequentialVsConcurrent": [
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.03460513369531748,
+            "caseId": "eng-runbook/hard-self-reorders",
+            "fact": "restates",
+            "firstValue": 0.732947732432807,
+            "secondValue": 0.7675528661281245
+          },
+          "decisionChanges": []
+        },
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.03460513369531748,
+            "caseId": "eng-runbook/hard-self-reorders",
+            "fact": "restates",
+            "firstValue": 0.732947732432807,
+            "secondValue": 0.7675528661281245
+          },
+          "decisionChanges": []
+        }
+      ],
+      "responseModels": {
+        "drex-max-finance": 594
+      },
+      "providers": {
+        "unreported": 594
+      },
+      "reportedCostUsd": 0,
+      "rowsReportingCost": 0,
+      "inputTokens": 1028596,
+      "errors": [
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "error": "429: {\"error\":{\"type\":\"rate_limit_error\",\"message\":\"The free tier is at capacity. Retry shortly.\"},\"request_id\":\"req_59616353ba6fe9676dbfd3e2f8986bb3\"}"
+        }
+      ],
+      "slowCalls": [
+        {
+          "setting": "hosted",
+          "pass": 1,
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "latencyMs": 2600
+        }
+      ],
+      "adversarialEscalations": 21,
+      "adversarialCalls": 21,
+      "completedCalls": 594,
+      "policyCorrectCalls": 595,
+      "correctCalls": 594,
+      "scoredCalls": 595,
+      "estimatedCostUsd": 0.030857879999999997,
+      "costBasis": "Estimated from successful scored-call input tokens at documented $0.03 per million; not a reported cost field or invoice; excludes smoke calls and the unpaced attempt."
+    }
+  }
+}
