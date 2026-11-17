@@ -1,0 +1,4870 @@
+{
+  "ranAt": "2026-11-17T16:57:01.963Z",
+  "order": "reversed",
+  "concurrency": 6,
+  "thresholds": {
+    "yesAtLeast": 0.5,
+    "noBelow": 0.2
+  },
+  "gates": {
+    "minRecall": 0.95,
+    "minRoutineAdmit": 0.85,
+    "maxP95Ms": 2500
+  },
+  "report": [
+    {
+      "backend": "liquid-d1.2",
+      "model": "liquid/d1.2",
+      "pass": 1,
+      "summary": {
+        "pass": false,
+        "recall": 1,
+        "routineAdmit": 0.7586206896551724,
+        "p50Ms": 230,
+        "p95Ms": 338,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 144999,
+        "costUsd": 0.0028999800000000004,
+        "falseAdmits": [],
+        "needlessReviews": [
+          "eng-runbook/self-corrects-errors",
+          "crm-account-notes/self-corrects-errors",
+          "clinic-procedures/compatible-overlap",
+          "clinic-procedures/self-corrects-errors",
+          "clinic-procedures/hard-compatible-sibling",
+          "t0/routine-typo-fix",
+          "t0/routine-faq-returns"
+        ]
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 362,
+          "evidence": {
+            "contradicts": 0.9738343701445198,
+            "restates": 0.028317411162379034
+          },
+          "inputTokens": 1640,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000328
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 335,
+          "evidence": {
+            "contradicts": 0.9037126447991265,
+            "restates": 0.018342025408823206
+          },
+          "inputTokens": 1635,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000327
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 310,
+          "evidence": {
+            "contradicts": 0.08266163395421129,
+            "restates": 0.7023126852620365
+          },
+          "inputTokens": 1648,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003296
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 394,
+          "evidence": {
+            "contradicts": 0.09538922515274514,
+            "restates": 0.9587980395372205
+          },
+          "inputTokens": 1634,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003268
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 341,
+          "evidence": {
+            "contradicts": 0.10328664313052768,
+            "restates": 0.01916573282650212
+          },
+          "inputTokens": 1640,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000328
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 338,
+          "evidence": {
+            "contradicts": 0.07779541629874008,
+            "restates": 0.01317933955686566
+          },
+          "inputTokens": 1633,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003266
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 248,
+          "evidence": {
+            "contradicts": 0.06816180464462136,
+            "restates": 0.061536034107389996
+          },
+          "inputTokens": 1583,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003166
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 282,
+          "evidence": {
+            "contradicts": 0.14634275727739623,
+            "restates": 0.5479283278264165
+          },
+          "inputTokens": 1589,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003178
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 242,
+          "evidence": {
+            "contradicts": 0.07388133500732869,
+            "restates": 0.04298520905499996
+          },
+          "inputTokens": 1591,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003182
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 220,
+          "evidence": {
+            "contradicts": 0.9889487793561206,
+            "restates": 0.019796118723870493
+          },
+          "inputTokens": 1586,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003172
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 217,
+          "evidence": {
+            "contradicts": 0.7076142897068143,
+            "restates": 0.1731679762556776
+          },
+          "inputTokens": 1652,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003304
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 236,
+          "evidence": {
+            "contradicts": 0.9183081473173208,
+            "restates": 0.016232232905761975
+          },
+          "inputTokens": 1663,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003326
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 190,
+          "evidence": {
+            "contradicts": 0.052973643251713075,
+            "restates": 0.8149288817488081
+          },
+          "inputTokens": 1637,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003274
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 207,
+          "evidence": {
+            "contradicts": 0.025261583919576665,
+            "restates": 0.014070871600890593
+          },
+          "inputTokens": 1633,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003266
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 290,
+          "evidence": {
+            "contradicts": 0.9624511747368658,
+            "restates": 0.03910867759444747
+          },
+          "inputTokens": 1571,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003142
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 229,
+          "evidence": {
+            "contradicts": 0.869466288603524,
+            "restates": 0.015909029411223394
+          },
+          "inputTokens": 1611,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003222
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 250,
+          "evidence": {
+            "contradicts": 0.9010606826554003,
+            "restates": 0.011726656966027904
+          },
+          "inputTokens": 1603,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003206
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 223,
+          "evidence": {
+            "contradicts": 0.04923477842527783,
+            "restates": 0.969085084423588
+          },
+          "inputTokens": 1622,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003244
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 199,
+          "evidence": {
+            "contradicts": 0.08100139362298889,
+            "restates": 0.8988235772999285
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003204
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 227,
+          "evidence": {
+            "contradicts": 0.03139063051876953,
+            "restates": 0.01684544258554898
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003218
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 253,
+          "evidence": {
+            "contradicts": 0.06618930508705513,
+            "restates": 0.009761317569813664
+          },
+          "inputTokens": 1605,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000321
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 216,
+          "evidence": {
+            "contradicts": 0.08610113024214776,
+            "restates": 0.08198982946332456
+          },
+          "inputTokens": 1553,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003106
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 233,
+          "evidence": {
+            "contradicts": 0.11931082509696919,
+            "restates": 0.6729291329648293
+          },
+          "inputTokens": 1560,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000312
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 229,
+          "evidence": {
+            "contradicts": 0.046604396401843454,
+            "restates": 0.020612540512740703
+          },
+          "inputTokens": 1573,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003146
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 230,
+          "evidence": {
+            "contradicts": 0.9878859215656656,
+            "restates": 0.01049460749976533
+          },
+          "inputTokens": 1555,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000311
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 179,
+          "evidence": {
+            "contradicts": 0.8944265894550245,
+            "restates": 0.012163576120724866
+          },
+          "inputTokens": 1616,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003232
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 238,
+          "evidence": {
+            "contradicts": 0.970525781388511,
+            "restates": 0.019244333215328282
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003216
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 226,
+          "evidence": {
+            "contradicts": 0.10655064654317549,
+            "restates": 0.6045087281227162
+          },
+          "inputTokens": 1625,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000325
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 242,
+          "evidence": {
+            "contradicts": 0.06035878027899,
+            "restates": 0.015835780409248355
+          },
+          "inputTokens": 1612,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003224
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 205,
+          "evidence": {
+            "contradicts": 0.9790339724260805,
+            "restates": 0.009385189509262502
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003116
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 267,
+          "evidence": {
+            "contradicts": 0.8502699963468813,
+            "restates": 0.016845231671856715
+          },
+          "inputTokens": 1610,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000322
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 216,
+          "evidence": {
+            "contradicts": 0.9693049620983777,
+            "restates": 0.017376717224031092
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003204
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 215,
+          "evidence": {
+            "contradicts": 0.028238692978275547,
+            "restates": 0.9206835939657136
+          },
+          "inputTokens": 1610,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000322
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 211,
+          "evidence": {
+            "contradicts": 0.04604251245132018,
+            "restates": 0.9104213910262928
+          },
+          "inputTokens": 1615,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000323
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 211,
+          "evidence": {
+            "contradicts": 0.044537818780866774,
+            "restates": 0.018303604974693053
+          },
+          "inputTokens": 1606,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003212
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 232,
+          "evidence": {
+            "contradicts": 0.06565416814287232,
+            "restates": 0.013965478618116004
+          },
+          "inputTokens": 1613,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003226
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 212,
+          "evidence": {
+            "contradicts": 0.04793622488717786,
+            "restates": 0.21031299763059977
+          },
+          "inputTokens": 1554,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003108
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 184,
+          "evidence": {
+            "contradicts": 0.1839861762663302,
+            "restates": 0.6009320870122125
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003116
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 263,
+          "evidence": {
+            "contradicts": 0.025932535542302484,
+            "restates": 0.02968815614045806
+          },
+          "inputTokens": 1568,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003136
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 243,
+          "evidence": {
+            "contradicts": 0.9881898805899687,
+            "restates": 0.03264124739071026
+          },
+          "inputTokens": 1547,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003094
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 261,
+          "evidence": {
+            "contradicts": 0.8960601804167286,
+            "restates": 0.009086764322602714
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003216
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 240,
+          "evidence": {
+            "contradicts": 0.0420759864460562,
+            "restates": 0.9204151894097563
+          },
+          "inputTokens": 1624,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003248
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 226,
+          "evidence": {
+            "contradicts": 0.13580833016487923,
+            "restates": 0.03469722105982996
+          },
+          "inputTokens": 1611,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003222
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 245,
+          "evidence": {
+            "contradicts": 0.043926661294626336,
+            "restates": 0.8480782272390702
+          },
+          "inputTokens": 1563,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003126
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 231,
+          "evidence": {
+            "contradicts": 0.8510755701933462,
+            "restates": 0.024534903035772923
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003204
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 249,
+          "evidence": {
+            "contradicts": 0.9552553272859945,
+            "restates": 0.01898904505734835
+          },
+          "inputTokens": 1594,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003188
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 241,
+          "evidence": {
+            "contradicts": 0.12080031597001978,
+            "restates": 0.7823057694664222
+          },
+          "inputTokens": 1612,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003224
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 238,
+          "evidence": {
+            "contradicts": 0.055866945646285845,
+            "restates": 0.7150204195708147
+          },
+          "inputTokens": 1596,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003192
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 221,
+          "evidence": {
+            "contradicts": 0.0657340604263502,
+            "restates": 0.022726054390484956
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003216
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 186,
+          "evidence": {
+            "contradicts": 0.06306322087736667,
+            "restates": 0.01573724980618038
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003204
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 192,
+          "evidence": {
+            "contradicts": 0.15490750684666063,
+            "restates": 0.2628451349404356
+          },
+          "inputTokens": 1546,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003092
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 176,
+          "evidence": {
+            "contradicts": 0.16864177155491084,
+            "restates": 0.6916067748509783
+          },
+          "inputTokens": 1547,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003094
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 226,
+          "evidence": {
+            "contradicts": 0.1173367670973517,
+            "restates": 0.05170828572532584
+          },
+          "inputTokens": 1552,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003104
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 286,
+          "evidence": {
+            "contradicts": 0.9794488956028261,
+            "restates": 0.02627683244533793
+          },
+          "inputTokens": 1549,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003098
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 254,
+          "evidence": {
+            "contradicts": 0.7983219231593585,
+            "restates": 0.02422609985454429
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003218
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 215,
+          "evidence": {
+            "contradicts": 0.08532859477735599,
+            "restates": 0.22968368803750855
+          },
+          "inputTokens": 1619,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003238
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 213,
+          "evidence": {
+            "contradicts": 0.08540260269997078,
+            "restates": 0.013080071003750285
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003218
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 214,
+          "evidence": {
+            "contradicts": 0.9886850232926785,
+            "restates": 0.03629931340437089
+          },
+          "inputTokens": 1537,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003074
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 184,
+          "evidence": {
+            "contradicts": 0.9686170227537221,
+            "restates": 0.026936366044003648
+          },
+          "inputTokens": 1622,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003244
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 229,
+          "evidence": {
+            "contradicts": 0.9436108907363672,
+            "restates": 0.014662835626438076
+          },
+          "inputTokens": 1617,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003234
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 241,
+          "evidence": {
+            "contradicts": 0.07287839982507661,
+            "restates": 0.8517830348769084
+          },
+          "inputTokens": 1627,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003254
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 255,
+          "evidence": {
+            "contradicts": 0.07310643059698113,
+            "restates": 0.7451867981263617
+          },
+          "inputTokens": 1618,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003236
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 403,
+          "evidence": {
+            "contradicts": 0.22332571934221584,
+            "restates": 0.018643730732040648
+          },
+          "inputTokens": 1620,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000324
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 250,
+          "evidence": {
+            "contradicts": 0.0711549873024703,
+            "restates": 0.01815859003732216
+          },
+          "inputTokens": 1624,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003248
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 230,
+          "evidence": {
+            "contradicts": 0.10799915167198243,
+            "restates": 0.20817711701779995
+          },
+          "inputTokens": 1566,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003132
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 251,
+          "evidence": {
+            "contradicts": 0.10150055526311731,
+            "restates": 0.633081792402316
+          },
+          "inputTokens": 1569,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003138
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 303,
+          "evidence": {
+            "contradicts": 0.03127490189911663,
+            "restates": 0.018111175428071294
+          },
+          "inputTokens": 1572,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003144
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 190,
+          "evidence": {
+            "contradicts": 0.9945303587629292,
+            "restates": 0.02003680810895551
+          },
+          "inputTokens": 1567,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003134
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 186,
+          "evidence": {
+            "contradicts": 0.970416129091301,
+            "restates": 0.030656618325652137
+          },
+          "inputTokens": 1628,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003256
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 237,
+          "evidence": {
+            "contradicts": 0.9257710950671529,
+            "restates": 0.028317414882555157
+          },
+          "inputTokens": 1619,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003238
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 217,
+          "evidence": {
+            "contradicts": 0.8823342339946724,
+            "restates": 0.020040511369104716
+          },
+          "inputTokens": 1631,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003262
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 209,
+          "evidence": {
+            "contradicts": 0.2496342753908866,
+            "restates": 0.014767743035347882
+          },
+          "inputTokens": 1634,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003268
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 203,
+          "evidence": {
+            "contradicts": 0.9408090355009644,
+            "restates": 0.018754668353474484
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003116
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 212,
+          "evidence": {
+            "contradicts": 0.07661580694816746,
+            "restates": 0.05830457075174249
+          },
+          "inputTokens": 2385,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000477
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 276,
+          "evidence": {
+            "contradicts": 0.09031151528672203,
+            "restates": 0.23995218975756266
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004614
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 229,
+          "evidence": {
+            "contradicts": 0.09075174740172123,
+            "restates": 0.06337297724315628
+          },
+          "inputTokens": 2378,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004756
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 227,
+          "evidence": {
+            "contradicts": 0.2524173099982384,
+            "restates": 0.049547431118160845
+          },
+          "inputTokens": 2376,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004752
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 244,
+          "evidence": {
+            "contradicts": 0.0978579333331788,
+            "restates": 0.9800854019064562
+          },
+          "inputTokens": 2386,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004772
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 207,
+          "evidence": {
+            "contradicts": 0.2747948643312034,
+            "restates": 0.377551418511796
+          },
+          "inputTokens": 2384,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004768
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 264,
+          "evidence": {
+            "contradicts": 0.3011769897766576,
+            "restates": 0.596188283444779
+          },
+          "inputTokens": 2304,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004608
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 220,
+          "evidence": {
+            "contradicts": 0.9871818702813445,
+            "restates": 0.03676188848144534
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004614
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 248,
+          "evidence": {
+            "contradicts": 0.8772974582924842,
+            "restates": 0.10200523394017379
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004614
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 258,
+          "evidence": {
+            "contradicts": 0.9573622337109124,
+            "restates": 0.01661624796053081
+          },
+          "inputTokens": 2383,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004766
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 208,
+          "evidence": {
+            "contradicts": 0.9427875104248338,
+            "restates": 0.04370441022621368
+          },
+          "inputTokens": 2385,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000477
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 207,
+          "evidence": {
+            "contradicts": 0.9483246807177218,
+            "restates": 0.08532859770498033
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004614
+        }
+      ]
+    },
+    {
+      "backend": "liquid-d1.2-ultra",
+      "model": "liquid/d1.2-ultra",
+      "pass": 1,
+      "summary": {
+        "pass": true,
+        "recall": 1,
+        "routineAdmit": 1,
+        "p50Ms": 289,
+        "p95Ms": 586,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 144999,
+        "costUsd": 0.006089957999999999,
+        "falseAdmits": [],
+        "needlessReviews": []
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 327,
+          "evidence": {
+            "contradicts": 0.9854103550659591,
+            "restates": 0.00636228086654208
+          },
+          "inputTokens": 1640,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006888
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 424,
+          "evidence": {
+            "contradicts": 0.9952777553022925,
+            "restates": 0.008940777196361101
+          },
+          "inputTokens": 1635,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006867
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 331,
+          "evidence": {
+            "contradicts": 0.010077081164685805,
+            "restates": 0.9864283836454001
+          },
+          "inputTokens": 1648,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000069216
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 707,
+          "evidence": {
+            "contradicts": 0.0048524960158642895,
+            "restates": 0.9874562633203166
+          },
+          "inputTokens": 1634,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068628
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 325,
+          "evidence": {
+            "contradicts": 0.011353382903969589,
+            "restates": 0.004039181381895519
+          },
+          "inputTokens": 1640,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006888
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 418,
+          "evidence": {
+            "contradicts": 0.008207151734621252,
+            "restates": 0.002925747369019983
+          },
+          "inputTokens": 1633,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068586
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 264,
+          "evidence": {
+            "contradicts": 0.009013837951846198,
+            "restates": 0.0098548568626788
+          },
+          "inputTokens": 1583,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066486
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 283,
+          "evidence": {
+            "contradicts": 0.016784146258678297,
+            "restates": 0.8283610259175657
+          },
+          "inputTokens": 1589,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066738
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 217,
+          "evidence": {
+            "contradicts": 0.015020528790939238,
+            "restates": 0.0022941783070552675
+          },
+          "inputTokens": 1591,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066822
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 240,
+          "evidence": {
+            "contradicts": 0.9960572055890635,
+            "restates": 0.0022110705679555306
+          },
+          "inputTokens": 1586,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066612
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 214,
+          "evidence": {
+            "contradicts": 0.994188809768618,
+            "restates": 0.004382502780215044
+          },
+          "inputTokens": 1652,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000069384
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 215,
+          "evidence": {
+            "contradicts": 0.9817832485987417,
+            "restates": 0.006234228973261527
+          },
+          "inputTokens": 1663,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000069846
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 249,
+          "evidence": {
+            "contradicts": 0.013880000133445685,
+            "restates": 0.9507711325996209
+          },
+          "inputTokens": 1637,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068754
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 212,
+          "evidence": {
+            "contradicts": 0.029468934809936457,
+            "restates": 0.01757715058637752
+          },
+          "inputTokens": 1633,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068586
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 313,
+          "evidence": {
+            "contradicts": 0.9745892579596357,
+            "restates": 0.010230122796489622
+          },
+          "inputTokens": 1571,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065982
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 636,
+          "evidence": {
+            "contradicts": 0.9831668407542319,
+            "restates": 0.004329613257979704
+          },
+          "inputTokens": 1611,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067662
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 606,
+          "evidence": {
+            "contradicts": 0.9816579540606782,
+            "restates": 0.005561873287799143
+          },
+          "inputTokens": 1603,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067326
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 560,
+          "evidence": {
+            "contradicts": 0.0065633047615680324,
+            "restates": 0.9908482613171469
+          },
+          "inputTokens": 1622,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068124
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 550,
+          "evidence": {
+            "contradicts": 0.009565049363417295,
+            "restates": 0.9909769432303557
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067284
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 348,
+          "evidence": {
+            "contradicts": 0.018825880628679625,
+            "restates": 0.007357432289889434
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067578
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 237,
+          "evidence": {
+            "contradicts": 0.024891063757593316,
+            "restates": 0.004056443839254534
+          },
+          "inputTokens": 1605,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006741
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 289,
+          "evidence": {
+            "contradicts": 0.03269740728908403,
+            "restates": 0.028450659708145074
+          },
+          "inputTokens": 1553,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065226
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 548,
+          "evidence": {
+            "contradicts": 0.01559884689392479,
+            "restates": 0.9240061138595058
+          },
+          "inputTokens": 1560,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006552
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 247,
+          "evidence": {
+            "contradicts": 0.007478648600528524,
+            "restates": 0.0026606711360392878
+          },
+          "inputTokens": 1573,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066066
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 269,
+          "evidence": {
+            "contradicts": 0.993956270234663,
+            "restates": 0.002398803956601355
+          },
+          "inputTokens": 1555,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006531
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 236,
+          "evidence": {
+            "contradicts": 0.9053711079235355,
+            "restates": 0.015933157476463105
+          },
+          "inputTokens": 1616,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067872
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 246,
+          "evidence": {
+            "contradicts": 0.9908717444012268,
+            "restates": 0.011059509555492121
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067536
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 200,
+          "evidence": {
+            "contradicts": 0.00758784648732493,
+            "restates": 0.41546464757727164
+          },
+          "inputTokens": 1625,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006825
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 305,
+          "evidence": {
+            "contradicts": 0.037468675508650566,
+            "restates": 0.012695936926486401
+          },
+          "inputTokens": 1612,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067704
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 291,
+          "evidence": {
+            "contradicts": 0.9756007235459441,
+            "restates": 0.0022005272391136593
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065436
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 316,
+          "evidence": {
+            "contradicts": 0.9530855382375216,
+            "restates": 0.01936270024145411
+          },
+          "inputTokens": 1610,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006762
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 231,
+          "evidence": {
+            "contradicts": 0.9823442131819181,
+            "restates": 0.006854076479894094
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067284
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 257,
+          "evidence": {
+            "contradicts": 0.01145488721972266,
+            "restates": 0.9933881798564757
+          },
+          "inputTokens": 1610,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006762
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 220,
+          "evidence": {
+            "contradicts": 0.007140263017289231,
+            "restates": 0.9722719706389776
+          },
+          "inputTokens": 1615,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006783
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 1266,
+          "evidence": {
+            "contradicts": 0.013653684311898775,
+            "restates": 0.005091190872409829
+          },
+          "inputTokens": 1606,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067452
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 317,
+          "evidence": {
+            "contradicts": 0.009403993765733878,
+            "restates": 0.006458039870233337
+          },
+          "inputTokens": 1613,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067746
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 244,
+          "evidence": {
+            "contradicts": 0.01807133895834748,
+            "restates": 0.014965339431623832
+          },
+          "inputTokens": 1554,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065268
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 244,
+          "evidence": {
+            "contradicts": 0.025462527149994522,
+            "restates": 0.904506858897866
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065436
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 329,
+          "evidence": {
+            "contradicts": 0.005397176474711505,
+            "restates": 0.0023201044854097566
+          },
+          "inputTokens": 1568,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065856
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 249,
+          "evidence": {
+            "contradicts": 0.9965869471214887,
+            "restates": 0.001387016724778955
+          },
+          "inputTokens": 1547,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000064974
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.9637332094261645,
+            "restates": 0.011348430383461795
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067536
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 232,
+          "evidence": {
+            "contradicts": 0.009480097589898104,
+            "restates": 0.9860790446528453
+          },
+          "inputTokens": 1624,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068208
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 358,
+          "evidence": {
+            "contradicts": 0.06125199522424561,
+            "restates": 0.011812045579293495
+          },
+          "inputTokens": 1611,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067662
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 221,
+          "evidence": {
+            "contradicts": 0.018902373911505108,
+            "restates": 0.8098898109573783
+          },
+          "inputTokens": 1563,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065646
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 427,
+          "evidence": {
+            "contradicts": 0.982009034569966,
+            "restates": 0.019442745912955674
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067284
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 283,
+          "evidence": {
+            "contradicts": 0.9898031174062534,
+            "restates": 0.007166198794637999
+          },
+          "inputTokens": 1594,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066948
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 320,
+          "evidence": {
+            "contradicts": 0.008503296953545838,
+            "restates": 0.9861350026793003
+          },
+          "inputTokens": 1612,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067704
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 306,
+          "evidence": {
+            "contradicts": 0.014474879111120413,
+            "restates": 0.9880741742141377
+          },
+          "inputTokens": 1596,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067032
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.029039315695574178,
+            "restates": 0.03189989699820372
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067536
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 305,
+          "evidence": {
+            "contradicts": 0.01717248008639628,
+            "restates": 0.007034049920587376
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067284
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 309,
+          "evidence": {
+            "contradicts": 0.15994449631510527,
+            "restates": 0.012075062843859844
+          },
+          "inputTokens": 1546,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000064932
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 376,
+          "evidence": {
+            "contradicts": 0.05351582146307665,
+            "restates": 0.8553971861933012
+          },
+          "inputTokens": 1547,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000064974
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 274,
+          "evidence": {
+            "contradicts": 0.05556449223458187,
+            "restates": 0.013575436733359602
+          },
+          "inputTokens": 1552,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065184
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 248,
+          "evidence": {
+            "contradicts": 0.9866976780591811,
+            "restates": 0.0040477554880402325
+          },
+          "inputTokens": 1549,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065058
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 225,
+          "evidence": {
+            "contradicts": 0.8954060963661953,
+            "restates": 0.015477502335657216
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067578
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 255,
+          "evidence": {
+            "contradicts": 0.007638416131622251,
+            "restates": 0.2980687993457177
+          },
+          "inputTokens": 1619,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067998
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 349,
+          "evidence": {
+            "contradicts": 0.0984355165745906,
+            "restates": 0.010866653465974865
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067578
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 391,
+          "evidence": {
+            "contradicts": 0.9811737335285214,
+            "restates": 0.03592862488565904
+          },
+          "inputTokens": 1537,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000064554
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 229,
+          "evidence": {
+            "contradicts": 0.9859307738409061,
+            "restates": 0.004188911087245056
+          },
+          "inputTokens": 1622,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068124
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 273,
+          "evidence": {
+            "contradicts": 0.9847332437180623,
+            "restates": 0.00469603349663112
+          },
+          "inputTokens": 1617,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067914
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 263,
+          "evidence": {
+            "contradicts": 0.008611477629439274,
+            "restates": 0.9868842894319154
+          },
+          "inputTokens": 1627,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068334
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 424,
+          "evidence": {
+            "contradicts": 0.011999221317175185,
+            "restates": 0.9882840036922953
+          },
+          "inputTokens": 1618,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067956
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 426,
+          "evidence": {
+            "contradicts": 0.04285615198930269,
+            "restates": 0.005424370121316716
+          },
+          "inputTokens": 1620,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006804
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 586,
+          "evidence": {
+            "contradicts": 0.014999899420108972,
+            "restates": 0.003664753827404057
+          },
+          "inputTokens": 1624,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068208
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 479,
+          "evidence": {
+            "contradicts": 0.011909526078943002,
+            "restates": 0.011345794776374145
+          },
+          "inputTokens": 1566,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065772
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 477,
+          "evidence": {
+            "contradicts": 0.009416722858483249,
+            "restates": 0.9121638930797046
+          },
+          "inputTokens": 1569,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065898
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 436,
+          "evidence": {
+            "contradicts": 0.0668674266538575,
+            "restates": 0.004816518777400624
+          },
+          "inputTokens": 1572,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066024
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 225,
+          "evidence": {
+            "contradicts": 0.9902184039358546,
+            "restates": 0.003366319772829104
+          },
+          "inputTokens": 1567,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065814
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 258,
+          "evidence": {
+            "contradicts": 0.9912462692495287,
+            "restates": 0.0017133747534323397
+          },
+          "inputTokens": 1628,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068376
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 215,
+          "evidence": {
+            "contradicts": 0.9879903015262599,
+            "restates": 0.005513203257193933
+          },
+          "inputTokens": 1619,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067998
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 303,
+          "evidence": {
+            "contradicts": 0.9710330181981056,
+            "restates": 0.0031509768890122017
+          },
+          "inputTokens": 1631,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068502
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 302,
+          "evidence": {
+            "contradicts": 0.07276489879386608,
+            "restates": 0.007632245713619755
+          },
+          "inputTokens": 1634,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068628
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 205,
+          "evidence": {
+            "contradicts": 0.9495698711720743,
+            "restates": 0.005672423874662149
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065436
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 345,
+          "evidence": {
+            "contradicts": 0.12052438818489794,
+            "restates": 0.012641693941967215
+          },
+          "inputTokens": 2385,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00010017
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 251,
+          "evidence": {
+            "contradicts": 0.04201016070489044,
+            "restates": 0.025057536881814793
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096894
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 335,
+          "evidence": {
+            "contradicts": 0.05522251502753911,
+            "restates": 0.019646453966735505
+          },
+          "inputTokens": 2378,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000099876
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 277,
+          "evidence": {
+            "contradicts": 0.03706750546423969,
+            "restates": 0.015183286430109562
+          },
+          "inputTokens": 2376,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000099792
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 255,
+          "evidence": {
+            "contradicts": 0.02827999070052858,
+            "restates": 0.9841144466914272
+          },
+          "inputTokens": 2386,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000100212
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 255,
+          "evidence": {
+            "contradicts": 0.09737391839101377,
+            "restates": 0.5854348703951984
+          },
+          "inputTokens": 2384,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000100128
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 261,
+          "evidence": {
+            "contradicts": 0.06711091609676459,
+            "restates": 0.772091259996027
+          },
+          "inputTokens": 2304,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096768
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 304,
+          "evidence": {
+            "contradicts": 0.9778278049251445,
+            "restates": 0.00728526363297257
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096894
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 286,
+          "evidence": {
+            "contradicts": 0.9243239391203049,
+            "restates": 0.06495537031582649
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096894
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 327,
+          "evidence": {
+            "contradicts": 0.9918560499232195,
+            "restates": 0.01024784749559922
+          },
+          "inputTokens": 2383,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000100086
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 312,
+          "evidence": {
+            "contradicts": 0.9925376966443894,
+            "restates": 0.013662302383158494
+          },
+          "inputTokens": 2385,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00010017
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 371,
+          "evidence": {
+            "contradicts": 0.884844066189967,
+            "restates": 0.01971280219807497
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096894
+        }
+      ]
+    },
+    {
+      "backend": "liquid-d1.2",
+      "model": "liquid/d1.2",
+      "pass": 2,
+      "summary": {
+        "pass": false,
+        "recall": 1,
+        "routineAdmit": 0.8275862068965517,
+        "p50Ms": 241,
+        "p95Ms": 323,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 144999,
+        "costUsd": 0.0028999800000000004,
+        "falseAdmits": [],
+        "needlessReviews": [
+          "hr-handbook/self-corrects-errors",
+          "crm-account-notes/self-corrects-errors",
+          "clinic-procedures/compatible-overlap",
+          "clinic-procedures/self-corrects-errors",
+          "t0/routine-typo-fix"
+        ]
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 240,
+          "evidence": {
+            "contradicts": 0.9569295375737958,
+            "restates": 0.016964085999308463
+          },
+          "inputTokens": 1640,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000328
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 275,
+          "evidence": {
+            "contradicts": 0.8904523651384801,
+            "restates": 0.017267970340106416
+          },
+          "inputTokens": 1635,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000327
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 354,
+          "evidence": {
+            "contradicts": 0.12377026935087555,
+            "restates": 0.6610072578320815
+          },
+          "inputTokens": 1648,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003296
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 285,
+          "evidence": {
+            "contradicts": 0.059290952180868786,
+            "restates": 0.9377640553704278
+          },
+          "inputTokens": 1634,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003268
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 235,
+          "evidence": {
+            "contradicts": 0.0776978072564301,
+            "restates": 0.014649209978226024
+          },
+          "inputTokens": 1640,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000328
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 257,
+          "evidence": {
+            "contradicts": 0.11620017760739355,
+            "restates": 0.030118043490285795
+          },
+          "inputTokens": 1633,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003266
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 281,
+          "evidence": {
+            "contradicts": 0.05597072233414037,
+            "restates": 0.18884878614147557
+          },
+          "inputTokens": 1583,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003166
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 270,
+          "evidence": {
+            "contradicts": 0.16767753898957027,
+            "restates": 0.523292207724877
+          },
+          "inputTokens": 1589,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003178
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 260,
+          "evidence": {
+            "contradicts": 0.05079033197712982,
+            "restates": 0.01428065822181324
+          },
+          "inputTokens": 1591,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003182
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 297,
+          "evidence": {
+            "contradicts": 0.9823072111143363,
+            "restates": 0.032641245857580624
+          },
+          "inputTokens": 1586,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003172
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 271,
+          "evidence": {
+            "contradicts": 0.6354575795164207,
+            "restates": 0.3021671559852786
+          },
+          "inputTokens": 1652,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003304
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 217,
+          "evidence": {
+            "contradicts": 0.8576891361111979,
+            "restates": 0.02268352553933241
+          },
+          "inputTokens": 1663,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003326
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 257,
+          "evidence": {
+            "contradicts": 0.05406638896781336,
+            "restates": 0.7242051522677958
+          },
+          "inputTokens": 1637,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003274
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 208,
+          "evidence": {
+            "contradicts": 0.04701144182108268,
+            "restates": 0.013303968322995477
+          },
+          "inputTokens": 1633,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003266
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 225,
+          "evidence": {
+            "contradicts": 0.9788467672563238,
+            "restates": 0.06612944233988552
+          },
+          "inputTokens": 1571,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003142
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 204,
+          "evidence": {
+            "contradicts": 0.8637434600258468,
+            "restates": 0.016422688944661982
+          },
+          "inputTokens": 1611,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003222
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 240,
+          "evidence": {
+            "contradicts": 0.9114799770752775,
+            "restates": 0.012878958408559953
+          },
+          "inputTokens": 1603,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003206
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 243,
+          "evidence": {
+            "contradicts": 0.056442447270845214,
+            "restates": 0.9654189177302082
+          },
+          "inputTokens": 1622,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003244
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 181,
+          "evidence": {
+            "contradicts": 0.11087000901250788,
+            "restates": 0.9155294915521713
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003204
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 221,
+          "evidence": {
+            "contradicts": 0.026394035738048938,
+            "restates": 0.01111376080667661
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003218
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 266,
+          "evidence": {
+            "contradicts": 0.11346032383148626,
+            "restates": 0.012454496198838311
+          },
+          "inputTokens": 1605,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000321
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 267,
+          "evidence": {
+            "contradicts": 0.07956416649749459,
+            "restates": 0.20285198510149863
+          },
+          "inputTokens": 1553,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003106
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 272,
+          "evidence": {
+            "contradicts": 0.09190618136802059,
+            "restates": 0.7808564413108766
+          },
+          "inputTokens": 1560,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000312
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 218,
+          "evidence": {
+            "contradicts": 0.04616726340058978,
+            "restates": 0.022284439083792122
+          },
+          "inputTokens": 1573,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003146
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 221,
+          "evidence": {
+            "contradicts": 0.9920009465795545,
+            "restates": 0.014417500189350866
+          },
+          "inputTokens": 1555,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000311
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 200,
+          "evidence": {
+            "contradicts": 0.9264783689261928,
+            "restates": 0.032248249106673704
+          },
+          "inputTokens": 1616,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003232
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 215,
+          "evidence": {
+            "contradicts": 0.9549247957249374,
+            "restates": 0.012879383705245117
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003216
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 245,
+          "evidence": {
+            "contradicts": 0.048669393575851094,
+            "restates": 0.6728369869039369
+          },
+          "inputTokens": 1625,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000325
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 269,
+          "evidence": {
+            "contradicts": 0.07536635409400361,
+            "restates": 0.01802866331658459
+          },
+          "inputTokens": 1612,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003224
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 234,
+          "evidence": {
+            "contradicts": 0.9725473076155383,
+            "restates": 0.012088112003663483
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003116
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 223,
+          "evidence": {
+            "contradicts": 0.8586924930875585,
+            "restates": 0.018342026693529273
+          },
+          "inputTokens": 1610,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000322
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 197,
+          "evidence": {
+            "contradicts": 0.9665513970899683,
+            "restates": 0.01814121217841466
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003204
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 286,
+          "evidence": {
+            "contradicts": 0.03900641545979639,
+            "restates": 0.9116218196037892
+          },
+          "inputTokens": 1610,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000322
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 247,
+          "evidence": {
+            "contradicts": 0.056937953804898356,
+            "restates": 0.8193136310443919
+          },
+          "inputTokens": 1615,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000323
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 289,
+          "evidence": {
+            "contradicts": 0.08800811309501257,
+            "restates": 0.021403576120715206
+          },
+          "inputTokens": 1606,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003212
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 302,
+          "evidence": {
+            "contradicts": 0.037449582030825566,
+            "restates": 0.013755927885489013
+          },
+          "inputTokens": 1613,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003226
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 276,
+          "evidence": {
+            "contradicts": 0.04414112959629033,
+            "restates": 0.17613336062445964
+          },
+          "inputTokens": 1554,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003108
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 229,
+          "evidence": {
+            "contradicts": 0.1562631748352246,
+            "restates": 0.7019275516743989
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003116
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 287,
+          "evidence": {
+            "contradicts": 0.08045752111089124,
+            "restates": 0.06122686015308158
+          },
+          "inputTokens": 1568,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003136
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 284,
+          "evidence": {
+            "contradicts": 0.9858563153797378,
+            "restates": 0.021040131657254116
+          },
+          "inputTokens": 1547,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003094
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 234,
+          "evidence": {
+            "contradicts": 0.8574050630605901,
+            "restates": 0.013629651614603938
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003216
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 230,
+          "evidence": {
+            "contradicts": 0.03594892421431628,
+            "restates": 0.9299874735774275
+          },
+          "inputTokens": 1624,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003248
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 201,
+          "evidence": {
+            "contradicts": 0.12635170110150898,
+            "restates": 0.045652091637119745
+          },
+          "inputTokens": 1611,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003222
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 203,
+          "evidence": {
+            "contradicts": 0.040125472522278126,
+            "restates": 0.83333599375688
+          },
+          "inputTokens": 1563,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003126
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 248,
+          "evidence": {
+            "contradicts": 0.8920597639215108,
+            "restates": 0.019733541925554147
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003204
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 243,
+          "evidence": {
+            "contradicts": 0.9472038962244357,
+            "restates": 0.01201149179018365
+          },
+          "inputTokens": 1594,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003188
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 266,
+          "evidence": {
+            "contradicts": 0.04225971999345917,
+            "restates": 0.8660882929290458
+          },
+          "inputTokens": 1612,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003224
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 323,
+          "evidence": {
+            "contradicts": 0.08616178491846913,
+            "restates": 0.8372079377084141
+          },
+          "inputTokens": 1596,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003192
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 321,
+          "evidence": {
+            "contradicts": 0.1175123797787748,
+            "restates": 0.029018223119416334
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003216
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 232,
+          "evidence": {
+            "contradicts": 0.05771921818537129,
+            "restates": 0.01472980992653036
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003204
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 223,
+          "evidence": {
+            "contradicts": 0.12295196444223752,
+            "restates": 0.39013724359821556
+          },
+          "inputTokens": 1546,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003092
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 364,
+          "evidence": {
+            "contradicts": 0.17494489880450173,
+            "restates": 0.717456164249578
+          },
+          "inputTokens": 1547,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003094
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 227,
+          "evidence": {
+            "contradicts": 0.13007087918666568,
+            "restates": 0.044214468122469194
+          },
+          "inputTokens": 1552,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003104
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 219,
+          "evidence": {
+            "contradicts": 0.9729512239360809,
+            "restates": 0.019944643386922284
+          },
+          "inputTokens": 1549,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003098
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 306,
+          "evidence": {
+            "contradicts": 0.7661719346514734,
+            "restates": 0.023581960842392516
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003218
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 203,
+          "evidence": {
+            "contradicts": 0.051346011096787395,
+            "restates": 0.20174076496690257
+          },
+          "inputTokens": 1619,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003238
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 199,
+          "evidence": {
+            "contradicts": 0.1320489087978161,
+            "restates": 0.019803366198288753
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003218
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 598,
+          "evidence": {
+            "contradicts": 0.9902177176903445,
+            "restates": 0.05662219045997257
+          },
+          "inputTokens": 1537,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003074
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 200,
+          "evidence": {
+            "contradicts": 0.7789959560339604,
+            "restates": 0.02523054909267569
+          },
+          "inputTokens": 1622,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003244
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 214,
+          "evidence": {
+            "contradicts": 0.9612753192311232,
+            "restates": 0.031086265134461045
+          },
+          "inputTokens": 1617,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003234
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 228,
+          "evidence": {
+            "contradicts": 0.04900101210860459,
+            "restates": 0.9299874887713806
+          },
+          "inputTokens": 1627,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003254
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 213,
+          "evidence": {
+            "contradicts": 0.07315576309905451,
+            "restates": 0.8381701837418404
+          },
+          "inputTokens": 1618,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003236
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 222,
+          "evidence": {
+            "contradicts": 0.20977547928632714,
+            "restates": 0.011719752547430287
+          },
+          "inputTokens": 1620,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000324
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 407,
+          "evidence": {
+            "contradicts": 0.053202600718885155,
+            "restates": 0.01365380230612907
+          },
+          "inputTokens": 1624,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003248
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 224,
+          "evidence": {
+            "contradicts": 0.03872445263280022,
+            "restates": 0.2151069243249833
+          },
+          "inputTokens": 1566,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003132
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 322,
+          "evidence": {
+            "contradicts": 0.12261439439755308,
+            "restates": 0.6313779274488605
+          },
+          "inputTokens": 1569,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003138
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 224,
+          "evidence": {
+            "contradicts": 0.035524538191318636,
+            "restates": 0.02253308605109109
+          },
+          "inputTokens": 1572,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003144
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 277,
+          "evidence": {
+            "contradicts": 0.9926303129895268,
+            "restates": 0.016047588025948602
+          },
+          "inputTokens": 1567,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003134
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 235,
+          "evidence": {
+            "contradicts": 0.9705625162162668,
+            "restates": 0.03568728449388171
+          },
+          "inputTokens": 1628,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003256
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 252,
+          "evidence": {
+            "contradicts": 0.9343159306681775,
+            "restates": 0.01797145837820314
+          },
+          "inputTokens": 1619,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003238
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 216,
+          "evidence": {
+            "contradicts": 0.9357503257042561,
+            "restates": 0.01297769383659949
+          },
+          "inputTokens": 1631,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003262
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 215,
+          "evidence": {
+            "contradicts": 0.17456280138881058,
+            "restates": 0.024792145522722946
+          },
+          "inputTokens": 1634,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003268
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 197,
+          "evidence": {
+            "contradicts": 0.941843060506231,
+            "restates": 0.016492518096239497
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00003116
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 276,
+          "evidence": {
+            "contradicts": 0.06802301755687234,
+            "restates": 0.07736472020964814
+          },
+          "inputTokens": 2385,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000477
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": true,
+          "latencyMs": 222,
+          "evidence": {
+            "contradicts": 0.11903445040579935,
+            "restates": 0.24088558552152764
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004614
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 273,
+          "evidence": {
+            "contradicts": 0.11182679410211112,
+            "restates": 0.05382270577350327
+          },
+          "inputTokens": 2378,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004756
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 266,
+          "evidence": {
+            "contradicts": 0.10823060730258523,
+            "restates": 0.052241735354027465
+          },
+          "inputTokens": 2376,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004752
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 267,
+          "evidence": {
+            "contradicts": 0.08415626321882708,
+            "restates": 0.9605506152100867
+          },
+          "inputTokens": 2386,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004772
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 244,
+          "evidence": {
+            "contradicts": 0.29940925713851707,
+            "restates": 0.4510266396643742
+          },
+          "inputTokens": 2384,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004768
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 229,
+          "evidence": {
+            "contradicts": 0.35654660710328684,
+            "restates": 0.5370977056757507
+          },
+          "inputTokens": 2304,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004608
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.9908689750385486,
+            "restates": 0.05512850247390711
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004614
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 247,
+          "evidence": {
+            "contradicts": 0.8688110790851037,
+            "restates": 0.13504563476932038
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004614
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 219,
+          "evidence": {
+            "contradicts": 0.9430871374702595,
+            "restates": 0.02695187228194542
+          },
+          "inputTokens": 2383,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004766
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 241,
+          "evidence": {
+            "contradicts": 0.9627177730243114,
+            "restates": 0.060623584221821854
+          },
+          "inputTokens": 2385,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.0000477
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 231,
+          "evidence": {
+            "contradicts": 0.9216932252514592,
+            "restates": 0.11011037920305143
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00004614
+        }
+      ]
+    },
+    {
+      "backend": "liquid-d1.2-ultra",
+      "model": "liquid/d1.2-ultra",
+      "pass": 2,
+      "summary": {
+        "pass": true,
+        "recall": 1,
+        "routineAdmit": 1,
+        "p50Ms": 315,
+        "p95Ms": 699,
+        "overTimeout": 0,
+        "transportFailures": 0,
+        "inputTokens": 144999,
+        "costUsd": 0.006089957999999999,
+        "falseAdmits": [],
+        "needlessReviews": []
+      },
+      "rows": [
+        {
+          "id": "saas-support-kb/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 699,
+          "evidence": {
+            "contradicts": 0.9825291171893126,
+            "restates": 0.005006474427830526
+          },
+          "inputTokens": 1640,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006888
+        },
+        {
+          "id": "saas-support-kb/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 376,
+          "evidence": {
+            "contradicts": 0.9950913097547635,
+            "restates": 0.005787606006680134
+          },
+          "inputTokens": 1635,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006867
+        },
+        {
+          "id": "saas-support-kb/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 452,
+          "evidence": {
+            "contradicts": 0.006452664728771609,
+            "restates": 0.9839179238270704
+          },
+          "inputTokens": 1648,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000069216
+        },
+        {
+          "id": "saas-support-kb/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 469,
+          "evidence": {
+            "contradicts": 0.004694305460352316,
+            "restates": 0.9896484152401646
+          },
+          "inputTokens": 1634,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068628
+        },
+        {
+          "id": "saas-support-kb/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 280,
+          "evidence": {
+            "contradicts": 0.010361517757141447,
+            "restates": 0.0030621099337719963
+          },
+          "inputTokens": 1640,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006888
+        },
+        {
+          "id": "saas-support-kb/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 379,
+          "evidence": {
+            "contradicts": 0.009890735328000343,
+            "restates": 0.003071374803621739
+          },
+          "inputTokens": 1633,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068586
+        },
+        {
+          "id": "saas-support-kb/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 237,
+          "evidence": {
+            "contradicts": 0.009013837951846198,
+            "restates": 0.0098548568626788
+          },
+          "inputTokens": 1583,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066486
+        },
+        {
+          "id": "saas-support-kb/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 298,
+          "evidence": {
+            "contradicts": 0.016784146258678297,
+            "restates": 0.8283610259175657
+          },
+          "inputTokens": 1589,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066738
+        },
+        {
+          "id": "saas-support-kb/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 359,
+          "evidence": {
+            "contradicts": 0.00565822717079023,
+            "restates": 0.0019234204511071207
+          },
+          "inputTokens": 1591,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066822
+        },
+        {
+          "id": "saas-support-kb/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 317,
+          "evidence": {
+            "contradicts": 0.9932712951887204,
+            "restates": 0.0027892419163459007
+          },
+          "inputTokens": 1586,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066612
+        },
+        {
+          "id": "saas-support-kb/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.9927349413540597,
+            "restates": 0.005095389184489714
+          },
+          "inputTokens": 1652,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000069384
+        },
+        {
+          "id": "saas-support-kb/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 329,
+          "evidence": {
+            "contradicts": 0.9858267878286745,
+            "restates": 0.004536909575721722
+          },
+          "inputTokens": 1663,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000069846
+        },
+        {
+          "id": "saas-support-kb/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 228,
+          "evidence": {
+            "contradicts": 0.013880000133445685,
+            "restates": 0.9507711325996209
+          },
+          "inputTokens": 1637,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068754
+        },
+        {
+          "id": "saas-support-kb/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 208,
+          "evidence": {
+            "contradicts": 0.029468934809936457,
+            "restates": 0.01757715058637752
+          },
+          "inputTokens": 1633,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068586
+        },
+        {
+          "id": "saas-support-kb/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 452,
+          "evidence": {
+            "contradicts": 0.9745892579596357,
+            "restates": 0.010230122796489622
+          },
+          "inputTokens": 1571,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065982
+        },
+        {
+          "id": "hr-handbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 340,
+          "evidence": {
+            "contradicts": 0.9853897160977577,
+            "restates": 0.004189991663243219
+          },
+          "inputTokens": 1611,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067662
+        },
+        {
+          "id": "hr-handbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 292,
+          "evidence": {
+            "contradicts": 0.9823343595016338,
+            "restates": 0.0052519519250852345
+          },
+          "inputTokens": 1603,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067326
+        },
+        {
+          "id": "hr-handbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 359,
+          "evidence": {
+            "contradicts": 0.008162785026826559,
+            "restates": 0.9936427617696404
+          },
+          "inputTokens": 1622,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068124
+        },
+        {
+          "id": "hr-handbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 291,
+          "evidence": {
+            "contradicts": 0.006524919233340089,
+            "restates": 0.9917453971657315
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067284
+        },
+        {
+          "id": "hr-handbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 307,
+          "evidence": {
+            "contradicts": 0.014272719576499142,
+            "restates": 0.007054804173043425
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067578
+        },
+        {
+          "id": "hr-handbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 224,
+          "evidence": {
+            "contradicts": 0.028534213878737832,
+            "restates": 0.004358207051203441
+          },
+          "inputTokens": 1605,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006741
+        },
+        {
+          "id": "hr-handbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 215,
+          "evidence": {
+            "contradicts": 0.03572560981685305,
+            "restates": 0.028491756226914824
+          },
+          "inputTokens": 1553,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065226
+        },
+        {
+          "id": "hr-handbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 264,
+          "evidence": {
+            "contradicts": 0.01633684856162691,
+            "restates": 0.9411458891148595
+          },
+          "inputTokens": 1560,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006552
+        },
+        {
+          "id": "hr-handbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 357,
+          "evidence": {
+            "contradicts": 0.009869694220467308,
+            "restates": 0.004654579757361554
+          },
+          "inputTokens": 1573,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066066
+        },
+        {
+          "id": "hr-handbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 240,
+          "evidence": {
+            "contradicts": 0.9949673678918443,
+            "restates": 0.004204017131283056
+          },
+          "inputTokens": 1555,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006531
+        },
+        {
+          "id": "hr-handbook/adversarial-spoofed-verdict",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 216,
+          "evidence": {
+            "contradicts": 0.9173233348301786,
+            "restates": 0.010092134695102445
+          },
+          "inputTokens": 1616,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067872
+        },
+        {
+          "id": "hr-handbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 408,
+          "evidence": {
+            "contradicts": 0.9908717444012268,
+            "restates": 0.011059509555492121
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067536
+        },
+        {
+          "id": "hr-handbook/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 377,
+          "evidence": {
+            "contradicts": 0.009729621495448199,
+            "restates": 0.5537250009276515
+          },
+          "inputTokens": 1625,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006825
+        },
+        {
+          "id": "hr-handbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 315,
+          "evidence": {
+            "contradicts": 0.029892873694090227,
+            "restates": 0.008789497176246006
+          },
+          "inputTokens": 1612,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067704
+        },
+        {
+          "id": "hr-handbook/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.9729885253825588,
+            "restates": 0.002659714604182698
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065436
+        },
+        {
+          "id": "eng-runbook/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 233,
+          "evidence": {
+            "contradicts": 0.9530855382375216,
+            "restates": 0.01936270024145411
+          },
+          "inputTokens": 1610,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006762
+        },
+        {
+          "id": "eng-runbook/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 416,
+          "evidence": {
+            "contradicts": 0.9874767387474017,
+            "restates": 0.009498276626862175
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067284
+        },
+        {
+          "id": "eng-runbook/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 334,
+          "evidence": {
+            "contradicts": 0.00601884889541051,
+            "restates": 0.9944737929074967
+          },
+          "inputTokens": 1610,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006762
+        },
+        {
+          "id": "eng-runbook/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 277,
+          "evidence": {
+            "contradicts": 0.008222560772098401,
+            "restates": 0.9719873841076898
+          },
+          "inputTokens": 1615,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006783
+        },
+        {
+          "id": "eng-runbook/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.014938557597457552,
+            "restates": 0.007739062380578729
+          },
+          "inputTokens": 1606,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067452
+        },
+        {
+          "id": "eng-runbook/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 634,
+          "evidence": {
+            "contradicts": 0.008986266580449523,
+            "restates": 0.005359982025567946
+          },
+          "inputTokens": 1613,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067746
+        },
+        {
+          "id": "eng-runbook/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 245,
+          "evidence": {
+            "contradicts": 0.010863944483929138,
+            "restates": 0.010838333455576185
+          },
+          "inputTokens": 1554,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065268
+        },
+        {
+          "id": "eng-runbook/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 369,
+          "evidence": {
+            "contradicts": 0.018784134384938783,
+            "restates": 0.9270682837433887
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065436
+        },
+        {
+          "id": "eng-runbook/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 733,
+          "evidence": {
+            "contradicts": 0.003715643018749666,
+            "restates": 0.0015955162512269509
+          },
+          "inputTokens": 1568,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065856
+        },
+        {
+          "id": "eng-runbook/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 775,
+          "evidence": {
+            "contradicts": 0.9957265195747097,
+            "restates": 0.0013865542523994936
+          },
+          "inputTokens": 1547,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000064974
+        },
+        {
+          "id": "eng-runbook/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 704,
+          "evidence": {
+            "contradicts": 0.9652530869862219,
+            "restates": 0.017497906630042845
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067536
+        },
+        {
+          "id": "eng-runbook/hard-restates-positive-form",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 693,
+          "evidence": {
+            "contradicts": 0.010404238334364588,
+            "restates": 0.9854510009796983
+          },
+          "inputTokens": 1624,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068208
+        },
+        {
+          "id": "eng-runbook/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 426,
+          "evidence": {
+            "contradicts": 0.06404827706489795,
+            "restates": 0.00735492637849857
+          },
+          "inputTokens": 1611,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067662
+        },
+        {
+          "id": "eng-runbook/hard-self-reorders",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 389,
+          "evidence": {
+            "contradicts": 0.022721058767106565,
+            "restates": 0.8401141824792686
+          },
+          "inputTokens": 1563,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065646
+        },
+        {
+          "id": "crm-account-notes/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 309,
+          "evidence": {
+            "contradicts": 0.9746778276387346,
+            "restates": 0.014078728941367602
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067284
+        },
+        {
+          "id": "crm-account-notes/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 318,
+          "evidence": {
+            "contradicts": 0.9856949694890655,
+            "restates": 0.006252339222625295
+          },
+          "inputTokens": 1594,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066948
+        },
+        {
+          "id": "crm-account-notes/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 320,
+          "evidence": {
+            "contradicts": 0.009098361780169909,
+            "restates": 0.9871069698080609
+          },
+          "inputTokens": 1612,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067704
+        },
+        {
+          "id": "crm-account-notes/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 767,
+          "evidence": {
+            "contradicts": 0.014170495355663908,
+            "restates": 0.9813353501245053
+          },
+          "inputTokens": 1596,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067032
+        },
+        {
+          "id": "crm-account-notes/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 399,
+          "evidence": {
+            "contradicts": 0.04442059365795269,
+            "restates": 0.019326238126724023
+          },
+          "inputTokens": 1608,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067536
+        },
+        {
+          "id": "crm-account-notes/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 387,
+          "evidence": {
+            "contradicts": 0.035713756457238365,
+            "restates": 0.007230797305616856
+          },
+          "inputTokens": 1602,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067284
+        },
+        {
+          "id": "crm-account-notes/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 251,
+          "evidence": {
+            "contradicts": 0.15994449631510527,
+            "restates": 0.012075062843859844
+          },
+          "inputTokens": 1546,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000064932
+        },
+        {
+          "id": "crm-account-notes/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 264,
+          "evidence": {
+            "contradicts": 0.051510716082913646,
+            "restates": 0.8233475937627751
+          },
+          "inputTokens": 1547,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000064974
+        },
+        {
+          "id": "crm-account-notes/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 262,
+          "evidence": {
+            "contradicts": 0.0488854811127292,
+            "restates": 0.008202095488505187
+          },
+          "inputTokens": 1552,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065184
+        },
+        {
+          "id": "crm-account-notes/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 316,
+          "evidence": {
+            "contradicts": 0.9887836167029797,
+            "restates": 0.0023084151551755437
+          },
+          "inputTokens": 1549,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065058
+        },
+        {
+          "id": "crm-account-notes/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 609,
+          "evidence": {
+            "contradicts": 0.9107639529069255,
+            "restates": 0.02041392904410622
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067578
+        },
+        {
+          "id": "crm-account-notes/hard-restates-combined",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 224,
+          "evidence": {
+            "contradicts": 0.007771698015930257,
+            "restates": 0.3491671650112802
+          },
+          "inputTokens": 1619,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067998
+        },
+        {
+          "id": "crm-account-notes/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 229,
+          "evidence": {
+            "contradicts": 0.0984355165745906,
+            "restates": 0.010866653465974865
+          },
+          "inputTokens": 1609,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067578
+        },
+        {
+          "id": "crm-account-notes/hard-self-removes-assertion",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 251,
+          "evidence": {
+            "contradicts": 0.9745647372794529,
+            "restates": 0.019646456451266354
+          },
+          "inputTokens": 1537,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000064554
+        },
+        {
+          "id": "clinic-procedures/contradicts-negation",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 273,
+          "evidence": {
+            "contradicts": 0.9859307738409061,
+            "restates": 0.004188911087245056
+          },
+          "inputTokens": 1622,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068124
+        },
+        {
+          "id": "clinic-procedures/contradicts-value",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 319,
+          "evidence": {
+            "contradicts": 0.9847332437180623,
+            "restates": 0.00469603349663112
+          },
+          "inputTokens": 1617,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067914
+        },
+        {
+          "id": "clinic-procedures/restates-paraphrase",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 307,
+          "evidence": {
+            "contradicts": 0.005620031533746499,
+            "restates": 0.9883440607791575
+          },
+          "inputTokens": 1627,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068334
+        },
+        {
+          "id": "clinic-procedures/restates-condensed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 266,
+          "evidence": {
+            "contradicts": 0.011999221317175185,
+            "restates": 0.9882840036922953
+          },
+          "inputTokens": 1618,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067956
+        },
+        {
+          "id": "clinic-procedures/compatible-overlap",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 207,
+          "evidence": {
+            "contradicts": 0.04285615198930269,
+            "restates": 0.005424370121316716
+          },
+          "inputTokens": 1620,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00006804
+        },
+        {
+          "id": "clinic-procedures/compatible-new",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 241,
+          "evidence": {
+            "contradicts": 0.013068955686446192,
+            "restates": 0.0036870710305515505
+          },
+          "inputTokens": 1624,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068208
+        },
+        {
+          "id": "clinic-procedures/self-corrects-errors",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 284,
+          "evidence": {
+            "contradicts": 0.00819935618228758,
+            "restates": 0.01188882683515453
+          },
+          "inputTokens": 1566,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065772
+        },
+        {
+          "id": "clinic-procedures/self-rewords",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 256,
+          "evidence": {
+            "contradicts": 0.009387943115254172,
+            "restates": 0.9240930571261046
+          },
+          "inputTokens": 1569,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065898
+        },
+        {
+          "id": "clinic-procedures/self-adds-information",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 238,
+          "evidence": {
+            "contradicts": 0.05599832295309437,
+            "restates": 0.00587361444065772
+          },
+          "inputTokens": 1572,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000066024
+        },
+        {
+          "id": "clinic-procedures/self-changes-meaning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 252,
+          "evidence": {
+            "contradicts": 0.9947582372934148,
+            "restates": 0.0018315671888955935
+          },
+          "inputTokens": 1567,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065814
+        },
+        {
+          "id": "clinic-procedures/adversarial-instruction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 674,
+          "evidence": {
+            "contradicts": 0.978865819520281,
+            "restates": 0.0023674915296098584
+          },
+          "inputTokens": 1628,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068376
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-implied",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 371,
+          "evidence": {
+            "contradicts": 0.9878198587269998,
+            "restates": 0.0037141208867055497
+          },
+          "inputTokens": 1619,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000067998
+        },
+        {
+          "id": "clinic-procedures/hard-contradicts-buried",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 313,
+          "evidence": {
+            "contradicts": 0.9682701020173197,
+            "restates": 0.0024575342752396843
+          },
+          "inputTokens": 1631,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068502
+        },
+        {
+          "id": "clinic-procedures/hard-compatible-sibling",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 581,
+          "evidence": {
+            "contradicts": 0.07288133993932686,
+            "restates": 0.006044208373546011
+          },
+          "inputTokens": 1634,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000068628
+        },
+        {
+          "id": "clinic-procedures/hard-self-fix-and-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 284,
+          "evidence": {
+            "contradicts": 0.9598156061986743,
+            "restates": 0.003584388935989158
+          },
+          "inputTokens": 1558,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000065436
+        },
+        {
+          "id": "t0/routine-customer-story",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 314,
+          "evidence": {
+            "contradicts": 0.12052438818489794,
+            "restates": 0.012641693941967215
+          },
+          "inputTokens": 2385,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00010017
+        },
+        {
+          "id": "t0/routine-typo-fix",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 398,
+          "evidence": {
+            "contradicts": 0.047355476453668034,
+            "restates": 0.03924319922724538
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096894
+        },
+        {
+          "id": "t0/routine-faq-shipping",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 384,
+          "evidence": {
+            "contradicts": 0.052870009990575915,
+            "restates": 0.01880950918513444
+          },
+          "inputTokens": 2378,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000099876
+        },
+        {
+          "id": "t0/routine-faq-returns",
+          "shouldEscalate": false,
+          "escalated": false,
+          "latencyMs": 368,
+          "evidence": {
+            "contradicts": 0.03706750546423969,
+            "restates": 0.015183286430109562
+          },
+          "inputTokens": 2376,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000099792
+        },
+        {
+          "id": "t0/redundant-duplicate-positioning",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 446,
+          "evidence": {
+            "contradicts": 0.06296457406239073,
+            "restates": 0.9749844521273936
+          },
+          "inputTokens": 2386,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000100212
+        },
+        {
+          "id": "t0/redundant-rephrase-brand-voice",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 267,
+          "evidence": {
+            "contradicts": 0.0747737159486792,
+            "restates": 0.6191761995651617
+          },
+          "inputTokens": 2384,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000100128
+        },
+        {
+          "id": "t0/redundant-restate-analytics-feature",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 272,
+          "evidence": {
+            "contradicts": 0.06711091609676459,
+            "restates": 0.772091259996027
+          },
+          "inputTokens": 2304,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096768
+        },
+        {
+          "id": "t0/consequential-pricing-change",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 221,
+          "evidence": {
+            "contradicts": 0.9778278049251445,
+            "restates": 0.00728526363297257
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096894
+        },
+        {
+          "id": "t0/consequential-positioning-pivot",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 253,
+          "evidence": {
+            "contradicts": 0.8991522264843853,
+            "restates": 0.051208808504251635
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096894
+        },
+        {
+          "id": "t0/consequential-contradicting-claim",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 279,
+          "evidence": {
+            "contradicts": 0.9937704752753247,
+            "restates": 0.008959675801867812
+          },
+          "inputTokens": 2383,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000100086
+        },
+        {
+          "id": "t0/consequential-aged-contradiction",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 269,
+          "evidence": {
+            "contradicts": 0.9925376966443894,
+            "restates": 0.013662302383158494
+          },
+          "inputTokens": 2385,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.00010017
+        },
+        {
+          "id": "t0/consequential-enterprise-pricing-fixed",
+          "shouldEscalate": true,
+          "escalated": true,
+          "latencyMs": 342,
+          "evidence": {
+            "contradicts": 0.9004906908462559,
+            "restates": 0.025894067929812015
+          },
+          "inputTokens": 2307,
+          "responseModel": "liquid/d1.2-ultra-20261116",
+          "provider": "Liquid",
+          "costUsd": 0.000096894
+        }
+      ]
+    }
+  ]
+}

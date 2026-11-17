@@ -2,20 +2,22 @@
 
 A reproducible comparison of decision models on one production task: deciding whether an AI agent's write to a knowledge base can be admitted automatically or needs human review. One script, no dependencies, 85 labeled synthetic cases.
 
-## Current status — 2026-11-13
+## Current status — 2026-11-17
 
-**Perplexity Decider v1.3 is the strongest hosted result in the latest comparison: all 85 decisions correct in both record orders, every pass correct, and all seven passes meeting every gate. Flash v1.3 catches every review-required write and improves routine admission over v1.2, with one order-sensitive decision. Both new endpoints report zero cost and zero failed calls.** Jev, Clef, and Microsoft Decision 1 also meet every gate in their November 11 runs, although each admits some writes that require review.
+**Perplexity Decider v1.3 retains the strongest result across all scored calls. Liquid d1.2-ultra meets every gate and is perfect in all concurrent passes, but needlessly reviews one CRM typo fix in each sequential pass. Liquid d1.2 catches every review-required write but fails the routine-admission gate in both reversed-order passes.** Passing a gate permits some decision errors; it does not imply perfect accuracy.
 
-The two v1.3 models were evaluated on November 13 with **1,190 scored calls**. The other seven current rows retain their November 11 measurements; those models were not re-run on November 13. The full November 11 run, including retired v1.2 results, remains in the history and raw reports. Cases, prompts, criteria and thresholds are unchanged. One backend was active at a time, with backends interleaved within each pass. Calls used the cloud executor's HTTPS proxy; its region was not recorded. Kev has no configured server here, and its October 1 results remain in the [run history](#run-history).
+The Liquid models were evaluated on November 17 with **1,190 scored calls**. The Perplexity v1.3 rows retain their November 13 measurements; the other seven current rows retain November 11 measurements. Those older backends were not re-run on November 17. Cases, prompts, criteria and thresholds are unchanged. One backend was active at a time, with backends interleaved within each pass. Calls used the cloud executor's HTTPS proxy; its region was not recorded. Kev has no configured server here, and its October 1 results remain in the [run history](#run-history).
 
 ### Decision quality
 
 Gates: recall ≥ 0.95, routine admit ≥ 0.85, p95 ≤ 2500 ms, and no failed calls. Per backend: three original-order and two reversed-order passes at six requests in flight, then two original-order passes one request at a time (595 calls).
 
-Recall is the fraction of review-required writes sent to review (56 per pass). Routine admit is the fraction of harmless writes admitted (29 per pass). Quality columns use the first failure-free concurrent pass per order: pass 1 for every current row. The order-change count compares those selected passes. Gate totals include every pass and failure; failed calls go to review. No failed call was retried or removed. Passing the recall gate does not imply every decision was correct.
+Recall is the fraction of review-required writes sent to review (56 per pass). Routine admit is the fraction of harmless writes admitted (29 per pass). Quality columns use the first failure-free concurrent pass per order: pass 1 for every current row. The order-change count compares those selected passes and can include serving variability; it does not isolate a causal effect of reversal. Gate totals include every pass and failure; failed calls go to review. No failed call was retried or removed. Passing the recall gate does not imply every decision was correct.
 
-| model (last evaluated) | recall (original / reversed) | routine admit (original / reversed) | decisions changed by order | passes meeting every gate |
+| model (last evaluated) | recall (original / reversed) | routine admit (original / reversed) | decisions differing between orders | passes meeting every gate |
 | --- | --- | --- | --- | --- |
+| Liquid d1.2 (Nov 17) | 1.000 / 1.000 | 0.966 / 0.759 | 6 | 5 of 7 |
+| Liquid d1.2-ultra (Nov 17) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 7 of 7 |
 | Pplx Decider v1.3 (free) (Nov 13) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 7 of 7 |
 | Pplx Decider Flash v1.3 (free) (Nov 13) | 1.000 / 1.000 | 0.966 / 0.931 | 1 | 7 of 7 |
 | Jev 1.14.0 (Nov 11) | 0.982 / 0.982 | 1.000 / 1.000 | 0 | 7 of 7 |
@@ -25,6 +27,16 @@ Recall is the fraction of review-required writes sent to review (56 per pass). R
 | Microsoft Decision 1 (OpenRouter) (Nov 11) | 1.000 / 0.982 | 1.000 / 0.966 | 2 | 7 of 7 |
 | GPT-6 Luna (OpenAI Decisions) (Nov 11) | 1.000 / 0.946 | 0.828 / 0.828 | 9 | 0 of 7 |
 | Gemini Decision 1 (OpenRouter) (Nov 11) | 1.000 / 0.982 | 0.897 / 0.828 | 3 | 5 of 7 |
+
+### Liquid performance
+
+Both Liquid endpoints catch all 56 review-required writes in every pass, including all classifier-steering cases, with zero failed calls. Ultra gets 593/595 calls correct: all 425 concurrent decisions are correct, while both sequential passes needlessly review `crm-account-notes/self-corrects-errors`. It meets every gate in all seven passes. Perplexity Decider v1.3's earlier 595/595 remains the best result across all calls in the current comparison.
+
+d1.2 gets 577/595 calls correct, with 18 needless reviews and no false admits. Routine admission varies from 26/29 to 29/29 across original-order concurrent and sequential passes, and from 22/29 to 24/29 reversed. Both reversed passes fall below the 0.85 routine-admission gate; the other five pass. Six decisions differ between the first original and first reversed passes, but identical-order repeats also change decisions. This difference cannot be attributed to order alone.
+
+Liquid's stored evidence varies across identical calls: maximum shifts from the first concurrent pass in each order are 0.2974 for d1.2 and 0.1660 for Ultra. Comparing sequential original-order passes with the first concurrent original pass gives shifts up to 0.3433 and 0.1158 respectively. Maximum shifts between the selected original and reversed passes are 0.2432 and 0.3544. These are maxima of contradiction/restatement evidence, not calibrated probabilities of final admission.
+
+At six in flight, d1.2 has a 230–273 ms median and 315–401 ms p95; Ultra has a 289–412 ms median and 578–796 ms p95. One d1.2 call takes 5,254 ms; no Ultra call exceeds 2.5 seconds. The two Liquid models were interleaved in the same session; comparisons with other models use older dates. This eval covers the existing text-only admission task, not the advertised multimodal, extraction or object-detection capabilities.
 
 ### Perplexity performance
 
@@ -36,6 +48,8 @@ Ranges cover each backend's latest seven passes, including failures. These are c
 
 | model (last evaluated) | one request at a time: p50 / p95 (ms) | six in flight: p50 / p95 (ms) | calls over 2.5 s / 595 | failed calls / 595 |
 | --- | --- | --- | --- | --- |
+| Liquid d1.2 (Nov 17) | 224–233 / 294–310 | 230–273 / 315–401 | 1 | 0 |
+| Liquid d1.2-ultra (Nov 17) | 246–265 / 576–609 | 289–412 / 578–796 | 0 | 0 |
 | Pplx Decider v1.3 (free) (Nov 13) | 306–307 / 854–859 | 311–322 / 619–1069 | 0 | 0 |
 | Pplx Decider Flash v1.3 (free) (Nov 13) | 134–136 / 178–197 | 134–152 / 191–323 | 0 | 0 |
 | Jev 1.14.0 (Nov 11) | 97–100 / 126–144 | 101–110 / 142–225 | 0 | 0 |
@@ -46,20 +60,26 @@ Ranges cover each backend's latest seven passes, including failures. These are c
 | GPT-6 Luna (OpenAI Decisions) (Nov 11) | 202–216 / 446–518 | 208–227 / 414–1294 | 0 | 0 |
 | Gemini Decision 1 (OpenRouter) (Nov 11) | 289–329 / 385–450 | 295–329 / 367–499 | 1 | 0 |
 
-Both v1.3 endpoints have **zero failed calls and zero calls over 2.5 seconds across 1,190 calls**. The other seven current backends had no failed calls on November 11, with four calls over 2.5 seconds. Historical v1.2 rate-limit failures remain in the dated reports. These counts describe access under the tested account and load, not just model inference. No live retry or failure was removed from the reports.
+Both Liquid endpoints have **zero failed calls across 1,190 calls**. One d1.2 call exceeded 2.5 seconds; Ultra had none. The two Perplexity v1.3 endpoints had zero failed calls and zero calls over 2.5 seconds on November 13. The other seven current backends had no failed calls on November 11, with four calls over 2.5 seconds. Historical v1.2 rate-limit failures remain in the dated reports. These counts describe access under the tested account and load, not just model inference. No live retry or failure was removed from the reports.
 
 ### Reported model identities and cost
 
-The new rows resolve to `perplexity/pplx-decider-v1.3-20261112` and `perplexity/pplx-decider-flash-v1.3-20261112`, both served by Perplexity. Each reports 147,190 input tokens per complete pass and zero cost on all 595 calls. OpenRouter lists zero prompt and completion prices for the explicit `:free` IDs in the [November 13 catalog snapshot](results/perplexity-v1.3-2026-11-13-catalog.json); this records the offer at evaluation time.
+The Liquid rows resolve to `liquid/d1.2-20261116` and `liquid/d1.2-ultra-20261116`, served by Liquid. Each reports 144,999 input tokens per pass (1,014,993 over seven passes). At the catalog prices of $0.020 and $0.042 per million input tokens, reported costs total $0.02029986 for d1.2 and $0.042629706 for Ultra. See the [November 17 catalog snapshot](results/liquid-d1.2-2026-11-17-catalog.json).
+
+The Perplexity rows resolve to `perplexity/pplx-decider-v1.3-20261112` and `perplexity/pplx-decider-flash-v1.3-20261112`, both served by Perplexity. Each reports 147,190 input tokens per complete pass and zero cost on all 595 calls. OpenRouter lists zero prompt and completion prices for the explicit `:free` IDs in the [November 13 catalog snapshot](results/perplexity-v1.3-2026-11-13-catalog.json); this records the offer at evaluation time.
 
 | backend with reported cost | calls reporting cost / 595 | sum of reported cost (USD) |
 | --- | --- | --- |
+| Liquid d1.2 (Nov 17) | 595 | $0.020300 |
+| Liquid d1.2-ultra (Nov 17) | 595 | $0.042630 |
 | Pplx Decider v1.3 (Nov 13) | 595 | $0.000000 |
 | Pplx Decider Flash v1.3 (Nov 13) | 595 | $0.000000 |
 | Microsoft Decision 1 (OpenRouter) | 595 | $0.039881 |
 | Gemini Decision 1 (OpenRouter) | 595 | $0.107682 |
 
-The other cost rows retain November 11 values. These are sums returned on successful OpenRouter calls, not an invoice or a total for all providers. Other backends and failed calls do not return a cost field.
+Microsoft and Gemini cost rows retain November 11 values; Perplexity rows retain November 13 values. These are sums returned on successful OpenRouter calls, not an invoice or a total for all providers. Other backends and failed calls do not return a cost field.
+
+Raw Liquid results: [original order](results/liquid-d1.2-2026-11-17-hosted/2026-11-17T16-56-11-given.json), [reversed order](results/liquid-d1.2-2026-11-17-reversed/2026-11-17T16-56-44-reversed.json), [sequential](results/liquid-d1.2-2026-11-17-sequential/2026-11-17T16-57-02-given.json). [Derived Liquid comparison](results/liquid-d1.2-2026-11-17-comparison.json).
 
 Raw v1.3 results: [original order](results/perplexity-v1.3-2026-11-13-hosted/2026-11-13T19-02-40-given.json), [reversed order](results/perplexity-v1.3-2026-11-13-reversed/2026-11-13T19-03-03-reversed.json), [sequential](results/perplexity-v1.3-2026-11-13-sequential/2026-11-13T19-03-21-given.json). [Derived v1.3 comparison](results/perplexity-v1.3-2026-11-13-comparison.json).
 
@@ -137,6 +157,16 @@ NODE_USE_ENV_PROXY=1 node run.mjs --backends pplx-decider-v1.3,pplx-decider-flas
 
 `pplx-decider-v1.3` selects `perplexity/pplx-decider-v1.3:free`; `pplx-decider-flash-v1.3` selects `perplexity/pplx-decider-flash-v1.3:free`. The standard `pplx-decider` and `pplx-decider-flash` names select the same v1.3 endpoints. Use `pplx-decider-v1.2` and `pplx-decider-flash-v1.2` to reproduce historical v1.2 requests. All aliases use the same state, questions and answer validation.
 
+For Liquid, configure `OPENROUTER_API_KEY` and run:
+
+```sh
+NODE_USE_ENV_PROXY=1 node run.mjs --backends liquid-d1.2,liquid-d1.2-ultra --passes 3
+NODE_USE_ENV_PROXY=1 node run.mjs --backends liquid-d1.2,liquid-d1.2-ultra --passes 2 --order reversed
+NODE_USE_ENV_PROXY=1 node run.mjs --backends liquid-d1.2,liquid-d1.2-ultra --passes 2 --concurrency 1
+```
+
+`liquid-d1.2` selects `liquid/d1.2`; `liquid-d1.2-ultra` selects `liquid/d1.2-ultra`. Both use the shared Decisions request, probability validation and admission policy.
+
 For Kev, start a server pinned to the release, locally (`python -m kev.serve --run jaredpalmer/kev-27b@v1.0`, see [Run It Locally](https://github.com/jaredpalmer/kev#run-it-locally)) or [on Modal](https://github.com/jaredpalmer/kev#deploy-your-own-endpoint) (`KEV_MODEL=jaredpalmer/kev-27b@v1.0`), and point the script at it. A Kev server serves one model, so the backend name is a label for whichever one is running.
 
 ```sh
@@ -145,13 +175,44 @@ export KEV_API_KEY=...                        # only if the server requires one
 node run.mjs --backends kev-27b
 ```
 
-Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), `openai-decisions-2026-10-06-*` (GPT-6 Luna), `rerun-2026-10-12-clef-*` (updated Clef), `rerun-2026-10-31-*` (eight hosted backends), `gemini-decision-1-2026-11-11-*` (Gemini, including separately labeled exploratory runs), and `perplexity-v1.3-2026-11-13-*` (the two free v1.3 endpoints).
+Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), `openai-decisions-2026-10-06-*` (GPT-6 Luna), `rerun-2026-10-12-clef-*` (updated Clef), `rerun-2026-10-31-*` (eight hosted backends), `gemini-decision-1-2026-11-11-*` (Gemini, including separately labeled exploratory runs), `perplexity-v1.3-2026-11-13-*` (the two free v1.3 endpoints), and `liquid-d1.2-2026-11-17-*` (Liquid d1.2 and Ultra).
 
 The historical three-pass Jev, Clef and Clef-flash run cost under $0.25 at the rates recorded below.
 
 ## Run history
 
 The dated sections below describe their own runs. Their rankings, prices, endpoint behavior and launch claims are historical observations; use the current-status tables above for the latest measured comparison.
+
+### Liquid d1.2 and d1.2-ultra, 2026-11-17
+
+Evaluated both OpenRouter model IDs with the unchanged 85 cases, prompts, criteria, thresholds and gates: three original-order and two reversed-order passes at six in flight, then two original-order sequential passes (595 calls per model, 1,190 total). One backend was active at a time, interleaved within each pass. The cloud executor used its HTTPS proxy; region was not recorded. No other backend was re-run on November 17.
+
+| model | recall (original / reversed) | routine admit (original / reversed) | decisions differing between orders | gates |
+| --- | --- | --- | --- | --- |
+| Liquid d1.2 (Nov 17) | 1.000 / 1.000 | 0.966 / 0.759 | 6 | 5 of 7 |
+| Liquid d1.2-ultra (Nov 17) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 7 of 7 |
+
+Both Liquid endpoints catch all 56 review-required writes in every pass, including all classifier-steering cases, with zero failed calls. Ultra gets 593/595 calls correct: all 425 concurrent decisions are correct, while both sequential passes needlessly review `crm-account-notes/self-corrects-errors`. It meets every gate in all seven passes. Perplexity Decider v1.3's earlier 595/595 remains the best result across all calls in the current comparison.
+
+d1.2 gets 577/595 calls correct, with 18 needless reviews and no false admits. Routine admission varies from 26/29 to 29/29 across original-order concurrent and sequential passes, and from 22/29 to 24/29 reversed. Both reversed passes fall below the 0.85 routine-admission gate; the other five pass. Six decisions differ between the first original and first reversed passes, but identical-order repeats also change decisions. This difference cannot be attributed to order alone.
+
+Liquid's stored evidence varies across identical calls: maximum shifts from the first concurrent pass in each order are 0.2974 for d1.2 and 0.1660 for Ultra. Comparing sequential original-order passes with the first concurrent original pass gives shifts up to 0.3433 and 0.1158 respectively. Maximum shifts between the selected original and reversed passes are 0.2432 and 0.3544. These are maxima of contradiction/restatement evidence, not calibrated probabilities of final admission.
+
+At six in flight, d1.2 has a 230–273 ms median and 315–401 ms p95; Ultra has a 289–412 ms median and 578–796 ms p95. One d1.2 call takes 5,254 ms; no Ultra call exceeds 2.5 seconds. The two Liquid models were interleaved in the same session; comparisons with other models use older dates. This eval covers the existing text-only admission task, not the advertised multimodal, extraction or object-detection capabilities.
+
+Sequential d1.2 p50 is 224–233 ms and p95 is 294–310 ms; Ultra p50 is 246–265 ms and p95 is 576–609 ms. Both report zero failed calls, with costs of $0.02029986 and $0.042629706 for their seven passes. Those cost fields cover every scored call. No failed call or slow answer was retried or removed.
+
+Raw Liquid results: [original order](results/liquid-d1.2-2026-11-17-hosted/2026-11-17T16-56-11-given.json), [reversed order](results/liquid-d1.2-2026-11-17-reversed/2026-11-17T16-56-44-reversed.json), [sequential](results/liquid-d1.2-2026-11-17-sequential/2026-11-17T16-57-02-given.json). [Derived Liquid comparison](results/liquid-d1.2-2026-11-17-comparison.json).
+
+[Catalog and pricing snapshot](results/liquid-d1.2-2026-11-17-catalog.json). The resolved model IDs end in `20261116`; both report 144,999 input tokens per complete pass. Full repeatability and per-pass summaries are included in the derived comparison.
+
+Reproduce with `OPENROUTER_API_KEY` configured, running the commands sequentially:
+
+```sh
+NODE_USE_ENV_PROXY=1 node run.mjs --backends liquid-d1.2,liquid-d1.2-ultra --passes 3
+NODE_USE_ENV_PROXY=1 node run.mjs --backends liquid-d1.2,liquid-d1.2-ultra --passes 2 --order reversed
+NODE_USE_ENV_PROXY=1 node run.mjs --backends liquid-d1.2,liquid-d1.2-ultra --passes 2 --concurrency 1
+```
 
 ### Perplexity Decider and Flash v1.3, 2026-11-13
 
