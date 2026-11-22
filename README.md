@@ -2,11 +2,11 @@
 
 A reproducible comparison of decision models on one production task: deciding whether an AI agent's write to a knowledge base can be admitted automatically or needs human review. One script, no dependencies, 85 labeled synthetic cases.
 
-## Current status — 2026-11-17
+## Current status — 2026-11-22
 
-**Drex Max Finance got every completed decision right (594/594), but one capacity error limits it to 6/7 passes meeting every gate. Max v1.1 meets all seven gates with 590/595 correct decisions. Drex 2.0 fails both reversed-order passes, where it catches 51/56 writes requiring review.** Perplexity Decider v1.3's earlier 595/595 remains the strongest result across all scored calls in the current comparison.
+**Microsoft Decision 1.1 catches every review-required write and meets every gate in all seven passes, with 593/595 decisions correct.** Original-order runs are perfect; reversing the records causes one harmless typo fix to go to review in each pass. Perplexity Decider v1.3's earlier 595/595 remains the strongest result across all scored calls in this comparison.
 
-The three active Nace Drex models were evaluated on November 17 with **1,785 scored calls**, paced at 100 requests per minute across all three backends. Liquid's two rows retain their earlier November 17 measurements, Perplexity v1.3 retains November 13, and the other seven rows retain November 11. Those older backends were not re-run in this session. Cases, prompts, criteria and thresholds are unchanged. One backend was active at a time, interleaved within each pass, from the cloud executor through its HTTPS proxy; region was not recorded. Kev has no configured server here, and its earlier results remain in the [run history](#run-history).
+Microsoft Decision 1.1 was evaluated on November 22 with **595 scored calls**, replacing Decision 1 in the current comparison. Nace and Liquid retain their November 17 results, Perplexity v1.3 retains November 13, and the other six rows retain November 11. Those older backends were not re-run in this session. Cases, prompts, criteria and thresholds are unchanged. Calls used the cloud executor's HTTPS proxy; region was not recorded. Microsoft's run is unpaced, unlike Nace's documented 100-RPM run. Kev's earlier results remain in the [run history](#run-history).
 
 ### Decision quality
 
@@ -16,6 +16,7 @@ Recall is the fraction of review-required writes sent to review (56 per pass). R
 
 | model (last evaluated) | recall (original / reversed) | routine admit (original / reversed) | decisions differing between orders | passes meeting every gate |
 | --- | --- | --- | --- | --- |
+| Microsoft Decision 1.1 (Nov 22) | 1.000 / 1.000 | 1.000 / 0.966 | 1 | 7 of 7 |
 | Nace Drex 2.0 (Nov 17) | 0.982 / 0.911 | 1.000 / 1.000 | 6 | 5 of 7 |
 | Nace Drex Max v1.1 (Nov 17) | 0.982 / 1.000 | 1.000 / 1.000 | 1 | 7 of 7 |
 | Nace Drex Max Finance (Nov 17) | 1.000 / 1.000 | 1.000 / 1.000 | 0 | 6 of 7 |
@@ -27,9 +28,16 @@ Recall is the fraction of review-required writes sent to review (56 per pass). R
 | Clef (Nov 11) | 0.964 / 1.000 | 1.000 / 0.931 | 4 | 7 of 7 |
 | Clef-flash (Nov 11) | 0.964 / 0.982 | 0.655 / 0.621 | 6 | 0 of 7 |
 | Clef-omni (Nov 11) | 0.946 / 0.946 | 0.621 / 0.655 | 1 | 0 of 7 |
-| Microsoft Decision 1 (OpenRouter) (Nov 11) | 1.000 / 0.982 | 1.000 / 0.966 | 2 | 7 of 7 |
 | GPT-6 Luna (OpenAI Decisions) (Nov 11) | 1.000 / 0.946 | 0.828 / 0.828 | 9 | 0 of 7 |
 | Gemini Decision 1 (OpenRouter) (Nov 11) | 1.000 / 0.982 | 0.897 / 0.828 | 3 | 5 of 7 |
+
+### Microsoft Decision 1.1 performance
+
+Decision 1.1 catches all 56 review-required writes in every pass and admits all 29 routine writes original, with 28/29 admitted reversed. Its only needless-review case is `t0/routine-typo-fix`, repeated in both reversed passes. All three classifier-steering cases go to review in every pass. There are no failed calls or calls over 2.5 seconds; all seven runs meet every gate.
+
+Compared with Decision 1's November 11 clean passes, reversed recall improves from 55/56 to 56/56: `crm-account-notes/hard-restates-combined` now goes to review. The support-KB sibling record is now correctly admitted, while the marketing typo fix becomes a needless review, leaving routine admission at 28/29 reversed. Original-order decisions remain perfect. One decision differs between orders, down from two. Same-order evidence varies by at most 0.00463 across concurrent repeats without changing a decision; sequential original-order evidence matches the first concurrent original pass. The largest order-induced evidence shift is 0.4129.
+
+At six in flight, median latency is 240–249 ms and p95 is 282–449 ms, versus Decision 1's earlier 301–313 / 387–569 ms. Sequential median/p95 is 233–238 / 274–305 ms, versus 307–319 / 397–497 ms. The runs are from different dates, so this is a served-endpoint comparison, not an isolated inference-speed measurement. Reported input tokens rise from 135,649 to 146,881 per pass, so the same $0.042/M token rate gives about 8.3% more cost per pass despite lower latency.
 
 ### Nace Drex performance
 
@@ -59,6 +67,7 @@ Ranges cover each backend's latest seven passes, including failures. These are c
 
 | model (last evaluated) | one request at a time: p50 / p95 (ms) | six in flight: p50 / p95 (ms) | calls over 2.5 s / 595 | failed calls / 595 |
 | --- | --- | --- | --- | --- |
+| Microsoft Decision 1.1 (Nov 22) | 233–238 / 274–305 | 240–249 / 282–449 | 0 | 0 |
 | Nace Drex 2.0 (Nov 17) | 297–308 / 364–451 | 357–382 / 471–716 | 0 | 0 |
 | Nace Drex Max v1.1 (Nov 17) | 326–333 / 526–621 | 390–441 / 543–886 | 0 | 0 |
 | Nace Drex Max Finance (Nov 17) | 305–337 / 418–1553 | 340–487 / 459–1865 | 1 | 1 |
@@ -70,13 +79,14 @@ Ranges cover each backend's latest seven passes, including failures. These are c
 | Clef (Nov 11) | 342–383 / 586–879 | 363–403 / 537–671 | 0 | 0 |
 | Clef-flash (Nov 11) | 170–197 / 334–536 | 211–255 / 391–645 | 0 | 0 |
 | Clef-omni (Nov 11) | 139–151 / 182–196 | 169–179 / 257–1414 | 3 | 0 |
-| Microsoft Decision 1 (OpenRouter) (Nov 11) | 307–319 / 397–497 | 301–313 / 387–569 | 0 | 0 |
 | GPT-6 Luna (OpenAI Decisions) (Nov 11) | 202–216 / 446–518 | 208–227 / 414–1294 | 0 | 0 |
 | Gemini Decision 1 (OpenRouter) (Nov 11) | 289–329 / 385–450 | 295–329 / 367–499 | 1 | 0 |
 
-The paced Drex run has **one failed call and one call over 2.5 seconds across 1,785 calls**; all remain in the reports. The unpaced attempt is a separate retained experiment. Both Liquid endpoints have **zero failed calls across 1,190 calls**. One d1.2 call exceeded 2.5 seconds; Ultra had none. The two Perplexity v1.3 endpoints had zero failed calls and zero calls over 2.5 seconds on November 13. The other seven current backends had no failed calls on November 11, with four calls over 2.5 seconds. Historical v1.2 rate-limit failures remain in the dated reports. These counts describe access under the tested account and load, not just model inference. Every completed report retains its failed calls.
+Decision 1.1 has **zero failed calls and zero calls over 2.5 seconds across 595 calls**. The paced Drex run has **one failed call and one call over 2.5 seconds across 1,785 calls**; all remain in the reports. The unpaced attempt is a separate retained experiment. Both Liquid endpoints have **zero failed calls across 1,190 calls**. One d1.2 call exceeded 2.5 seconds; Ultra had none. The two Perplexity v1.3 endpoints had zero failed calls and zero calls over 2.5 seconds on November 13. The other six current backends had no failed calls on November 11, with four calls over 2.5 seconds. Historical v1.2 rate-limit failures remain in the dated reports. These counts describe access under the tested account and load, not just model inference. Every completed report retains its failed calls.
 
 ### Reported model identities and cost
+
+Decision 1.1 resolves to `microsoft/microsoft-decision-1.1-20261117`, served by Azure. All 595 calls report cost, summing to **$0.04318301** over 1,028,167 input tokens. The [November 22 catalog snapshot](results/microsoft-decision-1.1-2026-11-22-catalog.json) lists $0.042/M input tokens and zero output-token price. This is a sum of returned cost fields, not an invoice.
 
 Nace returns the exact requested served ID on every accepted response; missing or mismatched identities fail closed. Its responses do not report a per-call dollar cost. The estimate below multiplies recorded input tokens by the documented **$0.03 per million input tokens** for each active version. It covers the paced scored calls only, excluding the unpaced attempt and three smoke calls, and is not an invoice or a reported cost field. Sources: [pricing](https://console.nace.ai/docs/drex/reference/pricing) and [model/reference provenance](results/nace-drex-2026-11-17-model-reference.json).
 
@@ -96,10 +106,12 @@ The Perplexity rows resolve to `perplexity/pplx-decider-v1.3-20261112` and `perp
 | Liquid d1.2-ultra (Nov 17) | 595 | $0.042630 |
 | Pplx Decider v1.3 (Nov 13) | 595 | $0.000000 |
 | Pplx Decider Flash v1.3 (Nov 13) | 595 | $0.000000 |
-| Microsoft Decision 1 (OpenRouter) | 595 | $0.039881 |
+| Microsoft Decision 1.1 (Nov 22) | 595 | $0.043183 |
 | Gemini Decision 1 (OpenRouter) | 595 | $0.107682 |
 
-Microsoft and Gemini cost rows retain November 11 values; Perplexity rows retain November 13 values. These are sums returned on successful OpenRouter calls, not an invoice or a total for all providers. Other backends and failed calls do not return a cost field.
+Gemini retains November 11 cost values; Perplexity retains November 13, Liquid November 17, and Microsoft November 22. These are sums returned on successful OpenRouter calls, not an invoice or a total for all providers. Other backends and failed calls do not return a cost field.
+
+Raw Decision 1.1 results: [original order](results/microsoft-decision-1.1-2026-11-22-hosted/2026-11-22T16-39-26-given.json), [reversed order](results/microsoft-decision-1.1-2026-11-22-reversed/2026-11-22T16-39-38-reversed.json), [sequential](results/microsoft-decision-1.1-2026-11-22-sequential/2026-11-22T16-39-45-given.json). [Derived version comparison](results/microsoft-decision-1.1-2026-11-22-comparison.json).
 
 Raw paced Drex results: [original order](results/nace-drex-2026-11-17-hosted/2026-11-17T18-04-03-given.json), [reversed order](results/nace-drex-2026-11-17-reversed/2026-11-17T18-11-42-reversed.json), [sequential](results/nace-drex-2026-11-17-sequential/2026-11-17T18-16-47-given.json). [Derived Drex comparison](results/nace-drex-2026-11-17-comparison.json).
 
@@ -169,7 +181,7 @@ node run.mjs --backends gemini-decision-1,decision-1,pplx-decider,pplx-decider-f
 node run.mjs --backends gemini-decision-1,decision-1,pplx-decider,pplx-decider-flash --passes 2 --concurrency 1
 ```
 
-These backends call `POST /api/alpha/decisions` with the existing System One request and response format. `gemini-decision-1` selects `google/gemini-decision-1`; `decision-1` and its compatibility alias `microsoft-decision-1` select `microsoft/microsoft-decision-1`; `pplx-decider` and `pplx-decider-flash` select Perplexity's free `v1.3` models. The `jev` backend now selects `jev-1.14.0`. All OpenRouter backends validate each choice distribution; missing, refused or malformed answers fail closed to review. Result rows retain the returned model, provider and cost when available, and new reports record concurrency. Historical results retain their original model versions. In a Node 24 environment that requires an HTTP proxy, prefix these commands with `NODE_USE_ENV_PROXY=1`.
+These backends call `POST /api/alpha/decisions` with the existing System One request and response format. `gemini-decision-1` selects `google/gemini-decision-1`; `decision-1` and the explicit `microsoft-decision-1.1` backend select `microsoft/microsoft-decision-1.1`; the explicit `microsoft-decision-1` backend remains pinned to the older `microsoft/microsoft-decision-1` for historical reproduction; `pplx-decider` and `pplx-decider-flash` select Perplexity's free `v1.3` models. The `jev` backend now selects `jev-1.14.0`. All OpenRouter backends validate each choice distribution; missing, refused or malformed answers fail closed to review. Result rows retain the returned model, provider and cost when available, and new reports record concurrency. Historical results retain their original model versions. In a Node 24 environment that requires an HTTP proxy, prefix these commands with `NODE_USE_ENV_PROXY=1`.
 
 For the free v1.3 endpoints, configure `OPENROUTER_API_KEY` and run:
 
@@ -212,13 +224,46 @@ export KEV_API_KEY=...                        # only if the server requires one
 node run.mjs --backends kev-27b
 ```
 
-Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), `openai-decisions-2026-10-06-*` (GPT-6 Luna), `rerun-2026-10-12-clef-*` (updated Clef), `rerun-2026-10-31-*` (eight hosted backends), `gemini-decision-1-2026-11-11-*` (Gemini, including separately labeled exploratory runs), `perplexity-v1.3-2026-11-13-*` (the two free v1.3 endpoints), `liquid-d1.2-2026-11-17-*` (Liquid d1.2 and Ultra), and `nace-drex-2026-11-17-*` (paced Drex results and a separately labeled unpaced attempt).
+Each run prints one line per backend per pass and writes every case's evidence probabilities, decision and latency to `results/`. The runs behind the tables above are in `results/`: `hosted-*` (Jev, Clef, Clef-flash at six in flight), `kev-*` (each Kev model), `sequential-given` (all four served models, one request at a time), `rerun-2026-10-04-*` (the hosted models, three days later), `openai-decisions-2026-10-06-*` (GPT-6 Luna), `rerun-2026-10-12-clef-*` (updated Clef), `rerun-2026-10-31-*` (eight hosted backends), `gemini-decision-1-2026-11-11-*` (Gemini, including separately labeled exploratory runs), `perplexity-v1.3-2026-11-13-*` (the two free v1.3 endpoints), `liquid-d1.2-2026-11-17-*` (Liquid d1.2 and Ultra), `nace-drex-2026-11-17-*` (paced Drex results and a separately labeled unpaced attempt), and `microsoft-decision-1.1-2026-11-22-*` (Decision 1.1).
 
 The historical three-pass Jev, Clef and Clef-flash run cost under $0.25 at the rates recorded below.
 
 ## Run history
 
 The dated sections below describe their own runs. Their rankings, prices, endpoint behavior and launch claims are historical observations; use the current-status tables above for the latest measured comparison.
+
+### Microsoft Decision 1.1, 2026-11-22
+
+Evaluated `microsoft/microsoft-decision-1.1` through OpenRouter with the unchanged 85 cases, prompts, criteria, thresholds and gates. Three original-order and two reversed-order passes at six in flight were followed by two original-order sequential passes: 595 calls, unpaced (`rpm: 0`). No other provider was re-run. All seven runs meet every gate, with zero failed calls and no calls over 2.5 seconds. The only mistakes are two needless reviews of `t0/routine-typo-fix`, one in each reversed pass, giving 593/595 correct decisions.
+
+| model | recall (original / reversed) | routine admit (original / reversed) | decisions differing between orders | gates |
+| --- | --- | --- | --- | --- |
+| Microsoft Decision 1.1 (Nov 22) | 1.000 / 1.000 | 1.000 / 0.966 | 1 | 7 of 7 |
+
+Decision 1.1 catches all 56 review-required writes in every pass and admits all 29 routine writes original, with 28/29 admitted reversed. Its only needless-review case is `t0/routine-typo-fix`, repeated in both reversed passes. All three classifier-steering cases go to review in every pass. There are no failed calls or calls over 2.5 seconds; all seven runs meet every gate.
+
+Compared with Decision 1's November 11 clean passes, reversed recall improves from 55/56 to 56/56: `crm-account-notes/hard-restates-combined` now goes to review. The support-KB sibling record is now correctly admitted, while the marketing typo fix becomes a needless review, leaving routine admission at 28/29 reversed. Original-order decisions remain perfect. One decision differs between orders, down from two. Same-order evidence varies by at most 0.00463 across concurrent repeats without changing a decision; sequential original-order evidence matches the first concurrent original pass. The largest order-induced evidence shift is 0.4129.
+
+At six in flight, median latency is 240–249 ms and p95 is 282–449 ms, versus Decision 1's earlier 301–313 / 387–569 ms. Sequential median/p95 is 233–238 / 274–305 ms, versus 307–319 / 397–497 ms. The runs are from different dates, so this is a served-endpoint comparison, not an isolated inference-speed measurement. Reported input tokens rise from 135,649 to 146,881 per pass, so the same $0.042/M token rate gives about 8.3% more cost per pass despite lower latency.
+
+| version and date | concurrent median / p95 (ms) | sequential median / p95 (ms) | input tokens per complete pass | reported seven-pass cost |
+| --- | --- | --- | --- | --- |
+| Decision 1, Nov 11 | 301–313 / 387–569 | 307–319 / 397–497 | 135,649 | $0.039881 |
+| Decision 1.1, Nov 22 | 240–249 / 282–449 | 233–238 / 274–305 | 146,881 | $0.043183 |
+
+Decision 1.1 resolves to `microsoft/microsoft-decision-1.1-20261117`, served by Azure. All 595 calls report cost, summing to **$0.04318301** over 1,028,167 input tokens. The [November 22 catalog snapshot](results/microsoft-decision-1.1-2026-11-22-catalog.json) lists $0.042/M input tokens and zero output-token price. This is a sum of returned cost fields, not an invoice.
+
+Raw Decision 1.1 results: [original order](results/microsoft-decision-1.1-2026-11-22-hosted/2026-11-22T16-39-26-given.json), [reversed order](results/microsoft-decision-1.1-2026-11-22-reversed/2026-11-22T16-39-38-reversed.json), [sequential](results/microsoft-decision-1.1-2026-11-22-sequential/2026-11-22T16-39-45-given.json). [Derived version comparison](results/microsoft-decision-1.1-2026-11-22-comparison.json).
+
+Decision 1 remains reproducible through the explicit legacy backend. The standard `decision-1` name now selects 1.1. The archive’s backend fields are unchanged. This is the existing text-only admission task with thresholds originally tuned on Jev, not a general model benchmark. Caller region was not recorded; requests used the cloud executor's HTTPS proxy. Full raw reports retain every case and pass.
+
+Reproduce with `OPENROUTER_API_KEY` configured, running commands sequentially:
+
+```sh
+NODE_USE_ENV_PROXY=1 node run.mjs --backends microsoft-decision-1.1 --passes 3
+NODE_USE_ENV_PROXY=1 node run.mjs --backends microsoft-decision-1.1 --passes 2 --order reversed
+NODE_USE_ENV_PROXY=1 node run.mjs --backends microsoft-decision-1.1 --passes 2 --concurrency 1
+```
 
 ### Nace Drex, 2026-11-17
 
@@ -348,7 +393,7 @@ Compared with October 31, Clef-flash's evidence changes on every case in both or
 Reproduce with all provider credentials configured, running each command sequentially:
 
 ```sh
-EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,decision-1,pplx-decider-v1.2,pplx-decider-flash-v1.2,openai-decisions,gemini-decision-1
+EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,microsoft-decision-1,pplx-decider-v1.2,pplx-decider-flash-v1.2,openai-decisions,gemini-decision-1
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 3
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --order reversed
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --concurrency 1
@@ -451,7 +496,7 @@ Raw per-case results: [original order](results/rerun-2026-10-31-hosted-given.jso
 Reproduce the settings with the configured provider credentials:
 
 ```sh
-EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,decision-1,pplx-decider-v1.2,pplx-decider-flash-v1.2,openai-decisions
+EVAL_BACKENDS=jev,clef,clef-flash,clef-omni,microsoft-decision-1,pplx-decider-v1.2,pplx-decider-flash-v1.2,openai-decisions
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 3
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --order reversed
 NODE_USE_ENV_PROXY=1 node run.mjs --backends "$EVAL_BACKENDS" --passes 2 --concurrency 1

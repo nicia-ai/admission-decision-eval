@@ -1,0 +1,66 @@
+{
+  "retrievedAt": "2026-11-22T16:39:03.491Z",
+  "url": "https://openrouter.ai/api/v1/models?output_modalities=decisions",
+  "models": [
+    {
+      "id": "microsoft/microsoft-decision-1.1",
+      "canonical_slug": "microsoft/microsoft-decision-1.1-20261117",
+      "hugging_face_id": null,
+      "name": "Microsoft: Microsoft-Decision-1.1",
+      "created": 1794938255,
+      "description": "Microsoft-Decision-1.1 is a model from Microsoft built for fast decision-making, and the successor to Microsoft-Decision-1. Instead of generating text, it reads the provided content and returns a calibrated probability for...",
+      "context_length": 32768,
+      "architecture": {
+        "modality": "text+image->decisions",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "decisions"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000000042",
+        "completion": "0"
+      },
+      "top_provider": {
+        "context_length": 32768,
+        "max_completion_tokens": 29491,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/microsoft/microsoft-decision-1.1-20261117/endpoints"
+      },
+      "endpoints": [
+        "/api/alpha/decisions"
+      ],
+      "benchmarks": {
+        "design_arena": [],
+        "artificial_analysis": {
+          "intelligence_index": null,
+          "coding_index": null,
+          "agentic_index": null,
+          "finance_and_accounting_index": null,
+          "strategy_and_ops_index": null,
+          "legal_index": null,
+          "healthcare_and_medical_index": null,
+          "engineering_index": null,
+          "economics_index": null,
+          "cyber_index": null,
+          "openness_index": null,
+          "multilingual_index": null,
+          "decision_index": 67.8
+        }
+      }
+    }
+  ]
+}
