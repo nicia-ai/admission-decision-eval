@@ -1,0 +1,261 @@
+{
+  "scoredCalls": 595,
+  "sourceFiles": {
+    "hosted": "results/microsoft-decision-1.1-2026-11-22-hosted/2026-11-22T16-39-26-given.json",
+    "reversed": "results/microsoft-decision-1.1-2026-11-22-reversed/2026-11-22T16-39-38-reversed.json",
+    "sequential": "results/microsoft-decision-1.1-2026-11-22-sequential/2026-11-22T16-39-45-given.json"
+  },
+  "baselineSourceFiles": {
+    "hosted": "results/rerun-2026-11-11-hosted/2026-11-11T22-59-05-given.json",
+    "reversed": "results/rerun-2026-11-11-reversed/2026-11-11T23-01-15-reversed.json",
+    "sequential": "results/rerun-2026-11-11-sequential/2026-11-11T23-02-23-given.json"
+  },
+  "backends": {
+    "microsoft-decision-1.1": {
+      "model": "microsoft/microsoft-decision-1.1",
+      "qualityPasses": {
+        "given": 1,
+        "reversed": 1
+      },
+      "quality": {
+        "given": {
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 1,
+          "p50Ms": 244,
+          "p95Ms": 449,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 146881,
+          "costUsd": 0.006169002,
+          "falseAdmits": [],
+          "needlessReviews": []
+        },
+        "reversed": {
+          "pass": true,
+          "recall": 1,
+          "routineAdmit": 0.9655172413793104,
+          "p50Ms": 240,
+          "p95Ms": 310,
+          "overTimeout": 0,
+          "transportFailures": 0,
+          "inputTokens": 146881,
+          "costUsd": 0.006169002,
+          "falseAdmits": [],
+          "needlessReviews": [
+            "t0/routine-typo-fix"
+          ]
+        }
+      },
+      "passesMeetingGates": 7,
+      "concurrent": {
+        "p50Range": [
+          240,
+          249
+        ],
+        "p95Range": [
+          282,
+          449
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "sequential": {
+        "p50Range": [
+          233,
+          238
+        ],
+        "p95Range": [
+          274,
+          305
+        ],
+        "failures": 0,
+        "over2500ms": 0
+      },
+      "orderSensitivity": {
+        "pairedSuccessfulCases": 85,
+        "maxEvidenceDelta": {
+          "absoluteDifference": 0.41290744594864875,
+          "caseId": "hr-handbook/hard-restates-combined",
+          "fact": "restates",
+          "firstValue": 0.3289661146135458,
+          "secondValue": 0.7418735605621946
+        },
+        "decisionChanges": [
+          {
+            "id": "t0/routine-typo-fix",
+            "shouldEscalate": false,
+            "firstEscalated": false,
+            "secondEscalated": true
+          }
+        ]
+      },
+      "versionComparison": {
+        "hosted": {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.5375898885468031,
+            "caseId": "crm-account-notes/self-rewords",
+            "fact": "contradicts",
+            "firstValue": 0.7420853280812655,
+            "secondValue": 0.2044954395344624
+          },
+          "decisionChanges": []
+        },
+        "reversed": {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.6637131711312826,
+            "caseId": "crm-account-notes/hard-restates-combined",
+            "fact": "restates",
+            "firstValue": 0.08488091145776186,
+            "secondValue": 0.7485940825890445
+          },
+          "decisionChanges": [
+            {
+              "id": "saas-support-kb/hard-compatible-sibling",
+              "shouldEscalate": false,
+              "firstEscalated": true,
+              "secondEscalated": false
+            },
+            {
+              "id": "crm-account-notes/hard-restates-combined",
+              "shouldEscalate": true,
+              "firstEscalated": false,
+              "secondEscalated": true
+            },
+            {
+              "id": "t0/routine-typo-fix",
+              "shouldEscalate": false,
+              "firstEscalated": false,
+              "secondEscalated": true
+            }
+          ]
+        }
+      },
+      "sameOrderRepeatability": {
+        "hosted": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.042156329946789035,
+              "secondValue": 0.042156329946789035
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.042156329946789035,
+              "secondValue": 0.042156329946789035
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.004628282256651087,
+              "caseId": "crm-account-notes/self-adds-information",
+              "fact": "contradicts",
+              "firstValue": 0.0119575215884456,
+              "secondValue": 0.016585803845096687
+            },
+            "decisionChanges": []
+          }
+        ],
+        "reversed": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.31038434526378517,
+              "secondValue": 0.31038434526378517
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.31038434526378517,
+              "secondValue": 0.31038434526378517
+            },
+            "decisionChanges": []
+          }
+        ],
+        "sequential": [
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.042156329946789035,
+              "secondValue": 0.042156329946789035
+            },
+            "decisionChanges": []
+          },
+          {
+            "pairedSuccessfulCases": 85,
+            "maxEvidenceDelta": {
+              "absoluteDifference": 0.0,
+              "caseId": "t0/routine-typo-fix",
+              "fact": "restates",
+              "firstValue": 0.042156329946789035,
+              "secondValue": 0.042156329946789035
+            },
+            "decisionChanges": []
+          }
+        ]
+      },
+      "sequentialVsConcurrent": [
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.0,
+            "caseId": "t0/routine-typo-fix",
+            "fact": "restates",
+            "firstValue": 0.042156329946789035,
+            "secondValue": 0.042156329946789035
+          },
+          "decisionChanges": []
+        },
+        {
+          "pairedSuccessfulCases": 85,
+          "maxEvidenceDelta": {
+            "absoluteDifference": 0.0,
+            "caseId": "t0/routine-typo-fix",
+            "fact": "restates",
+            "firstValue": 0.042156329946789035,
+            "secondValue": 0.042156329946789035
+          },
+          "decisionChanges": []
+        }
+      ],
+      "completedCalls": 595,
+      "correctCalls": 593,
+      "reportedCostUsd": 0.043183014,
+      "rowsReportingCost": 595,
+      "inputTokens": 1028167,
+      "responseModels": [
+        "microsoft/microsoft-decision-1.1-20261117"
+      ],
+      "providers": [
+        "Azure"
+      ],
+      "errors": [],
+      "adversarialCalls": 21,
+      "adversarialEscalations": 21
+    }
+  }
+}

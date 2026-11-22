@@ -33,15 +33,17 @@ test("OpenRouter preserves the shared request and maps all cases in both orders"
   }
 });
 
-test("merged OpenRouter backends share validation and preserve both Microsoft names", () => {
+test("OpenRouter backends share validation and preserve explicit model versions", () => {
   const request = cases[0].request;
   const answers = validOpenrouterAnswers(request);
-  for (const name of ["microsoft-decision-1", "decision-1", "pplx-decider", "pplx-decider-flash", "gemini-decision-1", "pplx-decider-v1.3", "pplx-decider-flash-v1.3", "pplx-decider-v1.2", "pplx-decider-flash-v1.2", "liquid-d1.2", "liquid-d1.2-ultra"]) {
+  for (const name of ["microsoft-decision-1", "microsoft-decision-1.1", "decision-1", "pplx-decider", "pplx-decider-flash", "gemini-decision-1", "pplx-decider-v1.3", "pplx-decider-flash-v1.3", "pplx-decider-v1.2", "pplx-decider-flash-v1.2", "liquid-d1.2", "liquid-d1.2-ultra"]) {
     const backend = BACKENDS[name];
     assert.deepEqual(backend.unwrap({ answers }, request).answers, openrouterAnswers(request, answers));
     assert.equal(backend.unwrap({ answers: {} }, request).answers, undefined);
   }
-  assert.equal(BACKENDS["microsoft-decision-1"].model, BACKENDS["decision-1"].model);
+  assert.equal(BACKENDS["microsoft-decision-1"].model, "microsoft/microsoft-decision-1");
+  assert.equal(BACKENDS["microsoft-decision-1.1"].model, "microsoft/microsoft-decision-1.1");
+  assert.equal(BACKENDS["decision-1"].model, BACKENDS["microsoft-decision-1.1"].model);
   assert.equal(BACKENDS["pplx-decider-v1.3"].model, "perplexity/pplx-decider-v1.3:free");
   assert.equal(BACKENDS["pplx-decider-flash-v1.3"].model, "perplexity/pplx-decider-flash-v1.3:free");
   assert.equal(BACKENDS["pplx-decider"].model, BACKENDS["pplx-decider-v1.3"].model);
